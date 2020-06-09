@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <header
-      :class="{ 'hidden': !showNavbar }">
+	<div>
+
+		<!--  -->
+		<!-- HEADER -->
+    <header v-bind:class="{ 'hidden': !showNavbar }">
       <button class="menu-button">
         <i class="material-icons">menu</i>
       </button>
@@ -10,57 +12,71 @@
       </a>
       <nav class="nav" role="navigation">
         <ul class="nav-list">
-          <li class="nav-item"><router-link to="/dealer">Dealer</router-link></li>
-          <li class="nav-item"><router-link to="/monitoring">Monitoring</router-link></li>
-          <li class="nav-item"><router-link to="/enduser">Enduser App</router-link></li>
+          <li class="nav-item"><router-link to="/design/dealer">Dealer</router-link></li>
+          <li class="nav-item"><router-link to="/design/monitoring">Monitoring</router-link></li>
+          <li class="nav-item"><router-link to="/design/enduser">Enduser App</router-link></li>
         </ul>
       </nav>
-      <form></form>
-      <buttom class="search-button">
+      <form>
+      </form>
+      <button class="search-button">
         <i class="material-icons">search</i>
-      </buttom>
-
+      </button>
     </header>
+		<!-- HEADER -->
+		<!--  -->
+
+		<!--  -->
+		<!-- ROUTER -->
+		<router-view></router-view>
+		<!-- ROUTER -->
+		<!--  -->
+
+		<!--  -->
+		<!-- FOOTER -->
+		<!-- FOOTER -->
+		<!--  -->
+
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  computed: {
+  },
+  data: function() {
     return {
       showNavbar: true,
       lastScrollPosition: 0
     }
   },
-  mounted () {
+  watch: {
+  },
+  created: function () {
     window.addEventListener('scroll', this.onScroll)
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
-  onScroll () {
-    // Get the current scroll position
-    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-    // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
-    if (currentScrollPosition < 0) {
-      return
+    onScroll: function () {
+      // Get the current scroll position
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+      // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
+      if (currentScrollPosition < 0) {
+        return
+      }
+      // Here we determine whether we need to show or hide the navbar
+      this.showNavbar = currentScrollPosition < this.lastScrollPosition
+      // Set the current scroll position as the last scroll position
+      this.lastScrollPosition = currentScrollPosition
     }
-    // Here we determine whether we need to show or hide the navbar
-    this.showNavbar = currentScrollPosition < this.lastScrollPosition
-    // Set the current scroll position as the last scroll position
-    this.lastScrollPosition = currentScrollPosition
   }
-}
-
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 header{
-  position: fixed;
-  top: 0;
   width: 100%;
   transition: transform 300ms 0ms cubic-bezier(0.4, 0, 0.6, 1), opacity 0s 300ms;
   background-color: var(--chekt-primary-color, #212121);
@@ -97,7 +113,7 @@ header.hidden {
   width: 32px;
   height: 32px;
   margin-right: 16px;
-  background: url(../assets/logo.png) 100% 50%/auto 100% no-repeat;
+  background: url(../../assets/logo.png) 100% 50%/auto 100% no-repeat;
 }
 .nav{
   margin-left: auto;
@@ -133,5 +149,4 @@ header.hidden {
   cursor: pointer;
   z-index: 5;
 }
-
 </style>

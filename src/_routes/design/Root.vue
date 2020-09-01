@@ -8,13 +8,22 @@
         <i class="material-icons">menu</i>
       </button>
       <a class="brand" aria-label="Navigate to the chekt material homepage">
-        <i class="brand-logo"></i>
+        <i class="brand-logo"></i><span class="brand-text">Design</span>
       </a>
       <nav class="nav" role="navigation">
         <ul class="nav-list">
-          <li class="nav-item"><router-link to="/design/dealer">Dealer</router-link></li>
-          <li class="nav-item"><router-link to="/design/monitoring">Monitoring</router-link></li>
-          <li class="nav-item"><router-link to="/design/enduser">Enduser App</router-link></li>
+          <li class="nav-item"
+          v-on:click="onClickMenu($event,'dealer')">Dealer
+          <span class="nav-indicator" id="dealer"></span>
+          </li>
+          <li class="nav-item"
+          v-on:click="onClickMenu($event,'monitoring')">Monitoring
+          <span class="nav-indicator" id="monitoring"></span>
+          </li>
+          <li class="nav-item"
+          v-on:click="onClickMenu($event,'enduser')">Enduser App
+          <span class="nav-indicator" id="enduser"></span>
+          </li>
         </ul>
       </nav>
       <form>
@@ -47,7 +56,7 @@ export default {
   data: function() {
     return {
       showNavbar: true,
-      lastScrollPosition: 0
+      lastScrollPosition: 0,
     }
   },
   watch: {
@@ -59,6 +68,19 @@ export default {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
+    onClickMenu: function (e, menu) {
+      this.selectedMenu(e, menu)
+      this.$router.push({path: `/design/${menu}`})
+    },
+    selectedMenu: function (e, menu) {
+      var i, navIndicator, getNavIndicator
+      getNavIndicator = document.getElementsByClassName("nav-indicator")
+      for (i = 0; i < getNavIndicator.length; i++) {
+       getNavIndicator[i].style.transform = getNavIndicator[i].style.transform.replace("scaleY(1)", "scaleY(0)")
+      }
+      navIndicator = document.getElementById(menu)
+      navIndicator.style.transform = "scaleY(1)"
+    },
     onScroll: function () {
       // Get the current scroll position
       const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
@@ -77,12 +99,12 @@ export default {
 
 <style scoped>
 header{
+  position: fixed;
   width: 100%;
   transition: transform 300ms 0ms cubic-bezier(0.4, 0, 0.6, 1), opacity 0s 300ms;
   background-color: var(--chekt-primary-color, #212121);
   display: flex;
   justify-content: space-between;
-  height: 72px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 4;
 }
@@ -104,16 +126,24 @@ header.hidden {
   align-items: center;
   height: 72px;
   margin-right: auto;
-  padding-left: 24px;
   -webkit-font-smoothing: auto;
   text-decoration: none;
 }
 .brand-logo{
   display: block;
-  width: 32px;
+  width: 65px;
   height: 32px;
-  margin-right: 16px;
-  background: url(../../assets/logo.png) 100% 50%/auto 100% no-repeat;
+  margin-right: 8px;
+  /* background: url(../../assets/chekt_logo.png) 100% 50%/auto 100% no-repeat; */
+  background: url(../../assets/chekt_text_logo.png) 100% 50%/auto 40% no-repeat;
+}
+.brand-text {
+  color: #fff;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 .nav{
   margin-left: auto;
@@ -124,14 +154,30 @@ header.hidden {
   list-style: none;
 }
 .nav-item{
+  position: relative;
   text-decoration: inherit;
   user-select: none;
   color: #fff;
-  padding: 0 16px;
+  margin: 0 16px;
   line-height: 72px;
   font-size: 1rem;
   display: inline-block;
   text-align: center;
+  cursor: pointer;
+}
+.nav-item :active{
+  color: #212121;
+}
+.nav-indicator {
+  background: #fff;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 235ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .search-button{
   color: #fff; 
@@ -148,5 +194,48 @@ header.hidden {
   line-height: 0;
   cursor: pointer;
   z-index: 5;
+}
+
+
+/*****  @media *****/
+@media screen and (min-width: 1341px) {
+  .menu-button {
+    display: none;
+  }
+  .brand-logo {
+    margin-left: 24px;
+  }
+}
+@media screen and (min-width: 921px) {
+  header {
+      height: 72px;
+  }
+}
+@media screen and (max-width: 920px) {
+  header {
+      height: 112px;
+  }
+  .nav{
+      position: absolute;
+      top: 64px;
+      right: 0;
+      left: 0;
+  }
+  .nav-list {
+    display: table;
+    width: 100%;
+  }
+  .nav-item {
+    display: table-cell;
+    transform: translateZ(0);
+    text-align: center;
+    width: 33.33%;
+    line-height: 48px;
+  }
+}
+@media screen and (max-width: 521px) {
+  .nav-item {
+    font-size: .9rem;
+  }
 }
 </style>

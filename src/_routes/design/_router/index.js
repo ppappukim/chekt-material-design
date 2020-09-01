@@ -2,7 +2,7 @@ const baseRoutes = [
   {
     path: '/design',
     component: () => import("@/_routes/design/Root"),
-    redirect: '/design/dealer',
+    redirect: '/design',
     children: [
       {
         path: 'dealer',

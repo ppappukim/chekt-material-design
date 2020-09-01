@@ -17,6 +17,7 @@ body{
 }
 :root{
 --chekt-primary-color: #212121;
+--chekt-black-color: #212121;
 }
 #app {
   font-family: Roboto, Helvetica, Arial, sans-serif;

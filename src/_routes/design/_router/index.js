@@ -1,13 +1,11 @@
+import dealerChildRoutes       from '@/_routes/design/dealer/_router'
 const baseRoutes = [
   {
     path: '/design',
     component: () => import("@/_routes/design/Root"),
-    redirect: '/design',
+    redirect: '/design/dealer',
     children: [
-      {
-        path: 'dealer',
-        component: () => import("@/_routes/design/Dealer")
-      },
+      dealerChildRoutes,
       {
         path: 'monitoring',
         component: () => import("@/_routes/design/Monitoring")
@@ -19,7 +17,7 @@ const baseRoutes = [
     ],
   },
 ]
-  
+
 const routes = baseRoutes
 
 export default routes

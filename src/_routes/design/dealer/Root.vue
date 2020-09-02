@@ -7,7 +7,7 @@
         </a>
       </div>
       <div class="content">
-        <div class="section">Material System</div>
+        <div class="section">System</div>
         <ul class="topics-container">
           <li v-on:click="onClickList($event,'layout')">Layout</li>
           <li v-on:click="onClickList($event,'color')">Color</li>
@@ -101,7 +101,7 @@ export default {
   height: 32px;
   margin-right: 8px;
   margin-left: 24px;
-  background: url(../../assets/chekt_text_logo_dark.png) 100% 50%/auto 40% no-repeat;
+  /* background: url(../../assets/chekt_text_logo_dark.png) 100% 50%/auto 40% no-repeat; */
 }
 .brand-text {
   font-family: "Roboto Mono", monospace;

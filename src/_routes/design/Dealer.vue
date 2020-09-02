@@ -33,7 +33,7 @@
     <div class="content-container">
       <!--  -->
       <!-- ROUTER -->
-      <router-view></router-view>
+      <!-- <router-view></router-view> -->
       <!-- ROUTER -->
       <!--  -->
     </div>

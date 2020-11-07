@@ -11,6 +11,14 @@ const childRoute = {
       path: 'color',
       component: () => import("@/_routes/design/dealer/Color"),
     },
+    {
+      path: 'typograph',
+      component: () => import("@/_routes/design/dealer/Typograph"),
+    },
+    {
+      path: 'icons',
+      component: () => import("@/_routes/design/dealer/Icons"),
+    },
   ]
 }
 

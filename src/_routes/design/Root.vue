@@ -1,10 +1,14 @@
 <template>
 	<div>
-
+    <!-- backdrop -->
+    <transition name="fade">
+    <div v-if="isMenuButtonClicked" id="mdc-drawer-backdrop" v-on:click="onClickBackdrop()"></div>
+    </transition>
+    <!-- backdrop -->
 		<!--  -->
 		<!-- HEADER -->
     <header v-bind:class="{ 'hidden': !showNavbar }">
-      <button class="menu-button">
+      <button class="menu-button" v-on:click="onClickMenuButton()">
         <i class="material-icons">menu</i>
       </button>
       <a class="brand" aria-label="Navigate to the chekt material homepage">
@@ -57,6 +61,7 @@ export default {
     return {
       showNavbar: true,
       lastScrollPosition: 0,
+      isMenuButtonClicked: false
     }
   },
   watch: {
@@ -71,6 +76,20 @@ export default {
     onClickMenu: function (e, menu) {
       this.selectedMenu(e, menu)
       this.$router.push({path: `/design/${menu}`})
+    },
+    onClickMenuButton: function () {
+      this.isMenuButtonClicked = true
+      var mdcDrawerModal = document.getElementsByClassName("mdc-drawer-modal")
+      mdcDrawerModal[0].classList.add('mdc-drawer-modal-open')
+      // mdcDrawerModal[0].style.display = "flex"
+      // mdcDrawerModal[0].style.left = "0"
+    },
+    onClickBackdrop: function () {
+      this.isMenuButtonClicked = false
+      var mdcDrawerModal = document.getElementsByClassName("mdc-drawer-modal")
+      mdcDrawerModal[0].classList.remove('mdc-drawer-modal-open')
+      // var mdcDrawerModal = document.getElementsByClassName("mdc-drawer-modal")
+      // mdcDrawerModal[0].style.display = "none"
     },
     selectedMenu: function (e, menu) {
       var i, navIndicator, getNavIndicator
@@ -195,7 +214,23 @@ header.hidden {
   cursor: pointer;
   z-index: 5;
 }
-
+#mdc-drawer-backdrop {
+  background-color: rgba(0, 0, 0, 0.32);
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  
+}
+/* transition router view */
+.fade-enter-active, .fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .2s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+/* transition router view */
 
 /*****  @media *****/
 @media screen and (min-width: 1341px) {
@@ -204,6 +239,9 @@ header.hidden {
   }
   .brand-logo {
     margin-left: 24px;
+  }
+  #mdc-drawer-backdrop {
+    display: none;
   }
 }
 @media screen and (min-width: 921px) {

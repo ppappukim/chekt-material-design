@@ -1,12 +1,12 @@
 <template>
 	<div class="body-container">
-    <aside class="mdc-drawer">
+    <aside class="mdc-drawer mdc-drawer-modal">
       <div class="header">
         <a class="brand" aria-label="Navigate to the chekt material homepage">
           <i class="brand-logo"></i><span class="brand-text">Design</span>
         </a>
       </div>
-      <div class="content">
+      <div class="content" id="left-menu">
         <div class="section">System</div>
         <ul class="topics-container">
           <li v-on:click="onClickList($event,'layout')">Layout</li>
@@ -33,7 +33,9 @@
     <div class="content-container">
       <!--  -->
       <!-- ROUTER -->
-      <router-view></router-view>
+      <transition name="fade">
+      <router-view :key="$route.path"></router-view>
+      </transition>
       <!-- ROUTER -->
       <!--  -->
     </div>
@@ -55,6 +57,11 @@ export default {
   methods: {
     onClickList: function (e, menu) {
       this.$router.push({path: `/design/dealer/${menu}`})
+      var leftMenuList = document.getElementById('left-menu').getElementsByTagName('li')
+      for (let i = 0; i < leftMenuList.length; i++) {
+        leftMenuList[i].classList.remove("left-menu-active")
+      }
+      e.path[0].classList.add("left-menu-active")
     },
   }
 }
@@ -80,13 +87,15 @@ export default {
   border-right-width: 1px;
   border-right-style: solid;
   overflow: hidden;
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mdc-drawer .header {
   height: 72px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
+.mdc-drawer-modal-open {
+  display: flex !important;
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -135,6 +144,14 @@ li {
 }
 li:hover {
   background-color: rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  color: #212121;
+}
+.left-menu-active {
+  background-color: rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  transition: .25s;
+  color: #212121;
 }
 .section {
     font-family: Roboto, sans-serif;
@@ -160,11 +177,34 @@ ul.topics-container {
 }
 .content-container {
   width: 100%;
+  padding-right: 80px;
 }
 
+/* transition router view */
+.fade-enter-active, .fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .25s;
+}
+.fade-enter-active {
+  transition-delay: .25s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+/* transition router view */
+
 @media screen and (min-width: 1341px) {
-  .mdc-drawer { 
+  .mdc-drawer {
     z-index: 3;
+  }
+}
+@media screen and (max-width: 1341px) {
+  .mdc-drawer-modal {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+  left: 0;
+  right: initial;
+  display: none;
+  position: fixed;
   }
 }
 </style>

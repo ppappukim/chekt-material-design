@@ -1,22 +1,19 @@
 <template>
   <div class="chekt-component">
-    <div class="chekt-title">
-      Layout
-    </div>
-    <div class="chekt-description">
-      Under Development
+    <div class="chekt-component-header">
+      <div class="chekt-title">
+        Typograph
+      </div>
+      <div class="chekt-description">
+        Under Development
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// import delear from '@/styles/delear.css'
 export default {
-  // components: {
-  //   delear,
-  // },
   computed: {
-    
   },
   data: function() {
     return {

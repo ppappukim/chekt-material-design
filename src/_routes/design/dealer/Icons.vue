@@ -1,7 +1,7 @@
 <template>
   <div class="chekt-component">
     <div class="chekt-title">
-      Layout
+      Icons
     </div>
     <div class="chekt-description">
       Under Development

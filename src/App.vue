@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style>
+@import './styles/dealer.css';
 body{
   height: 100%;
   margin: 0;

@@ -2,7 +2,7 @@
   <div class="chekt-component">
     <div class="chekt-component-header">
       <div class="chekt-title">
-        Color System
+        The color System
       </div>
       <div class="chekt-description">
         The CHeKT Design color system can help you create a color theme that reflects your brand or style.
@@ -10,7 +10,7 @@
     </div>
     <div class="chekt-component-content">
       <div class="chekt-subtitle">
-        Color usage and palettes
+        Color palettes
       </div>
       <div class="chekt-subdescription">
         The CHeKT Design color system helps you apply color to your UI in a meaningful way. In this system, you select a primary and a secondary color to represent your brand. Dark and light variants of each color can then be applied to your UI in different ways.
@@ -48,6 +48,27 @@
           <div class="color-palette-circle" style="background-color:#F7FAFC;color:#424242;">#F7FAFC</div>
           <div class="color-palette-text">Background<br>Tertiary</div>
         </div>
+      </div>
+      <div class="chekt-subtitle chekt-withline">
+        Usage
+      </div>
+      <div class="chekt-subdescription">
+        The CHeKT Design color system helps you apply color to your UI in a meaningful way. In this system, you select a primary and a secondary color to represent your brand. Dark and light variants of each color can then be applied to your UI in different ways.
+      </div>
+      <div>
+        <pre>
+          <code>
+        <span class="hljs-comment">/* 아래 규칙대로 CSS 변수명을 작성해 이용합니다 */</span>
+        <span class="hljs-attribute">--chekt-primary-color:</span> #1E88E5;
+        <span class="hljs-attribute">--chekt-secondary-color:</span> #5469D4;
+        <span class="hljs-attribute">--chekt-success-color:</span> #1EA675;
+        <span class="hljs-attribute">--chekt-danger-color:</span> #CD3D64;
+        <span class="hljs-attribute">--chekt-warning-color:</span> #F5925E;
+        <span class="hljs-attribute">--chekt-background-color:</span> #8792A2;
+        <span class="hljs-attribute">--chekt-background-secondary-color:</span> #E3E8EE;
+        <span class="hljs-attribute">--chekt-background-tertiary-color:</span> #F7FAFC;
+          </code>
+        </pre>
       </div>
     </div>
 
@@ -105,6 +126,6 @@ export default {
 .color-palette-text {
   font-size: 1em;
   line-height: 1.25;
-  color: #424242;
+  color: #616161;
 }
 </style>

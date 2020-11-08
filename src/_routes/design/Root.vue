@@ -1,4 +1,4 @@
-<template>
+<template v-on:update="onClickBackdrop">
 	<div>
     <!-- backdrop -->
     <transition name="fade">
@@ -65,6 +65,9 @@ export default {
     }
   },
   watch: {
+    $route: function() {
+      if (this.isMenuButtonClicked == true) this.onClickBackdrop()
+    }
   },
   created: function () {
     window.addEventListener('scroll', this.onScroll)
@@ -73,6 +76,11 @@ export default {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
+    bobby: function () {
+      console.log('bobby');
+
+    },
+
     onClickMenu: function (e, menu) {
       this.selectedMenu(e, menu)
       this.$router.push({path: `/design/${menu}`})

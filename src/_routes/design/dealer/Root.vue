@@ -34,7 +34,7 @@
       <!--  -->
       <!-- ROUTER -->
       <transition name="fade">
-      <router-view :key="$route.path"></router-view>
+      <router-view></router-view>
       </transition>
       <!-- ROUTER -->
       <!--  -->
@@ -95,7 +95,9 @@ export default {
 .mdc-drawer-modal-open {
   display: flex !important;
 }
-
+.content {
+  overflow-y: auto;
+}
 .brand {
   display: flex;
   align-items: center;
@@ -177,7 +179,6 @@ ul.topics-container {
 }
 .content-container {
   width: 100%;
-  padding-right: 80px;
 }
 
 /* transition router view */
@@ -196,6 +197,7 @@ ul.topics-container {
 @media screen and (min-width: 1341px) {
   .mdc-drawer {
     z-index: 3;
+    position: fixed;
   }
 }
 @media screen and (max-width: 1341px) {

@@ -1,8 +1,8 @@
-.chekt-title {
-  margin-top: 120px;
+.__dealer-title {
+  margin-top: 160px;
   font-size: 3.75rem;
 }
-.chekt-component {
+.__dealer-component {
   max-width: 840px;
   padding-right: 40px;
   padding-left: 40px;
@@ -10,7 +10,7 @@
   margin-right: auto;
   margin-left: auto;
 }
-.chekt-description {
+.__dealer-description {
   font-size: 1rem;
   line-height: 1.375rem;
   font-weight: 500;
@@ -22,16 +22,16 @@
   font-weight: 400;
   line-height: 2;
 }
-.chekt-component-header {
+.__dealer-component-header {
   padding-top: 24px;
   padding-bottom: 32px;
   border-bottom: solid 1px #E5E5E5;
 }
-.chekt-component-content {
+.__dealer-component-content {
   display: block;
   margin-top: 48px;
 }
-.chekt-subtitle {
+.__dealer-subtitle {
   font-size: 2rem;
   line-height: 1.2;
   font-weight: 400;
@@ -41,7 +41,17 @@
   color: #212121;
   margin: 0;
 }
-.chekt-subdescription {
+.__dealer-subtitle2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -.0083333333em;
+  text-decoration: inherit;
+  text-transform: inherit;
+  color: #212121;
+  margin: 0;
+}
+.__dealer-subdescription {
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 400;
@@ -52,10 +62,19 @@
   letter-spacing: normal;
   margin: 14px 0;
 }
-.chekt-withline {
+.__dealer-withline-bottom {
+  padding-bottom: 48px;
+  border-bottom: solid 1px #E5E5E5;
+}
+.__dealer-withline-top {
   padding-top: 48px;
   border-top: solid 1px #E5E5E5;
 }
+.__dealer-gap-top {
+  margin-top: 100px;
+}
+
+
 /* code */
 code, pre {
   font-family: "Roboto Mono", Monaco, courier, monospace;
@@ -72,13 +91,31 @@ pre code {
   line-height: 1.6rem;
   display: block;
 }
-.hljs-comment {
+/* css */
+.__css-comment {
   color: #707070;
 }
-.hljs-attribute {
+.__css-attribute {
   color: #d63200;
 }
-.hljs-string {
+.__css-string {
   color: #42b983;
+}
+.__css-name {
+  color: #9c3328;
+}
+
+/* html */
+.__html-comment {
+  color: #707070;
+}
+.__html-tag {
+  color: #9c3328;
+}
+.__html-class {
+  color: #b35e14;
+}
+.__html-string {
+  color: #424242;
 }
 /* code */

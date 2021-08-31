@@ -1,9 +1,9 @@
 <template>
-  <div class="chekt-component">
-    <div class="chekt-title">
-      Layout
+  <div class="__dealer-component">
+    <div class="__dealer-title">
+      Label
     </div>
-    <div class="chekt-description">
+    <div class="__dealer-description">
       Under Development
     </div>
   </div>

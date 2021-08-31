@@ -16,17 +16,17 @@
         </ul>
         <div class="section">Components</div>
         <ul class="topics-container">
-          <li>Bagde</li>
-          <li>Buttons</li>
-          <li>Cards</li>
-          <li>Data table</li>
-          <li>Dialog</li>
-          <li>Label</li>
-          <li>Loading</li>
-          <li>Modal</li>
-          <li>Piker</li>
-          <li>Range Sliber</li>
-          <li>Toast</li>
+          <li v-on:click="onClickList($event,'badge')">Badge</li>
+          <li v-on:click="onClickList($event,'buttons')">Buttons</li>
+          <li v-on:click="onClickList($event,'cards')">Cards</li>
+          <li v-on:click="onClickList($event,'datatable')">Data table</li>
+          <li v-on:click="onClickList($event,'datepicker')">Date Picker</li>
+          <li v-on:click="onClickList($event,'dialog')">Dialog</li>
+          <li v-on:click="onClickList($event,'label')">Label</li>
+          <li v-on:click="onClickList($event,'loading')">Loading</li>
+          <li v-on:click="onClickList($event,'modal')">Modal</li>
+          <li v-on:click="onClickList($event,'rangeslider')">Range Slider</li>
+          <li v-on:click="onClickList($event,'toast')">Toast</li>
         </ul> 
       </div>
     </aside>

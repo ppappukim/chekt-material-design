@@ -129,7 +129,7 @@ header{
   position: fixed;
   width: 100%;
   transition: transform 300ms 0ms cubic-bezier(0.4, 0, 0.6, 1), opacity 0s 300ms;
-  background-color: var(--chekt-primary-color, #212121);
+  background-color: #212121;
   display: flex;
   justify-content: space-between;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);

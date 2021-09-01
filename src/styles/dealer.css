@@ -119,3 +119,12 @@ pre code {
   color: #424242;
 }
 /* code */
+
+
+/* @media */
+@media screen and (max-width: 600px) {
+  .__dealer-component {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}

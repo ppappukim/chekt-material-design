@@ -1,14 +1,24 @@
+html{
+  scroll-behavior:smooth
+}
+
 .__dealer-title {
   margin-top: 160px;
   font-size: 3.75rem;
 }
-.__dealer-component {
-  max-width: 840px;
+.__dealer-page {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1140px;
   padding-right: 40px;
   padding-left: 40px;
   padding-bottom: 120px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: auto;
+}
+.__dealer-component {
+  max-width: 840px;
 }
 .__dealer-description {
   font-size: 1rem;
@@ -25,11 +35,9 @@
 .__dealer-component-header {
   padding-top: 24px;
   padding-bottom: 32px;
-  border-bottom: solid 1px #E5E5E5;
 }
 .__dealer-component-content {
   display: block;
-  margin-top: 48px;
 }
 .__dealer-subtitle {
   font-size: 2rem;
@@ -67,11 +75,44 @@
   border-bottom: solid 1px #E5E5E5;
 }
 .__dealer-withline-top {
-  padding-top: 48px;
+  padding-top: 72px;
   border-top: solid 1px #E5E5E5;
 }
 .__dealer-gap-top {
   margin-top: 100px;
+}
+
+/* contents */
+.__dealer-contents-widget {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 120px;
+  margin-top: 120px;
+  margin-left: 50px;
+}
+.__dealer-contents-title {
+  color: var(--chekt-text-medeium);
+  font-size: 14px;
+}
+.__dealer-contents-body {
+  min-width: 200px;
+  width: 200px;
+  color: var(--chekt-text-medeium);
+  font-size: 14px;
+  margin-top: 16px;
+}
+.__dealer-contents-body > div {
+  padding: 10px 10px 10px 14px;
+  border-left: 2px solid var(--chekt-border);
+  cursor: pointer;
+}
+.__dealer-contents-body > div.active {
+  color: var(--chekt-text-high);
+  border-left: 2px solid var(--chekt-text-high);
+  font-weight: 600;
+}
+.__dealer-contents-body > div:hover {
+  color: var(--chekt-text-high);
 }
 
 
@@ -126,5 +167,22 @@ pre code {
   .__dealer-component {
     padding-right: 16px;
     padding-left: 16px;
+  }
+}
+
+@media screen and (max-width: 1720px) {
+  .__dealer-page {
+    margin-left: 250px;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .__dealer-contents-widget {
+    display: none;
+  }
+}
+@media screen and (max-width: 1342px) {
+  .__dealer-page {
+    margin-left: auto;
   }
 }

@@ -76,11 +76,6 @@ export default {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
-    bobby: function () {
-      console.log('bobby');
-
-    },
-
     onClickMenu: function (e, menu) {
       this.selectedMenu(e, menu)
       this.$router.push({path: `/design/${menu}`})
@@ -111,6 +106,8 @@ export default {
     onScroll: function () {
       // Get the current scroll position
       const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+      // Store scroll position
+      this.$store.commit('WATCH_SCROLL_EVENT', currentScrollPosition)
       // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
       if (currentScrollPosition < 0) {
         return

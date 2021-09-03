@@ -193,7 +193,6 @@ export default {
   },
   data: function() {
     return {
-      sections: null,
     }
   },
   watch: {
@@ -202,10 +201,9 @@ export default {
     },
   },
   created: function () {
+    this.$tool.scrollTo(0, 0)
   },
   mounted: function () {
-    this.sections = document.querySelectorAll('section')
-    this.contentMenus = document.querySelectorAll('.__dealer-contents-widget .__dealer-contents-body div')
     this.onScroll()
   },
   methods: {
@@ -221,7 +219,11 @@ export default {
       }
     },
     onScroll: function () {
-      this.$tool.scrollContentsWidgetMoving(this.sections, this.contentMenus)
+      let sections = ''
+      let contentMenus = ''
+      sections = document.querySelectorAll('section')
+      contentMenus = document.querySelectorAll('.__dealer-contents-widget .__dealer-contents-body div')
+      this.$tool.scrollContentsWidgetMoving(sections, contentMenus)
     }
   }
 }

@@ -10,12 +10,12 @@ const ToolPlugin = {
         let current = ''
         for (let i = 0; i < sections.length; i++) {
           const section = sections[i];
-          const sectionTop = section.offsetTop
+          const sectionTop = section.offsetTop - 100
           
-          if (pageYOffset < sectionTop && i === 0) {
+          if (pageYOffset > sectionTop) {
             current = section.getAttribute('id')
-          }  
-          else if (pageYOffset >= sectionTop) {
+          } 
+          if (pageYOffset < sectionTop && i === 0) {
             current = section.getAttribute('id')
           }  
         }
@@ -25,7 +25,9 @@ const ToolPlugin = {
             menu.classList.add('active')
           }
         })
-
+      },
+      scrollTo: function (x, y) {
+        window.scrollTo(x, y)
       },
       presentToast: async function (message, cssClass, id) {
         const toast = document.createElement('ion-toast')

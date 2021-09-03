@@ -6,6 +6,7 @@
       <div class="__dealer-contents-body">
         <div class="dealer-content-move1" @click="onClickContent('1')">Default button</div>
         <div class="dealer-content-move2" @click="onClickContent('2')">Button with icon</div>
+        <div class="dealer-content-move3" @click="onClickContent('3')">Button in loading</div>
       </div>
     </div>
 
@@ -36,6 +37,10 @@
             <div class="button danger">Button</div>
             <div class="button success">Button</div>
           </div>
+          <div class="demo">
+            <div class="button-small default">Button</div>
+            <div class="button-large default">Button</div>
+          </div>
 
           <!-- HTML -->
           <div class="__dealer-subtitle2">
@@ -49,6 +54,12 @@
             <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button primary"</span><span class="__html-tag">&gt;</span>Button<span class="__html-tag">&lt;/div&gt;</span>
             <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button danger"</span><span class="__html-tag">&gt;</span>Button<span class="__html-tag">&lt;/div&gt;</span>
             <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button success"</span><span class="__html-tag">&gt;</span>Button<span class="__html-tag">&lt;/div&gt;</span>
+
+            <span class="__html-comment">/* small buttons */</span>
+            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button-small default"</span><span class="__html-tag">&gt;</span>Button<span class="__html-tag">&lt;/div&gt;</span>
+
+            <span class="__html-comment">/* large buttons */</span>
+            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button-large default"</span><span class="__html-tag">&gt;</span>Button<span class="__html-tag">&lt;/div&gt;</span>
               </code>
             </pre>
           </div>
@@ -73,6 +84,36 @@
             <span class="__css-name">.button:hover {</span>
               <span class="__css-attribute">transition:</span> <span class="__css-string">background-color .3s, box-shadow .3s;</span>
               <span class="__css-attribute">shadow:</span> <span class="__css-string">0px 0px 6px rgba(0, 0, 0, 0.2);</span>
+            <span class="__css-name">}</span>
+
+            <span class="__css-comment">/* small common */</span>
+            <span class="__css-name">.button {</span>
+              <span class="__css-attribute">padding:</span> <span class="__css-string">5px 8px;</span>
+              <span class="__css-attribute">color:</span> <span class="__css-string">white;</span>
+              <span class="__css-attribute">border-radius:</span> <span class="__css-string">5px;</span>
+              <span class="__css-attribute">border:</span> <span class="__css-string">solid 1px var(--chekt-border);</span>
+              <span class="__css-attribute">font-size:</span> <span class="__css-string">12px;</span>
+              <span class="__css-attribute">cursor:</span> <span class="__css-string">pointer;</span>
+              <span class="__css-attribute">box-shadow:</span> <span class="__css-string">0px 0px 2px rgb(0 0 0 / 10%);</span>
+            <span class="__css-name">}</span>
+            <span class="__css-name">.button-small:hover {</span>
+              <span class="__css-attribute">transition:</span> <span class="__css-string">background-color .3s, box-shadow .3s;</span>
+              <span class="__css-attribute">shadow:</span> <span class="__css-string">0px 0px 4px rgba(0, 0, 0, 0.2);</span>
+            <span class="__css-name">}</span>
+
+            <span class="__css-comment">/* large common */</span>
+            <span class="__css-name">.button {</span>
+              <span class="__css-attribute">padding:</span> <span class="__css-string">9px 12px;</span>
+              <span class="__css-attribute">color:</span> <span class="__css-string">white;</span>
+              <span class="__css-attribute">border-radius:</span> <span class="__css-string">5px;</span>
+              <span class="__css-attribute">border:</span> <span class="__css-string">solid 1px var(--chekt-border);</span>
+              <span class="__css-attribute">font-size:</span> <span class="__css-string">16px;</span>
+              <span class="__css-attribute">cursor:</span> <span class="__css-string">pointer;</span>
+              <span class="__css-attribute">box-shadow:</span> <span class="__css-string">0px 0px 4px rgb(0 0 0 / 10%);</span>
+            <span class="__css-name">}</span>
+            <span class="__css-name">.button-large:hover {</span>
+              <span class="__css-attribute">transition:</span> <span class="__css-string">background-color .3s, box-shadow .3s;</span>
+              <span class="__css-attribute">shadow:</span> <span class="__css-string">0px 0px 8px rgba(0, 0, 0, 0.2);</span>
             <span class="__css-name">}</span>
 
             <span class="__css-comment">/* default button */</span>
@@ -129,6 +170,17 @@
             </div>
           </div>
 
+          <div class="demo">
+            <div class="button-small default icon">
+              <MyIcon v-bind:icon="'download'" v-bind:width="14" />
+              Button
+            </div>
+            <div class="button-large default icon">
+              <MyIcon v-bind:icon="'download'" v-bind:width="22" />
+              Button
+            </div>
+          </div>
+
           <!-- HTML -->
           <div class="__dealer-subtitle2">
             HTML
@@ -146,6 +198,18 @@
 
             <span class="__html-comment">/* icon right */</span>   
             <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
+              Button
+              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
+            <span class="__html-tag">&lt;/div&gt;</span>
+
+            <span class="__html-comment">/* icon small */</span>   
+            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button-small default icon"</span><span class="__html-tag">&gt;</span>
+              Button
+              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
+            <span class="__html-tag">&lt;/div&gt;</span>
+
+            <span class="__html-comment">/* icon large */</span>   
+            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button-large default icon"</span><span class="__html-tag">&gt;</span>
               Button
               <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
             <span class="__html-tag">&lt;/div&gt;</span>
@@ -170,10 +234,70 @@
               <span class="__css-attribute">align-items:</span> <span class="__css-string">center;</span>
               <span class="__css-attribute">grid-gap:</span> <span class="__css-string">5px;</span>
             <span class="__css-name">}</span>
+
+            <span class="__css-comment">/* icon size */</span>
+            <span class="__css-name">.button.icon  {</span>
+              <span class="__css-attribute">font-size:</span> <span class="__css-string">18px;</span>
+            <span class="__css-name">}</span>
+            <span class="__css-name">.button-small.icon  {</span>
+              <span class="__css-attribute">font-size:</span> <span class="__css-string">14px;</span>
+            <span class="__css-name">}</span>
+            <span class="__css-name">.button-large.icon  {</span>
+              <span class="__css-attribute">font-size:</span> <span class="__css-string">22px;</span>
+            <span class="__css-name">}</span>
               </code>
             </pre>
           </div>
         </section>
+        <!-- Button In Lodaing  -->
+        <!-- ***************  -->
+        <section id="dealer-content-move3">
+          <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
+            Button In Lodaing
+          </div>
+          <div class="__dealer-subdescription">
+            Set isLoading to indicate the button is loading. The button text is hidden and a spinner is shown in its place, while maintaining the width that it would have if the text were visible.
+          </div>
+          <div class="demo">
+            <div class="button default icon loading">
+              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-text-high);" />
+              Loading
+            </div>
+            <div class="button default icon loading">
+              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-text-high); width:64px;" />
+            </div>
+            <div class="button primary icon loading">
+              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:white; width:64px;" />
+            </div>
+          </div>
+
+          <!-- HTML -->
+          <div class="__dealer-subtitle2">
+            HTML
+          </div>
+          <div>
+            <pre>
+              <code>
+            <span class="__html-comment">/* button in lodaing */</span>
+
+            <span class="__html-comment">/* icon left */</span>
+            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
+              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
+              Button
+            <span class="__html-tag">&lt;/div&gt;</span>    
+
+            <span class="__html-comment">/* icon right */</span>   
+            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
+              Button
+              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
+            <span class="__html-tag">&lt;/div&gt;</span>
+              </code>
+            </pre>
+          </div>
+
+        </section>
+
+
       </div>
 
     </div>
@@ -193,7 +317,6 @@ export default {
   },
   data: function() {
     return {
-      sections: null,
     }
   },
   watch: {
@@ -202,10 +325,9 @@ export default {
     },
   },
   created: function () {
+    this.$tool.scrollTo(0, 0)
   },
   mounted: function () {
-    this.sections = document.querySelectorAll('section')
-    this.contentMenus = document.querySelectorAll('.__dealer-contents-widget .__dealer-contents-body div')
     this.onScroll()
   },
   methods: {
@@ -217,30 +339,19 @@ export default {
       case '2':
         location.href = "#dealer-content-move2";
         break;
+      case '3':
+        location.href = "#dealer-content-move3";
+        break;
       default:
       }
     },
     onScroll: function () {
-      this.$tool.scrollContentsWidgetMoving(this.sections, this.contentMenus)
-      // let current = ''
-      // for (let i = 0; i < this.sections.length; i++) {
-      //   const section = this.sections[i];
-      //   const sectionTop = section.offsetTop
-        
-      //   if (pageYOffset < sectionTop && i === 0) {
-      //     current = section.getAttribute('id')
-      //   }  
-      //   else if (pageYOffset >= sectionTop) {
-      //     current = section.getAttribute('id')
-      //   }  
-      // }
-      // this.contentMenus.forEach(menu => {
-      //   menu.classList.remove('active')
-      //   if (menu.classList.contains(current)) {
-      //     menu.classList.add('active')
-      //   }
-      // })
-    }
+      var sections = ''
+      var contentMenus = ''
+      sections = document.querySelectorAll('.__dealer-component-content section')
+      contentMenus = document.querySelectorAll('.__dealer-contents-widget .__dealer-contents-body div')
+      this.$tool.scrollContentsWidgetMoving(sections, contentMenus)
+    },
   }
 }
 </script>
@@ -265,12 +376,38 @@ export default {
   cursor: pointer;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
 }
+.button-small {
+  padding: 5px 8px;
+  color: var(--chekt-text-high);
+  border-radius: 5px;
+  border: solid 1px var(--chekt-border);
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+}
+.button-large {
+  padding: 9px 12px;
+  color: var(--chekt-text-high);
+  border-radius: 5px;
+  border: solid 1px var(--chekt-border);
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
 .button:hover {
   transition: background-color .3s, box-shadow .3s;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
 }
+.button-small:hover {
+  transition: background-color .3s, box-shadow .3s;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+.button-large:hover {
+  transition: background-color .3s, box-shadow .3s;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
 
-.button.icon {
+.button.icon, .button-small.icon, .button-large.icon {
   display: flex;
   flex-direction: row;
   justify-content: center;

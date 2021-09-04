@@ -1,35 +1,37 @@
 <template>
 	<div class="body-container">
-    <aside class="mdc-drawer mdc-drawer-modal">
-      <div class="header">
-        <a class="brand" aria-label="Navigate to the chekt material homepage">
-          <i class="brand-logo"></i><span class="brand-text">Design</span>
-        </a>
-      </div>
-      <div class="content" id="left-menu">
-        <div class="section">System</div>
-        <ul class="topics-container">
-          <li v-on:click="onClickList($event,'layout')">Layout</li>
-          <li v-on:click="onClickList($event,'color')">Color</li>
-          <li v-on:click="onClickList($event,'typograph')">Typograph</li>
-          <li v-on:click="onClickList($event,'icons')">Icons</li>
-        </ul>
-        <div class="section">Components</div>
-        <ul class="topics-container">
-          <li v-on:click="onClickList($event,'badge')">Badge</li>
-          <li v-on:click="onClickList($event,'buttons')">Buttons</li>
-          <li v-on:click="onClickList($event,'cards')">Cards</li>
-          <li v-on:click="onClickList($event,'datatable')">Data table</li>
-          <li v-on:click="onClickList($event,'datepicker')">Date Picker</li>
-          <li v-on:click="onClickList($event,'dialog')">Dialog</li>
-          <li v-on:click="onClickList($event,'label')">Label</li>
-          <li v-on:click="onClickList($event,'loading')">Loading</li>
-          <li v-on:click="onClickList($event,'modal')">Modal</li>
-          <li v-on:click="onClickList($event,'rangeslider')">Range Slider</li>
-          <li v-on:click="onClickList($event,'toast')">Toast</li>
-        </ul> 
-      </div>
-    </aside>
+    <div class="left-navi">
+      <aside class="mdc-drawer mdc-drawer-modal">
+        <div class="header">
+          <a class="brand" aria-label="Navigate to the chekt material homepage">
+            <i class="brand-logo"></i><span class="brand-text">Design</span>
+          </a>
+        </div>
+        <div class="content" id="left-menu">
+          <div class="section">System</div>
+          <ul class="topics-container">
+            <li v-on:click="onClickList($event,'layout')">Layout</li>
+            <li v-on:click="onClickList($event,'color')">Color</li>
+            <li v-on:click="onClickList($event,'typograph')">Typograph</li>
+            <li v-on:click="onClickList($event,'icons')">Icons</li>
+          </ul>
+          <div class="section">Components</div>
+          <ul class="topics-container">
+            <li v-on:click="onClickList($event,'badge')">Badge</li>
+            <li v-on:click="onClickList($event,'buttons')">Buttons</li>
+            <li v-on:click="onClickList($event,'cards')">Cards</li>
+            <li v-on:click="onClickList($event,'datatable')">Data table</li>
+            <li v-on:click="onClickList($event,'datepicker')">Date Picker</li>
+            <li v-on:click="onClickList($event,'dialog')">Dialog</li>
+            <li v-on:click="onClickList($event,'label')">Label</li>
+            <li v-on:click="onClickList($event,'loading')">Loading</li>
+            <li v-on:click="onClickList($event,'modal')">Modal</li>
+            <li v-on:click="onClickList($event,'rangeslider')">Range Slider</li>
+            <li v-on:click="onClickList($event,'toast')">Toast</li>
+          </ul> 
+        </div>
+      </aside>
+    </div>
     <div class="content-container">
       <!--  -->
       <!-- ROUTER -->
@@ -73,12 +75,17 @@ export default {
   justify-content: flex-start;
   max-width: 100%;
 }
+.left-navi {
+  display: block;
+  min-width: 280px;
+  z-index: 3;
+}
 .mdc-drawer {
   border-color: rgba(0, 0, 0, 0.12);
   background-color: #fff;
   border-radius: 0 0 0 0;
   z-index: 5;
-  width: 280px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -87,6 +94,10 @@ export default {
   border-right-width: 1px;
   border-right-style: solid;
   overflow: hidden;
+  position: fixed;
+
+  /* ANIMATION */
+  transition: left .5s;
 }
 .mdc-drawer .header {
   height: 72px;
@@ -194,19 +205,15 @@ ul.topics-container {
 }
 /* transition router view */
 
-@media screen and (min-width: 1341px) {
-  .mdc-drawer {
-    z-index: 3;
-    position: fixed;
-  }
-}
 @media screen and (max-width: 1341px) {
-  .mdc-drawer-modal {
-  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
-  left: 0;
-  right: initial;
-  display: none;
-  position: fixed;
+  .left-navi {
+    left: -280px;
+    position: fixed;
+    z-index: 6;
   }
+  /* .mdc-drawer-modal {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+  right: initial;
+  } */
 }
 </style>

@@ -2,15 +2,12 @@ html{
   scroll-behavior:smooth
 }
 
-.__dealer-title {
-  margin-top: 160px;
-  font-size: 3.75rem;
-}
 .__dealer-page {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
   align-items: flex-start;
+  flex-wrap: wrap;
   max-width: 1140px;
   padding-right: 40px;
   padding-left: 40px;
@@ -19,6 +16,10 @@ html{
 }
 .__dealer-component {
   max-width: 840px;
+}
+.__dealer-title {
+  margin-top: 160px;
+  font-size: 3.75rem;
 }
 .__dealer-description {
   font-size: 1rem;
@@ -164,25 +165,15 @@ pre code {
 
 /* @media */
 @media screen and (max-width: 600px) {
-  .__dealer-component {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-}
-
-@media screen and (max-width: 1720px) {
   .__dealer-page {
-    margin-left: 250px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: block;
   }
 }
 
 @media screen and (max-width: 1500px) {
   .__dealer-contents-widget {
     display: none;
-  }
-}
-@media screen and (max-width: 1342px) {
-  .__dealer-page {
-    margin-left: auto;
   }
 }

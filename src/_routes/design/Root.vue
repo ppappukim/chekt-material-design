@@ -71,9 +71,11 @@ export default {
   },
   created: function () {
     window.addEventListener('scroll', this.onScroll)
+    window.addEventListener("resize", this.onResizeScreen)
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener("resize", this.onResizeScreen)
   },
   methods: {
     onClickMenu: function (e, menu) {
@@ -85,14 +87,18 @@ export default {
       var mdcDrawerModal = document.getElementsByClassName("mdc-drawer-modal")
       mdcDrawerModal[0].classList.add('mdc-drawer-modal-open')
       // mdcDrawerModal[0].style.display = "flex"
-      // mdcDrawerModal[0].style.left = "0"
+      mdcDrawerModal[0].style.left = "0px"
     },
     onClickBackdrop: function () {
+      console.log('onClickBackdrop');
       this.isMenuButtonClicked = false
       var mdcDrawerModal = document.getElementsByClassName("mdc-drawer-modal")
       mdcDrawerModal[0].classList.remove('mdc-drawer-modal-open')
       // var mdcDrawerModal = document.getElementsByClassName("mdc-drawer-modal")
       // mdcDrawerModal[0].style.display = "none"
+      var intFrameWidth = window.innerWidth;
+      if(1341 > intFrameWidth) mdcDrawerModal[0].style.left = "-280px"
+      // mdcDrawerModal[0].style.left = "-280px"
     },
     selectedMenu: function (e, menu) {
       var i, navIndicator, getNavIndicator
@@ -116,6 +122,17 @@ export default {
       this.showNavbar = currentScrollPosition < this.lastScrollPosition
       // Set the current scroll position as the last scroll position
       this.lastScrollPosition = currentScrollPosition
+    },
+    onResizeScreen: function () {
+      this.isMenuButtonClicked = false
+      var mdcDrawerModal = document.getElementsByClassName("mdc-drawer-modal")
+      var intFrameWidth = window.innerWidth;
+      if (1341 < intFrameWidth) {
+        mdcDrawerModal[0].style.left = "0px"
+      }
+      if(1341 > intFrameWidth) {
+        mdcDrawerModal[0].style.left = "-280px"
+      }
     }
   }
 }

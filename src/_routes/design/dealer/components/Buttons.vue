@@ -280,18 +280,21 @@
               <code>
             <span class="__html-comment">/* button in lodaing */</span>
 
-            <span class="__html-comment">/* icon left */</span>
+            <span class="__html-comment">/* loading with text */</span>
             <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
               <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
-              Button
+              Loading
             <span class="__html-tag">&lt;/div&gt;</span>    
 
-            <span class="__html-comment">/* icon right */</span>   
+            <span class="__html-comment">/* loading */</span>   
             <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
-              Button
               <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
             <span class="__html-tag">&lt;/div&gt;</span>
-              </code>
+
+            <span class="__html-comment">/* loading primary */</span>   
+            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button primary icon"</span><span class="__html-tag">&gt;</span>
+              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
+            <span class="__html-tag">&lt;/div&gt;</span>              </code>
             </pre>
           </div>
 

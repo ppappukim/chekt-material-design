@@ -41,6 +41,7 @@ body{
   --chekt-gray-mideum: #666666;
   --chekt-gray-low: #9E9E9E;
 
+  --chekt-blue-gray-highest: #3c4257;
   --chekt-blue-gray-higher: #55647B;
   --chekt-blue-gray-high: #8792A2;
   --chekt-blue-gray-mideum: #E3E8EE;
@@ -52,7 +53,7 @@ body{
 
   /* Text Color - Color Code */
   --chekt-text-high: #212121;
-  --chekt-text-medeium: #666666;
+  --chekt-text-medeium: #1f1d1d;
   --chekt-text-disable: #9E9E9E;
 
   /* Text Color - Opacity */

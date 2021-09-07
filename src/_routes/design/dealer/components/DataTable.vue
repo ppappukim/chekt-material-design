@@ -17,7 +17,7 @@
           Data Table
         </div>
         <div class="__dealer-description">
-          Data tables are used to organize and display data efficiently. The data table component allows for customization with additional functionality, as needed by your product’s users.
+          Data tables display sets of data across rows and columns.
         </div>
       </div>
       <div class="__dealer-component-content">
@@ -34,113 +34,117 @@
           </div>
           <!-- DEMO TABLE DEFAULT -->
           <div class="demo">
-            <table class="table">
-              <!-- TABLE HEAD -->
-              <thead class="table-header padding-all--8">
-                <tr>
-                  <td class="table-cell--width--minimized">id</td>
-                  <td>name</td>
-                  <td>email</td>
-                  <td>date</td>
-                </tr>
-              </thead>
-              <!-- TABLE BODY -->
-              <tbody class="table-body padding-all--8">
-                <tr>
-                  <td>23442</td>
-                  <td>bobby kim</td>
-                  <td>bobbyk@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 4, 2020, 2:58 PM</td>
-                </tr>
-                <tr>
-                  <td>12244</td>
-                  <td>kevin park</td>
-                  <td>kevinp@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 12, 2020, 1:23 PM</td>
-                </tr>
-                <tr>
-                  <td>15724</td>
-                  <td>trevor seo</td>
-                  <td>trevors@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 14, 2020, 9:11 AM</td>
-                </tr>
-              </tbody>
-
-            </table>
+            <div class="table">
+              <table>
+                <!-- TABLE HEAD -->
+                <thead class="table-header padding-all--8">
+                  <tr>
+                    <td class="table-cell--width--minimized">id</td>
+                    <td>name</td>
+                    <td>email</td>
+                    <td>date</td>
+                  </tr>
+                </thead>
+                <!-- TABLE BODY -->
+                <tbody class="table-body padding-all--8">
+                  <tr>
+                    <td>23442</td>
+                    <td>bobby kim</td>
+                    <td>bobbyk@gmail.com</td>
+                    <td class="table-cell--width--minimized">Aug 4, 2020, 2:58 PM</td>
+                  </tr>
+                  <tr>
+                    <td>12244</td>
+                    <td>kevin park</td>
+                    <td>kevinp@gmail.com</td>
+                    <td class="table-cell--width--minimized">Aug 12, 2020, 1:23 PM</td>
+                  </tr>
+                  <tr>
+                    <td>15724</td>
+                    <td>trevor seo</td>
+                    <td>trevors@gmail.com</td>
+                    <td class="table-cell--width--minimized">Aug 14, 2020, 9:11 AM</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <!-- DEMO TABLE LARGE -->
           <div class="demo">
-            <table class="table">
-              <!-- TABLE HEAD -->
-              <thead class="table-header padding-all--12">
-                <tr>
-                  <td class="table-cell--width--minimized">id</td>
-                  <td>name</td>
-                  <td>email</td>
-                  <td>date</td>
-                </tr>
-              </thead>
-              <!-- TABLE BODY -->
-              <tbody class="table-body padding-all--12">
-                <tr>
-                  <td>23442</td>
-                  <td>bobby kim</td>
-                  <td>bobbyk@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 4, 2020, 2:58 PM</td>
-                </tr>
-                <tr>
-                  <td>12244</td>
-                  <td>kevin park</td>
-                  <td>kevinp@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 12, 2020, 1:23 PM</td>
-                </tr>
-                <tr>
-                  <td>15724</td>
-                  <td>trevor seo</td>
-                  <td>trevors@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 14, 2020, 9:11 AM</td>
-                </tr>
-              </tbody>
+            <div class="table">
+              <table>
+                <!-- TABLE HEAD -->
+                <thead class="table-header padding-all--12">
+                  <tr>
+                    <td class="table-cell--width--minimized">id</td>
+                    <td>name</td>
+                    <td>email</td>
+                    <td>date</td>
+                  </tr>
+                </thead>
+                <!-- TABLE BODY -->
+                <tbody class="table-body padding-all--12">
+                  <tr>
+                    <td>23442</td>
+                    <td>bobby kim</td>
+                    <td>bobbyk@gmail.com</td>
+                    <td class="table-cell--width--minimized">Aug 4, 2020, 2:58 PM</td>
+                  </tr>
+                  <tr>
+                    <td>12244</td>
+                    <td>kevin park</td>
+                    <td>kevinp@gmail.com</td>
+                    <td class="table-cell--width--minimized">Aug 12, 2020, 1:23 PM</td>
+                  </tr>
+                  <tr>
+                    <td>15724</td>
+                    <td>trevor seo</td>
+                    <td>trevors@gmail.com</td>
+                    <td class="table-cell--width--minimized">Aug 14, 2020, 9:11 AM</td>
+                  </tr>
+                </tbody>
 
-            </table>
+              </table>
+            </div>
           </div>
 
           <!-- DEMO TABLE VENTI -->
           <div class="demo">
-            <table class="table">
-              <!-- TABLE HEAD -->
-              <thead class="table-header padding-all--16">
-                <tr>
-                  <td class="table-cell--width--minimized">id</td>
-                  <td>name</td>
-                  <td>email</td>
-                  <td>date</td>
-                </tr>
-              </thead>
-              <!-- TABLE BODY -->
-              <tbody class="table-body padding-all--16">
-                <tr>
-                  <td>23442</td>
-                  <td>bobby kim</td>
-                  <td>bobbyk@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 4, 2020, 2:58 PM</td>
-                </tr>
-                <tr>
-                  <td>12244</td>
-                  <td>kevin park</td>
-                  <td>kevinp@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 12, 2020, 1:23 PM</td>
-                </tr>
-                <tr>
-                  <td>15724</td>
-                  <td>trevor seo</td>
-                  <td>trevors@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 14, 2020, 9:11 AM</td>
-                </tr>
-              </tbody>
-
-            </table>
+            <div class="table">
+              <table>
+                <!-- TABLE HEAD -->
+                <thead class="table-header padding-all--16">
+                  <tr>
+                    <td class="table-cell--width--minimized">id</td>
+                    <td>name</td>
+                    <td>email</td>
+                    <td>date</td>
+                  </tr>
+                </thead>
+                <!-- TABLE BODY -->
+                <tbody class="table-body padding-all--16">
+                  <tr>
+                    <td>23442</td>
+                    <td>bobby kim</td>
+                    <td>bobbyk@gmail.com</td>
+                    <td class="table-cell--width--minimized">Aug 4, 2020, 2:58 PM</td>
+                  </tr>
+                  <tr>
+                    <td>12244</td>
+                    <td>kevin park</td>
+                    <td>kevinp@gmail.com</td>
+                    <td class="table-cell--width--minimized">Aug 12, 2020, 1:23 PM</td>
+                  </tr>
+                  <tr>
+                    <td>15724</td>
+                    <td>trevor seo</td>
+                    <td>trevors@gmail.com</td>
+                    <td class="table-cell--width--minimized">Aug 14, 2020, 9:11 AM</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <!-- HTML -->
           <div class="__dealer-subtitle2">
@@ -263,63 +267,65 @@
           </div>
           <!-- DEMO TABLE DEFAULT -->
           <div class="demo">
-            <table class="table">
-              <!-- TABLE HEAD -->
-              <thead class="table-header padding-all--8">
-                <tr>
-                  <td class="table-cell--width--minimized">
-                    <label class="container">
-                      <input @click="checkboxAllToggle()" type="checkbox" id="header-checkbox">
-                      <span class="checkmark"></span>
-                    </label>
-                  </td>
-                  <td class="table-cell--width--minimized">id</td>
-                  <td>name</td>
-                  <td>email</td>
-                  <td>date</td>
-                </tr>
-              </thead>
-              <!-- TABLE BODY -->
-              <tbody class="table-body padding-all--8">
-                <tr>
-                  <td>
-                    <label class="container">
-                      <input @click="checkboxToggle()" type="checkbox">
-                      <span class="checkmark"></span>
-                    </label>
-                  </td>
-                  <td>23442</td>
-                  <td>bobby kim</td>
-                  <td>bobbyk@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 4, 2020, 2:58 PM</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="container">
-                      <input @click="checkboxToggle()" type="checkbox">
-                      <span class="checkmark"></span>
-                    </label>
-                  </td>
-                  <td>12244</td>
-                  <td>kevin park</td>
-                  <td>kevinp@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 12, 2020, 1:23 PM</td>
-                </tr>
-                <tr>
-                  <td>
-                    <label class="container">
-                      <input @click="checkboxToggle()" type="checkbox">
-                      <span class="checkmark"></span>
-                    </label>
-                  </td>
-                  <td>15724</td>
-                  <td>trevor seo</td>
-                  <td>trevors@gmail.com</td>
-                  <td class="table-cell--width--minimized">Aug 14, 2020, 9:11 AM</td>
-                </tr>
-              </tbody>
+            <div class="table">
+              <table>
+                <!-- TABLE HEAD -->
+                <thead class="table-header padding-all--8">
+                  <tr>
+                    <td class="table-cell--width--minimized">
+                      <label class="checkbox">
+                        <input @click="checkboxAllToggle()" type="checkbox" id="header-checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </td>
+                    <td class="table-cell--width--minimized">id</td>
+                    <td>name</td>
+                    <td>email</td>
+                    <td class="table-cell--width--minimized">date</td>
+                  </tr>
+                </thead>
+                <!-- TABLE BODY -->
+                <tbody class="table-body padding-all--8">
+                  <tr>
+                    <td>
+                      <label class="checkbox">
+                        <input @click="checkboxToggle()" type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </td>
+                    <td>23442</td>
+                    <td>bobby kim</td>
+                    <td>bobbyk@gmail.com</td>
+                    <td>Aug 4, 2020, 2:58 PM</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox">
+                        <input @click="checkboxToggle()" type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </td>
+                    <td>12244</td>
+                    <td>kevin park</td>
+                    <td>kevinp@gmail.com</td>
+                    <td>Aug 12, 2020, 1:23 PM</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox">
+                        <input @click="checkboxToggle()" type="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </td>
+                    <td>15724</td>
+                    <td>trevor seo</td>
+                    <td>trevors@gmail.com</td>
+                    <td>Aug 14, 2020, 9:11 AM</td>
+                  </tr>
+                </tbody>
 
-            </table>
+              </table>
+            </div>
           </div>
 
           <!-- HTML -->
@@ -329,35 +335,42 @@
           <div>
             <pre>
               <code>
-            <span class="__html-comment">/* buttons with icon */</span>
+            <span class="__html-comment">/* table 크기는 padding-all--?으로 조절 할 수 있습니다. */</span>
 
-            <span class="__html-comment">/* icon left */</span>
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
-              Button
-            <span class="__html-tag">&lt;/div&gt;</span>    
-
-            <span class="__html-comment">/* icon right */</span>   
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
-              Button
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
-            <span class="__html-tag">&lt;/div&gt;</span>
-
-            <span class="__html-comment">/* icon small */</span>   
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button-small default icon"</span><span class="__html-tag">&gt;</span>
-              Button
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
-            <span class="__html-tag">&lt;/div&gt;</span>
-
-            <span class="__html-comment">/* icon large */</span>   
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button-large default icon"</span><span class="__html-tag">&gt;</span>
-              Button
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
-            <span class="__html-tag">&lt;/div&gt;</span>
+            <span class="__html-comment">/* table */</span>
+            <span class="__html-tag">&lt;table </span><span class="__html-string">class="</span><span class="__html-class">table"</span><span class="__html-tag">&gt;</span>      
+              <span class="__html-tag">&lt;thead </span><span class="__html-string">class="</span><span class="__html-class">table-header padding-all--8"</span><span class="__html-tag">&gt;</span>
+                <span class="__html-tag">&lt;tr&gt;</span>
+                  <span class="__html-tag">&lt;td </span><span class="__html-string">class="</span><span class="__html-class">table-cell--width--minimized"</span><span class="__html-tag">&gt;</span>id<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>name<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>email<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>date<span class="__html-tag">&lt;/td&gt;</span>
+                <span class="__html-tag">&lt;/tr&gt;</span>
+              <span class="__html-tag">&lt;/thead&gt;</span>
+              <span class="__html-tag">&lt;tbody </span><span class="__html-string">class="</span><span class="__html-class">table-body padding-all--8"</span><span class="__html-tag">&gt;</span>
+                <span class="__html-tag">&lt;tr&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>23442<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>bobby kim<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>bobbyk@gmail.com<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td </span><span class="__html-string">class="</span><span class="__html-class">table-cell--width--minimized"</span><span class="__html-tag">&gt;</span>Aug 4, 2020, 2:58 PM<span class="__html-tag">&lt;/td&gt;</span>
+                <span class="__html-tag">&lt;/tr&gt;</span>
+                <span class="__html-tag">&lt;tr&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>12244<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>kevin park<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>kevinp@gmail.com<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td </span><span class="__html-string">class="</span><span class="__html-class">table-cell--width--minimized"</span><span class="__html-tag">&gt;</span>Aug 12, 2020, 1:23 PM<span class="__html-tag">&lt;/td&gt;</span>
+                <span class="__html-tag">&lt;/tr&gt;</span>
+                <span class="__html-tag">&lt;tr&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>15724<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>trevor seo<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>trevors@gmail.com<span class="__html-tag">&lt;/td&gt;</span>
+                  <span class="__html-tag">&lt;td </span><span class="__html-string">class="</span><span class="__html-class">table-cell--width--minimized"</span><span class="__html-tag">&gt;</span>Aug 14, 2020, 9:11 AM<span class="__html-tag">&lt;/td&gt;</span>
+                <span class="__html-tag">&lt;/tr&gt;</span>                                
+              <span class="__html-tag">&lt;/tbody&gt;</span>
+            <span class="__html-tag">&lt;/table&gt;</span>      
               </code>
             </pre>
           </div>
-
           <!-- CSS -->
           <div class="__dealer-subtitle2" style="margin-top:50px;">
             CSS
@@ -390,14 +403,15 @@
             </pre>
           </div>
         </section>
-        <!-- Button In Lodaing  -->
+
+        <!-- Resizable Table  -->
         <!-- ***************  -->
         <section id="dealer-content-move3">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Button In Lodaing
+            Resizable Table
           </div>
           <div class="__dealer-subdescription">
-            Set isLoading to indicate the button is loading. The button text is hidden and a spinner is shown in its place, while maintaining the width that it would have if the text were visible.
+            Data tables are an enhanced version of an HTML table and are used to display tabular data.
           </div>
           <div class="demo">
             <div class="button default icon loading">
@@ -543,7 +557,33 @@ export default {
 .table {
   width: 100%;
   max-width: 100%;
+  max-height: 90%;
+  /* border-collapse: collapse; */
+  white-space: nowrap;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+/* TABLE SCROLL */
+.table:hover {
+  overflow-x: auto;
+  overflow: overlay;
+}
+.table::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.table::-webkit-scrollbar-track {
+  opacity: 0;
+}
+.table::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, .2);
+}
+/* ////TABLE SCROLL */
+
+.table > table {
+  width: 100%;
   border-collapse: collapse;
+  white-space: nowrap;
 }
 .table-body {
   font-size: 14px;
@@ -559,7 +599,6 @@ export default {
 }
 .table-cell--width--minimized {
   width: 1px;
-  white-space: nowrap;
 }
 .table-body > tr > td {
   box-shadow: inset 0 1px var(--chekt-border);
@@ -591,8 +630,9 @@ export default {
 
 
 
-/* The container */
-.container {
+/* CHECKBOX */
+
+.checkbox {
   display: block;
   position: relative;
   padding-left: 14px;
@@ -605,7 +645,7 @@ export default {
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.checkbox input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -626,12 +666,12 @@ export default {
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.checkbox input:checked ~ .checkmark {
   background-color: var(--chekt-primary-color);
   box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(30 136 229) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
   opacity: 1;
 }
-.container input ~ .checkmark {
+.checkbox input ~ .checkmark {
   transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -641,7 +681,7 @@ export default {
   display: none;
 }
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.checkbox .checkmark:after {
   left: 4px;
   top: 0.2px;
   width: 3px;
@@ -654,7 +694,7 @@ export default {
   transition: all 1s;
 }
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.checkbox input:checked ~ .checkmark:after {
   display: block;
 }
 

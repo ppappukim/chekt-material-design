@@ -35,6 +35,10 @@ const childRoute = {
       component: () => import("@/_routes/design/dealer/components/Cards"),
     },
     {
+      path: 'checkboxes',
+      component: () => import("@/_routes/design/dealer/components/Checkboxes"),
+    },
+    {
       path: 'datatable',
       component: () => import("@/_routes/design/dealer/components/DataTable"),
     },

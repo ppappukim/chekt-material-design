@@ -20,6 +20,7 @@
             <li v-on:click="onClickList($event,'badge')">Badge</li>
             <li v-on:click="onClickList($event,'buttons')">Buttons</li>
             <li v-on:click="onClickList($event,'cards')">Cards</li>
+            <li v-on:click="onClickList($event,'Checkboxes')">Checkboxes</li>
             <li v-on:click="onClickList($event,'datatable')">Data table</li>
             <li v-on:click="onClickList($event,'datepicker')">Date Picker</li>
             <li v-on:click="onClickList($event,'dialog')">Dialog</li>

@@ -45,8 +45,9 @@
             </div>
           </div>
 
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
+          <!-- CODE -->
+
+          <!-- <div class="__dealer-subtitle2">
             HTML
           </div>
           <div>
@@ -63,7 +64,6 @@
             </pre>
           </div>
 
-          <!-- CSS -->
           <div class="__dealer-subtitle2" style="margin-top:50px;">
             CSS
           </div>
@@ -94,7 +94,10 @@
             <span class="__css-name">}</span>
               </code>
             </pre>
-          </div>
+          </div> -->
+
+          <!-- //CODE -->
+
         </section>
 
         <!-- Button With Icon  -->
@@ -117,8 +120,9 @@
             </div>
           </div>
 
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
+          <!-- CODE -->
+
+          <!-- <div class="__dealer-subtitle2">
             HTML
           </div>
           <div>
@@ -135,44 +139,46 @@
             </pre>
           </div>
 
-          <!-- CSS -->
-            <div class="__dealer-subtitle2" style="margin-top:50px;">
-              CSS
-            </div>
-            <div>
-              <pre>
-                <code>
-              <span class="__css-comment">/* CSS 예시 */</span>
+          <div class="__dealer-subtitle2" style="margin-top:50px;">
+            CSS
+          </div>
+          <div>
+            <pre>
+              <code>
+            <span class="__css-comment">/* CSS 예시 */</span>
 
-              <span class="__css-comment">/* parents */</span>
-              <span class="__css-name">.badge-wrapper {</span>
-                <span class="__css-attribute">position:</span> <span class="__css-string">relative;</span>
-              <span class="__css-name">}</span>
+            <span class="__css-comment">/* parents */</span>
+            <span class="__css-name">.badge-wrapper {</span>
+              <span class="__css-attribute">position:</span> <span class="__css-string">relative;</span>
+            <span class="__css-name">}</span>
 
-              <span class="__css-comment">/* children  small-badge */</span>
-              <span class="__css-name">.small-badge {</span>
-                <span class="__css-attribute">position:</span> <span class="__css-string">absolute;</span>
-                <span class="__css-attribute">top:</span> <span class="__css-string">1px;</span>
-                <span class="__css-attribute">right:</span> <span class="__css-string">1px;</span>
-                <span class="__css-attribute">width:</span> <span class="__css-string">8px;</span>
-                <span class="__css-attribute">height:</span> <span class="__css-string">8px;</span>
-                <span class="__css-attribute">background-color:</span> <span class="__css-string">var(--chekt-badge);</span><span class="__css-comment"> /* #ba2222 */</span>
-                <span class="__css-attribute">border-radius:</span> <span class="__css-string">50%;</span>
-              <span class="__css-name">}</span>
+            <span class="__css-comment">/* children  small-badge */</span>
+            <span class="__css-name">.small-badge {</span>
+              <span class="__css-attribute">position:</span> <span class="__css-string">absolute;</span>
+              <span class="__css-attribute">top:</span> <span class="__css-string">1px;</span>
+              <span class="__css-attribute">right:</span> <span class="__css-string">1px;</span>
+              <span class="__css-attribute">width:</span> <span class="__css-string">8px;</span>
+              <span class="__css-attribute">height:</span> <span class="__css-string">8px;</span>
+              <span class="__css-attribute">background-color:</span> <span class="__css-string">var(--chekt-badge);</span><span class="__css-comment"> /* #ba2222 */</span>
+              <span class="__css-attribute">border-radius:</span> <span class="__css-string">50%;</span>
+            <span class="__css-name">}</span>
 
-              <span class="__css-comment">/* children  smaller-badge */</span>
-              <span class="__css-name">.smaller-badge {</span>
-                <span class="__css-attribute">position:</span> <span class="__css-string">absolute;</span>
-                <span class="__css-attribute">top:</span> <span class="__css-string">1px;</span>
-                <span class="__css-attribute">right:</span> <span class="__css-string">1px;</span>
-                <span class="__css-attribute">width:</span> <span class="__css-string">5px;</span>
-                <span class="__css-attribute">height:</span> <span class="__css-string">5px;</span>
-                <span class="__css-attribute">background-color:</span> <span class="__css-string">var(--chekt-badge);</span><span class="__css-comment"> /* #ba2222 */</span>
-                <span class="__css-attribute">border-radius:</span> <span class="__css-string">50%;</span>
-              <span class="__css-name">}</span>
-                </code>
-              </pre>
-            </div>
+            <span class="__css-comment">/* children  smaller-badge */</span>
+            <span class="__css-name">.smaller-badge {</span>
+              <span class="__css-attribute">position:</span> <span class="__css-string">absolute;</span>
+              <span class="__css-attribute">top:</span> <span class="__css-string">1px;</span>
+              <span class="__css-attribute">right:</span> <span class="__css-string">1px;</span>
+              <span class="__css-attribute">width:</span> <span class="__css-string">5px;</span>
+              <span class="__css-attribute">height:</span> <span class="__css-string">5px;</span>
+              <span class="__css-attribute">background-color:</span> <span class="__css-string">var(--chekt-badge);</span><span class="__css-comment"> /* #ba2222 */</span>
+              <span class="__css-attribute">border-radius:</span> <span class="__css-string">50%;</span>
+            <span class="__css-name">}</span>
+              </code>
+            </pre>
+          </div> -->
+
+          <!-- CODE -->
+
         </section>
       </div>
 

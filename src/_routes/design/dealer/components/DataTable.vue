@@ -22,7 +22,7 @@
       </div>
       <div class="__dealer-component-content">
 
-        <!-- Default Button  -->
+        <!-- Default Table  -->
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
@@ -146,8 +146,10 @@
               </table>
             </div>
           </div>
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
+
+          <!-- CODE -->
+
+          <!-- <div class="__dealer-subtitle2">
             HTML
           </div>
           <div>
@@ -190,7 +192,6 @@
             </pre>
           </div>
 
-          <!-- CSS -->
           <div class="__dealer-subtitle2" style="margin-top:50px;">
             CSS
           </div>
@@ -253,17 +254,20 @@
 
               </code>
             </pre>
-          </div>
+          </div> -->
+          
+          <!-- //CODE -->
+
         </section>
 
-        <!-- Table With Options  -->
+        <!-- Table With Checkbox  -->
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Table With Options
+            Table With Checkbox
           </div>
           <div class="__dealer-subdescription">
-            Table may include an options before or after the cell.
+            Table may include an checkbox before or after the cell.
           </div>
           <!-- DEMO TABLE DEFAULT -->
           <div class="demo">
@@ -328,19 +332,24 @@
             </div>
           </div>
 
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
+          <!-- CODE -->
+
+          <!-- <div class="__dealer-subtitle2">
             HTML
           </div>
           <div>
             <pre>
               <code>
-            <span class="__html-comment">/* table 크기는 padding-all--?으로 조절 할 수 있습니다. */</span>
-
             <span class="__html-comment">/* table */</span>
             <span class="__html-tag">&lt;table </span><span class="__html-string">class="</span><span class="__html-class">table"</span><span class="__html-tag">&gt;</span>      
               <span class="__html-tag">&lt;thead </span><span class="__html-string">class="</span><span class="__html-class">table-header padding-all--8"</span><span class="__html-tag">&gt;</span>
                 <span class="__html-tag">&lt;tr&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>
+                    <span class="__html-tag">&lt;label </span><span class="__js-handler">onClick="</span><span class="__js-string">checkboxAllToggle()"</span><span class="__html-string">class="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+                      <span class="__html-tag">&lt;input </span><span class="__html-string">type="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+                      <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkmark"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/span&gt;</span>
+                    <span class="__html-tag">&lt;/label&gt;</span>
+                  <span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td </span><span class="__html-string">class="</span><span class="__html-class">table-cell--width--minimized"</span><span class="__html-tag">&gt;</span>id<span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>name<span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>email<span class="__html-tag">&lt;/td&gt;</span>
@@ -349,18 +358,36 @@
               <span class="__html-tag">&lt;/thead&gt;</span>
               <span class="__html-tag">&lt;tbody </span><span class="__html-string">class="</span><span class="__html-class">table-body padding-all--8"</span><span class="__html-tag">&gt;</span>
                 <span class="__html-tag">&lt;tr&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>
+                    <span class="__html-tag">&lt;label </span><span class="__js-handler">onClick="</span><span class="__js-string">checkboxToggle()"</span><span class="__html-string">class="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+                      <span class="__html-tag">&lt;input </span><span class="__html-string">type="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+                      <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkmark"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/span&gt;</span>
+                    <span class="__html-tag">&lt;/label&gt;</span>
+                  <span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>23442<span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>bobby kim<span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>bobbyk@gmail.com<span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td </span><span class="__html-string">class="</span><span class="__html-class">table-cell--width--minimized"</span><span class="__html-tag">&gt;</span>Aug 4, 2020, 2:58 PM<span class="__html-tag">&lt;/td&gt;</span>
                 <span class="__html-tag">&lt;/tr&gt;</span>
                 <span class="__html-tag">&lt;tr&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>
+                    <span class="__html-tag">&lt;label </span><span class="__js-handler">onClick="</span><span class="__js-string">checkboxToggle()"</span><span class="__html-string">class="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+                      <span class="__html-tag">&lt;input </span><span class="__html-string">type="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+                      <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkmark"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/span&gt;</span>
+                    <span class="__html-tag">&lt;/label&gt;</span>
+                  <span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>12244<span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>kevin park<span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>kevinp@gmail.com<span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td </span><span class="__html-string">class="</span><span class="__html-class">table-cell--width--minimized"</span><span class="__html-tag">&gt;</span>Aug 12, 2020, 1:23 PM<span class="__html-tag">&lt;/td&gt;</span>
                 <span class="__html-tag">&lt;/tr&gt;</span>
                 <span class="__html-tag">&lt;tr&gt;</span>
+                  <span class="__html-tag">&lt;td&gt;</span>
+                    <span class="__html-tag">&lt;label </span><span class="__js-handler">onClick="</span><span class="__js-string">checkboxToggle()"</span><span class="__html-string">class="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+                      <span class="__html-tag">&lt;input </span><span class="__html-string">type="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+                      <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkmark"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/span&gt;</span>
+                    <span class="__html-tag">&lt;/label&gt;</span>
+                  <span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>15724<span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>trevor seo<span class="__html-tag">&lt;/td&gt;</span>
                   <span class="__html-tag">&lt;td&gt;</span>trevors@gmail.com<span class="__html-tag">&lt;/td&gt;</span>
@@ -371,87 +398,95 @@
               </code>
             </pre>
           </div>
-          <!-- CSS -->
+
           <div class="__dealer-subtitle2" style="margin-top:50px;">
             CSS
           </div>
           <div>
             <pre>
               <code>
-            <span class="__css-comment">/* button class는 위 default button을 확인하세요. */</span>
-
-            <span class="__css-comment">/* icon */</span>
-            <span class="__css-name">.button.icon  {</span>
-              <span class="__css-attribute">display:</span> <span class="__css-string">flex;</span>
-              <span class="__css-attribute">flex-direction:</span> <span class="__css-string">row;</span>
-              <span class="__css-attribute">justify-content:</span> <span class="__css-string">center;</span>       
-              <span class="__css-attribute">align-items:</span> <span class="__css-string">center;</span>
-              <span class="__css-attribute">grid-gap:</span> <span class="__css-string">5px;</span>
-            <span class="__css-name">}</span>
-
-            <span class="__css-comment">/* icon size */</span>
-            <span class="__css-name">.button.icon  {</span>
-              <span class="__css-attribute">font-size:</span> <span class="__css-string">18px;</span>
-            <span class="__css-name">}</span>
-            <span class="__css-name">.button-small.icon  {</span>
-              <span class="__css-attribute">font-size:</span> <span class="__css-string">14px;</span>
-            <span class="__css-name">}</span>
-            <span class="__css-name">.button-large.icon  {</span>
-              <span class="__css-attribute">font-size:</span> <span class="__css-string">22px;</span>
-            <span class="__css-name">}</span>
+            <span class="__css-comment">/* css는 checkboxes menu에서 확인하세요 */</span>
               </code>
             </pre>
-          </div>
+          </div> -->
+
+          <!-- //CODE -->
+
         </section>
 
         <!-- Resizable Table  -->
         <!-- ***************  -->
         <section id="dealer-content-move3">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Resizable Table
+            Table With Action Button
           </div>
           <div class="__dealer-subdescription">
             Data tables are an enhanced version of an HTML table and are used to display tabular data.
           </div>
           <div class="demo">
-            <div class="button default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-text-high);" />
-              Loading
-            </div>
-            <div class="button default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-text-high); width:64px;" />
-            </div>
-            <div class="button primary icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:white; width:64px;" />
-            </div>
+            <div id="table-with-dialog" class="table">
+              <table>
+                <!-- TABLE HEAD -->
+                <thead class="table-header padding-all--8">
+                  <tr>
+                    <td class="table-cell--width--minimized">id</td>
+                    <td>name</td>
+                    <td>email</td>
+                    <td class="table-cell--width--minimized">date</td>
+                    <td class="table-cell--width--minimized"></td>
+                  </tr>
+                </thead>
+                <!-- TABLE BODY -->
+                <tbody class="table-body padding-all--8">
+                  <tr>
+                    <td>23442</td>
+                    <td>bobby kim</td>
+                    <td>bobbyk@gmail.com</td>
+                    <td>Aug 4, 2020, 2:58 PM</td>
+                    <td>
+                      <div class="__chekt-dialog">
+                        <div>Edit</div>
+                        <div>Download</div>
+                        <div class="delete">Delete</div>
+                      </div>
+                      <div @click="onClickMoreButton($event)" class="more"><MyIcon v-bind:icon="'more'" v-bind:width="18" /></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>12244</td>
+                    <td>kevin park</td>
+                    <td>kevinp@gmail.com</td>
+                    <td>Aug 12, 2020, 1:23 PM</td>
+                    <td>
+                      <div class="__chekt-dialog">
+                        <div>Edit</div>
+                        <div>Download</div>
+                        <div class="delete">Delete</div>
+                      </div>
+                      <div @click="onClickMoreButton($event)" class="more"><MyIcon v-bind:icon="'more'" v-bind:width="18" /></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>15724</td>
+                    <td>trevor seo</td>
+                    <td>trevors@gmail.com</td>
+                    <td>Aug 14, 2020, 9:11 AM</td>
+                    <td>
+                      <div class="__chekt-dialog">
+                        <div>Edit</div>
+                        <div>Download</div>
+                        <div class="delete">Delete</div>
+                      </div>
+                      <div @click="onClickMoreButton($event)" class="more">
+                        <MyIcon v-bind:icon="'more'" v-bind:width="18" />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
           </div>
-
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
-            HTML
-          </div>
-          <div>
-            <pre>
-              <code>
-            <span class="__html-comment">/* button in lodaing */</span>
-
-            <span class="__html-comment">/* loading with text */</span>
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
-              Loading
-            <span class="__html-tag">&lt;/div&gt;</span>    
-
-            <span class="__html-comment">/* loading */</span>   
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
-            <span class="__html-tag">&lt;/div&gt;</span>
-
-            <span class="__html-comment">/* loading primary */</span>   
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button primary icon"</span><span class="__html-tag">&gt;</span>
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
-            <span class="__html-tag">&lt;/div&gt;</span>              </code>
-            </pre>
-          </div>
+        </div>
 
         </section>
 
@@ -466,7 +501,7 @@
 import MyIcon from '@/MyIcon'
 export default {
   components: {
-    MyIcon
+    MyIcon,
   },
   computed: {
     scrollPositon: function () {
@@ -475,6 +510,9 @@ export default {
   },
   data: function() {
     return {
+      moreBtnClicked: false,
+      dialogEl: null,
+      targetEl: null,
     }
   },
   watch: {
@@ -483,10 +521,21 @@ export default {
     },
   },
   created: function () {
+    document.body.addEventListener('click', this.closeButton, true); 
+    window.addEventListener("resize", this.onResizeScreen)
+    // window.addEventListener('scroll', this.onScroll)
     this.$tool.scrollTo(0, 0)
   },
   mounted: function () {
-    this.onScroll()
+    var talbe = document.getElementById('table-with-dialog')
+    console.log(talbe);
+    talbe.addEventListener('scroll', this.onScroll)
+    this.onScrollForContetntWidget()
+  },
+  beforeDestroy: function () {
+    document.body.removeEventListener('click', this.closeButton, true);
+    window.removeEventListener("resize", this.onResizeScreen)
+    window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
     onClickContent: function (type) {
@@ -503,7 +552,7 @@ export default {
       default:
       }
     },
-    onScroll: function () {
+    onScrollForContetntWidget: function () {
       var sections = ''
       var contentMenus = ''
       sections = document.querySelectorAll('.__dealer-component-content section')
@@ -536,9 +585,60 @@ export default {
       }
       // ACTION - if all checkbox is true, header checkbox to true
       document.getElementById("header-checkbox").checked = true
+    },
+    onClickMoreButton: function (e) {
+
+      e.stopPropagation()
+      // this.$tool.getisDialogShow(e)
+      
+      // GET - dialog element
+      this.dialogEl = e.currentTarget.parentNode.getElementsByClassName('__chekt-dialog')[0]
+      if (!this.dialogEl) return
+
+      // GET - target position
+      this.targetEl = e.currentTarget
+      if (!this.targetEl) return
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      this.dialogEl.style.top = this.targetRect.y - this.dialogEl.offsetHeight - 5 +'px'
+      this.dialogEl.style.left = this.targetRect.x - this.dialogEl.offsetWidth + this.targetEl.offsetWidth +'px'
+
+      // ACTION - toggle show/hidden
+      this.dialogEl.classList.add('active')
+      this.targetEl.classList.add('active')
+    },
+    closeButton: function (e) {
+      if (!this.dialogEl) return
+      if (this.dialogEl.classList.contains('active')) e.stopPropagation()
+      this.dialogEl.classList.remove('active')
+      this.targetEl.classList.remove('active')
+    },
+    // onResizeScreen: function () {
+
+    //   // GET - dialog element
+    //   if (!this.dialogEl) return
+
+    //   // GET - target position
+    //   this.targetRect = this.targetEl.getBoundingClientRect();
+
+    //   // ADD - position css
+    //   this.dialogEl.style.top = this.targetRect.y - this.dialogEl.offsetHeight - 5 +'px'
+    //   this.dialogEl.style.left = this.targetRect.x - this.dialogEl.offsetWidth + this.targetEl.offsetWidth +'px'
+
+    // },
+    onScroll: function () {
+      // GET - dialog element
+      if (!this.dialogEl) return
+
+      // GET - target position
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      this.dialogEl.style.top = this.targetRect.y - this.dialogEl.offsetHeight - 5 +'px'
+      this.dialogEl.style.left = this.targetRect.x - this.dialogEl.offsetWidth + this.targetEl.offsetWidth +'px'
+
     }
-
-
   }
 }
 </script>
@@ -633,15 +733,29 @@ export default {
 /* CHECKBOX */
 
 .checkbox {
-  display: block;
   position: relative;
-  padding-left: 14px;
-  margin-bottom: 14px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox-text {
+  margin-left: 7px;
+  color: var(--chekt-text-high);
+  font-size: 14px;
+}
+.checkbox-text.small {
+  font-size: 12px;
+  margin-left: 6px;
+}
+.checkbox-text.large {
+  font-size: 16px;
+  margin-left: 8px;
 }
 
 /* Hide the browser's default checkbox */
@@ -654,8 +768,13 @@ export default {
 }
 
 /* Create a custom checkbox */
+.checkmark.small {
+  height: 12px;
+  width: 12px;
+  border-radius: 2px;
+}
 .checkmark {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   height: 14px;
@@ -664,6 +783,11 @@ export default {
   background-color: white;
   box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px ;
 }
+.checkmark.large {
+  height: 16px;
+  width: 16px;
+  border-radius: 4px;
+}
 
 /* When the checkbox is checked, add a blue background */
 .checkbox input:checked ~ .checkmark {
@@ -671,6 +795,7 @@ export default {
   box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(30 136 229) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
   opacity: 1;
 }
+/* Click animation */
 .checkbox input ~ .checkmark {
   transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -679,6 +804,18 @@ export default {
   content: "";
   position: absolute;
   display: none;
+}
+/* Style the checkmark/indicator -- small */
+.checkbox .checkmark.small:after {
+  left: 3.5px;
+  top: 0px;
+  width: 2.1px;
+  height: 6.8px;
+  border: solid white;
+  border-width: 0 2.9px 2.9px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 /* Style the checkmark/indicator */
 .checkbox .checkmark:after {
@@ -691,7 +828,18 @@ export default {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-  transition: all 1s;
+}
+/* Style the checkmark/indicator -- large */
+.checkbox .checkmark.large:after {
+  left: 5px;
+  top: 0.2px;
+  width: 3px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2.9px 2.9px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 /* Show the checkmark when checked */
 .checkbox input:checked ~ .checkmark:after {
@@ -699,4 +847,61 @@ export default {
 }
 
 
+/* MORE */
+
+.more:hover {
+  box-shadow:rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  background-color: white;
+  transition: box-shadow .3s;
+}
+.more {
+  width: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.more:first-child {
+  pointer-events: none;
+}
+.more.active {
+  box-shadow:rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  background-color: white;
+}
+.__chekt-dialog {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px var(--chekt-border);
+  border: 1px solid var(--chekt-border);
+  border-radius: 5px;
+  min-width: 100px;
+  z-index: 1;
+  visibility: hidden;
+  background-color: white;
+  transform:scale(.8);
+  opacity: 0;
+  /* inset: auto 18px 98px auto; */
+  white-space: nowrap;
+}
+.__chekt-dialog.active {
+  visibility: visible;
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform:scale(1);
+  opacity: 1;
+}
+.__chekt-dialog > div {
+  padding: 8px 20px 8px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--chekt-primary-shadow-color);
+}
+.__chekt-dialog div.delete {
+  color: var(--chekt-danger-shadow-color);
+}
+.__chekt-dialog div:hover {
+  background-color: var(--chekt-blue-gray-lower);
+  color: var(--chekt-text-high);
+}
 </style>

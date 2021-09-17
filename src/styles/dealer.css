@@ -160,6 +160,32 @@ pre code {
 .__html-string {
   color: #424242;
 }
+
+/* js */
+.__js-handler {
+  color: #f20c0c;
+}
+.__js-string {
+  color: #f76c01;
+}
+.__js-comment {
+  color: #707070;
+}
+.__js-fname {
+  color: #9d5e2d;
+}
+.__js-tag {
+  color: #0012d8;
+}
+.__js-desc {
+  color: #000a79;
+}
+.__js-gr {
+  color: #b70092;
+}
+.__js-attribute {
+  color: #d63200;
+}
 /* code */
 
 

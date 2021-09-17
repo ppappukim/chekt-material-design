@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import {
   RESET_STATE,
-  WATCH_SCROLL_EVENT
+  IS_DIALOG_SHOW
 } from '@/store/mutation-types'
 
 let initialState = {
-  scrollPositon: 0,
+  isDialogShow: false,
   status: {
   }
 }
@@ -15,8 +15,8 @@ const state = Vue.util.extend({}, initialState)
 
 // getters
 const getters = {
-  scrollPositon: function (state) {
-    return state.scrollPositon
+  isDialogShow: function (state) {
+    return state.isDialogShow
   }
 }
 
@@ -31,8 +31,10 @@ const mutations = {
       Vue.set(state, f, initialState[f])
     }
   },
-  [WATCH_SCROLL_EVENT]: function (state, scrollPositon) {
-    state.scrollPositon = scrollPositon
+  [IS_DIALOG_SHOW]: function (state, isDialogShow) {
+    console.log('IS_DIALOG_SHOW');
+    console.log(isDialogShow);
+    state.isDialogShow = isDialogShow
 
   },
 }

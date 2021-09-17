@@ -4,9 +4,8 @@
     <div class="__dealer-contents-widget">
       <div class="__dealer-contents-title">CONTENTS</div>
       <div class="__dealer-contents-body">
-        <div class="dealer-content-move1" @click="onClickContent('1')">Default button</div>
-        <div class="dealer-content-move2" @click="onClickContent('2')">Button with icon</div>
-        <div class="dealer-content-move3" @click="onClickContent('3')">Button in loading</div>
+        <div class="dealer-content-move1" @click="onClickContent('1')">Default checkboxes</div>
+        <div class="dealer-content-move2" @click="onClickContent('2')">Checkbox with text</div>
       </div>
     </div>
 
@@ -45,15 +44,10 @@
               <span class="checkmark large"></span>
             </label>
           </div>
-          <div class="demo">                  
-            <label class="checkbox">
-              <input type="checkbox">
-              <span class="checkmark"></span>
-              <span class="checkbox-text">checkbox with text</span>
-            </label>
-          </div>
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
+
+          <!-- CODE -->
+
+          <!-- <div class="__dealer-subtitle2">
             HTML
           </div>
           <div>
@@ -78,18 +72,10 @@
               <span class="__html-tag">&lt;input </span><span class="__html-string">type="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/input&gt;</span>
               <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkmark large"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/span&gt;</span>
             <span class="__html-tag">&lt;/label&gt;</span>
-
-            <span class="__html-comment">/* with text */</span>
-            <span class="__html-tag">&lt;label </span><span class="__html-string">class="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
-              <span class="__html-tag">&lt;input </span><span class="__html-string">type="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/input&gt;</span>
-              <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkmark"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/span&gt;</span>
-              <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkbox-text"</span><span class="__html-tag">&gt;</span>checkbox with text<span class="__html-tag">&lt;/span&gt;</span>
-            <span class="__html-tag">&lt;/label&gt;</span>
               </code>
             </pre>
           </div>
 
-          <!-- CSS -->
           <div class="__dealer-subtitle2" style="margin-top:50px;">
             CSS
           </div>
@@ -225,42 +211,42 @@
 
               </code>
             </pre>
-          </div>
+          </div> -->
+
+          <!-- //CODE -->
+
         </section>
 
-        <!-- Button With Icon  -->
+        <!-- Checkbox with text  -->
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Button With Icon
+            Checkbox With Text
           </div>
           <div class="__dealer-subdescription">
-            Buttons may include an icon before or after the text.
+            Checkbox may include an icon before or after the text.
           </div>
-          <div class="demo">
-            <div class="button default icon">
-              <MyIcon v-bind:icon="'download'" v-bind:width="18" />
-              Button
-            </div>
-            <div class="button default icon">
-              Button
-              <MyIcon v-bind:icon="'download'" v-bind:width="18" />
-            </div>
-          </div>
-
-          <div class="demo">
-            <div class="button-small default icon">
-              <MyIcon v-bind:icon="'download'" v-bind:width="14" />
-              Button
-            </div>
-            <div class="button-large default icon">
-              <MyIcon v-bind:icon="'download'" v-bind:width="22" />
-              Button
-            </div>
+          <div class="demo">                  
+            <label class="checkbox">
+              <input type="checkbox">
+              <span class="checkmark small"></span>
+              <span class="checkbox-text small">checkbox with text</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+              <span class="checkbox-text">checkbox with text</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox">
+              <span class="checkmark large"></span>
+              <span class="checkbox-text large">checkbox with text</span>
+            </label>
           </div>
 
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
+          <!-- CODE -->
+
+          <!-- <div class="__dealer-subtitle2">
             HTML
           </div>
           <div>
@@ -268,115 +254,62 @@
               <code>
             <span class="__html-comment">/* buttons with icon */</span>
 
-            <span class="__html-comment">/* icon left */</span>
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
-              Button
-            <span class="__html-tag">&lt;/div&gt;</span>    
+            <span class="__html-comment">/* small */</span>
+            <span class="__html-tag">&lt;label </span><span class="__html-string">class="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+              <span class="__html-tag">&lt;input </span><span class="__html-string">type="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/input&gt;</span>
+              <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkmark small"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/span&gt;</span>
+              <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkbox-text small"</span><span class="__html-tag">&gt;</span>checkbox with text<span class="__html-tag">&lt;/span&gt;</span>
+            <span class="__html-tag">&lt;/label&gt;</span>
 
-            <span class="__html-comment">/* icon right */</span>   
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
-              Button
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
-            <span class="__html-tag">&lt;/div&gt;</span>
+            <span class="__html-comment">/* default */</span>
+            <span class="__html-tag">&lt;label </span><span class="__html-string">class="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+              <span class="__html-tag">&lt;input </span><span class="__html-string">type="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/input&gt;</span>
+              <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkmark"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/span&gt;</span>
+              <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkbox-text"</span><span class="__html-tag">&gt;</span>checkbox with text<span class="__html-tag">&lt;/span&gt;</span>
+            <span class="__html-tag">&lt;/label&gt;</span>
 
-            <span class="__html-comment">/* icon small */</span>   
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button-small default icon"</span><span class="__html-tag">&gt;</span>
-              Button
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
-            <span class="__html-tag">&lt;/div&gt;</span>
-
-            <span class="__html-comment">/* icon large */</span>   
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button-large default icon"</span><span class="__html-tag">&gt;</span>
-              Button
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">class="</span><span class="__html-class">myicon"</span><span class="__html-tag">&gt;</span>
-            <span class="__html-tag">&lt;/div&gt;</span>
+            <span class="__html-comment">/* large */</span>
+            <span class="__html-tag">&lt;label </span><span class="__html-string">class="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span>
+              <span class="__html-tag">&lt;input </span><span class="__html-string">type="</span><span class="__html-class">checkbox"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/input&gt;</span>
+              <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkmark large"</span><span class="__html-tag">&gt;</span><span class="__html-tag">&lt;/span&gt;</span>
+              <span class="__html-tag">&lt;span </span><span class="__html-string">class="</span><span class="__html-class">checkbox-text large"</span><span class="__html-tag">&gt;</span>checkbox with text<span class="__html-tag">&lt;/span&gt;</span>
+            <span class="__html-tag">&lt;/label&gt;</span>                        
               </code>
             </pre>
           </div>
 
-          <!-- CSS -->
           <div class="__dealer-subtitle2" style="margin-top:50px;">
             CSS
           </div>
           <div>
             <pre>
               <code>
-            <span class="__css-comment">/* button class는 위 default button을 확인하세요. */</span>
-
-            <span class="__css-comment">/* icon */</span>
-            <span class="__css-name">.button.icon  {</span>
-              <span class="__css-attribute">display:</span> <span class="__css-string">flex;</span>
-              <span class="__css-attribute">flex-direction:</span> <span class="__css-string">row;</span>
-              <span class="__css-attribute">justify-content:</span> <span class="__css-string">center;</span>       
-              <span class="__css-attribute">align-items:</span> <span class="__css-string">center;</span>
-              <span class="__css-attribute">grid-gap:</span> <span class="__css-string">5px;</span>
+            <span class="__css-comment">/* small */</span>
+            <span class="__css-name">.checkbox-text.small {</span>
+              <span class="__css-attribute">margin-left:</span> <span class="__css-string">6px;</span>
+              <span class="__css-attribute">font-size:</span> <span class="__css-string">12px;</span>
             <span class="__css-name">}</span>
 
-            <span class="__css-comment">/* icon size */</span>
-            <span class="__css-name">.button.icon  {</span>
-              <span class="__css-attribute">font-size:</span> <span class="__css-string">18px;</span>
-            <span class="__css-name">}</span>
-            <span class="__css-name">.button-small.icon  {</span>
+            <span class="__css-comment">/* default */</span>
+            <span class="__css-name">.checkbox-text {</span>
+              <span class="__css-attribute">margin-left:</span> <span class="__css-string">7px;</span>
               <span class="__css-attribute">font-size:</span> <span class="__css-string">14px;</span>
+              <span class="__css-attribute">color:</span> <span class="__css-string">var(--chekt-text-high);</span>
             <span class="__css-name">}</span>
-            <span class="__css-name">.button-large.icon  {</span>
-              <span class="__css-attribute">font-size:</span> <span class="__css-string">22px;</span>
+
+            <span class="__css-comment">/* large */</span>
+            <span class="__css-name">.checkbox-text.large {</span>
+              <span class="__css-attribute">margin-left:</span> <span class="__css-string">8px;</span>
+              <span class="__css-attribute">font-size:</span> <span class="__css-string">16px;</span>
             <span class="__css-name">}</span>
               </code>
             </pre>
-          </div>
-        </section>
-        <!-- Button In Lodaing  -->
-        <!-- ***************  -->
-        <section id="dealer-content-move3">
-          <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Button In Lodaing
-          </div>
-          <div class="__dealer-subdescription">
-            Set isLoading to indicate the button is loading. The button text is hidden and a spinner is shown in its place, while maintaining the width that it would have if the text were visible.
-          </div>
-          <div class="demo">
-            <div class="button default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-text-high);" />
-              Loading
-            </div>
-            <div class="button default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-text-high); width:64px;" />
-            </div>
-            <div class="button primary icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:white; width:64px;" />
-            </div>
-          </div>
+          </div> -->
 
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
-            HTML
-          </div>
-          <div>
-            <pre>
-              <code>
-            <span class="__html-comment">/* button in lodaing */</span>
-
-            <span class="__html-comment">/* loading with text */</span>
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
-              Loading
-            <span class="__html-tag">&lt;/div&gt;</span>    
-
-            <span class="__html-comment">/* loading */</span>   
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button default icon"</span><span class="__html-tag">&gt;</span>
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
-            <span class="__html-tag">&lt;/div&gt;</span>
-
-            <span class="__html-comment">/* loading primary */</span>   
-            <span class="__html-tag">&lt;div </span><span class="__html-string">class="</span><span class="__html-class">button primary icon"</span><span class="__html-tag">&gt;</span>
-              <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
-            <span class="__html-tag">&lt;/div&gt;</span>              </code>
-            </pre>
-          </div>
+          <!-- CODE -->
 
         </section>
+
 
 
       </div>
@@ -386,10 +319,10 @@
 </template>
 
 <script>
-import MyIcon from '@/MyIcon'
+// import MyIcon from '@/MyIcon'
 export default {
   components: {
-    MyIcon
+    // MyIcon
   },
   computed: {
     scrollPositon: function () {
@@ -462,9 +395,17 @@ export default {
   align-items: center;
 }
 .checkbox-text {
-  margin-left: 5px;
+  margin-left: 7px;
   color: var(--chekt-text-high);
   font-size: 14px;
+}
+.checkbox-text.small {
+  font-size: 12px;
+  margin-left: 6px;
+}
+.checkbox-text.large {
+  font-size: 16px;
+  margin-left: 8px;
 }
 
 /* Hide the browser's default checkbox */

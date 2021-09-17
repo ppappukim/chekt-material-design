@@ -42,8 +42,9 @@
             <div class="button-large default">Button</div>
           </div>
 
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
+          <!-- CODE -->
+
+          <!-- <div class="__dealer-subtitle2">
             HTML
           </div>
           <div>
@@ -64,7 +65,6 @@
             </pre>
           </div>
 
-          <!-- CSS -->
           <div class="__dealer-subtitle2" style="margin-top:50px;">
             CSS
           </div>
@@ -147,7 +147,10 @@
             <span class="__css-name">}</span>
               </code>
             </pre>
-          </div>
+          </div> -->
+
+          <!-- //CODE -->
+
         </section>
 
         <!-- Button With Icon  -->
@@ -181,8 +184,9 @@
             </div>
           </div>
 
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
+          <!-- CODE -->
+
+          <!-- <div class="__dealer-subtitle2">
             HTML
           </div>
           <div>
@@ -217,7 +221,6 @@
             </pre>
           </div>
 
-          <!-- CSS -->
           <div class="__dealer-subtitle2" style="margin-top:50px;">
             CSS
           </div>
@@ -247,7 +250,10 @@
             <span class="__css-name">}</span>
               </code>
             </pre>
-          </div>
+          </div> -->
+
+          <!-- CODE -->
+
         </section>
         <!-- Button In Lodaing  -->
         <!-- ***************  -->
@@ -271,8 +277,9 @@
             </div>
           </div>
 
-          <!-- HTML -->
-          <div class="__dealer-subtitle2">
+          <!-- CODE -->
+
+          <!-- <div class="__dealer-subtitle2">
             HTML
           </div>
           <div>
@@ -296,7 +303,9 @@
               <span class="__html-tag">&lt;MyIcon </span><span class="__html-string">icon="</span><span class="__html-class">loader"</span><span class="__html-tag">&gt;</span>
             <span class="__html-tag">&lt;/div&gt;</span>              </code>
             </pre>
-          </div>
+          </div> -->
+
+          <!-- //CODE -->
 
         </section>
 

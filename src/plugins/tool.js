@@ -45,6 +45,32 @@ const ToolPlugin = {
         document.body.appendChild(toast)
         return toast.present()
       },
+      getisDialogShow: function (target) {
+        console.log('getisDialogShow');
+
+        // GET - dialog element
+        var dialogEl = document.getElementById('dialog')
+        var dialogRect = dialogEl.getBoundingClientRect();
+        if (!dialogEl) return
+        // var dialogRect = dialogEl.getBoundingClientRect()
+
+        // GET - target position
+        var targetEl = target.currentTarget // 내가 클릭하기를 원하는 엘리먼트
+        var targetRect = targetEl.getBoundingClientRect();
+        console.log(targetEl.scrollTop);
+
+        // // ADD - position css
+        // dialogEl.style.inset = (targetRect.y) + 'px ' + (targetRect.x) + 'px ' +  'auto ' + 'auto'
+        // dialogEl.style.inset = '-365.094px 473.91px auto auto'
+        dialogEl.style.bottom = targetRect.bottom - targetRect.height - dialogRect.height - 5 + 'px'
+        dialogEl.style.left = targetRect.left - targetRect.width - dialogRect.width - 5 + 'px'
+        dialogEl.style.width = dialogRect.width + 'px'
+
+        // // ACTION - toggle show/hidden
+        // this.store.commit('IS_DIALOG_SHOW', true)
+        // if (!this.dialogEl) return
+        // this.dialogEl.classList.toggle('active')
+      },
       getStorageKey: function (key) {
         if ((key.indexOf(`chekt::prod::`) > -1) || (key.indexOf(`chekt::dev::`) > -1)) {
           return key

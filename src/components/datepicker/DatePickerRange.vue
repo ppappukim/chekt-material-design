@@ -1,11 +1,11 @@
 <template>
   <div style="position:relative;">
-    <div @click="onClickDatePickerRange($event)" class="button default icon date">
+    <div @click="onClickDatePickerRange($event, 'start')" class="button default icon date">
       <MyIcon v-bind:icon="'calendar'" v-bind:width="18" />
-      <div>{{buttonDate}}</div>
+      <div>{{buttonDateStart}} - {{buttonDateEnd}}</div>
     </div>
-    <!-- <input type="text" id="input_date" /> -->
-    <div id="__chekt-datepicker">
+    <!-- START CARLANDAR -->
+    <div id="__chekt-datepicker-range">
       <div class="date-picker-header">
         <div @click="changeMonth(-1)" class="date-picker-header-icon"><MyIcon v-bind:icon="'arrow-left'" v-bind:width="18" /></div>
         <div class="date-picker-header-info">
@@ -30,11 +30,19 @@
           <tr
             v-for="(week, i) in dates"
             v-bind:key="i">
+            
             <td
-            @click="setDate(day)"
+            @click="onClickDate(day)"
             v-for="(day, i) in week"
             v-bind:key="i"
-            v-bind:class="{ hasday:day ,selected:isSelectedDay === day && day && current_year + '-' + current_month === savedYearMonth}">
+            v-bind:class="{ 
+              hasday:day,
+              startday:new Date(current_year, current_month, day).getTime() == new Date(savedStartYear, savedStartMonth, isSelectedStartDay).getTime() && day,
+              endday:new Date(current_year, current_month, day).getTime() == new Date(savedEndYear, savedEndMonth, isSelectedEndDay).getTime() && day,
+              range: new Date(savedStartYear, savedStartMonth, isSelectedStartDay).getTime() < new Date(current_year, current_month, day).getTime() && day && isSelectedStartDay,
+              rangeremove: new Date(savedEndYear, savedEndMonth, isSelectedEndDay).getTime() < new Date(current_year, current_month, day).getTime() && day && isSelectedEndDay,
+              disable: new Date(savedStartYear, savedStartMonth, isSelectedStartDay).getTime() > new Date(current_year, current_month, day).getTime() && day && isSelectedStartDay && !isSelectedEndDay,
+              }">
               {{day}}
             </td>
           </tr>
@@ -60,12 +68,19 @@ export default {
       current_year: (new Date()).getFullYear(),
       current_month: (new Date()).getMonth() + 1,
       dates: [],
+      lowDates: [],
       datePickerEl: '',
-      buttonDate: 'Select day',
-      isSelectedDay: '',
+      buttonDateStart: 'Select Start day',
+      buttonDateEnd: 'End day',
       current_month_text: '',
       current_month_text_simple: '',
-      savedYearMonth: '',
+      isSelectedStartDay: '',
+      isSelectedEndDay: '',
+
+      savedStartMonth: '',
+      savedStartYear: '',
+      savedEndMonth: '',
+      savedEndYear: '',
     }
   },
   watch: {
@@ -106,6 +121,7 @@ export default {
       return (new Date(year+"-"+month+"-01")).getDay();
     },
     changeYearMonth: function (year, month) {
+
       let month_day = [31,28,31,30,31,30,31,31,30,31,30,31];
 
       if(month == 2) {
@@ -133,6 +149,7 @@ export default {
       this.getMonthToText()
     },
     renderCalendar: function (data) {
+      this.lowDates = data
       let h = [];
       h[1] = []
       h[2] = []
@@ -164,15 +181,44 @@ export default {
       }
       this.dates = h
     },
-    setDate: function (day) {
+    onClickDate: function (day) {
+      // CHECK - day data
       if (!day) return
-      this.buttonDate = day + ' ' + this.current_month_text_simple + ", " + this.current_year
-      this.isSelectedDay = day
+
+      // CHECK - Start day & End day
+      if (this.isSelectedStartDay && this.isSelectedEndDay) {
+
+        // PUT - Start date Data
+        this.isSelectedStartDay = day
+        this.savedStartYear = this.current_year
+        this.savedStartMonth = this.current_month
+        this.buttonDateStart = day + ' ' + this.current_month_text_simple + ", " + this.current_year
+
+        // DELETE - End date Data
+        this.isSelectedEndDay = ''
+        this.buttonDateEnd = 'End day'
+      }
+      // CHECK - Start day
+      else if (!this.isSelectedStartDay) {
+        // PUT - Start date Data
+        this.isSelectedStartDay = day
+        this.savedStartYear = this.current_year
+        this.savedStartMonth = this.current_month
+        this.buttonDateStart = day + ' ' + this.current_month_text_simple + ", " + this.current_year
+      }
+      else {
+        // PUT - End date Data
+        this.buttonDateEnd = day + ' ' + this.current_month_text_simple + ", " + this.current_year
+        this.isSelectedEndDay = day
+        this.savedEndYear = this.current_year
+        this.savedEndMonth = this.current_month
+
+        this.datePickerEl.classList.remove('active')
+      }
+
+
+
       this.getMonthToText()
-
-      this.savedYearMonth = this.current_year + '-' + this.current_month
-
-      this.datePickerEl.classList.remove('active')
 
     },
     changeMonth: function (diff) {
@@ -188,8 +234,8 @@ export default {
         this.current_month = 1;
       }
       
-
       this.changeYearMonth(this.current_year,this.current_month)
+
     },
     getMonthToText: function () {
       switch (this.current_month) {
@@ -248,12 +294,10 @@ export default {
     },
     onClickDatePickerRange: function (e) {
 
-      // 달력 다시 켯을때 선택한 날짜가 있는 달로 가기.
-      if (this.savedYearMonth) {
-        var savedYearMonthSplit = this.savedYearMonth.split('-')
-        var year = parseInt(savedYearMonthSplit[0])
-        var month = parseInt(savedYearMonthSplit[1])
-
+      if (this.savedStartYear && this.savedStartMonth) {
+        var year = this.savedStartYear
+        var month = this.savedStartMonth
+        
         this.current_year = year
         this.current_month = month
 
@@ -263,7 +307,7 @@ export default {
       e.stopPropagation()
       
       // GET - dialog element
-      this.datePickerEl = document.getElementById('__chekt-datepicker')
+      this.datePickerEl = document.getElementById('__chekt-datepicker-range')
       if (!this.datePickerEl) return
 
       // GET - target position
@@ -283,8 +327,9 @@ export default {
     },
     closeButton: function (e) {
       if (!this.datePickerEl) return
-      // closest() - #__chekt-datepicker 이하 모든 자식노드를 클릭했을때 감지됨!! 
-      if (e.target.closest("#__chekt-datepicker")) return
+      // closest() - #__chekt-datepicker-range 이하 모든 자식노드를 클릭했을때 감지됨!! 
+      if (e.target.closest("#__chekt-datepicker-range")) return
+      if (e.target.closest("#__chekt-datepicker-range-end")) return
       if (this.datePickerEl.classList.contains('active')) e.stopPropagation()
       this.datePickerEl.classList.remove('active')
       this.targetEl.classList.remove('active')
@@ -313,8 +358,6 @@ export default {
       this.datePickerEl.style.left = this.targetRect.x  +'px'
 
     }
-    // 참고 코드링크
-    // https://github.com/seungwongo/dev_dignity/blob/master/examples/html/calendar.html
 
   }
 }
@@ -323,8 +366,8 @@ export default {
 
 <style scoped>
 /* common date picker */
-#__chekt-datepicker {
-  background-color: var(--chekt-blue-gray-lower);
+#__chekt-datepicker-range, #__chekt-datepicker-range-end {
+  background-color: white;
   width: 280px;
   padding: 30px 30px;
   position: fixed;
@@ -335,7 +378,7 @@ export default {
   visibility: hidden;
   user-select: none;
 }
-#__chekt-datepicker.active {
+#__chekt-datepicker-range.active, #__chekt-datepicker-range-end.active {
   visibility: visible;
   transform: scale(1);
   opacity: 1;
@@ -392,18 +435,55 @@ export default {
 }
 .table > tbody > tr > td.hasday:hover {
   background-color: var(--chekt-blue-gray-mideum);
-}
-.table > tbody > tr > td.selected {
-  background-color: var(--chekt-primary-color);
-  color: white;
-}
-.table > tbody > tr > td.selected:hover {
-  background-color: var(--chekt-primary-color);
-  color: white;
+  color: var(--chekt-blue-gray-higher);
 }
 
+
+.table > tbody > tr > td.range {
+  background-color: #5aa3e2;
+  color: white;
+}
+.table > tbody > tr > td.range:hover {
+  background-color: #4c92d0;
+  color: white;
+}
+.table > tbody > tr > td.rangeremove {
+  background-color: white;
+  color: var(--chekt-blue-gray-higher);
+}
+.table > tbody > tr > td.startday {
+  background-color: var(--chekt-primary-color);
+  color: white;
+}
+.table > tbody > tr > td.startday:hover {
+  background-color: var(--chekt-primary-color);
+  color: white;
+}
+.table > tbody > tr > td.endday {
+  background-color: var(--chekt-primary-color);
+  color: white;
+}
+.table > tbody > tr > td.endday:hover {
+  background-color: var(--chekt-primary-color);
+  color: white;
+}
+.table > tbody > tr > td.disable {
+  background-color: white;
+  color: var(--chekt-blue-gray-mideum);
+  pointer-events: none;
+}
+
+
+
+.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
 /* button */
+
 .button {
   padding: 7px 10px;
   color: white;

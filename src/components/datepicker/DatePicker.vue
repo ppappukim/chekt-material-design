@@ -324,7 +324,7 @@ export default {
 <style scoped>
 /* common date picker */
 #__chekt-datepicker {
-  background-color: var(--chekt-blue-gray-lower);
+  /* background-color: var(--chekt-blue-gray-lower); */
   width: 280px;
   padding: 30px 30px;
   position: fixed;
@@ -334,6 +334,8 @@ export default {
   opacity: 0;
   visibility: hidden;
   user-select: none;
+  background-color: white;
+  z-index: 300;
 }
 #__chekt-datepicker.active {
   visibility: visible;

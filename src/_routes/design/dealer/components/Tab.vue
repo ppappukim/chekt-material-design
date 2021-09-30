@@ -1,7 +1,7 @@
 <template>
   <div class="__dealer-component">
     <div class="__dealer-title">
-      Range slider
+      Tabs
     </div>
     <div class="__dealer-description">
       Under Development

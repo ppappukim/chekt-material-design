@@ -17,6 +17,7 @@
           </ul>
           <div class="section">Components</div>
           <ul class="topics-container">
+            <li v-on:click="onClickList($event,'avatar')">Avatar</li>
             <li v-on:click="onClickList($event,'badge')">Badge</li>
             <li v-on:click="onClickList($event,'buttons')">Buttons</li>
             <li v-on:click="onClickList($event,'cards')">Cards</li>
@@ -24,11 +25,17 @@
             <li v-on:click="onClickList($event,'datatable')">Data table</li>
             <li v-on:click="onClickList($event,'datepicker')">Date Picker</li>
             <li v-on:click="onClickList($event,'dialog')">Dialog</li>
+            <li v-on:click="onClickList($event,'dropdown')">Draop Down</li>
             <li v-on:click="onClickList($event,'label')">Label</li>
             <li v-on:click="onClickList($event,'loading')">Loading</li>
             <li v-on:click="onClickList($event,'modal')">Modal</li>
-            <li v-on:click="onClickList($event,'rangeslider')">Range Slider</li>
+            <li v-on:click="onClickList($event,'radio')">Radio</li>
+            <li v-on:click="onClickList($event,'range')">Range</li>
+            <li v-on:click="onClickList($event,'tab')">Tabs</li>
+            <li v-on:click="onClickList($event,'textinput')">Text Input</li>
             <li v-on:click="onClickList($event,'toast')">Toast</li>
+            <li v-on:click="onClickList($event,'toggle')">Toggle</li>
+            <li v-on:click="onClickList($event,'tooltip')">Tooltips</li>
           </ul> 
         </div>
       </aside>

@@ -63,8 +63,8 @@ const childRoute = {
       component: () => import("@/_routes/design/dealer/components/Modal"),
     },
     {
-      path: 'rangeslider',
-      component: () => import("@/_routes/design/dealer/components/RangeSlider"),
+      path: 'range',
+      component: () => import("@/_routes/design/dealer/components/Range"),
     },
     {
       path: 'toast',
@@ -75,10 +75,33 @@ const childRoute = {
       component: () => import("@/_routes/design/dealer/components/Badge"),
     },
     {
-      path: 'badge',
-      component: () => import("@/_routes/design/dealer/components/Badge"),
+      path: 'radio',
+      component: () => import("@/_routes/design/dealer/components/Radio"),
     },
-
+    {
+      path: 'avatar',
+      component: () => import("@/_routes/design/dealer/components/Avatar"),
+    },
+    {
+      path: 'dropdown',
+      component: () => import("@/_routes/design/dealer/components/DropDown"),
+    },
+    {
+      path: 'tab',
+      component: () => import("@/_routes/design/dealer/components/Tab"),
+    },
+    {
+      path: 'textinput',
+      component: () => import("@/_routes/design/dealer/components/TextInput"),
+    },
+    {
+      path: 'toggle',
+      component: () => import("@/_routes/design/dealer/components/Toggle"),
+    },
+    {
+      path: 'tooltip',
+      component: () => import("@/_routes/design/dealer/components/Tooltip"),
+    },
   ]
 }
 

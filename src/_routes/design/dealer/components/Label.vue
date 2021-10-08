@@ -31,7 +31,7 @@
           <div class="__dealer-subdescription">
             The default form of a button, used for most cases. They are not impactful enough to represent the primary action in a container.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="label default">Label</div>
             <div class="label normal">Normal</div>
             <div class="label danger">Danger</div>
@@ -40,7 +40,7 @@
             <div class="label other">Other</div>
             <div class="label disabled">Disabled</div>
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="label small default">
               Label
 
@@ -59,7 +59,7 @@
           <div class="__dealer-subdescription">
             Once a tag has been removed, it cannot be re-rendered. Removable tags are visible in "edit" mode or in multi-select controls.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="label large normal icon">
               bobby@chekt.com
               <div @click="onClickCloseLabel($event)" class="label-icon">
@@ -84,7 +84,7 @@
           <div class="__dealer-subdescription">
             Once a tag has been removed, it cannot be re-rendered. Removable tags are visible in "edit" mode or in multi-select controls.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="label default icon">
               <div class="label-icon">
                 <MyIcon v-bind:icon="'person-circle'" v-bind:width="16"/>
@@ -170,14 +170,6 @@ export default {
 </script>
 
 <style scoped>
-.demo {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  flex-wrap: wrap;
-  grid-gap: 20px;
-  margin: 48px 0;
-}
 
 /* common button */
 .label {

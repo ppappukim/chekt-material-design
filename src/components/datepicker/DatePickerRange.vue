@@ -1,6 +1,6 @@
 <template>
   <div style="position:relative;">
-    <div @click="onClickDatePickerRange($event, 'start')" class="button default icon date">
+    <div @click="onClickDatePickerRange($event)" class="button default icon date">
       <MyIcon v-bind:icon="'calendar'" v-bind:width="18" />
       <div>{{buttonDateStart}} - {{buttonDateEnd}}</div>
     </div>

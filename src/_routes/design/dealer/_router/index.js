@@ -83,8 +83,8 @@ const childRoute = {
       component: () => import("@/_routes/design/dealer/components/Avatar"),
     },
     {
-      path: 'dropdown',
-      component: () => import("@/_routes/design/dealer/components/DropDown"),
+      path: 'select',
+      component: () => import("@/_routes/design/dealer/components/Select"),
     },
     {
       path: 'tab',

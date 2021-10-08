@@ -31,7 +31,7 @@
           <div class="__dealer-subdescription">
             The default form of a range.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <Range/>
           </div>
 
@@ -48,7 +48,7 @@
             Discrete sliders can be adjusted to a specific value by referencing its value indicator.
             Allowed selections may be organized and indicated with tick marks that a slider thumb will snap to. 
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <DoubleRange/>
           </div>
 
@@ -62,7 +62,7 @@
           <div class="__dealer-subdescription">
             Range used with the value.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <RangeWithValue/>
           </div>
         </section>
@@ -131,13 +131,4 @@ export default {
 </script>
 
 <style scoped>
-.demo {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  flex-wrap: wrap;
-  grid-gap: 20px;
-  margin: 48px 0;
-}
-
 </style>

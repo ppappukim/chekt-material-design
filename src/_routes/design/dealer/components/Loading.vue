@@ -31,7 +31,7 @@
           <div class="__dealer-subdescription">
             A spinner is an animated spinning icon that lets users know content is being loaded.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="default icon loading">
               <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-text-high);" />
             </div>
@@ -45,7 +45,7 @@
               <MyIcon v-bind:icon="'loader'" v-bind:width="48" style="stroke:var(--chekt-text-high);" />
             </div>
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="default icon loading">
               <MyIcon v-bind:icon="'loader'" v-bind:width="24" style="stroke:var(--chekt-blue-gray-higher);" />
             </div>
@@ -74,13 +74,13 @@
           <div class="__dealer-subdescription">
             A spinner is an animated spinning icon with text that lets users know content is being loaded.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="icon loading">
               <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-blue-gray-higher);" />
               <div class="loading-text">Loading...</div>
             </div>
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="icon-column loading">
               <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-blue-gray-higher);" />
               <div class="loading-text">Loading Data...</div>
@@ -157,14 +157,6 @@ export default {
 </script>
 
 <style scoped>
-.demo {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  flex-wrap: wrap;
-  grid-gap: 20px;
-  margin: 48px 0;
-}
 
 /* common button */
 

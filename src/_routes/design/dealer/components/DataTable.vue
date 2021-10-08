@@ -33,7 +33,7 @@
             The data table toolbar gives a location for primary buttons, search, filtering, table display settings, and other utilities.
           </div>
           <!-- DEMO TABLE DEFAULT -->
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="table">
               <table>
                 <!-- TABLE HEAD -->
@@ -71,7 +71,7 @@
           </div>
 
           <!-- DEMO TABLE LARGE -->
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="table">
               <table>
                 <!-- TABLE HEAD -->
@@ -110,7 +110,7 @@
           </div>
 
           <!-- DEMO TABLE VENTI -->
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="table">
               <table>
                 <!-- TABLE HEAD -->
@@ -270,7 +270,7 @@
             Table may include an checkbox before or after the cell.
           </div>
           <!-- DEMO TABLE DEFAULT -->
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="table">
               <table>
                 <!-- TABLE HEAD -->
@@ -423,7 +423,7 @@
           <div class="__dealer-subdescription">
             Data tables are an enhanced version of an HTML table and are used to display tabular data.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div id="table-with-dialog" class="table">
               <table>
                 <!-- TABLE HEAD -->
@@ -644,15 +644,6 @@ export default {
 </script>
 
 <style scoped>
-.demo {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  flex-wrap: wrap;
-  grid-gap: 20px;
-  margin: 48px 0;
-}
-
 /* TABLE */
 .table {
   width: 100%;

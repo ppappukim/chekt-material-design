@@ -31,7 +31,7 @@
           <div class="__dealer-subdescription">
             By default, selecting the date field opens the calendar view. The current date text is bold, underlined, and highlighted blue.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <DatePicker/>
           </div>
 
@@ -46,7 +46,7 @@
           <div class="__dealer-subdescription">
             By default, selecting the date field opens the calendar view. The current date text is bold, underlined, and highlighted blue.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <DatePickerRange/>
           </div>
         </section>
@@ -122,13 +122,5 @@ export default {
 </script>
 
 <style scoped>
-.demo {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  flex-wrap: wrap;
-  grid-gap: 20px;
-  margin: 48px 0;
-}
 
 </style>

@@ -101,21 +101,22 @@ export default {
   height: 20px;
   background-color: var(--chekt-primary-color);
   border-radius: 50%;
-}
-.__chekt-range-value-slider > .__chekt-range-value-thumb {
   left: 0%;
   transform: translate(-10px, -6px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .__chekt-range-value-info {
   position:absolute;
-  top: calc(-100% + -10px);
-  left: -50%;
-  padding: 3px 10px;
+  top: calc(-100% + -7px);
+  padding: 3px 6px;
   font-size: 14px;
   font-weight: 500;
-  background-color: white;
-  color: var(--chekt-blue-gray-highest);
+  background-color: var(--chekt-primary-color);
+  color: white;
   box-shadow: 0px 0px 5px var(--chekt-border);
   border: solid 1px var(--chekt-border);
   display: flex;

@@ -30,7 +30,7 @@
           <div class="__dealer-subdescription">
             Commonly used feature on many devices.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="icon">
               <MyIcon style="color:#8FC5D0;" v-bind:icon="'person-circle'" v-bind:width="48" />
               <div class="badge">2</div>
@@ -109,7 +109,7 @@
           <div class="__dealer-subdescription">
             When new notification is catched.
           </div>
-           <div class="demo">
+           <div class="__dealer-demo">
             <div class="icon">
               <MyIcon v-bind:icon="'bell'" v-bind:width="32" />
               <div class="small-badge"></div>
@@ -236,14 +236,6 @@ export default {
 </script>
 
 <style scoped>
-.demo {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  flex-wrap: wrap;
-  align-items: start;
-  margin: 48px 0;
-}
 .icon {
   position: relative;
   margin-right: 20px;

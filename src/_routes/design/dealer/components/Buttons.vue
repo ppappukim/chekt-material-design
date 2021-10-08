@@ -31,13 +31,13 @@
           <div class="__dealer-subdescription">
             The default form of a button, used for most cases. They are not impactful enough to represent the primary action in a container.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="button default">Button</div>
             <div class="button primary">Button</div>
             <div class="button danger">Button</div>
             <div class="button success">Button</div>
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="button-small default">Button</div>
             <div class="button-large default">Button</div>
           </div>
@@ -162,7 +162,7 @@
           <div class="__dealer-subdescription">
             Buttons may include an icon before or after the text.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="button default icon">
               <MyIcon v-bind:icon="'download'" v-bind:width="18" />
               Button
@@ -173,7 +173,7 @@
             </div>
           </div>
 
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="button-small default icon">
               <MyIcon v-bind:icon="'download'" v-bind:width="14" />
               Button
@@ -264,7 +264,7 @@
           <div class="__dealer-subdescription">
             Set isLoading to indicate the button is loading. The button text is hidden and a spinner is shown in its place, while maintaining the width that it would have if the text were visible.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <div class="button default icon loading">
               <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-text-high);" />
               Loading
@@ -369,14 +369,6 @@ export default {
 </script>
 
 <style scoped>
-.demo {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  flex-wrap: wrap;
-  grid-gap: 20px;
-  margin: 48px 0;
-}
 
 /* common button */
 .button {

@@ -30,7 +30,7 @@
           <div class="__dealer-subdescription">
             Checkboxes should be used instead of switches if multiple options can be selected from a list.
           </div>
-          <div class="demo">
+          <div class="__dealer-demo">
             <label class="checkbox">
               <input type="checkbox">
               <span class="checkmark small"></span>
@@ -226,7 +226,7 @@
           <div class="__dealer-subdescription">
             Checkbox may include an icon before or after the text.
           </div>
-          <div class="demo">                  
+          <div class="__dealer-demo">                  
             <label class="checkbox">
               <input type="checkbox">
               <span class="checkmark small"></span>
@@ -371,14 +371,6 @@ export default {
 </script>
 
 <style scoped>
-.demo {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  flex-wrap: wrap;
-  grid-gap: 20px;
-  margin: 48px 0;
-}
 
 /* CHECKBOX */
 

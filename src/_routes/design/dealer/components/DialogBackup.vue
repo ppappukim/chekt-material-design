@@ -32,38 +32,7 @@
             dialogs are displayed when triggered by a user action, usually by clicking a button.</div>
           <!-- DEMO -->
           <div class="__dealer-demo">
-            <div class="dialog-wrapper">
-              <div class="dialog" v-bind:class="{ active:defaultTopBtnIsClicked }">
-                <div>Save</div>
-                <div>Edit</div>
-                <div class="delete">Delete</div>
-              </div>
-              <div @click="onClickButton('default top')" id="dialogbtn1" class="button default">Click me</div>
-            </div>
-            <div class="dialog-wrapper">
-              <div class="dialog right" v-bind:class="{ active:defaultRightBtnIsClicked }">
-                <div>Save</div>
-                <div>Edit</div>
-                <div class="delete">Delete</div>
-              </div>
-              <div @click="onClickButton('default right')" id="dialogbtn2" class="button default">Click me</div>
-            </div>
-            <div class="dialog-wrapper">
-              <div class="dialog left" v-bind:class="{ active:defaultLeftBtnIsClicked }">
-                <div>Save</div>
-                <div>Edit</div>
-                <div class="delete">Delete</div>
-              </div>
-              <div @click="onClickButton('default left')" id="dialogbtn3" class="button default">Click me</div>
-            </div>
-            <div class="dialog-wrapper">
-              <div class="dialog bottom" v-bind:class="{ active:defaultBottomBtnIsClicked }">
-                <div>Save</div>
-                <div>Edit</div>
-                <div class="delete">Delete</div>
-              </div>
-              <div @click="onClickButton('default bottom')" id="dialogbtn4" class="button default">Click me</div>
-            </div>
+            <Dialog/>
           </div>
         </section>
 
@@ -79,7 +48,7 @@
           <!-- DEMO -->
           <div class="__dealer-demo">
             <div class="dialog-wrapper">
-              <div class="dialog" v-bind:class="{ active:CategoryBtnIsClicked }">
+              <div id="__chekt-dialog-category">
                 <div class="category">ACTIONS</div>
                 <div>Save</div>
                 <div>Edit</div>
@@ -89,7 +58,7 @@
                 <div>View customer</div>
                 <div>View site</div>
               </div>
-              <div @click="onClickButtonCategory()" id="dialogbtnCate" class="button default">Click me</div>
+              <div @click="onClickButtonCategory($event)" id="dialogbtnCate" class="button default">Click me</div>
             </div>
           </div>
         </section>
@@ -106,7 +75,7 @@
           <!-- DEMO -->
           <div class="__dealer-demo">
             <div class="dialog-wrapper">
-              <div class="dialog" v-bind:class="{ active:IconBtnIsClicked }">
+              <div id="__chekt-dialog-icon">
                 <div class="icon">
                   <MyIcon v-bind:icon="'edit'" v-bind:width="18" />
                   <div>Edit</div>
@@ -120,7 +89,7 @@
                   <div>Delete</div>
                 </div>
               </div>
-              <div @click="onClickButtonIcon()" id="dialogbtnIcon" class="button default">Click me</div>
+              <div @click="onClickButtonIcon($event)" id="dialogbtnIcon" class="button default">Click me</div>
             </div>
           </div>
 
@@ -135,9 +104,11 @@
 
 <script>
 import MyIcon from '@/MyIcon'
+import Dialog from '@/components/dialogs/Dialog'
 export default {
   components: {
     MyIcon,
+    Dialog
   },
   computed: {
     scrollPositon: function () {
@@ -146,12 +117,8 @@ export default {
   },
   data: function() {
     return {
-      defaultTopBtnIsClicked: false,
-      defaultRightBtnIsClicked: false,
-      defaultLeftBtnIsClicked: false,
-      defaultBottomBtnIsClicked: false,
-      CategoryBtnIsClicked: false,
-      IconBtnIsClicked: false
+      dialogEl: '',
+      targetEl: '',
     }
   },
   watch: {
@@ -191,58 +158,72 @@ export default {
       contentMenus = document.querySelectorAll('.__dealer-contents-widget .__dealer-contents-body div')
       this.$tool.scrollContentsWidgetMoving(sections, contentMenus)
     },
-    onClickButton: function (buttonType) {
-      switch (buttonType) {
-        case 'default top':
-          this.defaultTopBtnIsClicked =! this.defaultTopBtnIsClicked
-          this.defaultRightBtnIsClicked = false
-          this.defaultLeftBtnIsClicked = false  
-          this.defaultBottomBtnIsClicked = false        
+    onClickButton: function (e, direction) {
+
+      // GET - dialog element
+      this.dialogEl = document.getElementById('__chekt-dialog')
+      if (!this.dialogEl) return
+
+      // GET - target position
+      this.targetEl = e.currentTarget
+      if (!this.targetEl) return
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      switch (direction) {
+        case 'up':
+          this.dialogEl.style.top = this.targetRect.y - this.dialogEl.offsetHeight - 5 +'px'
+          this.dialogEl.style.left = this.targetRect.x  +'px'
           break;
-        case 'default right':
-          this.defaultRightBtnIsClicked =! this.defaultRightBtnIsClicked
-          this.defaultTopBtnIsClicked = false
-          this.defaultLeftBtnIsClicked = false  
-          this.defaultBottomBtnIsClicked = false        
+        case 'bottom':
+          this.dialogEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
+          this.dialogEl.style.left = this.targetRect.x  +'px'
           break;
-        case 'default left':
-          this.defaultLeftBtnIsClicked =! this.defaultLeftBtnIsClicked
-          this.defaultTopBtnIsClicked = false
-          this.defaultRightBtnIsClicked = false  
-          this.defaultBottomBtnIsClicked = false          
+        case 'left':
+          this.dialogEl.style.top = this.targetRect.y +'px'
+          this.dialogEl.style.left = this.targetRect.x - this.dialogEl.offsetWidth - 5 +'px'
           break;
-        case 'default bottom':
-          this.defaultBottomBtnIsClicked =! this.defaultBottomBtnIsClicked
-          this.defaultTopBtnIsClicked = false
-          this.defaultLeftBtnIsClicked = false  
-          this.defaultRightBtnIsClicked = false          
+        case 'right':
+          this.dialogEl.style.top = this.targetRect.y + 'px'
+          this.dialogEl.style.left = this.targetRect.x + this.targetEl.offsetWidth + 5 +'px'
           break;
         default:
           break;
       }
+
+      // ACTION - toggle show/hidden
+      this.dialogEl.classList.add('active')
+      this.targetEl.classList.add('active')
     },
-    onClickButtonCategory: function () {
-      this.CategoryBtnIsClicked =! this.CategoryBtnIsClicked
+    onClickButtonCategory: function (e) {
+
+      // GET - dialog element
+      this.dialogEl = document.getElementById('__chekt-dialog-category')
+      if (!this.dialogEl) return
+
+      // GET - target position
+      this.targetEl = e.currentTarget
+      if (!this.targetEl) return
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      this.dialogEl.style.top = this.targetRect.y - this.dialogEl.offsetHeight - 5 +'px'
+      this.dialogEl.style.left = this.targetRect.x  +'px'
+
+      // ACTION - toggle show/hidden
+      this.dialogEl.classList.add('active')
+      this.targetEl.classList.add('active')
     },
     onClickButtonIcon: function () {
       this.IconBtnIsClicked =! this.IconBtnIsClicked
     },
     closeButton: function (e) {
-      if (e.target.id === 'dialogbtn1' || 
-          e.target.id === 'dialogbtn2' || 
-          e.target.id === 'dialogbtn3' || 
-          e.target.id === 'dialogbtn4' ||
-          e.target.id === 'dialogbtnCate' ||
-          e.target.id === 'dialogbtnIcon'
-          ) return
-      else {
-        this.defaultTopBtnIsClicked = false
-        this.defaultRightBtnIsClicked = false
-        this.defaultLeftBtnIsClicked = false
-        this.defaultBottomBtnIsClicked = false
-        this.CategoryBtnIsClicked = false
-        this.IconBtnIsClicked = false
-      }
+      if (!this.dialogEl) return
+      // closest() - #__chekt-datepicker 이하 모든 자식노드를 클릭했을때 감지됨!! 
+      if (e.target.closest("#__chekt-datepicker")) return
+      if (this.dialogEl.classList.contains('active')) e.stopPropagation()
+      this.dialogEl.classList.remove('active')
+      this.targetEl.classList.remove('active')
     },
   }
 }
@@ -255,41 +236,34 @@ export default {
   position: relative;
 }
 
-.dialog {
-  position: absolute;
+#__chekt-dialog, #__chekt-dialog-category, #__chekt-dialog-icon{
+  position: fixed;
   display: flex;
   flex-direction: column;
   box-shadow: 0px 0px 10px var(--chekt-border);
   border: 1px solid var(--chekt-border);
   border-radius: 5px;
-  min-width: 100%;
   z-index: 1;
   visibility: hidden;
   background-color: white;
   transform:scale(.8);
   opacity: 0;
-  inset: auto 0px 37px auto;
   white-space: nowrap;
-  padding: 5px 0px;
+}
+#__chekt-dialog.active, #__chekt-dialog-category.active {
+  visibility: visible;
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform:scale(1);
+  opacity: 1;
 }
 
-.dialog.right {
-  inset: auto -82px 0px auto;
-}
-.dialog.left {
-  inset: auto 81px 0px auto;
-}
-.dialog.bottom {
-  inset: auto 0px -112px auto;
-}
-
-.dialog .category {
+#__chekt-dialog-category .category {
   font-size: 12px;
   padding: 14px 10px 7px 10px;
   color: var(--chekt-blue-gray-higher);
   pointer-events: none;
 }
-.dialog .line {
+#__chekt-dialog-category .line {
   border-bottom: solid 1px var(--chekt-border);
   height: 1px;
   padding: 0;
@@ -301,24 +275,18 @@ export default {
   align-items: center;
   grid-gap: 5px;
 }
-.dialog > div {
+#__chekt-dialog > div, #__chekt-dialog-category > div {
   padding: 8px 20px 8px 10px;
   font-size: 14px;
   cursor: pointer;
   color: var(--chekt-primary-shadow-color);
 }
-.dialog div.delete {
+#__chekt-dialog div.delete, #__chekt-dialog-category > div.delete {
   color: var(--chekt-danger-shadow-color);
 }
-.dialog div:hover {
+#__chekt-dialog div:hover, #__chekt-dialog-category div:hover {
   background-color: var(--chekt-blue-gray-lower);
   color: var(--chekt-text-high);
-}
-.dialog.active {
-  visibility: visible;
-  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transform:scale(1);
-  opacity: 1;
 }
 
 /* BUTTON */
@@ -344,4 +312,17 @@ export default {
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* ANIMATIONS */
+
+@keyframes pop {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width:  %;
+  }
+}
 </style>

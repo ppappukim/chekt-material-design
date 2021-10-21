@@ -14,10 +14,10 @@
     <div class="__dealer-component">
       <div class="__dealer-component-header">
         <div class="__dealer-title">
-          Tooltip
+          Speech Bubble
         </div>
         <div class="__dealer-description">
-          A tooltip is a floating, non-actionable label used to explain a user interface element or feature.
+          Speech bubbles for standard interactive messages and pickers include a title, and can optionally include additional text and an image (which can be a thumbnail). Optional text includes a primary, secondary, and tertiary subtitle, and an image title and subtitle.
         </div>
       </div>
       <div class="__dealer-component-content">
@@ -29,10 +29,39 @@
             Default
           </div>
           <div class="__dealer-subdescription">
-            The default form of a tooltip.
+            The default form of a speech bubble.
           </div>
           <div class="__dealer-demo">
-            <Tooltip/>
+            <SpeechBubble/>
+          </div>  
+        </section>
+
+
+        <!-- With Title -->
+        <!-- ***************  -->
+        <section id="dealer-content-move1">
+          <div class="__dealer-subtitle __dealer-withline-top">
+            With Title
+          </div>
+          <div class="__dealer-subdescription">
+            The default form of a speech bubble.
+          </div>
+          <div class="__dealer-demo">
+            <SpeechBubbleWithTitle/>
+          </div>  
+        </section>
+
+        <!-- With Img -->
+        <!-- ***************  -->
+        <section id="dealer-content-move1">
+          <div class="__dealer-subtitle __dealer-withline-top">
+            With Image
+          </div>
+          <div class="__dealer-subdescription">
+            The default form of a speech bubble.
+          </div>
+          <div class="__dealer-demo">
+            <SpeechBubbleWithImg/>
           </div>  
         </section>
 
@@ -43,10 +72,14 @@
 </template>
 
 <script>
-import Tooltip from '@/components/tooltips/Tooltip'
+import SpeechBubble from '@/components/speechbubbles/SpeechBubble'
+import SpeechBubbleWithTitle from '@/components/speechbubbles/SpeechBubbleWithTitle'
+import SpeechBubbleWithImg from '@/components/speechbubbles/SpeechBubbleWithImg'
 export default {
   components: {
-    Tooltip,
+    SpeechBubble,
+    SpeechBubbleWithTitle,
+    SpeechBubbleWithImg
   },
   computed: {
     scrollPositon: function () {

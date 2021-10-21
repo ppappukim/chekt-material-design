@@ -46,6 +46,7 @@ body{
   --chekt-blue-gray-highest: #3c4257;
   --chekt-blue-gray-higher: #55647B;
   --chekt-blue-gray-high: #8792A2;
+  --chekt-blue-gray-mideumer: #a3acb9;
   --chekt-blue-gray-mideum: #E3E8EE;
   --chekt-blue-gray-low: #F2F6F9;
   --chekt-blue-gray-lower: #F7FAFC;

@@ -87,6 +87,10 @@ const childRoute = {
       component: () => import("@/_routes/design/dealer/components/Select"),
     },
     {
+      path: 'speechbubble',
+      component: () => import("@/_routes/design/dealer/components/SpeechBubble"),
+    },
+    {
       path: 'tab',
       component: () => import("@/_routes/design/dealer/components/Tab"),
     },

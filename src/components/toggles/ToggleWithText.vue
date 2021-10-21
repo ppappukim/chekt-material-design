@@ -65,7 +65,7 @@ export default {
   padding-left: 10px;
 }
 .toggle-text.disabled {
-  color: var(--chekt-blue-gray-high);
+  color: var(--chekt-blue-gray-mideumer);
 }
 
 .toggle input {

@@ -1,11 +1,38 @@
 <template>
-  <div>
+  <div class="tooltips">
     <div>
       <div 
-      @mouseover="onHoverTooltip($event)" 
+      @mouseover="onHoverTooltip($event, 'top')" 
       @mouseout="onCloseTooltip($event)"
       class="tooltip-text">
-      Tooltip top
+      Hover me top
+      </div>
+      <div id="__chekt-tooltip">tooltip</div>
+    </div>
+    <div>
+      <div 
+      @mouseover="onHoverTooltip($event, 'bottom')" 
+      @mouseout="onCloseTooltip($event)"
+      class="tooltip-text">
+      Hover me bottom
+      </div>
+      <div id="__chekt-tooltip">tooltip</div>
+    </div>
+    <div>
+      <div 
+      @mouseover="onHoverTooltip($event, 'left')" 
+      @mouseout="onCloseTooltip($event)"
+      class="tooltip-text">
+      Hover me left
+      </div>
+      <div id="__chekt-tooltip">tooltip</div>
+    </div>
+    <div>
+      <div 
+      @mouseover="onHoverTooltip($event, 'right')" 
+      @mouseout="onCloseTooltip($event)"
+      class="tooltip-text">
+      Hover me right
       </div>
       <div id="__chekt-tooltip">tooltip</div>
     </div>
@@ -21,6 +48,7 @@ export default {
   },
   data: function() {
     return {
+      targetEl: '',
     }
   },
   watch: {
@@ -30,8 +58,9 @@ export default {
   mounted: function () {
   },
   methods: {
-    onHoverTooltip: function (e) {
+    onHoverTooltip: function (e, position) {
       e.stopPropagation()
+
       
       // GET - dialog element
       this.tooltipEl = document.getElementById('__chekt-tooltip')
@@ -41,10 +70,30 @@ export default {
       this.targetEl = e.currentTarget
       if (!this.targetEl) return
       this.targetRect = this.targetEl.getBoundingClientRect();
+      
 
       // ADD - position css
-      this.tooltipEl.style.top = this.targetRect.y - this.targetEl.offsetHeight - 5  +'px'
-      this.tooltipEl.style.left = this.targetRect.x  + ( (this.targetEl.offsetWidth - this.tooltipEl.offsetWidth) / 2 ) + 'px'
+      switch (position) {
+        case 'top':
+          this.tooltipEl.style.top = this.targetRect.y - this.targetEl.offsetHeight - 5  +'px'
+          this.tooltipEl.style.left = this.targetRect.x  + ( (this.targetEl.offsetWidth - this.tooltipEl.offsetWidth) / 2 ) + 'px'
+          break;
+        case 'bottom':
+          this.tooltipEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5  +'px'
+          this.tooltipEl.style.left = this.targetRect.x  + ( (this.targetEl.offsetWidth - this.tooltipEl.offsetWidth) / 2 ) + 'px'
+          break;
+        case 'left':
+          this.tooltipEl.style.top = this.targetRect.y + ( (this.targetEl.offsetHeight - this.tooltipEl.offsetHeight) / 2 ) +'px'
+          this.tooltipEl.style.left = this.targetRect.x - this.tooltipEl.offsetWidth - 5 +  'px'
+          break;
+        case 'right':
+          this.tooltipEl.style.top = this.targetRect.y + ( (this.targetEl.offsetHeight - this.tooltipEl.offsetHeight) / 2 ) +'px'
+          this.tooltipEl.style.left = this.targetRect.x + this.targetEl.offsetWidth + 5 +'px'
+          break;
+      
+        default:
+          break;
+      }
 
 
       // ACTION - show tooltip
@@ -52,7 +101,6 @@ export default {
       this.targetEl.classList.add('active')
     },
     onCloseTooltip: async function () {
-    // await this.$tool.wait(500)
     // ACTION - hidden tooltip
     this.tooltipEl.classList.remove('active')
     this.targetEl.classList.remove('active')
@@ -71,10 +119,16 @@ export default {
   font-size: 14px;
   border-radius: 3px;
   opacity: 0;
+  transition: opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 #__chekt-tooltip.active {
   opacity: 1;
   transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.tooltips {
+  display: flex;
+  flex-direction: row;
+  grid-gap: 20px;
 }
 .tooltip-text {
   cursor: pointer;

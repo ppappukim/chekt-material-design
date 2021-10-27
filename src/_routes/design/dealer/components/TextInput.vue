@@ -36,33 +36,6 @@
           </div>  
         </section>
 
-
-        <!-- With Title -->
-        <!-- ***************  -->
-        <section id="dealer-content-move1">
-          <div class="__dealer-subtitle __dealer-withline-top">
-            With Title
-          </div>
-          <div class="__dealer-subdescription">
-            The default form of a speech bubble.
-          </div>
-          <div class="__dealer-demo">
-          </div>  
-        </section>
-
-        <!-- With Img -->
-        <!-- ***************  -->
-        <section id="dealer-content-move1">
-          <div class="__dealer-subtitle __dealer-withline-top">
-            With Image
-          </div>
-          <div class="__dealer-subdescription">
-            The default form of a speech bubble.
-          </div>
-          <div class="__dealer-demo">
-          </div>  
-        </section>
-
       </div>
 
     </div>

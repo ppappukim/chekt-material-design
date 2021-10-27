@@ -52,6 +52,7 @@ body{
   --chekt-blue-gray-lower: #F7FAFC;
 
   --chekt-border: #E6E6E6;
+  --chekt-border-dark: rgba(230, 230, 230, .2);
   --chekt-badge: #ba2222;
 
   /* Text Color - Color Code */

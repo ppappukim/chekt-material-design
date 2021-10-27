@@ -7,6 +7,12 @@
       <input autofocus type="email" placeholder="Enter text">
     </div>
 
+    <!-- Number -->
+    <div class="text">Number</div>
+    <div class="input-text number" style="margin-bottom:30px;">
+      <input autofocus type="number" placeholder="10000">
+    </div>
+
     <!-- PASSWORD -->
     <div class="password">Password</div>
     <div 
@@ -42,6 +48,23 @@
         <span v-else id="__chekt-tooltip">Show password</span>
       </div>
     </div>
+
+    <!-- Disabled -->
+    <div class="text">Disabled</div>
+    <div class="input-text disabled" style="margin-bottom:30px;">
+      <input type="email" placeholder="Enter text" disabled>
+    </div>
+
+    <!-- Error -->
+    <div class="text">Error</div>
+    <div class="input-text error">
+      <input type="email" placeholder="Enter text">
+    </div>
+    <div class="error">
+      <MyIcon v-bind:icon="'error'" v-bind:width="18" style="margin-right:2px;"/>
+      This is an error text.
+    </div>
+
   </div>
   
 </template>
@@ -53,6 +76,12 @@ export default {
     MyIcon
   },
   computed: {
+    // displayPrice: {
+    //   get: function() {
+
+
+    //   }
+    // }
   },
   data: function() {
     return {
@@ -62,12 +91,18 @@ export default {
       tooltipEl: '',
       targetEl: '',
       isInputFocused: false,
+      isNumberSmallInputFocused: false,
+      price:0,
+      priceInput: '',
     }
   },
   watch: {
     password: function () {
       this.passwordSecureCheck()
-    }
+    },
+    // price: function (price) {
+    //   this.numberAddComma(price)
+    // }
   },
   created: function () {
   },
@@ -117,7 +152,7 @@ export default {
     },
     passowrdBlured: function () {
       this.isInputFocused = false
-    }
+    },
   }
 }
 </script>
@@ -234,6 +269,7 @@ export default {
   font-size: 14px;
   border-radius: 3px;
   opacity: 0;
+  user-select: none;
   transition: opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -246,5 +282,36 @@ export default {
   visibility: visible;
   opacity: 1;
 }
+
+/**********************/
+/****** Disabled ******/
+/**********************/
+
+.input-text.disabled input {
+  background-color: var(--chekt-blue-gray-low);
+}
+.input-text.disabled input::placeholder {
+  color: var(--chekt-blue-gray-mideumer);
+}
+
+
+/**********************/
+/****** Error ******/
+/**********************/
+.input-text.error input {
+  border: solid 1px var(--chekt-danger-color);
+}
+
+.error {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 7px;
+  font-size: 12px;
+  color: var(--chekt-danger-color);
+  font-weight: 500;
+}
+
 
 </style>

@@ -63,8 +63,8 @@
 </template>
 
 <script>
-import DatePicker from '@/components/datepicker/DatePicker'
-import DatePickerRange from '@/components/datepicker/DatePickerRange'
+import DatePicker from '@/components/datepickers/DatePicker'
+import DatePickerRange from '@/components/datepickers/DatePickerRange'
 export default {
   components: {
     DatePicker,

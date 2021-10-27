@@ -1,40 +1,56 @@
 <template>
   <div class="tooltips">
-    <div>
-      <div 
-      @mouseover="onHoverTooltip($event, 'top')" 
-      @mouseout="onCloseTooltip($event)"
-      class="tooltip-text">
-      Hover me top
+
+    <!-- Tooltip -->
+    <div id="__chekt-tooltip">Tooltip</div>
+    <div id="__chekt-tooltip-large">Tooltip large</div>
+
+    <div class="wrapper">
+      <div>
+        <div 
+        @mouseover="onHoverTooltip($event, 'top')" 
+        @mouseout="onCloseTooltip($event)"
+        class="tooltip-text">
+        Hover me top
+        </div>
       </div>
-      <div id="__chekt-tooltip">tooltip</div>
+      <div>
+        <div 
+        @mouseover="onHoverTooltip($event, 'bottom')" 
+        @mouseout="onCloseTooltip($event)"
+        class="tooltip-text">
+        Hover me bottom
+        </div>
+      </div>
+      <div>
+        <div 
+        @mouseover="onHoverTooltip($event, 'left')" 
+        @mouseout="onCloseTooltip($event)"
+        class="tooltip-text">
+        Hover me left
+        </div>
+      </div>
+      <div>
+        <div 
+        @mouseover="onHoverTooltip($event, 'right')" 
+        @mouseout="onCloseTooltip($event)"
+        class="tooltip-text">
+        Hover me right
+        </div>
+      </div>
     </div>
-    <div>
-      <div 
-      @mouseover="onHoverTooltip($event, 'bottom')" 
-      @mouseout="onCloseTooltip($event)"
-      class="tooltip-text">
-      Hover me bottom
+
+    <!-- Large -->
+    <div class="wrapper">
+      <div>
+        <div 
+        @mouseover="onHoverTooltip($event, 'large')" 
+        @mouseout="onCloseTooltip($event)"
+        class="tooltip-text">
+        Hover me large
+        </div>
+        <div id="__chekt-tooltip" class="large">Tooltip</div>
       </div>
-      <div id="__chekt-tooltip">tooltip</div>
-    </div>
-    <div>
-      <div 
-      @mouseover="onHoverTooltip($event, 'left')" 
-      @mouseout="onCloseTooltip($event)"
-      class="tooltip-text">
-      Hover me left
-      </div>
-      <div id="__chekt-tooltip">tooltip</div>
-    </div>
-    <div>
-      <div 
-      @mouseover="onHoverTooltip($event, 'right')" 
-      @mouseout="onCloseTooltip($event)"
-      class="tooltip-text">
-      Hover me right
-      </div>
-      <div id="__chekt-tooltip">tooltip</div>
     </div>
   </div>
   
@@ -49,6 +65,7 @@ export default {
   data: function() {
     return {
       targetEl: '',
+      tooltipEl: '',
     }
   },
   watch: {
@@ -64,7 +81,9 @@ export default {
       
       // GET - dialog element
       this.tooltipEl = document.getElementById('__chekt-tooltip')
+      this.tooltipLargeEl = document.getElementById('__chekt-tooltip-large')
       if (!this.tooltipEl) return
+      if (!this.tooltipLargeEl) return
 
       // GET - target position
       this.targetEl = e.currentTarget
@@ -90,6 +109,10 @@ export default {
           this.tooltipEl.style.top = this.targetRect.y + ( (this.targetEl.offsetHeight - this.tooltipEl.offsetHeight) / 2 ) +'px'
           this.tooltipEl.style.left = this.targetRect.x + this.targetEl.offsetWidth + 5 +'px'
           break;
+        case 'large':
+          this.tooltipEl.style.top = this.targetRect.y - this.targetEl.offsetHeight - 5  +'px'
+          this.tooltipEl.style.left = this.targetRect.x  + ( (this.targetEl.offsetWidth - this.tooltipEl.offsetWidth) / 2 ) + 'px'
+          break;
       
         default:
           break;
@@ -98,11 +121,13 @@ export default {
 
       // ACTION - show tooltip
       this.tooltipEl.classList.add('active')
+      this.tooltipLargeEl.classList.add('active')
       this.targetEl.classList.add('active')
     },
     onCloseTooltip: async function () {
     // ACTION - hidden tooltip
     this.tooltipEl.classList.remove('active')
+    this.tooltipLargeEl.classList.remove('active')
     this.targetEl.classList.remove('active')
 
     }
@@ -111,24 +136,51 @@ export default {
 </script>
 
 <style scoped>
+
+.tooltips {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 30px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  grid-gap: 20px;
+}
+
 #__chekt-tooltip {
   position: fixed;
   padding: 3px 10px;
   background-color: var(--chekt-blue-gray-highest);
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   border-radius: 3px;
   opacity: 0;
-  transition: opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  font-weight: 500;
+  /* transition: opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1); */
+  /* transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-duration: .5s; */
 }
-#__chekt-tooltip.active {
+
+#__chekt-tooltip.active, #__chekt-tooltip-large.active {
   opacity: 1;
-  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-property: opacity;
+  transition-delay: .3s;
+  /* transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1); */
+  /* transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
+  /* transition-duration: .2s; */
 }
-.tooltips {
-  display: flex;
-  flex-direction: row;
-  grid-gap: 20px;
+#__chekt-tooltip-large {
+  position: fixed;
+  padding: 3px 10px;
+  background-color: var(--chekt-blue-gray-highest);
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  opacity: 0;
+  font-weight: 500;
 }
 .tooltip-text {
   cursor: pointer;

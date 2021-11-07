@@ -54,6 +54,7 @@ body{
   --chekt-border: #E6E6E6;
   --chekt-border-dark: rgba(230, 230, 230, .2);
   --chekt-badge: #ba2222;
+  --chekt-backdrop-color: rgba(0, 0, 0, 0.4);
 
   /* Text Color - Color Code */
   --chekt-text-high: #212121;

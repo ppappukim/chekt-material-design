@@ -58,12 +58,12 @@ body{
 
   /* Text Color - Color Code */
   --chekt-text-high: #212121;
-  --chekt-text-medeium: #1f1d1d;
+  --chekt-text-medium: #666666;
   --chekt-text-disable: #9E9E9E;
 
   /* Text Color - Opacity */
   --chekt-text-high-rgb: rgba(0,0,0,0.87);
-  --chekt-text-medeium-rgb: rgba(0,0,0,0.6);
+  --chekt-text-medium-rgb: rgba(0,0,0,0.6);
   --chekt-text-disable-rgb: rgba(0,0,0,0.38);
 
 }

@@ -1,5 +1,5 @@
 <template>
-	<div class="body-container">
+	<div id="__chekt-body-container" class="body-container">
     <div class="left-navi">
       <aside class="mdc-drawer mdc-drawer-modal">
         <div class="header">
@@ -9,34 +9,34 @@
         </div>
         <div class="content" id="left-menu">
           <div class="section">System</div>
-          <ul class="topics-container">
-            <li v-on:click="onClickList($event,'layout')">Layout</li>
-            <li v-on:click="onClickList($event,'color')">Color</li>
-            <li v-on:click="onClickList($event,'typograph')">Typograph</li>
-            <li v-on:click="onClickList($event,'icons')">Icons</li>
+          <ul class="topics-container"> 
+            <li v-on:click="onClickList('layout')" v-bind:class="{ active:currentMenu === 'layout' }">Layout</li>
+            <li v-on:click="onClickList('color')" v-bind:class="{ active:currentMenu === 'color' }">Color</li>
+            <li v-on:click="onClickList('typograph')" v-bind:class="{ active:currentMenu === 'typograph' }">Typograph</li>
+            <!-- <li v-on:click="onClickList('icons')">Icons< /li> -->
           </ul>
-          <div class="section">Components</div>
+          <div class="section">Components</div> 
           <ul class="topics-container">
-            <li v-on:click="onClickList($event,'avatar')">Avatar</li>
-            <li v-on:click="onClickList($event,'badge')">Badge</li>
-            <li v-on:click="onClickList($event,'buttons')">Buttons</li>
-            <!-- <li v-on:click="onClickList($event,'cards')">Cards</li> -->
-            <li v-on:click="onClickList($event,'checkboxes')">Checkboxes</li>
-            <li v-on:click="onClickList($event,'datatable')">Data table</li>
-            <li v-on:click="onClickList($event,'datepicker')">Date Picker</li>
-            <li v-on:click="onClickList($event,'dialog')">Dialog</li>
-            <li v-on:click="onClickList($event,'label')">Label</li>
-            <li v-on:click="onClickList($event,'loading')">Loading</li>
-            <li v-on:click="onClickList($event,'modal')">Modal</li>
-            <li v-on:click="onClickList($event,'radio')">Radio</li>
-            <li v-on:click="onClickList($event,'range')">Range</li>
-            <li v-on:click="onClickList($event,'select')">Select</li>
-            <li v-on:click="onClickList($event,'speechbubble')">Speech Bubble</li>
-            <li v-on:click="onClickList($event,'tab')">Tabs</li>
-            <li v-on:click="onClickList($event,'textinput')">Text Input</li>
-            <li v-on:click="onClickList($event,'toast')">Toast</li>
-            <li v-on:click="onClickList($event,'toggle')">Toggle</li>
-            <li v-on:click="onClickList($event,'tooltip')">Tooltips</li>
+            <li v-on:click="onClickList('avatar')" v-bind:class="{ active:currentMenu === 'avatar' }">Avatar</li>
+            <li v-on:click="onClickList('badge')" v-bind:class="{ active:currentMenu === 'badge' }">Badge</li>
+            <li v-on:click="onClickList('buttons')" v-bind:class="{ active:currentMenu === 'buttons' }">Buttons</li>
+            <!-- <li v-on:click="onClickList('cards')">Cards</li> -->
+            <li v-on:click="onClickList('checkboxes')" v-bind:class="{ active:currentMenu === 'checkboxes' }">Checkboxes</li>
+            <li v-on:click="onClickList('datatable')" v-bind:class="{ active:currentMenu === 'datatable' }">Data table</li>
+            <li v-on:click="onClickList('datepicker')" v-bind:class="{ active:currentMenu === 'datepicker' }">Date Picker</li>
+            <li v-on:click="onClickList('dialog')" v-bind:class="{ active:currentMenu === 'dialog' }">Dialog</li>
+            <li v-on:click="onClickList('label')" v-bind:class="{ active:currentMenu === 'label' }">Label</li>
+            <li v-on:click="onClickList('loading')" v-bind:class="{ active:currentMenu === 'loading' }">Loading</li>
+            <li v-on:click="onClickList('modal')" v-bind:class="{ active:currentMenu === 'modal' }">Modal</li>
+            <li v-on:click="onClickList('radio')" v-bind:class="{ active:currentMenu === 'radio' }">Radio</li>
+            <li v-on:click="onClickList('range')" v-bind:class="{ active:currentMenu === 'range' }">Range</li>
+            <li v-on:click="onClickList('select')" v-bind:class="{ active:currentMenu === 'select' }">Select</li>
+            <li v-on:click="onClickList('speechbubble')" v-bind:class="{ active:currentMenu === 'speechbubble' }">Speech Bubble</li>
+            <li v-on:click="onClickList('tab')" v-bind:class="{ active:currentMenu === 'tab' }">Tabs</li>
+            <li v-on:click="onClickList('textinput')" v-bind:class="{ active:currentMenu === 'textinput' }">Text Input</li>
+            <li v-on:click="onClickList('toast')" v-bind:class="{ active:currentMenu === 'toast' }">Toast</li>
+            <li v-on:click="onClickList('toggle')" v-bind:class="{ active:currentMenu === 'toggle' }">Toggle</li>
+            <li v-on:click="onClickList('tooltip')" v-bind:class="{ active:currentMenu === 'tooltip' }">Tooltips</li>
           </ul> 
         </div>
       </aside>
@@ -45,7 +45,7 @@
       <!--  -->
       <!-- ROUTER -->
       <transition name="fade">
-      <router-view></router-view>
+        <router-view></router-view>
       </transition>
       <!-- ROUTER -->
       <!--  -->
@@ -59,21 +59,34 @@ export default {
   },
   data: function() {
     return {
+      currentMenu: ''
     }
   },
   watch: {
+    $route(to) {
+      let splitPath = this.$router.history.current.path.split('/')
+      this.currentMenu = splitPath.reverse()[0]
+      if (to.path === '/design/dealer/home') {
+        var leftMenuList = document.getElementById('left-menu').getElementsByTagName('li')
+        for (let i = 0; i < leftMenuList.length; i++) {
+          leftMenuList[i].classList.remove("left-menu-active")
+        }
+      }
+    }
   },
   created: function () {
   },
   methods: {
-    onClickList: function (e, menu) {
+    onClickList: function (menu) {
       this.$router.push({path: `/design/dealer/${menu}`})
+    },
+    onCheckList: function (menu) {
       var leftMenuList = document.getElementById('left-menu').getElementsByTagName('li')
       for (let i = 0; i < leftMenuList.length; i++) {
         leftMenuList[i].classList.remove("left-menu-active")
+        if (leftMenuList[i].innerHTML === menu) leftMenuList[i].classList.add("left-menu-active")
       }
-      e.path[0].classList.add("left-menu-active")
-    },
+    }
   }
 }
 </script>
@@ -132,7 +145,7 @@ export default {
   height: 32px;
   margin-right: 8px;
   margin-left: 24px;
-  /* background: url(../../assets/chekt_text_logo_dark.png) 100% 50%/auto 40% no-repeat; */
+  background: url(../../../assets/chekt_text_logo_dark.png) 100% 50%/auto 40% no-repeat;
 }
 .brand-text {
   font-family: "Roboto Mono", monospace;
@@ -155,7 +168,6 @@ li {
     letter-spacing: 0.0333333333em;
     text-decoration: inherit;
     text-transform: inherit;
-    width: 100%;
     padding: 12px 48px 12px 24px;
     border: 0;
     outline: 0;
@@ -169,7 +181,7 @@ li:hover {
   font-weight: 400;
   color: #212121;
 }
-.left-menu-active {
+.topics-container > .active {
   background-color: rgba(0, 0, 0, 0.1);
   font-weight: 400;
   transition: .25s;

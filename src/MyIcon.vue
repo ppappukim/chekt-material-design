@@ -68,9 +68,25 @@
         <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
       </svg>
     </template>
+    <template v-else-if="icon === 'layout-600'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000000">
+        <path d="M0 0h24v24H0V0z" fill="none"/>
+        <path d="M3 13H11V3H3V13ZM3 21H11V15H3V21ZM13 21H21V11H13V21ZM13 3V9H21V3H13Z"/>
+      </svg>
+    </template>
+    <template v-else-if="icon === 'layout-1200'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000000">
+        <path d="M3 13H21V3H3V13ZM3 21H21V15H3V21Z"/>
+      </svg>
+    </template>
+    <template v-else-if="icon === 'layout-800'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000000">
+        <path d="M3 13H8V3H3V13ZM3 21H8V15H3V21ZM10 21H21V11H10V21ZM10 3V9H21V3H10Z"/>
+      </svg>
+    </template>
     <template v-else-if="icon === 'arrow-left'">
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
-      <path d="M0 0h24v24H0V0z" fill="none" opacity=".87"/>
+      <path d="M0 0h24v24H0V0z" fill="none"/>
       <path d="M17.51 3.87L15.73 2.1 5.84 12l9.9 9.9 1.77-1.77L9.38 12l8.13-8.13z"/>
     </svg>
     </template>

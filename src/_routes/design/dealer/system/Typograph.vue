@@ -71,12 +71,12 @@
 
           <span class="__css-comment">/* Text Color - Color Code */</span>
           <span class="__css-attribute">--chekt-text-high:</span> #212121;
-          <span class="__css-attribute">--chekt-text-medeium:</span> #666666;
+          <span class="__css-attribute">--chekt-text-medium:</span> #666666;
           <span class="__css-attribute">--chekt-text-disable:</span> #9E9E9E;
 
           <span class="__css-comment">/* Text Color - Opacity */</span>
           <span class="__css-attribute">--chekt-text-high-rgb:</span> rgba(0,0,0,0.87);
-          <span class="__css-attribute">--chekt-text-medeium-rgb:</span> rgba(0,0,0,0.6);
+          <span class="__css-attribute">--chekt-text-medium-rgb:</span> rgba(0,0,0,0.6);
           <span class="__css-attribute">--chekt-text-disable-rgb:</span> rgba(0,0,0,0.38);
 
 
@@ -171,6 +171,7 @@ export default {
   watch: {
   },
   created: function () {
+    this.$tool.scrollTo(0, 0)
   },
   methods: {
   }

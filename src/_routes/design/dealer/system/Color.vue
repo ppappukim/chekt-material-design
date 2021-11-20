@@ -200,6 +200,7 @@ export default {
   watch: {
   },
   created: function () {
+    this.$tool.scrollTo(0, 0)
   },
   methods: {
   }

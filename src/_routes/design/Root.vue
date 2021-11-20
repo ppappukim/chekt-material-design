@@ -17,6 +17,7 @@
       <nav class="nav" role="navigation">
         <ul class="nav-list">
           <li class="nav-item"
+          ref="chektDealerMenu"
           v-on:click="onClickMenu($event,'dealer')">Dealer
           <span class="nav-indicator" id="dealer"></span>
           </li>
@@ -47,6 +48,7 @@
 
 		<!--  -->
 		<!-- FOOTER -->
+    <Footer/>
 		<!-- FOOTER -->
 		<!--  -->
 
@@ -54,8 +56,10 @@
 </template>
 
 <script>
+import Footer from '@/components/Footer'
 export default {
-  computed: {
+  components: {
+    Footer
   },
   data: function() {
     return {
@@ -73,6 +77,11 @@ export default {
     window.addEventListener('scroll', this.onScroll)
     window.addEventListener("resize", this.onResizeScreen)
   },
+  mounted: function () {
+    // Get the element with id="defaultOpen" and click on it
+    // document.getElementById("dealer").click();
+    // this.$refs.chektDealerMenu.click();
+  },
   beforeDestroy () {
     window.removeEventListener('scroll', this.onScroll)
     window.removeEventListener("resize", this.onResizeScreen)
@@ -80,7 +89,16 @@ export default {
   methods: {
     onClickMenu: function (e, menu) {
       this.selectedMenu(e, menu)
-      this.$router.push({path: `/design/${menu}`})
+      switch (menu) {
+        case 'dealer':
+          this.$router.push({path: `/design/dealer/home`})
+          
+          break;
+      
+        default:
+          this.$router.push({path: `/design/${menu}`})
+          break;
+      }
     },
     onClickMenuButton: function () {
       this.isMenuButtonClicked = true
@@ -90,7 +108,6 @@ export default {
       mdcDrawerModal[0].style.left = "0px"
     },
     onClickBackdrop: function () {
-      console.log('onClickBackdrop');
       this.isMenuButtonClicked = false
       var mdcDrawerModal = document.getElementsByClassName("mdc-drawer-modal")
       mdcDrawerModal[0].classList.remove('mdc-drawer-modal-open')

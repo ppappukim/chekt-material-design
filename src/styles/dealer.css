@@ -5,7 +5,7 @@ html{
 .__dealer-page {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: center;
+  justify-content: start;
   align-items: flex-start;
   flex-wrap: wrap;
   max-width: 1140px;
@@ -16,6 +16,7 @@ html{
 }
 .__dealer-component {
   max-width: 840px;
+  width: 100%;
 }
 .__dealer-title {
   margin-top: 160px;
@@ -101,13 +102,13 @@ html{
   margin-left: 50px;
 }
 .__dealer-contents-title {
-  color: var(--chekt-text-medeium);
+  color: var(--chekt-text-medium);
   font-size: 14px;
 }
 .__dealer-contents-body {
   min-width: 200px;
   width: 200px;
-  color: var(--chekt-text-medeium);
+  color: var(--chekt-text-medium);
   font-size: 14px;
   margin-top: 16px;
 }

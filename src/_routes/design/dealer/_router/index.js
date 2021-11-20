@@ -1,8 +1,13 @@
 const childRoute = {
   path: 'dealer',
   component: () => import("@/_routes/design/dealer/Root"),
-  redirect: '/design/dealer/layout',
+  redirect: '/design/main',
   children: [
+    // Hone /////////////////////////////////////////////////////////////
+    {
+      path: 'home',
+      component: () => import("@/_routes/design/dealer/Home"),
+    },
     // system /////////////////////////////////////////////////////////////
     {
       path: 'layout',

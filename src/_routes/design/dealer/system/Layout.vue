@@ -8,8 +8,12 @@
         <div class="__dealer-description">
           Chekt Design layouts use uniform elements and spacing to encourage consistency across platforms, environments, and screen sizes.
         </div>
+        <transition name="modalfade">
+          <Layout @updateclose="onParentsClose()" v-if="isShowLayoutDemo"/>
+        </transition>
+        <div @click="onClickDemo()" class="button default" style="display:initial;">🖥 TRY LAYOUT DEMO</div>
       </div>
-      <div class="__dealer-component-content">
+      <div class="__dealer-component-content" style="padding-top:50px;">
         <div class="__dealer-subtitle">
           Layout anatomy
         </div>
@@ -43,7 +47,7 @@
           <img src="@/assets/layout-2.png" alt="" style="width:100%;">
         </div>
 
-        <!-- App bars -->
+        <!-- Navigation -->
         <div class="__dealer-subtitle __dealer-withline-bottom">
           2. Navigation
         </div>
@@ -52,136 +56,40 @@
 
           If the layout’s margin is less than 48dp (screen widths between 600dp and 839dp, for example) the width of the body region can decrease size to accommodate the navigation region.<br><br>
 
-          1. Dealer Logo<br>
-          2. Dealer Name<br>
-          3. Search<br>
-          4. Help<br>
-          5. My Accounts<br>
+          1. Main Navigaiton<br>
+          2. Sub Navigaiton<br>
         </div>
         <div class="typo-scale">
-          <img src="@/assets/layout-2.png" alt="" style="width:100%;">
+          <img src="@/assets/layout-3.png" alt="" style="width:100%;">
         </div>
 
-
-
-
-
-
-        
-        <div class="typo-legibility">
-          <div class="typo-legibility-col">
-            <div class="typo-legibility-col-title">Dark text on light backgrounds (shown here as #000000 on #FFFFFF) applies the following opacity levels:</div>
-            <div>
-              <ul>
-                <li>High-emphasis text has an opacity of 87%</li>
-                <li>Medium-emphasis text and hint text have opacities of 60%</li>
-                <li>Disabled text has an opacity of 38%</li>
-              </ul>
-            </div>
-            
-          </div>
-          <div class="typo-legibility-img typo-legibility-col">
-            <img src="@/assets/text_legability.png" alt="My Image" style="max-width: 100%;">
-          </div>
-        </div>
-
+        <!-- Body -->
         <div class="__dealer-subtitle __dealer-withline-bottom">
-          Usage
+          3. Body
         </div>
         <div class="__dealer-subdescription">
-          This example type scale uses the Roboto typeface for all headlines, subtitles, body, and captions, creating a cohesive typography experience. Hierarchy is communicated through differences in font weight (Light, Medium, Regular), size, letter spacing, and case.<br><br>
-          Transparency uses a little more memory when rendering a web page, so it is better to write it in color code.
+          The body region is used for displaying most of the content in an app. It typically contains components such as lists, cards, buttons, and images.
         </div>
-        <div>
-          <pre>
-            <code>
-          <span class="__css-comment">/* 아래 규칙대로 CSS 변수명을 작성해 이용합니다 */</span>
-
-          <span class="__css-comment">/* Text Color - Color Code */</span>
-          <span class="__css-attribute">--chekt-text-high:</span> #212121;
-          <span class="__css-attribute">--chekt-text-medeium:</span> #666666;
-          <span class="__css-attribute">--chekt-text-disable:</span> #9E9E9E;
-
-          <span class="__css-comment">/* Text Color - Opacity */</span>
-          <span class="__css-attribute">--chekt-text-high-rgb:</span> rgba(0,0,0,0.87);
-          <span class="__css-attribute">--chekt-text-medeium-rgb:</span> rgba(0,0,0,0.6);
-          <span class="__css-attribute">--chekt-text-disable-rgb:</span> rgba(0,0,0,0.38);
-
-
-          <span class="__css-comment">/* Text Scale */</span>
-          
-          <span class="__css-comment">/* Headline 1 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">96px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">300;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">-1.5px;</span>
-
-          <span class="__css-comment">/* Headline 2 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">60px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">300;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">-0.5px;</span>
-
-          <span class="__css-comment">/* Headline 3 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">48px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">400;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">0px;</span>
-          
-          <span class="__css-comment">/* Headline 4 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">34px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">400;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">0.25px;</span>
-
-          <span class="__css-comment">/* Headline 5 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">24px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">400;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">0px;</span>
-
-          <span class="__css-comment">/* Headline 6 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">20px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">500;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">0.15px;</span>
-
-          <span class="__css-comment">/* Subtitle 1 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">16px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">400;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">0.15px;</span>
-
-          <span class="__css-comment">/* Subtitle 2 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">14px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">500;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">0.1px;</span>
-
-          <span class="__css-comment">/* SUBTITLE 3 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">13px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">400;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">0.1px;</span>
-
-          <span class="__css-comment">/* Body 1 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">16px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">400;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">0.5px;</span>
-
-          <span class="__css-comment">/* Body 2 */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">60px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">400;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">-0.5px;</span>
-
-          <span class="__css-comment">/* Button */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">14px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">500;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">1.25px;</span>
-
-          <span class="__css-comment">/* Caption */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">12px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">400;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">0.4px;</span>
-
-          <span class="__css-comment">/* OVERLINE */</span>
-          <span class="__css-attribute">font-size:</span> <span class="__css-string">10px;</span>
-          <span class="__css-attribute">font-weight:</span> <span class="__css-string">400;</span>
-          <span class="__css-attribute">letter-spacing:</span> <span class="__css-string">1.5px;</span>
-            </code>
-          </pre>
+        <div class="typo-scale">
+          <img src="@/assets/layout-4.png" alt="" style="width:100%;">
+          <div class="__dealer-subdescription">
+            The maximum width is 1200px. By default, it should be centered and responsive. Must be at least 600px small and scrollable.
+          </div>
         </div>
+        <div class="typo-scale">
+          <img src="@/assets/layout-5.png" alt="" style="width:100%;">
+          <div class="__dealer-subdescription">
+            The maximum width is 600px. By default, it should be centered and responsive. Must be at least 300px small and scrollable.
+          </div>
+        </div>
+        <div class="typo-scale">
+          <img src="@/assets/layout-6.png" alt="" style="width:100%;">
+          <div class="__dealer-subdescription">
+            The maximum width is 600px or 800px. By default, it should be centered and responsive. Must be at least 300px or 400px small and scrollable.
+          </div>
+        </div>
+
+
       </div>
 
     </div>
@@ -189,18 +97,33 @@
 </template>
 
 <script>
+import Layout from '@/components/layouts/Layout'
 export default {
+  components: {
+    Layout
+  },
   computed: {
   },
   data: function() {
     return {
+      isShowLayoutDemo: false
     }
   },
   watch: {
   },
   created: function () {
+    this.$tool.scrollTo(0, 0)
   },
   methods: {
+    onClickDemo: function () {
+      this.isShowLayoutDemo = true
+      const bodyContainer = document.getElementById('__chekt-body-container')
+      bodyContainer.style.height = '100vh'
+      bodyContainer.style.overflow = 'hidden'
+    },
+    onParentsClose: function (value) {
+      this.isShowLayoutDemo = value
+    }
   }
 }
 </script>
@@ -317,5 +240,35 @@ export default {
 }
 .typo-scale-list {
   padding-bottom: 1rem;
+}
+
+/* button */
+.button {
+  padding: 7px 10px;
+  color: white;
+  border-radius: 5px;
+  border: solid 1px var(--chekt-border);
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+}
+.button:hover {
+  transition: background-color .3s, box-shadow .3s;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+/* default color button */
+.button.default {
+  background-color: white;
+  color: var(--chekt-text-high);
+}
+
+/* ANIMATION */
+.modalfade-enter-active, .modalfade-leave-active {
+  transition: opacity .3s, transform .3s;
+  transform: scale(1);
+}
+.modalfade-enter, .modalfade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: scale(.75);
 }
 </style>

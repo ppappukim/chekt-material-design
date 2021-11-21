@@ -145,9 +145,11 @@ export default {
       var mdcDrawerModal = document.getElementsByClassName("mdc-drawer-modal")
       var intFrameWidth = window.innerWidth;
       if (1341 < intFrameWidth) {
+        if (!mdcDrawerModal[0]) return
         mdcDrawerModal[0].style.left = "0px"
       }
       if(1341 > intFrameWidth) {
+        if (!mdcDrawerModal[0]) return
         mdcDrawerModal[0].style.left = "-280px"
       }
     }

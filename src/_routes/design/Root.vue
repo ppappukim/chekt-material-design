@@ -2,32 +2,34 @@
 	<div>
     <!-- backdrop -->
     <transition name="fade">
-    <div v-if="isMenuButtonClicked" id="mdc-drawer-backdrop" v-on:click="onClickBackdrop()"></div>
+      <div v-if="isMenuButtonClicked" id="mdc-drawer-backdrop" v-on:click="onClickBackdrop()"></div>
     </transition>
     <!-- backdrop -->
 		<!--  -->
 		<!-- HEADER -->
     <header v-bind:class="{ 'hidden': !showNavbar }">
-      <button class="menu-button" v-on:click="onClickMenuButton()">
+      <button v-if="currentMenu !== 'main'"  class="menu-button" @click="onClickMenuButton()">
         <i class="material-icons">menu</i>
       </button>
-      <a class="brand" aria-label="Navigate to the chekt material homepage">
+      <a @click="onClickLogo()" class="brand" aria-label="Navigate to the chekt material homepage">
         <i class="brand-logo"></i><span class="brand-text">Design</span>
       </a>
       <nav class="nav" role="navigation">
         <ul class="nav-list">
           <li class="nav-item"
-          ref="chektDealerMenu"
+          v-bind:class="{ active:dealerMenuActive }"
           v-on:click="onClickMenu($event,'dealer')">Dealer
-          <span class="nav-indicator" id="dealer"></span>
+          <span class="nav-indicator"></span>
           </li>
           <li class="nav-item"
+          v-bind:class="{ active:MonitoringMenuActive }"
           v-on:click="onClickMenu($event,'monitoring')">Monitoring
-          <span class="nav-indicator" id="monitoring"></span>
+          <span class="nav-indicator"></span>
           </li>
           <li class="nav-item"
+          v-bind:class="{ active:EnduserMenuActive }"
           v-on:click="onClickMenu($event,'enduser')">Enduser App
-          <span class="nav-indicator" id="enduser"></span>
+          <span class="nav-indicator"></span>
           </li>
         </ul>
       </nav>
@@ -48,7 +50,7 @@
 
 		<!--  -->
 		<!-- FOOTER -->
-    <Footer/>
+    <Footer style="margin:0;"/>
 		<!-- FOOTER -->
 		<!--  -->
 
@@ -65,22 +67,32 @@ export default {
     return {
       showNavbar: true,
       lastScrollPosition: 0,
-      isMenuButtonClicked: false
+      isMenuButtonClicked: false,
+      currentMenu: '',
+      dealerMenuActive: false,
+      MonitoringMenuActive: false,
+      EnduserMenuActive: false,
     }
   },
   watch: {
     $route: function() {
+      let path = this.$router.history.current.path
+      this.dealerMenuActive = path.includes('dealer')
+      this.MonitoringMenuActive = path.includes('monitoring')
+      this.EnduserMenuActive = path.includes('enduser')
       if (this.isMenuButtonClicked == true) this.onClickBackdrop()
     }
   },
   created: function () {
+    let path = this.$router.history.current.path
+    this.dealerMenuActive = path.includes('dealer')
+    this.MonitoringMenuActive = path.includes('monitoring')
+    this.EnduserMenuActive = path.includes('enduser')
+    console.log(this.currentMenu);
     window.addEventListener('scroll', this.onScroll)
     window.addEventListener("resize", this.onResizeScreen)
   },
   mounted: function () {
-    // Get the element with id="defaultOpen" and click on it
-    // document.getElementById("dealer").click();
-    // this.$refs.chektDealerMenu.click();
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.onScroll)
@@ -88,17 +100,17 @@ export default {
   },
   methods: {
     onClickMenu: function (e, menu) {
-      this.selectedMenu(e, menu)
       switch (menu) {
         case 'dealer':
           this.$router.push({path: `/design/dealer/home`})
-          
           break;
-      
         default:
           this.$router.push({path: `/design/${menu}`})
           break;
       }
+    },
+    onClickLogo: function () {
+      this.$router.push({path: `/design/main`})
     },
     onClickMenuButton: function () {
       this.isMenuButtonClicked = true
@@ -116,15 +128,6 @@ export default {
       var intFrameWidth = window.innerWidth;
       if(1341 > intFrameWidth) mdcDrawerModal[0].style.left = "-280px"
       // mdcDrawerModal[0].style.left = "-280px"
-    },
-    selectedMenu: function (e, menu) {
-      var i, navIndicator, getNavIndicator
-      getNavIndicator = document.getElementsByClassName("nav-indicator")
-      for (i = 0; i < getNavIndicator.length; i++) {
-       getNavIndicator[i].style.transform = getNavIndicator[i].style.transform.replace("scaleY(1)", "scaleY(0)")
-      }
-      navIndicator = document.getElementById(menu)
-      navIndicator.style.transform = "scaleY(1)"
     },
     onScroll: function () {
       // Get the current scroll position
@@ -180,6 +183,10 @@ header.hidden {
   background: 0 0;
   line-height: 0;
   cursor: pointer;
+  margin-right: -20px;
+}
+.menu-button > .ismain{
+  margin-left: 20px;
 }
 .brand {
   display: flex;
@@ -189,12 +196,15 @@ header.hidden {
   -webkit-font-smoothing: auto;
   text-decoration: none;
 }
+.brand:hover {
+  cursor: pointer;
+}
 .brand-logo{
   display: block;
   width: 65px;
   height: 32px;
   margin-right: 8px;
-  /* background: url(../../assets/chekt_logo.png) 100% 50%/auto 100% no-repeat; */
+  margin-left: 24px;
   background: url(../../assets/chekt_text_logo.png) 100% 50%/auto 40% no-repeat;
 }
 .brand-text {
@@ -224,6 +234,9 @@ header.hidden {
   display: inline-block;
   text-align: center;
   cursor: pointer;
+}
+.nav-item.active > .nav-indicator{
+  transform: scaleY(1);
 }
 .nav-item :active{
   color: #212121;
@@ -277,9 +290,6 @@ header.hidden {
 @media screen and (min-width: 1341px) {
   .menu-button {
     display: none;
-  }
-  .brand-logo {
-    margin-left: 24px;
   }
   #mdc-drawer-backdrop {
     display: none;

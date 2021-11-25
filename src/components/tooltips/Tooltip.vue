@@ -44,8 +44,8 @@
     <div class="wrapper">
       <div>
         <div 
-        @mouseover="onHoverTooltip($event, 'large')" 
-        @mouseout="onCloseTooltip($event)"
+        @mouseover="onHoverLargeTooltip($event, 'large')" 
+        @mouseout="onCloseLargeTooltip($event)"
         class="tooltip-text">
         Hover me large
         </div>
@@ -77,13 +77,10 @@ export default {
   methods: {
     onHoverTooltip: function (e, position) {
       e.stopPropagation()
-
       
       // GET - dialog element
       this.tooltipEl = document.getElementById('__chekt-tooltip')
-      this.tooltipLargeEl = document.getElementById('__chekt-tooltip-large')
       if (!this.tooltipEl) return
-      if (!this.tooltipLargeEl) return
 
       // GET - target position
       this.targetEl = e.currentTarget
@@ -109,28 +106,46 @@ export default {
           this.tooltipEl.style.top = this.targetRect.y + ( (this.targetEl.offsetHeight - this.tooltipEl.offsetHeight) / 2 ) +'px'
           this.tooltipEl.style.left = this.targetRect.x + this.targetEl.offsetWidth + 5 +'px'
           break;
-        case 'large':
-          this.tooltipEl.style.top = this.targetRect.y - this.targetEl.offsetHeight - 5  +'px'
-          this.tooltipEl.style.left = this.targetRect.x  + ( (this.targetEl.offsetWidth - this.tooltipEl.offsetWidth) / 2 ) + 'px'
-          break;
       
         default:
           break;
       }
 
-
       // ACTION - show tooltip
       this.tooltipEl.classList.add('active')
+      this.targetEl.classList.add('active')
+    },
+    onHoverLargeTooltip: function (e) {
+      e.stopPropagation()
+      
+      // GET - dialog element
+      this.tooltipLargeEl = document.getElementById('__chekt-tooltip-large')
+      if (!this.tooltipLargeEl) return
+
+      // GET - target position
+      this.targetEl = e.currentTarget
+      if (!this.targetEl) return
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      this.tooltipLargeEl.style.top = this.targetRect.y - this.targetEl.offsetHeight - 5  +'px'
+      this.tooltipLargeEl.style.left = this.targetRect.x  + ( (this.targetEl.offsetWidth - this.tooltipLargeEl.offsetWidth) / 2 ) + 'px'
+
+      // ACTION - show tooltip
       this.tooltipLargeEl.classList.add('active')
       this.targetEl.classList.add('active')
     },
     onCloseTooltip: async function () {
     // ACTION - hidden tooltip
     this.tooltipEl.classList.remove('active')
+    this.targetEl.classList.remove('active')
+    },
+    onCloseLargeTooltip: async function () {
+    // ACTION - hidden tooltip
     this.tooltipLargeEl.classList.remove('active')
     this.targetEl.classList.remove('active')
+    },
 
-    }
   }
 }
 </script>
@@ -140,13 +155,13 @@ export default {
 .tooltips {
   display: flex;
   flex-direction: column;
-  grid-gap: 30px;
+  grid-gap: 50px;
 }
 
 .wrapper {
   display: flex;
   flex-direction: row;
-  grid-gap: 20px;
+  grid-gap: 50px;
 }
 
 #__chekt-tooltip {

@@ -61,7 +61,7 @@
       <input type="email" placeholder="Enter text">
     </div>
     <div class="error">
-      <MyIcon v-bind:icon="'error'" v-bind:width="18" style="margin-right:2px;"/>
+      <MyIcon v-bind:icon="'error'" v-bind:width="14" style="margin-right:2px;"/>
       This is an error text.
     </div>
 

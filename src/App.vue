@@ -1,12 +1,18 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <GlobalToastModal/>
+    <SearchModal/>
   </div>
 </template>
 
 <script>
+import SearchModal from '@/components/SearchModal.vue'
+import GlobalToastModal from '@/components/toasts/GlobalToastModal.vue'
 export default {
   components: {
+    GlobalToastModal,
+    SearchModal
   },
   name: 'App',
 }

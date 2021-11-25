@@ -22,35 +22,35 @@
       </div>
       <div class="__dealer-component-content">
 
-        <!-- Default Button  -->
+        <!-- Default Label  -->
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
             Default Label
           </div>
           <div class="__dealer-subdescription">
-            The default form of a button, used for most cases. They are not impactful enough to represent the primary action in a container.
+            The default form of a label, used for most cases. They are not impactful enough to represent the primary action in a container.
           </div>
           <div class="__dealer-demo">
-            <div class="label default">Label</div>
-            <div class="label normal">Normal</div>
-            <div class="label danger">Danger</div>
-            <div class="label success">Success</div>
-            <div class="label good">Good</div>
-            <div class="label other">Other</div>
-            <div class="label disabled">Disabled</div>
+            <Label/>
           </div>
-          <div class="__dealer-demo">
-            <div class="label small default">
-              Label
-
-            </div>
-            <div class="label large default">Label</div>
-          </div>
-
         </section>
 
-        <!-- Button With Icon  -->
+        <!-- Secondary Label  -->
+        <!-- ***************  -->
+        <section id="dealer-content-move1">
+          <div class="__dealer-subtitle __dealer-withline-top">
+            Secondary Label
+          </div>
+          <div class="__dealer-subdescription">
+            The Secondary form of a label, used for most cases. They are not impactful enough to represent the primary action in a container.
+          </div>
+          <div class="__dealer-demo">
+            <LabelSecondary/>
+          </div>
+        </section>
+
+        <!-- Removable Label  -->
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
@@ -60,22 +60,11 @@
             Once a tag has been removed, it cannot be re-rendered. Removable tags are visible in "edit" mode or in multi-select controls.
           </div>
           <div class="__dealer-demo">
-            <div class="label large normal icon">
-              bobby@chekt.com
-              <div @click="onClickCloseLabel($event)" class="label-icon">
-                <MyIcon v-bind:icon="'close'" v-bind:width="18"/>
-              </div>
-            </div>
-            <div class="label large normal icon">
-              bobbykim@chekt.c...
-              <div @click="onClickCloseLabel($event)" class="label-icon">
-                <MyIcon v-bind:icon="'close'" v-bind:width="18"/>
-              </div>
-            </div>
+            <RemovableLabel/>
           </div>
-
         </section>
-        <!-- Button In Lodaing  -->
+
+        <!-- Label With Icon  -->
         <!-- ***************  -->
         <section id="dealer-content-move3">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
@@ -85,24 +74,7 @@
             Once a tag has been removed, it cannot be re-rendered. Removable tags are visible in "edit" mode or in multi-select controls.
           </div>
           <div class="__dealer-demo">
-            <div class="label default icon">
-              <div class="label-icon">
-                <MyIcon v-bind:icon="'person-circle'" v-bind:width="16"/>
-              </div>
-              bobbyk@chekt.com
-            </div>
-            <div class="label default large icon">
-              <div class="label-icon">
-                <MyIcon v-bind:icon="'person-circle'" v-bind:width="18"/>
-              </div>
-              trevors@chekt.com
-            </div>
-            <div class="label default small icon">
-              <div class="label-icon">
-                <MyIcon v-bind:icon="'person-circle'" v-bind:width="14"/>
-              </div>
-              kevinp@chekt.com
-            </div>
+            <LabelWithIcon/>
           </div>
         </section>
 
@@ -114,10 +86,16 @@
 </template>
 
 <script>
-import MyIcon from '@/MyIcon'
+import Label from '@/components/labels/Label'
+import RemovableLabel from '@/components/labels/RemovableLabel'
+import LabelWithIcon from '@/components/labels/LabelWithIcon'
+import LabelSecondary from '@/components/labels/LabelSecondary.vue'
 export default {
   components: {
-    MyIcon
+    Label,
+    RemovableLabel,
+    LabelWithIcon,
+    LabelSecondary
   },
   computed: {
     scrollPositon: function () {

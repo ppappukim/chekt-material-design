@@ -22,7 +22,7 @@
               <div class="__chekt-spbubble-text-link-box">
                 <div class="__chekt-spbubble-text-link">
                   See more detail
-                  <MyIcon class="bubbleicon" v-bind:icon="'arrow-right'" v-bind:width="12"/>
+                  <div class="bubbleicon"><MyIcon v-bind:icon="'arrow-right'" v-bind:width="12"/></div>
                 </div>
               </div>
             </div>
@@ -148,6 +148,8 @@ export default {
 }
 .__chekt-spbubble-text-link-box {
   display: flex;
+  justify-content: start;
+  align-items: center;
 }
 .__chekt-spbubble-text-link {
   display: flex;

@@ -32,8 +32,6 @@ const mutations = {
     }
   },
   [IS_DIALOG_SHOW]: function (state, isDialogShow) {
-    console.log('IS_DIALOG_SHOW');
-    console.log(isDialogShow);
     state.isDialogShow = isDialogShow
 
   },

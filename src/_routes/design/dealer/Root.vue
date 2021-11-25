@@ -3,7 +3,7 @@
     <div class="left-navi">
       <aside class="mdc-drawer mdc-drawer-modal">
         <div class="header">
-          <a class="brand" aria-label="Navigate to the chekt material homepage">
+          <a @click="onClickLogo()" class="brand" aria-label="Navigate to the chekt material homepage">
             <i class="brand-logo"></i><span class="brand-text">Design</span>
           </a>
         </div>
@@ -75,8 +75,13 @@ export default {
     }
   },
   created: function () {
+    let splitPath = this.$router.history.current.path.split('/')
+    this.currentMenu = splitPath.reverse()[0]
   },
   methods: {
+    onClickLogo: function () {
+      this.$router.push({path: `/design/main`})
+    },
     onClickList: function (menu) {
       this.$router.push({path: `/design/dealer/${menu}`})
     },
@@ -138,6 +143,9 @@ export default {
   margin-right: auto;
   -webkit-font-smoothing: auto;
   text-decoration: none;
+}
+.brand:hover {
+  cursor: pointer;
 }
 .brand-logo{
   display: block;

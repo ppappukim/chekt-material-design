@@ -28,3 +28,9 @@ export const IS_ACTIONS_TOAST_SHOW = 'IS_ACTIONS_TOAST_SHOW'
 export const IS_ACTIONS_AFTER_TOAST_SHOW = 'IS_ACTIONS_AFTER_TOAST_SHOW'
 export const ACTION_TOAST_$T = 'ACTION_TOAST_$T'
 export const ACTIONS_TOAST_$T = 'ACTIONS_TOAST_$T'
+
+////////////
+// SEARCH //
+////////////
+export const IS_SEARCH_ACTIVE = 'IS_SEARCH_ACTIVE'
+export const GET_SEARCH_DATA = 'GET_SEARCH_DATA'

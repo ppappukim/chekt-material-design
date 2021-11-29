@@ -4,7 +4,7 @@
     <div class="__dealer-contents-widget">
       <div class="__dealer-contents-title">CONTENTS</div>
       <div class="__dealer-contents-body">
-        <div class="dealer-content-move1" @click="onClickContent('1')">Default checkboxes</div>
+        <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
         <div class="dealer-content-move2" @click="onClickContent('2')">Checkbox with text</div>
       </div>
     </div>
@@ -25,7 +25,7 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default Checkboxes
+            Default
           </div>
           <div class="__dealer-subdescription">
             Checkboxes should be used instead of switches if multiple options can be selected from a list.

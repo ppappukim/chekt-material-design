@@ -4,9 +4,10 @@
     <div class="__dealer-contents-widget">
       <div class="__dealer-contents-title">CONTENTS</div>
       <div class="__dealer-contents-body">
-        <div class="dealer-content-move1" @click="onClickContent('1')">Default button</div>
-        <div class="dealer-content-move2" @click="onClickContent('2')">Button with icon</div>
-        <div class="dealer-content-move3" @click="onClickContent('3')">Button in loading</div>
+        <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
+        <div class="dealer-content-move2" @click="onClickContent('2')">Secondary Label</div>
+        <div class="dealer-content-move3" @click="onClickContent('3')">Removable</div>
+        <div class="dealer-content-move3" @click="onClickContent('4')">With Icon</div>
       </div>
     </div>
 
@@ -26,7 +27,7 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default Label
+            Default
           </div>
           <div class="__dealer-subdescription">
             The default form of a label, used for most cases. They are not impactful enough to represent the primary action in a container.

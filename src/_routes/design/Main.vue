@@ -176,6 +176,7 @@ export default {
   created: function () {
   },
   mounted: function () {
+    this.$tool.scrollTo(0, 0)
     this.startAnimaiton()
   },
   beforeDestroy: function () {

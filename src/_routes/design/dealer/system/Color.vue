@@ -92,6 +92,36 @@
               <div class="color-palette-text">warning-tint</div>
             </div>
           </div>
+          <!-- armed -->
+          <div class="color-palettes-line">
+            <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:#FF7F16;">#FF7F16</div>
+              <div class="color-palette-text">armed</div>
+            </div>
+            <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:#E07013;">#E07013</div>
+              <div class="color-palette-text">armed-shadow</div>
+            </div>
+            <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:#FF8C2D;">#FF8C2D</div>
+              <div class="color-palette-text">armed-tint</div>
+            </div>
+          </div>
+          <!-- disarmed -->
+          <div class="color-palettes-line">
+            <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:#1EA675;">#1EA675</div>
+              <div class="color-palette-text">disarmed</div>
+            </div>
+            <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:#1A9267;">#1A9267</div>
+              <div class="color-palette-text">disarmed-shadow</div>
+            </div>
+            <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:#35AF83;">#35AF83</div>
+              <div class="color-palette-text">disarmed-tint</div>
+            </div>
+          </div>
           <!-- gray -->
           <div class="color-palettes-line">
             <div class="color-palette">
@@ -110,6 +140,10 @@
           <!-- blue gray -->
           <div class="color-palettes-line">
             <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:#3c4257;">#3c4257</div>
+              <div class="color-palette-text">blue-gray-highest</div>
+            </div>
+            <div class="color-palette">
               <div class="color-palette-circle" style="background-color:#55647B;">#55647B</div>
               <div class="color-palette-text">blue-gray-higher</div>
             </div>
@@ -117,6 +151,8 @@
               <div class="color-palette-circle" style="background-color:#8792A2;">#8792A2</div>
               <div class="color-palette-text">blue-gray-high</div>
             </div>
+          </div>
+          <div class="color-palettes-line">
             <div class="color-palette">
               <div class="color-palette-circle" style="background-color:#E3E8EE; color:#55647B;">#E3E8EE</div>
               <div class="color-palette-text">blue-gray-mideum</div>
@@ -135,6 +171,13 @@
             <div class="color-palette">
               <div class="color-palette-circle" style="background-color:#E6E6E6; color:#55647B;">#E6E6E6</div>
               <div class="color-palette-text">border</div>
+            </div>
+          </div>
+          <!-- backdrop -->
+          <div class="color-palettes-line">
+            <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:rgba(0, 0, 0, 0.4); color:white;">#E6E6E6</div>
+              <div class="color-palette-text">backdrop</div>
             </div>
           </div>
         </div>
@@ -169,17 +212,27 @@
           <span class="__css-attribute">--chekt-warning-shadow-color:</span> #D88053;
           <span class="__css-attribute">--chekt-warning-tint-color:</span> #F69D6E;
 
-          <span class="__css-attribute">--chekt-gray-high:</span> #212121;
-          <span class="__css-attribute">--chekt-gray-mideum:</span> #666666;
-          <span class="__css-attribute">--chekt-gray-low:</span> #9E9E9E;
+          <span class="__css-attribute">--chekt-armed-color:</span> #FF7F16;
+          <span class="__css-attribute">--chekt-armed-shadow-color:</span> #E07013;
+          <span class="__css-attribute">--chekt-armed-tint-color:</span> #FF8C2D;
 
-          <span class="__css-attribute">--chekt-blue-gray-higher:</span> #55647B;
-          <span class="__css-attribute">--chekt-blue-gray-high:</span> #8792A2;
-          <span class="__css-attribute">--chekt-blue-gray-mideum:</span> #E3E8EE;
-          <span class="__css-attribute">--chekt-blue-gray-low:</span> #F2F6F9;
-          <span class="__css-attribute">--chekt-blue-gray-lower:</span> #F7FAFC;
+          <span class="__css-attribute">--chekt-disarmed-color:</span> #1EA675;
+          <span class="__css-attribute">--chekt-disarmed-shadow-color:</span> #1A9267;
+          <span class="__css-attribute">--chekt-disarmed-tint-color:</span> #35AF83;
 
-          <span class="__css-attribute">--chekt-border:</span> #E6E6E6;
+          <span class="__css-attribute">--chekt-gray-high-color:</span> #212121;
+          <span class="__css-attribute">--chekt-gray-mideum-color:</span> #666666;
+          <span class="__css-attribute">--chekt-gray-low-color:</span> #9E9E9E;
+
+          <span class="__css-attribute">--chekt-blue-gray-highest-color:</span> #3c4257;
+          <span class="__css-attribute">--chekt-blue-gray-higher-color:</span> #55647B;
+          <span class="__css-attribute">--chekt-blue-gray-high-color:</span> #8792A2;
+          <span class="__css-attribute">--chekt-blue-gray-mideum-color:</span> #E3E8EE;
+          <span class="__css-attribute">--chekt-blue-gray-low-color:</span> #F2F6F9;
+          <span class="__css-attribute">--chekt-blue-gray-lower-color:</span> #F7FAFC;
+
+          <span class="__css-attribute">--chekt-border-color:</span> #E6E6E6;
+          <span class="__css-attribute">--chekt-backdrop-color:</span> rgba(0, 0, 0, 0.4);          
             </code>
           </pre>
         </div>
@@ -214,6 +267,7 @@ export default {
   justify-content: start;
   flex-wrap: wrap;
   align-items: start;
+  grid-gap: 52px;
   margin: 48px 0;
 }
 .color-palettes-line {
@@ -222,11 +276,10 @@ export default {
   justify-content: start;
   flex-wrap: wrap;
   align-items: start;
+  grid-gap: 32px;
 }
 .color-palette {
   /* margin-left: 18px; */
-  margin-right: 36px;
-  margin-bottom: 36px;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -250,5 +303,25 @@ export default {
   font-size: 0.875em;
   line-height: 1.25;
   color: #616161;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 500px) {
+  .color-palettes {
+    grid-gap: 32px;
+  }
+  .color-palettes-line {
+    grid-gap: 24px;
+  }
+  .color-palette-circle {
+    font-size: .875em;
+    width: 80px;
+    height: 80px;
+    grid-gap: 24px;
+  }
+  .color-palette {
+    width: 90px;
+  }
 }
 </style>

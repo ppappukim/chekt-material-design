@@ -4,9 +4,9 @@
     <div class="__dealer-contents-widget">
       <div class="__dealer-contents-title">CONTENTS</div>
       <div class="__dealer-contents-body">
-        <div class="dealer-content-move1" @click="onClickContent('1')">Default button</div>
-        <div class="dealer-content-move2" @click="onClickContent('2')">Button with icon</div>
-        <div class="dealer-content-move3" @click="onClickContent('3')">Button in loading</div>
+        <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
+        <div class="dealer-content-move2" @click="onClickContent('2')">Dialog With Category</div>
+        <div class="dealer-content-move3" @click="onClickContent('3')">Dialog With Icon</div>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default Dialog
+            Default
           </div>
           <div class="__dealer-subdescription">
             dialogs are displayed when triggered by a user action, usually by clicking a button.</div>

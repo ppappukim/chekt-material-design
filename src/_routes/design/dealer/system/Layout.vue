@@ -118,7 +118,7 @@ export default {
     onClickDemo: function () {
       this.isShowLayoutDemo = true
       const bodyContainer = document.getElementById('__chekt-body-container')
-      bodyContainer.style.height = '100vh'
+      bodyContainer.style.height = '50vh'
       bodyContainer.style.overflow = 'hidden'
     },
     onParentsClose: function (value) {

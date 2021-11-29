@@ -4,9 +4,9 @@
     <div class="__dealer-contents-widget">
       <div class="__dealer-contents-title">CONTENTS</div>
       <div class="__dealer-contents-body">
-        <div class="dealer-content-move1" @click="onClickContent('1')">Default button</div>
-        <div class="dealer-content-move2" @click="onClickContent('2')">Button with icon</div>
-        <div class="dealer-content-move3" @click="onClickContent('3')">Button in loading</div>
+        <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
+        <div class="dealer-content-move2" @click="onClickContent('2')">Table With Checkbox</div>
+        <div class="dealer-content-move3" @click="onClickContent('3')">Table With Action Button</div>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default Table
+            Default
           </div>
           <div class="__dealer-subdescription">
             The data table’s features are ideal for organizing and displaying data in a UI. The column headers can sort data in ascending or descending order, rows can be expanded to progressively disclose information, and single or batch actions can be taken on rows.<br><br>

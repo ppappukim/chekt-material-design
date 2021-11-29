@@ -4,7 +4,7 @@
     <div class="__dealer-contents-widget">
       <div class="__dealer-contents-title">CONTENTS</div>
       <div class="__dealer-contents-body">
-        <div class="dealer-content-move1" @click="onClickContent('1')">Default badge</div>
+        <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
         <div class="dealer-content-move2" @click="onClickContent('2')">Small badge</div>
       </div>
     </div>
@@ -25,7 +25,7 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default Badge
+            Default
           </div>
           <div class="__dealer-subdescription">
             Commonly used feature on many devices.

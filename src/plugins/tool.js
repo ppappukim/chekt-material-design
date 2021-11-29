@@ -456,6 +456,9 @@ const ToolPlugin = {
         // uppercase the first character
           .replace(/^./, function (str) { return str.toUpperCase() })
       },
+      hasClass (element, className) {
+        return (' ' + element.className + ' ').indexOf(' ' + className+ ' ') > -1;
+      },
       getDateTimeTextForTable: function (myDate) {
         let text = ''
         if (myDate) {

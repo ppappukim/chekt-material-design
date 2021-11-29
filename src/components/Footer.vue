@@ -5,25 +5,22 @@
           <img src="@/assets/logo-gray.png" style="width:55px; height:53px; margin-top:5px; color:var(--blue-gray-high);">
           <div class="contents">
             <div class="define-chekt-desc">
-              For years security companies have installed alarm systems & surveillance systems in the same
-              location, but creating a video monitoring solution for the client has been expensive, 
-              time-consuming and difficult to maintain.  The Visual Verification Bridge eliminates those challenges,
-              giving the central station operator visual awareness and the client a powerful security solution.
+              CHeKT products and solutions allow your alarm or security company to deliver video into the alarm monitoring center, giving dispatch agents instant access to video evidence of precisely what causes the alarm to occur.
             </div>
             <ul class="sns">
-              <li class="sns-text"><a href="" target="_blank"><span style="text-decoration:underline;">Twitter</span></a></li>
-              <li class="sns-text"><a href="" target="_blank"><span style="text-decoration:underline;">Youtube</span></a></li>
-              <li class="sns-text"><a href="" target="_blank"><span style="text-decoration:underline;">Facebook</span></a></li>
-              <li class="sns-text"><a href="" target="_blank"><span style="text-decoration:underline;">Instargram</span></a></li>
-              <li class="sns-text-last"><a href="" target="_blank"><span style="text-decoration:underline;">LinkedIn</span></a></li>
+              <li class="sns-text"><a href="https://twitter.com/chektsolutions" target="_blank"><span style="text-decoration:underline;">Twitter</span></a></li>
+              <li class="sns-text"><a href="https://www.youtube.com/channel/UCsksSaqpOkVhoS-34uyxWyg" target="_blank"><span style="text-decoration:underline;">Youtube</span></a></li>
+              <li class="sns-text"><a href="https://www.facebook.com/chektsolutions" target="_blank"><span style="text-decoration:underline;">Facebook</span></a></li>
+              <li class="sns-text"><a href="https://www.instagram.com/chektsolutions/" target="_blank"><span style="text-decoration:underline;">Instargram</span></a></li>
+              <li class="sns-text-last"><a href="https://www.linkedin.com/company/chekt/mycompany/" target="_blank"><span style="text-decoration:underline;">LinkedIn</span></a></li>
             </ul>
           </div>
         </div>
         <div class="border"></div>
         <div class="other-infos">
           <div class="other-policy">
-            <div>Terms of Service</div>
-            <div>Privacy Policy</div>
+            <div><a href="http://chekt.com/images/terms/Chekt---Subscriber-Terms-and-Conditions-Nov-2017.pdf" target="_blank">Terms of Service</a></div>
+            <div><a href="https://www.youtube.com/channel/UCsksSaqpOkVhoS-34uyxWyg" target="_blank">Privacy Policy</a></div>
           </div>
           <div>Copyright © 2015 - 2022 CHeKT</div>
         </div>
@@ -126,14 +123,15 @@ export default {
 }
 .other-policy > div {
   display: inline;
-}
-.other-policy > div {
   margin-right: 10px;
   text-decoration: underline;
-  cursor: pointer;
 }
-.other-policy > div:hover {
+.other-policy > div > a:visited, a:link, a:active {
+  color: var(--chekt-blue-gray-high);
+}
+.other-policy > div > a:hover {
   color: var(--chekt-gray-high);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 750px) { 

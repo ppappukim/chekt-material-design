@@ -173,19 +173,12 @@ export default {
   border-radius: 3px;
   opacity: 0;
   font-weight: 500;
-  /* transition: opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1); */
-  /* transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition-duration: .5s; */
 }
 
 #__chekt-tooltip.active, #__chekt-tooltip-large.active {
   opacity: 1;
   transition-property: opacity;
   transition-delay: .3s;
-  /* transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1); */
-  /* transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
-  /* transition-duration: .2s; */
 }
 #__chekt-tooltip-large {
   position: fixed;

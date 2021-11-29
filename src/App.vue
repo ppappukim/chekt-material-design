@@ -2,7 +2,7 @@
   <div id="app">
     <router-view></router-view>
     <GlobalToastModal/>
-    <SearchModal/>
+    <SearchModal v-if="isSearchActive"/>
   </div>
 </template>
 
@@ -10,11 +10,16 @@
 import SearchModal from '@/components/SearchModal.vue'
 import GlobalToastModal from '@/components/toasts/GlobalToastModal.vue'
 export default {
+  name: 'App',
   components: {
     GlobalToastModal,
     SearchModal
   },
-  name: 'App',
+  computed: {
+    isSearchActive: function () {
+      return this.$store.getters.isSearchActive
+    },
+  },
 }
 </script>
 

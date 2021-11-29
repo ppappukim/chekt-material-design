@@ -108,23 +108,24 @@ html{
 .__dealer-contents-body {
   min-width: 200px;
   width: 200px;
-  color: var(--chekt-text-medium);
+  color: var(--chekt-text-high);
   font-size: 14px;
   margin-top: 16px;
+  pointer-events: none;
 }
 .__dealer-contents-body > div {
   padding: 10px 10px 10px 14px;
   border-left: 2px solid var(--chekt-border);
   cursor: pointer;
 }
-.__dealer-contents-body > div.active {
+/* .__dealer-contents-body > div.active {
   color: var(--chekt-text-high);
   border-left: 2px solid var(--chekt-text-high);
   font-weight: 600;
 }
 .__dealer-contents-body > div:hover {
   color: var(--chekt-text-high);
-}
+} */
 
 
 /* code */

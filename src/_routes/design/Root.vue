@@ -8,7 +8,7 @@
 		<!--  -->
 		<!-- HEADER -->
     <header v-bind:class="{ 'hidden': !showNavbar }">
-      <button v-if="currentMenu !== 'main'"  class="menu-button" @click="onClickMenuButton()">
+      <button v-if="dealerMenuActive"  class="menu-button" @click="onClickMenuButton()">
         <i class="material-icons">menu</i>
       </button>
       <a @click="onClickLogo()" class="brand" aria-label="Navigate to the chekt material homepage">
@@ -35,7 +35,14 @@
       </nav>
       <form>
       </form>
-      <button class="search-button">
+      <!-- TOOLTIP -->
+      <div id="__chekt-tooltip">Shift + S</div>
+      <!-- SEARCH ICON -->
+      <button 
+      @click="onClickSearch()" 
+      @mouseover="onHoverTooltip($event, 'bottom')"
+      @mouseout="onCloseTooltip($event)"  
+      class="search-button">
         <i class="material-icons">search</i>
       </button>
     </header>
@@ -50,7 +57,8 @@
 
 		<!--  -->
 		<!-- FOOTER -->
-    <Footer style="margin:0;"/>
+    <Footer
+    v-bind:class="{ fullscreen:footerFullWidth }"/>
 		<!-- FOOTER -->
 		<!--  -->
 
@@ -68,29 +76,27 @@ export default {
       showNavbar: true,
       lastScrollPosition: 0,
       isMenuButtonClicked: false,
-      currentMenu: '',
       dealerMenuActive: false,
       MonitoringMenuActive: false,
       EnduserMenuActive: false,
+      footerFullWidth: false,
     }
   },
   watch: {
     $route: function() {
-      let path = this.$router.history.current.path
-      this.dealerMenuActive = path.includes('dealer')
-      this.MonitoringMenuActive = path.includes('monitoring')
-      this.EnduserMenuActive = path.includes('enduser')
+      this.checkPathRoutine()
       if (this.isMenuButtonClicked == true) this.onClickBackdrop()
     }
   },
   created: function () {
-    let path = this.$router.history.current.path
-    this.dealerMenuActive = path.includes('dealer')
-    this.MonitoringMenuActive = path.includes('monitoring')
-    this.EnduserMenuActive = path.includes('enduser')
-    console.log(this.currentMenu);
+    this.checkPathRoutine()
     window.addEventListener('scroll', this.onScroll)
     window.addEventListener("resize", this.onResizeScreen)
+
+    // shift + s 누르면 검색모달이 나온다.
+    document.onkeyup = function(e) {
+      if (e.shiftKey && e.which == 83) this.onClickSearch()
+    }.bind(this)
   },
   mounted: function () {
   },
@@ -112,6 +118,10 @@ export default {
     onClickLogo: function () {
       this.$router.push({path: `/design/main`})
     },
+    onClickSearch: function () {
+      this.$store.commit('IS_SEARCH_ACTIVE', true)
+      this.$store.commit('GET_SEARCH_DATA')
+    },
     onClickMenuButton: function () {
       this.isMenuButtonClicked = true
       var mdcDrawerModal = document.getElementsByClassName("mdc-drawer-modal")
@@ -128,6 +138,63 @@ export default {
       var intFrameWidth = window.innerWidth;
       if(1341 > intFrameWidth) mdcDrawerModal[0].style.left = "-280px"
       // mdcDrawerModal[0].style.left = "-280px"
+    },
+    checkPathRoutine: function () {
+
+      // INIT - 지금 어떤 path에 있는지. 
+      let path = this.$router.history.current.path
+      this.dealerMenuActive = path.includes('dealer')
+      this.MonitoringMenuActive = path.includes('monitoring')
+      this.EnduserMenuActive = path.includes('enduser')
+
+      // CHECK - 만약 dealer page가아니면 footer를 full로 해라. 
+      if (!this.dealerMenuActive) this.footerFullWidth = true
+      else this.footerFullWidth = false
+    },
+    onHoverTooltip: function (e, position) {
+      e.stopPropagation()
+      
+      // GET - dialog element
+      this.tooltipEl = document.getElementById('__chekt-tooltip')
+      if (!this.tooltipEl) return
+
+      // GET - target position
+      this.targetEl = e.currentTarget
+      if (!this.targetEl) return
+      this.targetRect = this.targetEl.getBoundingClientRect();
+      
+
+      // ADD - position css
+      switch (position) {
+        case 'top':
+          this.tooltipEl.style.top = this.targetRect.y - this.targetEl.offsetHeight - 5  +'px'
+          this.tooltipEl.style.left = this.targetRect.x  + ( (this.targetEl.offsetWidth - this.tooltipEl.offsetWidth) / 2 ) + 'px'
+          break;
+        case 'bottom':
+          this.tooltipEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5  +'px'
+          this.tooltipEl.style.left = this.targetRect.x  + ( (this.targetEl.offsetWidth - this.tooltipEl.offsetWidth) / 2 ) + 'px'
+          break;
+        case 'left':
+          this.tooltipEl.style.top = this.targetRect.y + ( (this.targetEl.offsetHeight - this.tooltipEl.offsetHeight) / 2 ) +'px'
+          this.tooltipEl.style.left = this.targetRect.x - this.tooltipEl.offsetWidth - 5 +  'px'
+          break;
+        case 'right':
+          this.tooltipEl.style.top = this.targetRect.y + ( (this.targetEl.offsetHeight - this.tooltipEl.offsetHeight) / 2 ) +'px'
+          this.tooltipEl.style.left = this.targetRect.x + this.targetEl.offsetWidth + 5 +'px'
+          break;
+      
+        default:
+          break;
+      }
+
+      // ACTION - show tooltip
+      this.tooltipEl.classList.add('active')
+      this.targetEl.classList.add('active')
+    },
+    onCloseTooltip: async function () {
+      // ACTION - hidden tooltip
+      this.tooltipEl.classList.remove('active')
+      this.targetEl.classList.remove('active')
     },
     onScroll: function () {
       // Get the current scroll position
@@ -268,14 +335,40 @@ header.hidden {
   cursor: pointer;
   z-index: 5;
 }
+.search-button:hover{
+  opacity: .6;
+}
 #mdc-drawer-backdrop {
   background-color: rgba(0, 0, 0, 0.32);
   z-index: 5;
   width: 100%;
   height: 100%;
   position: fixed;
-  
 }
+
+.fullscreen {
+  margin: 0;
+}
+
+/* Tooltip */
+#__chekt-tooltip {
+  position: fixed;
+  padding: 3px 10px;
+  background-color: var(--chekt-blue-gray-highest);
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  width: fit-content;
+  opacity: 0;
+  font-weight: 500;
+}
+
+#__chekt-tooltip.active, #__chekt-tooltip-large.active {
+  opacity: 1;
+  transition-property: opacity;
+  transition-delay: .3s;
+}
+
 /* transition router view */
 .fade-enter-active, .fade-leave-active {
   transition-property: opacity;

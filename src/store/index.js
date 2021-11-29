@@ -3,7 +3,8 @@ import Vuex                   from 'vuex'
 
 import general              from './modules/general'
 import dialog               from './modules/dialog'
-import toast               from './modules/toast'
+import toast                from './modules/toast'
+import search               from './modules/search'
 
 
 
@@ -15,7 +16,8 @@ export default new Vuex.Store({
   modules: {
     general,
     dialog,
-    toast
+    toast,
+    search
   },
   strict: debug
 })

@@ -31,37 +31,8 @@
             A spinner is an animated spinning icon that lets users know content is being loaded.
           </div>
           <div class="__dealer-demo">
-            <div class="default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-text-high);" />
-            </div>
-            <div class="default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="24" style="stroke:var(--chekt-text-high);" />
-            </div>
-            <div class="primary icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="32" style="stroke:var(--chekt-text-high);" />
-            </div>
-            <div class="primary icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="48" style="stroke:var(--chekt-text-high);" />
-            </div>
+            <Loading/>
           </div>
-          <div class="__dealer-demo">
-            <div class="default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="24" style="stroke:var(--chekt-blue-gray-higher);" />
-            </div>
-            <div class="default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="24" style="stroke:var(--chekt-blue-gray-high);" />
-            </div>
-            <div class="default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="24" style="stroke:var(--chekt-blue-gray-mideum);" />
-            </div>
-            <div class="default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="24" style="stroke:var(--chekt-danger-color);" />
-            </div>
-            <div class="default icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="24" style="stroke:var(--chekt-success-color);" />
-            </div>
-          </div>
-
         </section>
 
         <!-- Button With Icon  -->
@@ -74,16 +45,7 @@
             A spinner is an animated spinning icon with text that lets users know content is being loaded.
           </div>
           <div class="__dealer-demo">
-            <div class="icon loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-blue-gray-higher);" />
-              <div class="loading-text">Loading...</div>
-            </div>
-          </div>
-          <div class="__dealer-demo">
-            <div class="icon-column loading">
-              <MyIcon v-bind:icon="'loader'" v-bind:width="18" style="stroke:var(--chekt-blue-gray-higher);" />
-              <div class="loading-text">Loading Data...</div>
-            </div>
+            <LoadingWithText/>
           </div>
 
         </section>
@@ -100,10 +62,12 @@
 </template>
 
 <script>
-import MyIcon from '@/MyIcon'
+import Loading from '@/components/loadings/Loading'
+import LoadingWithText from '@/components/loadings/LoadingWithText'
 export default {
   components: {
-    MyIcon
+    Loading,
+    LoadingWithText
   },
   computed: {
     scrollPositon: function () {
@@ -147,35 +111,9 @@ export default {
       contentMenus = document.querySelectorAll('.__dealer-contents-widget .__dealer-contents-body div')
       this.$tool.scrollContentsWidgetMoving(sections, contentMenus)
     },
-    onClickCloseLabel: function (e) {
-      var labelEl = e.currentTarget.parentNode
-      labelEl.style.display = 'none'
-    }
   }
 }
 </script>
 
 <style scoped>
-
-/* common button */
-
-.loading.icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 7px;
-}
-.loading.icon-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 10px;
-}
-.loading-text {
-  color: var(--chekt-blue-gray-higher);
-}
-
-
 </style>

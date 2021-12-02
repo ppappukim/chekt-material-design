@@ -26,7 +26,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div> 
+            <span class="__dealer-github">
+              <a href="https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue" target="_blank">
+              <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             A default image is displayed for avatars when a chosen source is unavailable (for example, when there is a problem displaying the image due to an error), or simply unspecified.
@@ -36,11 +41,16 @@
           </div>  
         </section>
 
-        <!-- Avatar with name initial -->
+        <!-- Avatar with name -->
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Avatar with name
+            <div class="__dealer-subtitle-text">Avatar with name</div> 
+            <span class="__dealer-github">
+              <a href="https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue" target="_blank">
+              <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Allows the user to select a single item from a dropdown list of options.
@@ -54,7 +64,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move3">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Avatar with image
+            <div class="__dealer-subtitle-text">Avatar with image</div> 
+            <span class="__dealer-github">
+              <a href="https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue" target="_blank">
+              <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Allows the user to select a single item from a dropdown list of options.
@@ -72,11 +87,13 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Avatar from '@/components/avatars/Avatar'
 import AvatarWithName from '@/components/avatars/AvatarWithName'
 import AvatarWithImg from '@/components/avatars/AvatarWithImg'
 export default {
   components: {
+    MyIcon,
     Avatar,
     AvatarWithName,
     AvatarWithImg

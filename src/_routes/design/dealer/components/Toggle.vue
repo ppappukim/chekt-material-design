@@ -25,7 +25,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Toggle" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a toggle. For pages with lots of toggles, use the default size.
@@ -39,7 +44,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Toggle with text
+            <div class="__dealer-subtitle-text">Toggle with text</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.ToggleWithText" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a toggle. For pages with lots of toggles, use the default size.
@@ -56,10 +66,12 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Toggle from '@/components/toggles/Toggle'
 import ToggleWithText from '@/components/toggles/ToggleWithText'
 export default {
   components: {
+    MyIcon,
     Toggle,
     ToggleWithText
   },
@@ -67,6 +79,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

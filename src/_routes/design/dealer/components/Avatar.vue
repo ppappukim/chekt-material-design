@@ -28,8 +28,8 @@
           <div class="__dealer-subtitle __dealer-withline-top">
             <div class="__dealer-subtitle-text">Default</div> 
             <span class="__dealer-github">
-              <a href="https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue" target="_blank">
-              <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              <a :href="githubUrlInfo.Avatar" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
               </a>
             </span>
           </div>
@@ -45,10 +45,10 @@
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top">
-            <div class="__dealer-subtitle-text">Avatar with name</div> 
+            <div class="__dealer-subtitle-text">Avatar with name</div>
             <span class="__dealer-github">
-              <a href="https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue" target="_blank">
-              <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              <a :href="githubUrlInfo.AvatarWithName" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
               </a>
             </span>
           </div>
@@ -66,8 +66,8 @@
           <div class="__dealer-subtitle __dealer-withline-top">
             <div class="__dealer-subtitle-text">Avatar with image</div> 
             <span class="__dealer-github">
-              <a href="https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue" target="_blank">
-              <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              <a :href="githubUrlInfo.AvatarWithImg" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
               </a>
             </span>
           </div>
@@ -102,6 +102,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

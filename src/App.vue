@@ -20,6 +20,9 @@ export default {
       return this.$store.getters.isSearchActive
     },
   },
+  created: function () { 
+    this.$store.commit('GET_SEARCH_DATA')
+  }
 }
 </script>
 

@@ -26,7 +26,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Range" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a range.
@@ -38,11 +43,16 @@
           
         </section>
 
-        <!-- Button With Icon  -->
+        <!-- Double Range  -->
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Double range
+            <div class="__dealer-subtitle-text">Double Range</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.DoubleRange" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Discrete sliders can be adjusted to a specific value by referencing its value indicator.
@@ -53,11 +63,16 @@
           </div>
 
         </section>
-        <!-- Button In Lodaing  -->
+        <!-- Range with value  -->
         <!-- ***************  -->
         <section id="dealer-content-move3">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Range with value
+            <div class="__dealer-subtitle-text">Range with value</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.RangeWithValue" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Range used with the value.
@@ -75,11 +90,13 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Range from '@/components/ranges/Range'
 import DoubleRange from '@/components/ranges/DoubleRange'
 import RangeWithValue from '@/components/ranges/RangeWithValue'
 export default {
   components: {
+    MyIcon,
     Range,
     DoubleRange,
     RangeWithValue
@@ -88,6 +105,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

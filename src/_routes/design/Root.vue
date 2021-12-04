@@ -120,7 +120,6 @@ export default {
     },
     onClickSearch: function () {
       this.$store.commit('IS_SEARCH_ACTIVE', true)
-      this.$store.commit('GET_SEARCH_DATA')
     },
     onClickMenuButton: function () {
       this.isMenuButtonClicked = true

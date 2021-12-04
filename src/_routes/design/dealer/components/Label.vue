@@ -27,7 +27,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Label" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a label, used for most cases. They are not impactful enough to represent the primary action in a container.
@@ -41,7 +46,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Secondary Label
+            <div class="__dealer-subtitle-text">Secondary Label</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.LabelSecondary" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The Secondary form of a label, used for most cases. They are not impactful enough to represent the primary action in a container.
@@ -55,7 +65,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Removable
+            <div class="__dealer-subtitle-text">Removable Label</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.RemovableLabel" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Once a tag has been removed, it cannot be re-rendered. Removable tags are visible in "edit" mode or in multi-select controls.
@@ -69,7 +84,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move3">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            With Icon
+            <div class="__dealer-subtitle-text">Label With Icon</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.LabelWithIcon" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Once a tag has been removed, it cannot be re-rendered. Removable tags are visible in "edit" mode or in multi-select controls.
@@ -87,12 +107,14 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Label from '@/components/labels/Label'
 import RemovableLabel from '@/components/labels/RemovableLabel'
 import LabelWithIcon from '@/components/labels/LabelWithIcon'
 import LabelSecondary from '@/components/labels/LabelSecondary.vue'
 export default {
   components: {
+    MyIcon,
     Label,
     RemovableLabel,
     LabelWithIcon,
@@ -102,6 +124,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

@@ -107,6 +107,21 @@
               <div class="color-palette-text">armed-tint</div>
             </div>
           </div>
+          <!-- Partially Armed -->
+          <div class="color-palettes-line">
+            <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:#f5a623;">#f5a623</div>
+              <div class="color-palette-text">partially-armed</div>
+            </div>
+            <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:#d8921f;">#d8921f</div>
+              <div class="color-palette-text">partially-armed-shadow</div>
+            </div>
+            <div class="color-palette">
+              <div class="color-palette-circle" style="background-color:#f6af39;">#f6af39</div>
+              <div class="color-palette-text">partially-armed-tint</div>
+            </div>
+          </div>
           <!-- disarmed -->
           <div class="color-palettes-line">
             <div class="color-palette">
@@ -215,6 +230,10 @@
           <span class="__css-attribute">--chekt-armed-color:</span> #FF7F16;
           <span class="__css-attribute">--chekt-armed-shadow-color:</span> #E07013;
           <span class="__css-attribute">--chekt-armed-tint-color:</span> #FF8C2D;
+
+          <span class="__css-attribute">--chekt-partially-armed-color:</span> #f5a623;
+          <span class="__css-attribute">--chekt-partially-armed-shadow-color:</span> #d8921f;
+          <span class="__css-attribute">--chekt-partially-armed-tint-color:</span> #f6af39;
 
           <span class="__css-attribute">--chekt-disarmed-color:</span> #1EA675;
           <span class="__css-attribute">--chekt-disarmed-shadow-color:</span> #1A9267;

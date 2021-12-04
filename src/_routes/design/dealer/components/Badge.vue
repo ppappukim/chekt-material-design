@@ -25,7 +25,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Badge" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Commonly used feature on many devices.
@@ -39,7 +44,12 @@
         <!-- ***********  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Small Badge
+            <div class="__dealer-subtitle-text">Small Badge</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.SmallBadge" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             When new notification is catched.
@@ -115,10 +125,12 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Badge from '@/components/badges/Badge'
 import SmallBadge from '@/components/badges/SmallBadge'
 export default {
   components: {
+    MyIcon,
     Badge,
     SmallBadge
   },
@@ -126,6 +138,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

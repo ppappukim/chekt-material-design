@@ -9,6 +9,7 @@ import {
 let initialState = {
   isSearchActive: false,
   searchDataInfo: [],
+  githubUrlInfo: {},
   status: {
   }
 }
@@ -23,6 +24,9 @@ const getters = {
   },
   searchDataInfo: function (state) {
     return state.searchDataInfo
+  },
+  githubUrlInfo: function (state) {
+    return state.githubUrlInfo
   },
 }
 
@@ -41,7 +45,26 @@ const mutations = {
     state.isSearchActive = isSearchActive
   },
   [GET_SEARCH_DATA]: function (state) {
+
+    // PARSE
     const searchDataInfo = parser.parseSearchData()
+
+    // CHECK
+    // if (!searchDataInfo) return
+    // if (!(searchDataInfo instanceof Array)) return
+
+    // INIT
+    let githubUrlInfo = {}
+
+    // GET - Github url
+    Object.values(searchDataInfo).map(v => {
+      
+      Object.entries(v.github).map(kv => { 
+        githubUrlInfo[kv[0]] = kv[1]
+      })
+    }),
+
+    state.githubUrlInfo = githubUrlInfo
     state.searchDataInfo = searchDataInfo
   },
 }

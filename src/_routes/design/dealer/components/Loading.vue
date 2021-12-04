@@ -25,7 +25,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Loading" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             A spinner is an animated spinning icon that lets users know content is being loaded.
@@ -35,11 +40,16 @@
           </div>
         </section>
 
-        <!-- Button With Icon  -->
+        <!-- With Text  -->
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            With Text
+            <div class="__dealer-subtitle-text">With Text</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.LoadingWithText" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             A spinner is an animated spinning icon with text that lets users know content is being loaded.
@@ -49,7 +59,7 @@
           </div>
 
         </section>
-        <!-- Button In Lodaing  -->
+        <!-- With Text  -->
         <!-- ***************  -->
         <section id="dealer-content-move3">
         </section>
@@ -62,10 +72,12 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Loading from '@/components/loadings/Loading'
 import LoadingWithText from '@/components/loadings/LoadingWithText'
 export default {
   components: {
+    MyIcon,
     Loading,
     LoadingWithText
   },
@@ -73,6 +85,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

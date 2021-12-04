@@ -26,7 +26,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Select" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Allows the user to select a single item from a dropdown list of options.
@@ -38,11 +43,16 @@
           
         </section>
 
-        <!-- Button With Icon  -->
+        <!-- Select with search  -->
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Select with search
+            <div class="__dealer-subtitle-text">Select with search</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.SelectWithSearch" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Discrete sliders can be adjusted to a specific value by referencing its value indicator.
@@ -53,11 +63,16 @@
           </div>
 
         </section>
-        <!-- Button In Lodaing  -->
+        <!-- Select with options -->
         <!-- ***************  -->
         <section id="dealer-content-move3">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Select with options
+            <div class="__dealer-subtitle-text">Select with options</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.SelectWithOption" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Range used with the value.
@@ -75,11 +90,13 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Select from '@/components/selects/Select'
 import SelectWithSearch from '@/components/selects/SelectWithSearch'
 import SelectWithOption from '@/components/selects/SelectWithOption'
 export default {
   components: {
+    MyIcon,
     Select,
     SelectWithSearch,
     SelectWithOption
@@ -88,6 +105,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

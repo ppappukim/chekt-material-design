@@ -27,7 +27,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Modal" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a modal.
@@ -41,7 +46,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            With Actions
+            <div class="__dealer-subtitle-text">With Actions</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.ModalWithActions" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a modal.
@@ -55,7 +65,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            With Format
+            <div class="__dealer-subtitle-text">With Format</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.ModalWithFormat" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a modal.
@@ -69,7 +84,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            With Tab
+            <div class="__dealer-subtitle-text">With Tab</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.ModalWithTab" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a modal.
@@ -86,12 +106,14 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Modal from '@/components/modals/Modal'
 import ModalWithActions from '@/components/modals/ModalWithActions'
 import ModalWithFormat from '@/components/modals/ModalWithFormat'
 import ModalWithTab from '@/components/modals/ModalWithTab'
 export default {
   components: {
+    MyIcon,
     Modal,
     ModalWithActions,
     ModalWithFormat,
@@ -101,6 +123,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

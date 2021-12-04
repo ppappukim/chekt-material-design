@@ -26,7 +26,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Datatable" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The data table’s features are ideal for organizing and displaying data in a UI. The column headers can sort data in ascending or descending order, rows can be expanded to progressively disclose information, and single or batch actions can be taken on rows.<br><br>
@@ -43,7 +48,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Table With Checkbox
+            <div class="__dealer-subtitle-text">Table With Checkbox</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.DatatableWithCheckbox" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Table may include an checkbox before or after the cell.
@@ -58,7 +68,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move3">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Table With Action Button
+            <div class="__dealer-subtitle-text">Table With Action Button</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.DatatableWithActions" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Data tables are an enhanced version of an HTML table and are used to display tabular data.
@@ -75,11 +90,13 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Datatable from '@/components/datatables/Datatable'
 import DatatableWithCheckbox from '@/components/datatables/DatatableWithCheckbox'
 import DatatableWithActions from '@/components/datatables/DatatableWithActions'
 export default {
   components: {
+    MyIcon,
     Datatable,
     DatatableWithCheckbox,
     DatatableWithActions
@@ -88,6 +105,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

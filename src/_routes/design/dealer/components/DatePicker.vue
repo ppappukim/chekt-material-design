@@ -25,7 +25,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.DatePicker" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             By default, selecting the date field opens the calendar view. The current date text is bold, underlined, and highlighted blue.
@@ -36,11 +41,16 @@
 
         </section>
 
-        <!-- Button With Icon  -->
+        <!-- Select Range  -->
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Select Range
+            <div class="__dealer-subtitle-text">Select Range</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.DatePickerRange" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             By default, selecting the date field opens the calendar view. The current date text is bold, underlined, and highlighted blue.
@@ -62,10 +72,12 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import DatePicker from '@/components/datepickers/DatePicker'
 import DatePickerRange from '@/components/datepickers/DatePickerRange'
 export default {
   components: {
+    MyIcon,
     DatePicker,
     DatePickerRange
   },
@@ -73,6 +85,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

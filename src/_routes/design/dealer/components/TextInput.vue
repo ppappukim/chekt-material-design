@@ -24,7 +24,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.TextInput" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a text field.
@@ -41,15 +46,20 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import TextInput from '@/components/textinputs/TextInput'
 export default {
   components: {
+    MyIcon,
     TextInput,
   },
   computed: {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

@@ -26,7 +26,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Dialog" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             dialogs are displayed when triggered by a user action, usually by clicking a button.</div>
@@ -40,7 +45,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Dialog With Category
+            <div class="__dealer-subtitle-text">Dialog With Category</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.DialogWithCategory" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Table may include an checkbox before or after the cell.
@@ -55,7 +65,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move3">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Dialog With Icon
+            <div class="__dealer-subtitle-text">Dialog With Icon</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.DialogWithIcon" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Table may include an Icon before or after the Text.
@@ -75,11 +90,13 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Dialog from '@/components/dialogs/Dialog'
 import DialogWithCategory from '@/components/dialogs/DialogWithCategory'
 import DialogWithIcon from '@/components/dialogs/DialogWithIcon'
 export default {
   components: {
+    MyIcon,
     Dialog,
     DialogWithCategory,
     DialogWithIcon
@@ -88,6 +105,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

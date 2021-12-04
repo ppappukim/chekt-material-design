@@ -25,7 +25,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Checkbox" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Checkboxes should be used instead of switches if multiple options can be selected from a list.
@@ -39,7 +44,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Checkbox With Text
+            <div class="__dealer-subtitle-text">Checkbox with text</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.CheckboxWithText" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Checkbox may include an icon before or after the text.
@@ -58,10 +68,12 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Checkbox from '@/components/checkboxes/Checkbox'
 import CheckboxWithText from '@/components/checkboxes/CheckboxWithText'
 export default {
   components: {
+    MyIcon,
     Checkbox,
     CheckboxWithText
   },
@@ -69,6 +81,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

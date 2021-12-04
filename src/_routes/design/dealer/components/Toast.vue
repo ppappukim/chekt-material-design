@@ -26,7 +26,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Toast" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a toast.
@@ -36,11 +41,16 @@
           </div>  
         </section>
 
-        <!-- With action -->
+        <!-- With Action -->
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            With Action
+            <div class="__dealer-subtitle-text">With Action</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.ToastWithAction" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a toast.
@@ -50,11 +60,16 @@
           </div>  
         </section>
 
-        <!-- With action -->
+        <!-- With actions -->
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            With Actions
+            <div class="__dealer-subtitle-text">With Actions</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.ToastWithActions" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a toast.
@@ -71,11 +86,13 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Toast from '@/components/toasts/Toast'
 import ToastWithAction from '@/components/toasts/ToastWithAction'
 import ToastWithActions from '@/components/toasts/ToastWithActions'
 export default {
   components: {
+    MyIcon,
     Toast,
     ToastWithAction,
     ToastWithActions
@@ -84,6 +101,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

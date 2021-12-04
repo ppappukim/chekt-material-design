@@ -24,7 +24,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Radio" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default way to present a single option from a list.
@@ -42,15 +47,20 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Radio from '@/components/radios/Radio'
 export default {
   components: {
+    MyIcon,
     Radio,
   },
   computed: {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

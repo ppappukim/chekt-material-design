@@ -44,9 +44,8 @@ export default {
         type: 'dealer',
         path: '/design/dealer/badge',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Badge: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/badges/Badge.vue',
+          SmallBadge: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/badges/SmallBadge.vue',
         }
       },
       {
@@ -56,9 +55,9 @@ export default {
         type: 'dealer',
         path: '/design/dealer/buttons',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Button: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/buttons/Button.vue',
+          ButtonWithIcon: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/buttons/ButtonWithIcon.vue',
+          ButtonWithLoading: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/buttons/ButtonWithLoading.vue'
         }
       },
       {
@@ -68,9 +67,8 @@ export default {
         type: 'dealer',
         path: '/design/dealer/checkboxes',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Checkbox: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/checkboxes/Checkbox.vue',
+          CheckboxWithText: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/checkboxes/CheckboxWithText.vue',
         }
       },
       {
@@ -80,9 +78,9 @@ export default {
         type: 'dealer',
         path: '/design/dealer/datatable',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Datatable: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/datatables/Datatable.vue',
+          DatatableWithActions: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/datatables/DatatableWithActions.vue',
+          DatatableWithCheckbox: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/datatables/DatatableWithCheckbox.vue'
         }
       },
       {
@@ -92,9 +90,8 @@ export default {
         type: 'dealer',
         path: '/design/dealer/datepicker',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          DatePicker: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/datepickers/DatePicker.vue',
+          DatePickerRange: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/datepickers/DatePickerRange.vue',
         }
       },
       {
@@ -104,9 +101,9 @@ export default {
         type: 'dealer',
         path: '/design/dealer/dialog',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Dialog: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/Dialog.vue',
+          DialogWithCategory: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/DialogWithCategory.vue',
+          DialogWithIcon: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/DialogWithIcon.vue'
         }
       },
       {
@@ -116,9 +113,10 @@ export default {
         type: 'dealer',
         path: '/design/dealer/label',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Label: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/labels/Label.vue',
+          LabelSecondary: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/labels/LabelSecondary.vue',
+          LabelWithIcon: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/labels/LabelWithIcon.vue',
+          RemovableLabel: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/labels/RemovableLabel.vue',
         }
       },
       {
@@ -128,9 +126,8 @@ export default {
         type: 'dealer',
         path: '/design/dealer/loading',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Loading: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/loadings/Loading.vue',
+          LoadingWithText: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/loadings/LoadingWithText.vue',
         }
       },
       {
@@ -140,9 +137,10 @@ export default {
         type: 'dealer',
         path: '/design/dealer/modal',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Modal: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/modals/Modal.vue',
+          ModalWithActions: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/modals/ModalWithActions.vue',
+          ModalWithFormat: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/modals/ModalWithFormat.vue',
+          ModalWithTab: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/modals/ModalWithTab.vue',
         }
       },
       {
@@ -152,9 +150,7 @@ export default {
         type: 'dealer',
         path: '/design/dealer/radio',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Radio: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/radios/Radio.vue',
         }
       },
       {
@@ -164,9 +160,9 @@ export default {
         type: 'dealer',
         path: '/design/dealer/range',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          DoubleRange: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/ranges/DoubleRange.vue',
+          Range: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/ranges/Range.vue',
+          RangeWithValue: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/ranges/RangeWithValue.vue'
         }
       },
       {
@@ -176,9 +172,9 @@ export default {
         type: 'dealer',
         path: '/design/dealer/select',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Select: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/selects/Select.vue',
+          SelectWithOption: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/selects/SelectWithOption.vue',
+          SelectWithSearch: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/selects/SelectWithSearch.vue'
         }
       },
       {
@@ -188,9 +184,9 @@ export default {
         type: 'dealer',
         path: '/design/dealer/speechbubble',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          SpeechBubble: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/speechbubbles/SpeechBubble.vue',
+          SpeechBubbleWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/speechbubbles/SpeechBubbleWithImg.vue',
+          SpeechBubbleWithTitle: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/speechbubbles/SpeechBubbleWithTitle.vue'
         }
       },
       {
@@ -200,9 +196,8 @@ export default {
         type: 'dealer',
         path: '/design/dealer/tab',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          CircleTab: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/tabs/CircleTab.vue',
+          Tab: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/tabs/Tab.vue',
         }
       },
       {
@@ -212,9 +207,7 @@ export default {
         type: 'dealer',
         path: '/design/dealer/textinput',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          TextInput: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/textinputs/TextInput.vue',
         }
       },
       {
@@ -224,9 +217,10 @@ export default {
         type: 'dealer',
         path: '/design/dealer/toast',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          GlobalToastModal: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/toasts/GlobalToastModal.vue',
+          Toast: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/toasts/Toast.vue',
+          ToastWithAction: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/toasts/ToastWithAction.vue',
+          ToastWithActions: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/toasts/ToastWithActions.vue'
         }
       },
       {
@@ -236,9 +230,8 @@ export default {
         type: 'dealer',
         path: '/design/dealer/toggle',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Toggle: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/toggles/Toggle.vue',
+          ToggleWithText: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/toggles/ToggleWithText.vue',
         }
       },
       {
@@ -248,9 +241,7 @@ export default {
         type: 'dealer',
         path: '/design/dealer/tooltip',
         github: {
-          Avatar: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/Avatar.vue',
-          AvatarWithImg: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithImg.vue',
-          AvatarWithName: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/avatars/AvatarWithName.vue'
+          Tooltip: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/tooltips/Tooltip.vue',
         }
       },
     ]

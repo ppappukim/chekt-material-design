@@ -26,7 +26,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.SpeechBubble" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a speech bubble.
@@ -41,7 +46,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            With Title
+            <div class="__dealer-subtitle-text">With Title</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.SpeechBubbleWithTitle" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a speech bubble.
@@ -55,7 +65,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            With Image
+            <div class="__dealer-subtitle-text">With Img</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.SpeechBubbleWithImg" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a speech bubble.
@@ -72,11 +87,13 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import SpeechBubble from '@/components/speechbubbles/SpeechBubble'
 import SpeechBubbleWithTitle from '@/components/speechbubbles/SpeechBubbleWithTitle'
 import SpeechBubbleWithImg from '@/components/speechbubbles/SpeechBubbleWithImg'
 export default {
   components: {
+    MyIcon,
     SpeechBubble,
     SpeechBubbleWithTitle,
     SpeechBubbleWithImg
@@ -85,6 +102,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

@@ -26,7 +26,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Button" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of a button, used for most cases. They are not impactful enough to represent the primary action in a container.
@@ -40,7 +45,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move2">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Button With Icon
+            <div class="__dealer-subtitle-text">Button With Icon</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.ButtonWithIcon" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Buttons may include an icon before or after the text.
@@ -54,7 +64,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move3">
           <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            Button In Lodaing
+            <div class="__dealer-subtitle-text">Button In Lodaing</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.ButtonWithLoading" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Set isLoading to indicate the button is loading. The button text is hidden and a spinner is shown in its place, while maintaining the width that it would have if the text were visible.
@@ -72,11 +87,13 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Button from '@/components/buttons/Button'
 import ButtonWithIcon from '@/components/buttons/ButtonWithIcon'
 import ButtonWithLoading from '@/components/buttons/ButtonWithLoading'
 export default {
   components: {
+    MyIcon,
     Button,
     ButtonWithIcon,
     ButtonWithLoading
@@ -85,6 +102,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

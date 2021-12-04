@@ -25,7 +25,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Default
+            <div class="__dealer-subtitle-text">Default</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Tab" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             The default form of tabs.
@@ -39,7 +44,12 @@
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
-            Circle Tab
+            <div class="__dealer-subtitle-text">With Circle</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.CircleTab" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
           </div>
           <div class="__dealer-subdescription">
             Allows the user to select a single item from a dropdown list of options.
@@ -57,10 +67,12 @@
 </template>
 
 <script>
+import MyIcon from '@/MyIcon'
 import Tab from '@/components/tabs/Tab'
 import CircleTab from '@/components/tabs/CircleTab'
 export default {
   components: {
+    MyIcon,
     Tab,
     CircleTab
   },
@@ -68,6 +80,9 @@ export default {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
     },
+    githubUrlInfo: function () {
+      return this.$store.getters.githubUrlInfo
+    }
   },
   data: function() {
     return {

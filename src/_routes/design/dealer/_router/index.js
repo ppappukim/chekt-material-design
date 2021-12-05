@@ -56,6 +56,10 @@ const childRoute = {
       component: () => import("@/_routes/design/dealer/components/Dialog"),
     },
     {
+    path: 'filters',
+      component: () => import("@/_routes/design/dealer/components/Filters"),
+    },
+    {
       path: 'label',
       component: () => import("@/_routes/design/dealer/components/Label"),
     },

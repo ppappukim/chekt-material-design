@@ -14,15 +14,15 @@
     <div class="__dealer-component">
       <div class="__dealer-component-header">
         <div class="__dealer-title">
-          Dialog
+          Filters
         </div>
         <div class="__dealer-description">
-          An inline dialog is a pop-up container for small amounts of information. It can also contain controls.
+          An inline filter is a pop-up container for small amounts of information. It can also contain controls.
         </div>
       </div>
       <div class="__dealer-component-content">
 
-        <!-- Default Table  -->
+        <!-- Default Filter  -->
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">
@@ -34,10 +34,10 @@
             </span>
           </div>
           <div class="__dealer-subdescription">
-            dialogs are displayed when triggered by a user action, usually by clicking a button.</div>
+            Filter are displayed when triggered by a user action, usually by clicking a button.</div>
           <!-- DEMO -->
           <div class="__dealer-demo">
-            <Dialog/>
+            <Filters/>
           </div>
         </section>
 
@@ -91,13 +91,13 @@
 
 <script>
 import MyIcon from '@/MyIcon'
-import Dialog from '@/components/dialogs/Dialog'
+import Filters from '@/components/filters/Filter'
 import DialogWithCategory from '@/components/dialogs/DialogWithCategory'
 import DialogWithIcon from '@/components/dialogs/DialogWithIcon'
 export default {
   components: {
     MyIcon,
-    Dialog,
+    Filters,
     DialogWithCategory,
     DialogWithIcon
   },

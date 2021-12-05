@@ -25,6 +25,7 @@
             <li v-on:click="onClickList('datatable')" v-bind:class="{ active:currentMenu === 'datatable' }">Data table</li>
             <li v-on:click="onClickList('datepicker')" v-bind:class="{ active:currentMenu === 'datepicker' }">Date Picker</li>
             <li v-on:click="onClickList('dialog')" v-bind:class="{ active:currentMenu === 'dialog' }">Dialog</li>
+            <li v-on:click="onClickList('filters')" v-bind:class="{ active:currentMenu === 'filters' }">Filters</li>
             <li v-on:click="onClickList('label')" v-bind:class="{ active:currentMenu === 'label' }">Label</li>
             <li v-on:click="onClickList('loading')" v-bind:class="{ active:currentMenu === 'loading' }">Loading</li>
             <li v-on:click="onClickList('modal')" v-bind:class="{ active:currentMenu === 'modal' }">Modal</li>

@@ -1,18 +1,17 @@
 <template>
-  <div style="position:relative;">
-    <div @click="onClickDatePicker($event)" class="button default icon date">
-      <MyIcon v-bind:icon="'calendar'" v-bind:width="18" />
-      <div>{{buttonDate}}</div>
-    </div>
-    <!-- <input type="text" id="input_date" /> -->
+  <div>
     <div id="__chekt-datepicker">
       <div class="date-picker-header">
-        <div @click="changeMonth(-1)" class="date-picker-header-icon"><MyIcon v-bind:icon="'arrow-left'" v-bind:width="18" /></div>
+        <div @click="changeMonth(-1)" class="date-picker-header-icon">
+          <MyIcon v-bind:icon="'arrow-left'" v-bind:width="18" />
+        </div>
         <div class="date-picker-header-info">
           <div>{{current_month_text}}</div>
           <div>{{current_year}}</div>
         </div>
-        <div @click="changeMonth(1)" class="date-picker-header-icon"><MyIcon v-bind:icon="'arrow-right'" v-bind:width="18" /></div>
+        <div @click="changeMonth(1)" class="date-picker-header-icon">
+          <MyIcon v-bind:icon="'arrow-right'" v-bind:width="18" />
+        </div>
       </div>
       <table class="table">
         <thead>
@@ -50,6 +49,14 @@ export default {
   components: {
     MyIcon
   },
+  props: {
+    propsClickEvent: {
+      type: PointerEvent,
+      default: function () {
+        return null
+      }
+    },
+  },
   computed: {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
@@ -72,6 +79,13 @@ export default {
     scrollPositon: function () {
       this.onScrollDatePicker()
     },
+    buttonDate: function () {
+      this.$emit('emitButtonDate', this.buttonDate)
+    },
+    propsClickEvent: function () {
+      console.log(this.propsClickEvent.currentTarget);
+      this.onClickDatePicker(this.propsClickEvent)
+    }
   },
   created: function () {
     document.body.addEventListener('click', this.closeButton, true)

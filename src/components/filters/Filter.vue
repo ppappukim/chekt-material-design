@@ -1,170 +1,340 @@
 <template>
   <div>
-    <div class="filters">
 
-      <!-- Button -->
-      <div class="button default icon"> <MyIcon v-bind:icon="'filter'" v-bind:width="18" /> Filter </div>
+    <!-- Filter -->
+    <div id="__chekt-filter">
+      <!-- Header -->
+      <div class="filter-header">
+        <div @click="onClickClearBtn()" class="button-small default">Clear</div>
+        <div class="filter-header-text">Filter</div>
+        <div @click="onClickDoneBtn()" class="button-small primary">Done</div>
+      </div>
+      <!-- Body -->
+      <div class="filter-body">
 
-      <!-- Filter -->
-      <div id="__chekt-filter">
-        <!-- Header -->
-        <div class="filter-header">
-          <div class="button-small default">Clear</div>
-          <div class="filter-header-text">Filter</div>
-          <div class="button-small primary">Done</div>
-        </div>
-        <!-- Body -->
-        <div class="filter-body">
+        <!-- Item -->
+        <div class="filter-body-item">
 
-          <!-- Item -->
-          <div class="filter-body-item">
+          <!-- Item > Title -->
+          <div class="filter-body-item-title">
+            <!-- Checkbox -->
+            <div>
+              <label class="checkbox">
+                <input type="checkbox" v-model="isDateChecked">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <!-- Text -->
+            <div class="title-text">Date</div>
+          </div>
 
-            <!-- Item > Title -->
-            <div class="filter-body-item-title">
-              <!-- Checkbox -->
-              <div>
-                <label class="checkbox">
-                  <input type="checkbox">
-                  <span class="checkmark"></span>
-                </label>
+          <!-- Item > Content -->
+          <div v-if="isDateChecked" class="filter-body-item-content">
+
+            <!-- Content main -->
+            <div>
+              <div id="__chekt-select">
+                <select @change="onChangeDatePeriodType($event)" class="select">
+                  <option value="0">is in the last</option>
+                  <option value="1">is equal to</option>
+                  <option value="2">is between</option>
+                  <option value="3">is after</option>
+                  <option value="4">is before</option>
+                </select>
+                <div class="select-icon">
+                  <MyIcon v-bind:icon="'folder-open'" v-bind:width="18" />
+                </div>
               </div>
-              <!-- Text -->
-              <div class="title-text">Date</div>
             </div>
 
-            <!-- Item > Content -->
-            <div class="filter-body-item-content">
-
-              <!-- Content main -->
+            <!-- Content sub 0 -->
+            <div v-if="dateSelectType === '0'" class="content-sub">
+              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <div>
+                <div class="input-text">
+                  <input v-model="messageDateA" @input="maxLengthCheck(messageDateA)" type="number" placeholder="0">
+                </div>
+              </div>
+              <div style="margin-left:5px;">
                 <div id="__chekt-select">
-                  <select @change="onChangePeriodType($event)" class="select">
-                    <option value="0">is in the last</option>
-                    <option value="1">is equal to</option>
-                    <option value="2">is between</option>
-                    <option value="3">is after</option>
-                    <option value="4">is before</option>
+                  <select class="select">
+                    <option value="0">days</option>
+                    <option value="1">months</option>
                   </select>
                   <div class="select-icon">
-                    <MyIcon v-bind:icon="'folder-open'" v-bind:width="18" />
+                    <MyIcon v-bind:icon="'folder-open'" v-bind:width="18"/>
                   </div>
                 </div>
               </div>
-
-              <!-- Content sub 0 -->
-              <div v-if="selectType === '0'" class="content-sub">
-                <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
-                <div>
-                  <div class="input-text">
-                    <input v-model="message" @input="maxLengthCheck(message)" type="number" placeholder="0">
-                  </div>
-                </div>
-                <div style="margin-left:5px;">
-                  <div id="__chekt-select">
-                    <select class="select">
-                      <option value="0">days</option>
-                      <option value="1">months</option>
-                    </select>
-                    <div class="select-icon">
-                      <MyIcon v-bind:icon="'folder-open'" v-bind:width="18"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Content sub 1 -->
-              <div v-else-if="selectType === '1'" class="content-sub">
-                <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
-                <div>
-                  <div class="input-text">
-                    <input v-model="message" @input="maxLengthCheck(message)" type="number" placeholder="0">
-                  </div>
-                </div>
-              </div>
-
-              <!-- Content sub 2 -->
-              <div v-else-if="selectType === '2'" class="content-sub">
-                <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
-                <div>
-                  <div class="input-text">
-                    <input v-model="message" @input="maxLengthCheck(message)" type="number" placeholder="0">
-                  </div>
-                </div>
-                <div style="margin-left:5px;">
-                  <div id="__chekt-select">
-                    <select class="select">
-                      <option value="0">days</option>
-                      <option value="1">months</option>
-                    </select>
-                    <div class="select-icon">
-                      <MyIcon v-bind:icon="'folder-open'" v-bind:width="18"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Content sub 3 -->
-              <div v-else-if="selectType === '3'" class="content-sub">
-                <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
-                <div>
-                  <div class="input-text">
-                    <input v-model="message" @input="maxLengthCheck(message)" type="number" placeholder="0">
-                  </div>
-                </div>
-                <div style="margin-left:5px;">
-                  <div id="__chekt-select">
-                    <select class="select">
-                      <option value="0">days</option>
-                      <option value="1">months</option>
-                    </select>
-                    <div class="select-icon">
-                      <MyIcon v-bind:icon="'folder-open'" v-bind:width="18"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Content sub 4 -->
-              <div v-else-if="selectType === '4'" class="content-sub">
-                <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
-                <div>
-                  <div class="input-text">
-                    <input v-model="message" @input="maxLengthCheck(message)" type="number" placeholder="0">
-                  </div>
-                </div>
-                <div style="margin-left:5px;">
-                  <div id="__chekt-select">
-                    <select class="select">
-                      <option value="0">days</option>
-                      <option value="1">months</option>
-                    </select>
-                    <div class="select-icon">
-                      <MyIcon v-bind:icon="'folder-open'" v-bind:width="18"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
             </div>
-          </div>
 
-          <!-- Item -->
-          <div class="filter-body-item">
-            <div class="filter-body-item-title">
-              <!-- Checkbox -->
+            <!-- Content sub 1 -->
+            <div v-else-if="dateSelectType === '1'" class="content-sub">
+              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+              <!-- Datepicker -->
+                <div @click="onClickDatePicker($event)" class="button-small default icon date">
+                  <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
+                  <div>{{buttonDate}}</div>
+                </div>
+                <DatePicker
+                :propsClickEvent="propsClickEvent"
+                @emitButtonDate="emitButtonDate"
+                />
+            </div>
+
+            <!-- Content sub 2 -->
+            <div v-else-if="dateSelectType === '2'" class="content-sub">
+              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+
+              <!-- Range Datepicker -->
               <div>
-                <label class="checkbox">
-                  <input type="checkbox">
-                  <span class="checkmark"></span>
-                </label>
+                <div @click="onClickDatePickerRange($event)" class="button-small default icon date">
+                  <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
+                  <div>{{rangeButtonDateStart}} - {{rangeButtonDateEnd}}</div>
+                </div>
+                <DatePickerRange
+                :propsClickRangeEvent="propsClickRangeEvent"
+                @emitButtonRangeStartDate="emitButtonRangeStartDate"
+                @emitButtonRangeEndDate="emitButtonRangeEndDate"
+                />
               </div>
-              <!-- Text -->
-              <div class="item-text">Amount</div>
+            </div>
+
+            <!-- Content sub 3 -->
+            <div v-else-if="dateSelectType === '3'" class="content-sub">
+              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+              <!-- Datepicker -->
+              <div>
+                <div @click="onClickDatePicker($event)" class="button-small default icon date">
+                  <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
+                  <div>{{buttonDate}}</div>
+                </div>
+                <DatePicker
+                :propsClickEvent="propsClickEvent"
+                @emitButtonDate="emitButtonDate"
+                />
+              </div>
+            </div>
+
+            <!-- Content sub 4 -->
+            <div v-else-if="dateSelectType === '4'" class="content-sub">
+              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+              <!-- Datepicker -->
+              <div>
+                <div @click="onClickDatePicker($event)" class="button-small default icon date">
+                  <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
+                  <div>{{buttonDate}}</div>
+                </div>
+                <DatePicker
+                :propsClickEvent="propsClickEvent"
+                @emitButtonDate="emitButtonDate"
+                />
+              </div>
             </div>
           </div>
 
         </div>
+
+        <!-- Item -->
+        <div class="filter-body-item">
+          <div class="filter-body-item-title">
+            <!-- Checkbox -->
+            <div>
+              <label class="checkbox">
+                <input type="checkbox" v-model="isAmountChecked">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <!-- Text -->
+            <div class="item-text">Amount</div>
+          </div>
+
+            <!-- Item > Content -->
+          <div v-if="isAmountChecked" class="filter-body-item-content">
+
+            <!-- Content main -->
+            <div>
+              <div id="__chekt-select">
+                <select @change="onChangeAmountPeriodType($event)" class="select">
+                  <option value="0">is equal to</option>
+                  <option value="1">is between</option>
+                  <option value="2">is greater than</option>
+                  <option value="3">is less than</option>
+                </select>
+                <div class="select-icon">
+                  <MyIcon v-bind:icon="'folder-open'" v-bind:width="18" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Content sub 0 -->
+            <div v-if="amountSelectType === '0'" class="content-sub">
+              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+              <div>
+                <div class="input-text">
+                  <input v-model="messageAmountA" @input="maxLengthCheck(messageAmountA)" type="number" placeholder="0">
+                </div>
+              </div>
+            </div>
+
+            <!-- Content sub 1 -->
+            <div v-if="amountSelectType === '1'" class="content-sub">
+              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+              <div class="content-sub-body">
+                <div class="input-text">
+                  <input v-model="messageAmountB" @input="maxLengthCheck(messageAmountB)" type="number" placeholder="0">
+                </div>
+                <div class="content-sub-body-text">and</div>
+                <div class="input-text">
+                  <input v-model="messageAmountC" @input="maxLengthCheck(messageAmountC)" type="number" placeholder="0">
+                </div>
+              </div>
+            </div>
+
+            <!-- Content sub 2 -->
+            <div v-if="amountSelectType === '2'" class="content-sub">
+              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+              <div>
+                <div class="input-text">
+                  <input v-model="messageAmountD" @input="maxLengthCheck(messageAmountD)" type="number" placeholder="0">
+                </div>
+              </div>
+            </div>
+
+            <!-- Content sub 3 -->
+            <div v-if="amountSelectType === '3'" class="content-sub">
+              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+              <div>
+                <div class="input-text">
+                  <input v-model="messageAmountE" @input="maxLengthCheck(messageAmountE)" type="number" placeholder="0">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Item -->
+        <div class="filter-body-item">
+          <div class="filter-body-item-title">
+            <!-- Checkbox -->
+            <div>
+              <label class="checkbox">
+                <input type="checkbox" v-model="isStatusChecked">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <!-- Text -->
+            <div class="item-text">Status</div>
+          </div>
+
+            <!-- Item > Content -->
+          <div v-if="isStatusChecked" class="filter-body-item-content">
+
+            <!-- Content main -->
+            <div class="filter-body-item-main">
+
+              <!-- Checkbox -->
+              <div class="filter-body-item-main-line">
+                <div>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span class="checkmark small"></span>
+                  </label>
+                </div>
+                <!-- Text -->
+                <div class="item-main">Successed</div>
+              </div>
+
+              <!-- Checkbox -->
+              <div class="filter-body-item-main-line">
+                <div>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span class="checkmark small"></span>
+                  </label>
+                </div>
+                <!-- Text -->
+                <div class="item-main">Incomplete</div>
+              </div>
+
+              <!-- Checkbox -->
+              <div class="filter-body-item-main-line">
+                <div>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span class="checkmark small"></span>
+                  </label>
+                </div>
+                <!-- Text -->
+                <div class="item-main">Pending</div>
+              </div>
+
+              <!-- Checkbox -->
+              <div class="filter-body-item-main-line">
+                <div>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span class="checkmark small"></span>
+                  </label>
+                </div>
+                <!-- Text -->
+                <div class="item-main">Refunded</div>
+              </div>
+
+              <!-- Checkbox -->
+              <div class="filter-body-item-main-line">
+                <div>
+                  <label class="checkbox">
+                    <input type="checkbox">
+                    <span class="checkmark small"></span>
+                  </label>
+                </div>
+                <!-- Text -->
+                <div class="item-main">Failed</div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Item -->
+        <div class="filter-body-item">
+          <div class="filter-body-item-title">
+            <!-- Checkbox -->
+            <div>
+              <label class="checkbox">
+                <input type="checkbox" v-model="isPaymentMethodChecked">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <!-- Text -->
+            <div class="item-text">Payment Method</div>
+          </div>
+
+            <!-- Item > Content -->
+          <div v-if="isPaymentMethodChecked" class="filter-body-item-content">
+
+            <!-- Content main -->
+            <div class="filter-body-item-main" style="padding:0;">
+              <div id="__chekt-select">
+                <select class="select">
+                  <option value="0">Card</option>
+                  <option value="1">Bank Account</option>
+                  <option value="2">ACH Credit Transfer</option>
+                  <option value="3">Apple Pay</option>
+                </select>
+                <div class="select-icon">
+                  <MyIcon v-bind:icon="'folder-open'" v-bind:width="18" />
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
@@ -172,97 +342,203 @@
 
 <script>
 import MyIcon from '@/MyIcon'
+import DatePicker from '@/components/datepickers/DatePicker'
+import DatePickerRange from '@/components/datepickers/DatePickerRange'
 export default {
   components: {
-    MyIcon
+    MyIcon,
+    DatePicker,
+    DatePickerRange
+  },
+  props: {
+    propsFilterClickEvent: {
+      type: PointerEvent,
+      default: function () {
+        return null
+      }
+    },
   },
   computed: {
+    scrollPositon: function () {
+      return this.$store.getters.scrollPositon
+    },
   },
   data: function() {
     return {
-      message: '',
-      selectType: '0',
+      messageDateA: '',
+      messageAmountA: '',
+      messageAmountB: '',
+      messageAmountC: '',
+      messageAmountD: '',
+      messageAmountE: '',
+      dateSelectType: '0',
+      amountSelectType: '0',
       isInTheLast: true,
       isEqualTo: false,
       isBetweem: false,
       isAfter: false,
       isBefore: false,
+
+      // Checkbox
+      isDateChecked: false,
+      isAmountChecked: false,
+      isStatusChecked: false,
+      isPaymentMethodChecked: false,
+
+      // Datepicker
+      buttonDate: 'Select day',
+      propsClickEvent: null,
+
+      // Range Datepicker
+      rangeButtonDateStart: 'Start day',
+      rangeButtonDateEnd: 'End day',
+      propsClickRangeEvent: null,
     }
   },
   watch: {
+    propsFilterClickEvent: function () {
+      console.log('?');
+      this.onClickFilterBtn(this.propsFilterClickEvent)
+    },
+    scrollPositon: function () {
+      this.onScrollFilter()
+    },
   },
   created: function () {
-    document.body.addEventListener('click', this.closeButton, true); 
+    document.body.addEventListener('click', this.closeButton, true);
+    window.addEventListener("resize", this.onResizeScreen) 
   },
   mounted: function () {
+    this.init()
   },
   beforeDestroy: function () {
-    document.body.removeEventListener('click', this.closeButton, true); 
+    document.body.removeEventListener('click', this.closeButton, true);
+    window.removeEventListener("resize", this.onResizeScreen)
   },
   methods: {
-    onChangePeriodType: function (e) {
-      this.selectType = e.target.value
-      console.log(this.selectType);
+    init: function () {
+    },
+    onClickClearBtn: function () {
+      this.isDateChecked = false
+      this.isAmountChecked = false
+      this.isStatusChecked = false
+      this.isPaymentMethodChecked = false
+    },
+    onClickDoneBtn:function () {
+      this.filterEl.classList.remove('active')
+      this.targetEl.classList.remove('active')
+    },
+    onClickDatePicker: function (e) {
+      this.propsClickEvent = e
+    },
+    onClickDatePickerRange: function (e) {
+      this.propsClickRangeEvent = e
+    },
+    emitButtonDate: function (v) {
+      this.buttonDate = v
+    },
+    emitButtonRangeStartDate: function (v) {
+      this.rangeButtonDateStart = v
+    },
+    emitButtonRangeEndDate: function (v) {
+      this.rangeButtonDateEnd = v
+    },
+    onChangeDatePeriodType: function (e) {
+      this.dateSelectType = e.target.value
+    },
+    onChangeAmountPeriodType: function (e) {
+      this.amountSelectType = e.target.value
+    },
+    maxLengthCheck: function (){
+    // if (message.length > 3){
+    //     this.messageDateA = message.slice(0, 3);
+    //   }    
+    },
 
-      // switch (type) {
-      //   case '0':
-      //     this.isInTheLast = true
-      //     this.isEqualTo = false 
-      //     this.isBetweem = false 
-      //     this.isAfter = false 
-      //     this.isBefore = false 
-      //     break;
-      //   case '1':
-      //     this.isEqualTo = true    
-      //     break;
-      //   case '2':
-      //     this.isBetweem = true    
-      //     break;
-      //   case '3':
-      //     this.isAfter = true    
-      //     break;
-      //   case 4:
-      //     this.isBefore = true    
-      //     break;
+    onClickFilterBtn: function (e) {
+      e.stopPropagation()
       
-      //   default:
-      //     break;
-      // }
+      // GET - dialog element
+      this.filterEl = document.getElementById('__chekt-filter')
+      if (!this.filterEl) return
+
+      // GET - target position
+      this.targetEl = e.currentTarget
+      if (!this.targetEl) return
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      this.filterEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
+      this.filterEl.style.left = this.targetRect.x  +'px'
 
 
-    },
-    onClickButton: function () {
-    },
-    closeButton: function () {
+      // ACTION - toggle show/hidden
+      this.filterEl.classList.add('active')
+      this.targetEl.classList.add('active')
 
     },
-    maxLengthCheck: function (message){
-    if (message.length > 3){
-        this.message = message.slice(0, 3);
-      }    
+    closeButton: function (e) {
+      if (!this.filterEl) return
+      // closest() - #__chekt-datepicker 이하 모든 자식노드를 클릭했을때 감지됨!! 
+      if (e.target.closest("#__chekt-filter")) return
+      if (this.filterEl.classList.contains('active')) e.stopPropagation()
+      this.filterEl.classList.remove('active')
+      this.targetEl.classList.remove('active')
     },
+    onResizeScreen: function () {
+      console.log();
+      // GET - dialog element
+      if (!this.filterEl) return
+
+      // GET - target position
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      this.filterEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
+      this.filterEl.style.left = this.targetRect.x  +'px'
+
+    },
+    onScrollFilter: function () {
+      // GET - dialog element
+      if (!this.filterEl) return
+
+      // GET - target position
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      this.filterEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
+      this.filterEl.style.left = this.targetRect.x  +'px'
+
+    }
+
   }
 }
 </script>
 
 <style scoped>
 
-.filters {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  grid-gap: 20px;
-}
-
 /* FILTER */
 
 #__chekt-filter {
+  position: fixed;
   width: 250px;
   box-shadow: 
   0 0 0 1px rgb(136 152 170 / 10%), 
   0 15px 35px 0 rgb(49 49 93 / 10%), 
   0 5px 15px 0 rgb(0 0 0 / 8%);
   border-radius: 5px;
+  transform: scale(.8);
+  opacity: 0;
+  visibility: hidden;
+  user-select: none;
+  background-color: white;
+  z-index: 300;
+}
+#__chekt-filter.active {
+  visibility: visible;
+  transform: scale(1);
+  opacity: 1;
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .filter-header {
   display: flex;
@@ -295,6 +571,24 @@ export default {
   border-top: 1px solid var(--chekt-border);
   padding: 10px;
 }
+.item-main {
+  font-size: 13px;
+  color: var(--chekt-blue-gray-highest);
+}
+.filter-body-item-main {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 16px;
+  padding: 10px 5px;
+}
+.filter-body-item-main-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  grid-gap: 10px;
+}
+
 
 .content-sub {
   display: flex;
@@ -307,6 +601,18 @@ export default {
 .content-sub-icon {
   color: var(--chekt-primary-color);
 }
+.content-sub-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 5px;
+}
+.content-sub-body-text {
+  font-size: 12px;
+  color: var(--chekt-blue-gray-highest);
+}
+
 
 
 
@@ -606,5 +912,14 @@ export default {
   text-align: start;
   margin-bottom: 10px;
 }
+
+
+.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 
 </style>

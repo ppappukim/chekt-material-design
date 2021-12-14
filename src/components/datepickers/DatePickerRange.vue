@@ -1,20 +1,16 @@
 <template>
-  <div style="position:relative;">
-    <div @click="onClickDatePickerRange($event)" class="button default icon date">
-      <MyIcon v-bind:icon="'calendar'" v-bind:width="18" />
-      <div>{{buttonDateStart}} - {{buttonDateEnd}}</div>
-    </div>
+  <div>
     <!-- START CARLANDAR -->
     <div id="__chekt-datepicker-range">
-      <div class="date-picker-header">
-        <div @click="changeMonth(-1)" class="date-picker-header-icon"><MyIcon v-bind:icon="'arrow-left'" v-bind:width="18" /></div>
-        <div class="date-picker-header-info">
-          <div>{{current_month_text}}</div>
-          <div>{{current_year}}</div>
+      <div class="range-date-picker-header">
+        <div @click="changeRangeMonth(-1)" class="range-date-picker-header-icon"><MyIcon v-bind:icon="'arrow-left'" v-bind:width="18" /></div>
+        <div class="range-date-picker-header-info">
+          <div>{{range_current_month_text}}</div>
+          <div>{{range_current_year}}</div>
         </div>
-        <div @click="changeMonth(1)" class="date-picker-header-icon"><MyIcon v-bind:icon="'arrow-right'" v-bind:width="18" /></div>
+        <div @click="changeRangeMonth(1)" class="range-date-picker-header-icon"><MyIcon v-bind:icon="'arrow-right'" v-bind:width="18" /></div>
       </div>
-      <table class="table">
+      <table class="range-table">
         <thead>
           <tr>
             <th>Su</th>
@@ -26,22 +22,22 @@
             <th>Sa</th>
           </tr>
         </thead>
-        <tbody id="tb_body">
+        <tbody id="range_tb_body">
           <tr
-            v-for="(week, i) in dates"
+            v-for="(week, i) in rangeDates"
             v-bind:key="i">
             
             <td
-            @click="onClickDate(day)"
+            @click="onClickRangeDate(day)"
             v-for="(day, i) in week"
             v-bind:key="i"
             v-bind:class="{ 
               hasday:day,
-              startday:new Date(current_year, current_month, day).getTime() == new Date(savedStartYear, savedStartMonth, isSelectedStartDay).getTime() && day,
-              endday:new Date(current_year, current_month, day).getTime() == new Date(savedEndYear, savedEndMonth, isSelectedEndDay).getTime() && day,
-              range: new Date(savedStartYear, savedStartMonth, isSelectedStartDay).getTime() < new Date(current_year, current_month, day).getTime() && day && isSelectedStartDay,
-              rangeremove: new Date(savedEndYear, savedEndMonth, isSelectedEndDay).getTime() < new Date(current_year, current_month, day).getTime() && day && isSelectedEndDay,
-              disable: new Date(savedStartYear, savedStartMonth, isSelectedStartDay).getTime() > new Date(current_year, current_month, day).getTime() && day && isSelectedStartDay && !isSelectedEndDay,
+              startday:new Date(range_current_year, range_current_month, day).getTime() == new Date(rangeSavedStartYear, rangeSavedStartMonth, rangeIsSelectedStartDay).getTime() && day,
+              endday:new Date(range_current_year, range_current_month, day).getTime() == new Date(rangeSavedEndYear, rangeSavedEndMonth, rangeIsSelectedEndDay).getTime() && day,
+              range: new Date(rangeSavedStartYear, rangeSavedStartMonth, rangeIsSelectedStartDay).getTime() < new Date(range_current_year, range_current_month, day).getTime() && day && rangeIsSelectedStartDay,
+              rangeremove: new Date(rangeSavedEndYear, rangeSavedEndMonth, rangeIsSelectedEndDay).getTime() < new Date(range_current_year, range_current_month, day).getTime() && day && rangeIsSelectedEndDay,
+              disable: new Date(rangeSavedStartYear, rangeSavedStartMonth, rangeIsSelectedStartDay).getTime() > new Date(range_current_year, range_current_month, day).getTime() && day && rangeIsSelectedStartDay && !rangeIsSelectedEndDay,
               }">
               {{day}}
             </td>
@@ -58,6 +54,14 @@ export default {
   components: {
     MyIcon
   },
+  props: {
+    propsClickRangeEvent: {
+      type: PointerEvent,
+      default: function () {
+        return null
+      }
+    },
+  },
   computed: {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
@@ -65,45 +69,54 @@ export default {
   },
   data: function() {
     return {
-      current_year: (new Date()).getFullYear(),
-      current_month: (new Date()).getMonth() + 1,
-      dates: [],
-      lowDates: [],
-      datePickerEl: '',
-      buttonDateStart: 'Select Start day',
-      buttonDateEnd: 'End day',
-      current_month_text: '',
-      current_month_text_simple: '',
-      isSelectedStartDay: '',
-      isSelectedEndDay: '',
+      range_current_year: (new Date()).getFullYear(),
+      range_current_month: (new Date()).getMonth() + 1,
+      rangeDates: [],
+      rangeLowDates: [],
+      rangeDatePickerEl: '',
+      rangeButtonDateStart: 'Start day',
+      rangeButtonDateEnd: 'End day',
+      range_current_month_text: '',
+      range_current_month_text_simple: '',
+      rangeIsSelectedStartDay: '',
+      rangeIsSelectedEndDay: '',
 
-      savedStartMonth: '',
-      savedStartYear: '',
-      savedEndMonth: '',
-      savedEndYear: '',
+      rangeSavedStartMonth: '',
+      rangeSavedStartYear: '',
+      rangeSavedEndMonth: '',
+      rangeSavedEndYear: '',
     }
   },
   watch: {
     scrollPositon: function () {
-      this.onScrollDatePicker()
+      this.rangeOnScrollDatePicker()
+    },
+    propsClickRangeEvent: function () {
+      this.onClickDatePickerRange(this.propsClickRangeEvent)
+    },
+    rangeButtonDateStart: function () {
+      this.$emit('emitButtonRangeStartDate', this.rangeButtonDateStart)
+    },
+    rangeButtonDateEnd: function () {
+      this.$emit('emitButtonRangeEndDate', this.rangeButtonDateEnd)
     },
   },
   created: function () {
-    document.body.addEventListener('click', this.closeButton, true)
-    window.addEventListener("resize", this.onResizeScreen)
+    document.body.addEventListener('click', this.closeRangeButton, true)
+    window.addEventListener("resize", this.onResizeScreenRange)
   },
   mounted: function () {
     this.init()
   },
   beforeDestroy: function () {
-    document.body.removeEventListener('click', this.closeButton, true)
-    window.removeEventListener("resize", this.onResizeScreen)
+    document.body.removeEventListener('click', this.closeRangeButton, true)
+    window.removeEventListener("resize", this.onResizeScreenRange)
   },
   methods: { 
     init: function () {
-      this.changeYearMonth(this.current_year,this.current_month);
+      this.rangeChangeYearMonth(this.range_current_year,this.range_current_month);
     },
-    checkLeapYear: function (year) {
+    rangeCheckLeapYear: function (year) {
       // 윤년 계산
       if(year%400 == 0) {
         return true;
@@ -115,20 +128,20 @@ export default {
         return false;
       }
     },
-    getFirstDayOfWeek: function (year, month) {
+    getRangeFirstDayOfWeek: function (year, month) {
       if(month < 10) month = "0" + month;
 
       return (new Date(year+"-"+month+"-01")).getDay();
     },
-    changeYearMonth: function (year, month) {
+    rangeChangeYearMonth: function (year, month) {
 
       let month_day = [31,28,31,30,31,30,31,31,30,31,30,31];
 
       if(month == 2) {
-        if(this.checkLeapYear(year)) month_day[1] = 29;
+        if(this.rangeCheckLeapYear(year)) month_day[1] = 29;
       }
 
-      let first_day_of_week = this.getFirstDayOfWeek(year, month);
+      let first_day_of_week = this.getRangeFirstDayOfWeek(year, month);
       let arr_calendar = [];
       for(let i=0 ; i<first_day_of_week ; i++){
         arr_calendar.push("");
@@ -145,11 +158,11 @@ export default {
         }
       }
 
-      this.renderCalendar(arr_calendar);
-      this.getMonthToText()
+      this.renderRangeCalendar(arr_calendar);
+      this.getRangeMonthToText()
     },
-    renderCalendar: function (data) {
-      this.lowDates = data
+    renderRangeCalendar: function (data) {
+      this.rangeLowDates = data
       let h = [];
       h[1] = []
       h[2] = []
@@ -179,113 +192,113 @@ export default {
         }
 
       }
-      this.dates = h
+      this.rangeDates = h
     },
-    onClickDate: function (day) {
+    onClickRangeDate: function (day) {
       // CHECK - day data
       if (!day) return
 
       // CHECK - Start day & End day
-      if (this.isSelectedStartDay && this.isSelectedEndDay) {
+      if (this.rangeIsSelectedStartDay && this.rangeIsSelectedEndDay) {
 
         // PUT - Start date Data
-        this.isSelectedStartDay = day
-        this.savedStartYear = this.current_year
-        this.savedStartMonth = this.current_month
-        this.buttonDateStart = day + ' ' + this.current_month_text_simple + ", " + this.current_year
+        this.rangeIsSelectedStartDay = day
+        this.rangeSavedStartYear = this.range_current_year
+        this.rangeSavedStartMonth = this.range_current_month
+        this.rangeButtonDateStart = day + ' ' + this.range_current_month_text_simple + ", " + this.range_current_year
 
         // DELETE - End date Data
-        this.isSelectedEndDay = ''
-        this.buttonDateEnd = 'End day'
+        this.rangeIsSelectedEndDay = ''
+        this.rangeButtonDateEnd = 'End day'
       }
       // CHECK - Start day
-      else if (!this.isSelectedStartDay) {
+      else if (!this.rangeIsSelectedStartDay) {
         // PUT - Start date Data
-        this.isSelectedStartDay = day
-        this.savedStartYear = this.current_year
-        this.savedStartMonth = this.current_month
-        this.buttonDateStart = day + ' ' + this.current_month_text_simple + ", " + this.current_year
+        this.rangeIsSelectedStartDay = day
+        this.rangeSavedStartYear = this.range_current_year
+        this.rangeSavedStartMonth = this.range_current_month
+        this.rangeButtonDateStart = day + ' ' + this.range_current_month_text_simple + ", " + this.range_current_year
       }
       else {
         // PUT - End date Data
-        this.buttonDateEnd = day + ' ' + this.current_month_text_simple + ", " + this.current_year
-        this.isSelectedEndDay = day
-        this.savedEndYear = this.current_year
-        this.savedEndMonth = this.current_month
+        this.rangeButtonDateEnd = day + ' ' + this.range_current_month_text_simple + ", " + this.range_current_year
+        this.rangeIsSelectedEndDay = day
+        this.rangeSavedEndYear = this.range_current_year
+        this.rangeSavedEndMonth = this.range_current_month
 
-        this.datePickerEl.classList.remove('active')
+        this.rangeDatePickerEl.classList.remove('active')
       }
 
 
 
-      this.getMonthToText()
+      this.getRangeMonthToText()
 
     },
-    changeMonth: function (diff) {
+    changeRangeMonth: function (diff) {
 
-      this.current_month = this.current_month + diff;
+      this.range_current_month = this.range_current_month + diff;
 
-      if(this.current_month == 0) {
-        this.current_year = this.current_year - 1;
-        this.current_month = 12;
+      if(this.range_current_month == 0) {
+        this.range_current_year = this.range_current_year - 1;
+        this.range_current_month = 12;
       }
-      else if(this.current_month == 13) {
-        this.current_year = this.current_year + 1;
-        this.current_month = 1;
+      else if(this.range_current_month == 13) {
+        this.range_current_year = this.range_current_year + 1;
+        this.range_current_month = 1;
       }
       
-      this.changeYearMonth(this.current_year,this.current_month)
+      this.rangeChangeYearMonth(this.range_current_year,this.range_current_month)
 
     },
-    getMonthToText: function () {
-      switch (this.current_month) {
+    getRangeMonthToText: function () {
+      switch (this.range_current_month) {
         case 1:
-          this.current_month_text = 'January'
-          this.current_month_text_simple = 'Jan'
+          this.range_current_month_text = 'January'
+          this.range_current_month_text_simple = 'Jan'
           break;
         case 2:
-          this.current_month_text = 'February'
-          this.current_month_text_simple = 'Feb'
+          this.range_current_month_text = 'February'
+          this.range_current_month_text_simple = 'Feb'
           break;
         case 3:
-          this.current_month_text = 'March'
-          this.current_month_text_simple = 'Mar'
+          this.range_current_month_text = 'March'
+          this.range_current_month_text_simple = 'Mar'
           break;
         case 4:
-          this.current_month_text = 'April'
-          this.current_month_text_simple = 'Apr'
+          this.range_current_month_text = 'April'
+          this.range_current_month_text_simple = 'Apr'
           break;
         case 5:
-          this.current_month_text = 'May'
-          this.current_month_text_simple = 'May'
+          this.range_current_month_text = 'May'
+          this.range_current_month_text_simple = 'May'
           break;
         case 6:
-          this.current_month_text = 'June'
-          this.current_month_text_simple = 'Jun'
+          this.range_current_month_text = 'June'
+          this.range_current_month_text_simple = 'Jun'
           break;
         case 7:
-          this.current_month_text = 'July'
-          this.current_month_text_simple = 'Jul'
+          this.range_current_month_text = 'July'
+          this.range_current_month_text_simple = 'Jul'
           break;
         case 8:
-          this.current_month_text = 'August'
-          this.current_month_text_simple = 'Aug'
+          this.range_current_month_text = 'August'
+          this.range_current_month_text_simple = 'Aug'
           break;
         case 9:
-          this.current_month_text = 'September'
-          this.current_month_text_simple = 'Sep'
+          this.range_current_month_text = 'September'
+          this.range_current_month_text_simple = 'Sep'
           break;
         case 10:
-          this.current_month_text = 'October'
-          this.current_month_text_simple = 'Oct'
+          this.range_current_month_text = 'October'
+          this.range_current_month_text_simple = 'Oct'
           break;
         case 11:
-          this.current_month_text = 'November'
-          this.current_month_text_simple = 'Nov'
+          this.range_current_month_text = 'November'
+          this.range_current_month_text_simple = 'Nov'
           break;
         case 12:
-          this.current_month_text = 'December'
-          this.current_month_text_simple = 'Dec'
+          this.range_current_month_text = 'December'
+          this.range_current_month_text_simple = 'Dec'
           break;
 
         default:
@@ -294,21 +307,21 @@ export default {
     },
     onClickDatePickerRange: function (e) {
 
-      if (this.savedStartYear && this.savedStartMonth) {
-        var year = this.savedStartYear
-        var month = this.savedStartMonth
+      if (this.rangeSavedStartYear && this.rangeSavedStartMonth) {
+        var year = this.rangeSavedStartYear
+        var month = this.rangeSavedStartMonth
         
-        this.current_year = year
-        this.current_month = month
+        this.range_current_year = year
+        this.range_current_month = month
 
-        this.changeYearMonth(year, month)
+        this.rangeChangeYearMonth(year, month)
       }
 
       e.stopPropagation()
       
       // GET - dialog element
-      this.datePickerEl = document.getElementById('__chekt-datepicker-range')
-      if (!this.datePickerEl) return
+      this.rangeDatePickerEl = document.getElementById('__chekt-datepicker-range')
+      if (!this.rangeDatePickerEl) return
 
       // GET - target position
       this.targetEl = e.currentTarget
@@ -316,46 +329,46 @@ export default {
       this.targetRect = this.targetEl.getBoundingClientRect();
 
       // ADD - position css
-      this.datePickerEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
-      this.datePickerEl.style.left = this.targetRect.x  +'px'
+      this.rangeDatePickerEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
+      this.rangeDatePickerEl.style.left = this.targetRect.x  +'px'
 
 
       // ACTION - toggle show/hidden
-      this.datePickerEl.classList.add('active')
+      this.rangeDatePickerEl.classList.add('active')
       this.targetEl.classList.add('active')
 
     },
-    closeButton: function (e) {
-      if (!this.datePickerEl) return
+    closeRangeButton: function (e) {
+      if (!this.rangeDatePickerEl) return
       // closest() - #__chekt-datepicker-range 이하 모든 자식노드를 클릭했을때 감지됨!! 
       if (e.target.closest("#__chekt-datepicker-range")) return
       if (e.target.closest("#__chekt-datepicker-range-end")) return
-      if (this.datePickerEl.classList.contains('active')) e.stopPropagation()
-      this.datePickerEl.classList.remove('active')
+      if (this.rangeDatePickerEl.classList.contains('active')) e.stopPropagation()
+      this.rangeDatePickerEl.classList.remove('active')
       this.targetEl.classList.remove('active')
     },
-    onResizeScreen: function () {
+    onResizeScreenRange: function () {
       // GET - dialog element
-      if (!this.datePickerEl) return
+      if (!this.rangeDatePickerEl) return
 
       // GET - target position
       this.targetRect = this.targetEl.getBoundingClientRect();
 
       // ADD - position css
-      this.datePickerEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
-      this.datePickerEl.style.left = this.targetRect.x  +'px'
+      this.rangeDatePickerEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
+      this.rangeDatePickerEl.style.left = this.targetRect.x  +'px'
 
     },
-    onScrollDatePicker: function () {
+    rangeOnScrollDatePicker: function () {
       // GET - dialog element
-      if (!this.datePickerEl) return
+      if (!this.rangeDatePickerEl) return
 
       // GET - target position
       this.targetRect = this.targetEl.getBoundingClientRect();
 
       // ADD - position css
-      this.datePickerEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
-      this.datePickerEl.style.left = this.targetRect.x  +'px'
+      this.rangeDatePickerEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
+      this.rangeDatePickerEl.style.left = this.targetRect.x  +'px'
 
     }
 
@@ -377,6 +390,7 @@ export default {
   opacity: 0;
   visibility: hidden;
   user-select: none;
+  z-index: 300;
 }
 #__chekt-datepicker-range.active, #__chekt-datepicker-range-end.active {
   visibility: visible;
@@ -384,13 +398,13 @@ export default {
   opacity: 1;
   transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.date-picker-header {
+.range-date-picker-header {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.date-picker-header-info {
+.range-date-picker-header-info {
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -401,26 +415,26 @@ export default {
   font-weight: 500;
   color: var(--chekt-blue-gray-higher);
 }
-.date-picker-header-icon {
+.range-date-picker-header-icon {
   color: var(--chekt-blue-gray-high);
   cursor: pointer;
 }
-.table {
+.range-table {
   width: 100%;
   margin-top: 10px;
   border-collapse: collapse;
   border-spacing: 0;
 }
-.table > thead {
+.range-table > thead {
   height: 30px;
 
 }
-.table > thead > tr > th {
+.range-table > thead > tr > th {
   font-size: 11px;
   font-weight: 400;
   color: var(--chekt-blue-gray-high);
 }
-.table > tbody > tr > td {
+.range-table > tbody > tr > td {
   font-size: 14px;
   font-weight: 500;
   width: 40px;
@@ -429,45 +443,45 @@ export default {
   color: var(--chekt-blue-gray-higher);
 }
 
-.table > tbody > tr > td.hasday {
+.range-table > tbody > tr > td.hasday {
   cursor: pointer;
   border: solid 1px var(--chekt-border);
 }
-.table > tbody > tr > td.hasday:hover {
+.range-table > tbody > tr > td.hasday:hover {
   background-color: var(--chekt-blue-gray-mideum);
   color: var(--chekt-blue-gray-higher);
 }
 
 
-.table > tbody > tr > td.range {
+.range-table > tbody > tr > td.range {
   background-color: #5aa3e2;
   color: white;
 }
-.table > tbody > tr > td.range:hover {
+.range-table > tbody > tr > td.range:hover {
   background-color: #4c92d0;
   color: white;
 }
-.table > tbody > tr > td.rangeremove {
+.range-table > tbody > tr > td.rangeremove {
   background-color: white;
   color: var(--chekt-blue-gray-higher);
 }
-.table > tbody > tr > td.startday {
+.range-table > tbody > tr > td.startday {
   background-color: var(--chekt-primary-color);
   color: white;
 }
-.table > tbody > tr > td.startday:hover {
+.range-table > tbody > tr > td.startday:hover {
   background-color: var(--chekt-primary-color);
   color: white;
 }
-.table > tbody > tr > td.endday {
+.range-table > tbody > tr > td.endday {
   background-color: var(--chekt-primary-color);
   color: white;
 }
-.table > tbody > tr > td.endday:hover {
+.range-table > tbody > tr > td.endday:hover {
   background-color: var(--chekt-primary-color);
   color: white;
 }
-.table > tbody > tr > td.disable {
+.range-table > tbody > tr > td.disable {
   background-color: white;
   color: var(--chekt-blue-gray-mideum);
   pointer-events: none;

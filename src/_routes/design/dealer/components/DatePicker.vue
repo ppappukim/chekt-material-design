@@ -36,7 +36,13 @@
             By default, selecting the date field opens the calendar view. The current date text is bold, underlined, and highlighted blue.
           </div>
           <div class="__dealer-demo">
-            <DatePicker/>
+            <div @click="onClickDatePicker($event)" class="button default icon date">
+              <MyIcon v-bind:icon="'calendar'" v-bind:width="18" />
+              <div>{{buttonDate}}</div>
+            </div>
+            <DatePicker
+            :propsClickEvent="propsClickEvent"
+            @emitButtonDate="emitButtonDate"/>
           </div>
 
         </section>
@@ -56,7 +62,15 @@
             By default, selecting the date field opens the calendar view. The current date text is bold, underlined, and highlighted blue.
           </div>
           <div class="__dealer-demo">
-            <DatePickerRange/>
+            <div @click="onClickDatePickerRange($event)" class="button default icon date">
+              <MyIcon v-bind:icon="'calendar'" v-bind:width="18" />
+              <div>{{rangeButtonDateStart}} - {{rangeButtonDateEnd}}</div>
+            </div>
+            <DatePickerRange
+            :propsClickRangeEvent="propsClickRangeEvent"
+            @emitButtonRangeStartDate="emitButtonRangeStartDate"
+            @emitButtonRangeEndDate="emitButtonRangeEndDate"
+            />
           </div>
         </section>
         <!-- Button In Lodaing  -->
@@ -91,6 +105,11 @@ export default {
   },
   data: function() {
     return {
+      propsClickEvent: null,
+      propsClickRangeEvent: null,
+      buttonDate: 'Select Date',
+      rangeButtonDateStart: 'Start date',
+      rangeButtonDateEnd: 'End date',
     }
   },
   watch: {
@@ -109,6 +128,21 @@ export default {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: { 
+    onClickDatePicker: function (e) {
+      this.propsClickEvent = e
+    },
+    onClickDatePickerRange: function (e) {
+      this.propsClickRangeEvent = e
+    },
+    emitButtonDate: function (v) {
+      this.buttonDate = v
+    },
+    emitButtonRangeStartDate: function (v) {
+      this.rangeButtonDateStart = v
+    },
+    emitButtonRangeEndDate: function (v) {
+      this.rangeButtonDateEnd = v
+    },
     onClickContent: function (type) {
       switch (type) {
       case '1':
@@ -136,5 +170,38 @@ export default {
 </script>
 
 <style scoped>
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-gap: 20px;
+}
+.button.icon, .button-small.icon, .button-large.icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 5px;
+}
 
+/* common button */
+.button {
+  padding: 7px 10px;
+  color: white;
+  border-radius: 5px;
+  border: solid 1px var(--chekt-border);
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+}
+.button:hover {
+  transition: background-color .3s, box-shadow .3s;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* default color button */
+.button.default {
+  background-color: white;
+  color: var(--chekt-text-high);
+}
 </style>

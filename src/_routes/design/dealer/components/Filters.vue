@@ -37,69 +37,31 @@
             Filter are displayed when triggered by a user action, usually by clicking a button.</div>
           <!-- DEMO -->
           <div class="__dealer-demo">
-            <Filters/>
+
+            <!-- Button -->
+            <div @click="onClickFilterBtn($event)" class="button default icon">
+              <MyIcon v-bind:icon="'filter'" v-bind:width="18" />
+              Filter
+            </div>
           </div>
         </section>
-
-        <!-- Dialog With Category  -->
-        <!-- ***************  -->
-        <section id="dealer-content-move2">
-          <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            <div class="__dealer-subtitle-text">Dialog With Category</div>
-            <span class="__dealer-github">
-              <a :href="githubUrlInfo.DialogWithCategory" target="_blank">
-                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
-              </a>
-            </span>
-          </div>
-          <div class="__dealer-subdescription">
-            Table may include an checkbox before or after the cell.
-          </div>
-          <!-- DEMO -->
-          <div class="__dealer-demo">
-            <DialogWithCategory/>
-          </div>
-        </section>
-
-        <!-- Dialog With Icon  -->
-        <!-- ***************  -->
-        <section id="dealer-content-move3">
-          <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            <div class="__dealer-subtitle-text">Dialog With Icon</div>
-            <span class="__dealer-github">
-              <a :href="githubUrlInfo.DialogWithIcon" target="_blank">
-                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
-              </a>
-            </span>
-          </div>
-          <div class="__dealer-subdescription">
-            Table may include an Icon before or after the Text.
-          </div>
-          <!-- DEMO -->
-          <div class="__dealer-demo">
-            <DialogWithIcon/>
-          </div>
-
-        </section>
-
 
       </div>
 
     </div>
+    <Filters
+    :propsFilterClickEvent="propsFilterClickEvent"
+    />
   </div>
 </template>
 
 <script>
 import MyIcon from '@/MyIcon'
 import Filters from '@/components/filters/Filter'
-import DialogWithCategory from '@/components/dialogs/DialogWithCategory'
-import DialogWithIcon from '@/components/dialogs/DialogWithIcon'
 export default {
   components: {
     MyIcon,
     Filters,
-    DialogWithCategory,
-    DialogWithIcon
   },
   computed: {
     scrollPositon: function () {
@@ -111,6 +73,7 @@ export default {
   },
   data: function() {
     return {
+      propsFilterClickEvent: null,
     }
   },
   watch: {
@@ -127,6 +90,9 @@ export default {
   beforeDestroy: function () {
   },
   methods: {
+    onClickFilterBtn: function (e) {
+      this.propsFilterClickEvent = e
+    },
     onClickContent: function (type) {
       switch (type) {
       case '1':
@@ -153,4 +119,38 @@ export default {
 </script>
 
 <style scoped>
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    grid-gap: 20px;
+  }
+  .button.icon, .button-small.icon, .button-large.icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 5px;
+  }
+
+  /* common button */
+  .button {
+    padding: 7px 10px;
+    color: white;
+    border-radius: 5px;
+    border: solid 1px var(--chekt-border);
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+  }
+  .button:hover {
+    transition: background-color .3s, box-shadow .3s;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  /* default color button */
+  .button.default {
+    background-color: white;
+    color: var(--chekt-text-high);
+  }
 </style>

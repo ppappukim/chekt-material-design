@@ -49,17 +49,12 @@ export default {
   components: {
     MyIcon
   },
-  props: {
-    propsClickEvent: {
-      type: PointerEvent,
-      default: function () {
-        return null
-      }
-    },
-  },
   computed: {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
+    },
+    datePickerEventPoint: function () {
+      return this.$store.getters.datePickerEventPoint
     },
   },
   data: function() {
@@ -68,7 +63,7 @@ export default {
       current_month: (new Date()).getMonth() + 1,
       dates: [],
       datePickerEl: '',
-      buttonDate: 'Select day',
+      buttonDate: '',
       isSelectedDay: '',
       current_month_text: '',
       current_month_text_simple: '',
@@ -80,11 +75,10 @@ export default {
       this.onScrollDatePicker()
     },
     buttonDate: function () {
-      this.$emit('emitButtonDate', this.buttonDate)
+      this.$store.commit('DATE_PICKER_SELECTED_DATE', this.buttonDate)
     },
-    propsClickEvent: function () {
-      console.log(this.propsClickEvent.currentTarget);
-      this.onClickDatePicker(this.propsClickEvent)
+    datePickerEventPoint: function () {
+      this.onClickDatePicker(this.datePickerEventPoint)
     }
   },
   created: function () {

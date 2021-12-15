@@ -1,19 +1,22 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <GlobalToastModal/>
     <SearchModal v-if="isSearchActive"/>
+    <GlobalToastModal/>
+    <GlobalDatePicker/>
   </div>
 </template>
 
 <script>
 import SearchModal from '@/components/SearchModal.vue'
 import GlobalToastModal from '@/components/toasts/GlobalToastModal.vue'
+import GlobalDatePicker from '@/components/datepickers/GlobalDatePicker.vue'
 export default {
   name: 'App',
   components: {
+    SearchModal,
     GlobalToastModal,
-    SearchModal
+    GlobalDatePicker
   },
   computed: {
     isSearchActive: function () {

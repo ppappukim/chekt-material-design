@@ -38,11 +38,8 @@
           <div class="__dealer-demo">
             <div @click="onClickDatePicker($event)" class="button default icon date">
               <MyIcon v-bind:icon="'calendar'" v-bind:width="18" />
-              <div>{{buttonDate}}</div>
+              <div>{{datePickerSelectedDate}}</div>
             </div>
-            <DatePicker
-            :propsClickEvent="propsClickEvent"
-            @emitButtonDate="emitButtonDate"/>
           </div>
 
         </section>
@@ -64,13 +61,8 @@
           <div class="__dealer-demo">
             <div @click="onClickDatePickerRange($event)" class="button default icon date">
               <MyIcon v-bind:icon="'calendar'" v-bind:width="18" />
-              <div>{{rangeButtonDateStart}} - {{rangeButtonDateEnd}}</div>
+              <div>{{rangeDatePickerSelectedStartDate}} - {{rangeDatePickerSelectedEndDate}}</div>
             </div>
-            <DatePickerRange
-            :propsClickRangeEvent="propsClickRangeEvent"
-            @emitButtonRangeStartDate="emitButtonRangeStartDate"
-            @emitButtonRangeEndDate="emitButtonRangeEndDate"
-            />
           </div>
         </section>
         <!-- Button In Lodaing  -->
@@ -87,13 +79,9 @@
 
 <script>
 import MyIcon from '@/MyIcon'
-import DatePicker from '@/components/datepickers/DatePicker'
-import DatePickerRange from '@/components/datepickers/DatePickerRange'
 export default {
   components: {
     MyIcon,
-    DatePicker,
-    DatePickerRange
   },
   computed: {
     scrollPositon: function () {
@@ -101,15 +89,19 @@ export default {
     },
     githubUrlInfo: function () {
       return this.$store.getters.githubUrlInfo
+    },
+    datePickerSelectedDate: function () {
+      return this.$store.getters.datePickerSelectedDate
+    },
+    rangeDatePickerSelectedStartDate: function () {
+      return this.$store.getters.rangeDatePickerSelectedStartDate
+    },
+    rangeDatePickerSelectedEndDate: function () {
+      return this.$store.getters.rangeDatePickerSelectedEndDate
     }
   },
   data: function() {
     return {
-      propsClickEvent: null,
-      propsClickRangeEvent: null,
-      buttonDate: 'Select Date',
-      rangeButtonDateStart: 'Start date',
-      rangeButtonDateEnd: 'End date',
     }
   },
   watch: {
@@ -129,19 +121,10 @@ export default {
   },
   methods: { 
     onClickDatePicker: function (e) {
-      this.propsClickEvent = e
+      this.$store.commit('DATE_PICKER_EVENT_POINT', e)
     },
     onClickDatePickerRange: function (e) {
-      this.propsClickRangeEvent = e
-    },
-    emitButtonDate: function (v) {
-      this.buttonDate = v
-    },
-    emitButtonRangeStartDate: function (v) {
-      this.rangeButtonDateStart = v
-    },
-    emitButtonRangeEndDate: function (v) {
-      this.rangeButtonDateEnd = v
+      this.$store.commit('RANGE_DATE_PICKER_EVENT_POINT', e)
     },
     onClickContent: function (type) {
       switch (type) {

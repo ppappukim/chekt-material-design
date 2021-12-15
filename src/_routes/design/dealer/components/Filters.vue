@@ -41,7 +41,9 @@
             <!-- Button -->
             <div @click="onClickFilterBtn($event)" class="button default icon">
               <MyIcon v-bind:icon="'filter'" v-bind:width="18" />
-              Filter
+              <div>Filter</div>
+              <div v-if="filterCounter" style="color:var(--chekt-border);">|</div>
+              <div v-if="filterCounter" class="filter-counter">{{filterCounter}}</div>
             </div>
           </div>
         </section>
@@ -50,6 +52,7 @@
 
     </div>
     <Filters
+    @emitFilterCounter="emitFilterCounter"
     :propsFilterClickEvent="propsFilterClickEvent"
     />
   </div>
@@ -74,6 +77,7 @@ export default {
   data: function() {
     return {
       propsFilterClickEvent: null,
+      filterCounter: 0,
     }
   },
   watch: {
@@ -92,6 +96,10 @@ export default {
   methods: {
     onClickFilterBtn: function (e) {
       this.propsFilterClickEvent = e
+    },
+    emitFilterCounter: function (v) {
+      this.filterCounter = v
+      console.log(v);
     },
     onClickContent: function (type) {
       switch (type) {
@@ -119,6 +127,10 @@ export default {
 </script>
 
 <style scoped>
+  .filter-counter {
+    font-weight: 500;
+    color: var(--chekt-primary-color);
+  }
   .buttons {
     display: flex;
     flex-direction: row;

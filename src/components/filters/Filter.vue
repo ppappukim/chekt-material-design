@@ -6,7 +6,10 @@
       <!-- Header -->
       <div class="filter-header">
         <div @click="onClickClearBtn()" class="button-small default">Clear</div>
-        <div class="filter-header-text">Filter</div>
+        <div class="filter-header-text">
+          <div>Filter</div>
+          <div v-if="filterEnabledCounter > 0" class="filter-header-count">{{filterEnabledCounter}}</div>
+        </div>
         <div @click="onClickDoneBtn()" class="button-small primary">Done</div>
       </div>
       <!-- Body -->
@@ -20,12 +23,12 @@
             <!-- Checkbox -->
             <div>
               <label class="checkbox">
-                <input type="checkbox" v-model="isDateChecked">
+                <input @change="onChangeCheckbox('date')" type="checkbox" ref="dateCheckbox">
                 <span class="checkmark"></span>
               </label>
             </div>
             <!-- Text -->
-            <div class="title-text">Date</div>
+            <div class="item-text">Date</div>
           </div>
 
           <!-- Item > Content -->
@@ -74,12 +77,8 @@
               <!-- Datepicker -->
                 <div @click="onClickDatePicker($event)" class="button-small default icon date">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
-                  <div>{{buttonDate}}</div>
+                  <div>{{datePickerSelectedDate}}</div>
                 </div>
-                <DatePicker
-                :propsClickEvent="propsClickEvent"
-                @emitButtonDate="emitButtonDate"
-                />
             </div>
 
             <!-- Content sub 2 -->
@@ -90,13 +89,8 @@
               <div>
                 <div @click="onClickDatePickerRange($event)" class="button-small default icon date">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
-                  <div>{{rangeButtonDateStart}} - {{rangeButtonDateEnd}}</div>
+                  <div>{{rangeDatePickerSelectedStartDate}} - {{rangeDatePickerSelectedEndDate}}</div>
                 </div>
-                <DatePickerRange
-                :propsClickRangeEvent="propsClickRangeEvent"
-                @emitButtonRangeStartDate="emitButtonRangeStartDate"
-                @emitButtonRangeEndDate="emitButtonRangeEndDate"
-                />
               </div>
             </div>
 
@@ -107,12 +101,8 @@
               <div>
                 <div @click="onClickDatePicker($event)" class="button-small default icon date">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
-                  <div>{{buttonDate}}</div>
+                  <div>{{datePickerSelectedDate}}</div>
                 </div>
-                <DatePicker
-                :propsClickEvent="propsClickEvent"
-                @emitButtonDate="emitButtonDate"
-                />
               </div>
             </div>
 
@@ -123,12 +113,8 @@
               <div>
                 <div @click="onClickDatePicker($event)" class="button-small default icon date">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
-                  <div>{{buttonDate}}</div>
+                  <div>{{datePickerSelectedDate}}</div>
                 </div>
-                <DatePicker
-                :propsClickEvent="propsClickEvent"
-                @emitButtonDate="emitButtonDate"
-                />
               </div>
             </div>
           </div>
@@ -141,7 +127,7 @@
             <!-- Checkbox -->
             <div>
               <label class="checkbox">
-                <input type="checkbox" v-model="isAmountChecked">
+                <input type="checkbox" @change="onChangeCheckbox('amount')" ref="amountCheckbox">
                 <span class="checkmark"></span>
               </label>
             </div>
@@ -220,7 +206,7 @@
             <!-- Checkbox -->
             <div>
               <label class="checkbox">
-                <input type="checkbox" v-model="isStatusChecked">
+                <input type="checkbox" @change="onChangeCheckbox('status')" ref="statusCheckbox">
                 <span class="checkmark"></span>
               </label>
             </div>
@@ -305,7 +291,7 @@
             <!-- Checkbox -->
             <div>
               <label class="checkbox">
-                <input type="checkbox" v-model="isPaymentMethodChecked">
+                <input type="checkbox" @change="onChangeCheckbox('payment method')" ref="paymentMethodCheckbox">
                 <span class="checkmark"></span>
               </label>
             </div>
@@ -342,13 +328,23 @@
 
 <script>
 import MyIcon from '@/MyIcon'
-import DatePicker from '@/components/datepickers/DatePicker'
-import DatePickerRange from '@/components/datepickers/DatePickerRange'
 export default {
   components: {
     MyIcon,
-    DatePicker,
-    DatePickerRange
+  },
+  computed: {
+    scrollPositon: function () {
+      return this.$store.getters.scrollPositon
+    },
+    datePickerSelectedDate: function () {
+      return this.$store.getters.datePickerSelectedDate
+    },
+    rangeDatePickerSelectedStartDate: function () {
+      return this.$store.getters.rangeDatePickerSelectedStartDate
+    },
+    rangeDatePickerSelectedEndDate: function () {
+      return this.$store.getters.rangeDatePickerSelectedEndDate
+    }
   },
   props: {
     propsFilterClickEvent: {
@@ -356,11 +352,6 @@ export default {
       default: function () {
         return null
       }
-    },
-  },
-  computed: {
-    scrollPositon: function () {
-      return this.$store.getters.scrollPositon
     },
   },
   data: function() {
@@ -384,20 +375,11 @@ export default {
       isAmountChecked: false,
       isStatusChecked: false,
       isPaymentMethodChecked: false,
-
-      // Datepicker
-      buttonDate: 'Select day',
-      propsClickEvent: null,
-
-      // Range Datepicker
-      rangeButtonDateStart: 'Start day',
-      rangeButtonDateEnd: 'End day',
-      propsClickRangeEvent: null,
+      filterEnabledCounter: 0
     }
   },
   watch: {
     propsFilterClickEvent: function () {
-      console.log('?');
       this.onClickFilterBtn(this.propsFilterClickEvent)
     },
     scrollPositon: function () {
@@ -418,30 +400,74 @@ export default {
   methods: {
     init: function () {
     },
+    onChangeCheckbox: function (type) {
+      switch (type) {
+        case 'date':
+          if (this.$refs.dateCheckbox.checked) {
+            this.filterEnabledCounter++
+            this.isDateChecked = true
+          }
+          else {
+            this.filterEnabledCounter--
+            this.isDateChecked = false
+          }
+          break;
+        case 'amount':
+          if (this.$refs.amountCheckbox.checked) {
+            this.filterEnabledCounter++
+            this.isAmountChecked = true
+          }
+          else {
+            this.filterEnabledCounter--
+            this.isAmountChecked = false
+          }
+          break
+        case 'status':
+          if (this.$refs.statusCheckbox.checked) {
+            this.filterEnabledCounter++
+            this.isStatusChecked = true
+          }
+          else {
+            this.filterEnabledCounter--
+            this.isStatusChecked = false
+          }
+          break
+        case 'payment method':
+          if (this.$refs.paymentMethodCheckbox.checked) {
+            this.filterEnabledCounter++
+            this.isPaymentMethodChecked = true
+          }
+          else {
+            this.filterEnabledCounter--
+            this.isPaymentMethodChecked = false
+          }
+          break
+        default:
+          break;
+      }
+      this.$emit('emitFilterCounter', this.filterEnabledCounter)
+    },
     onClickClearBtn: function () {
+      this.$refs.dateCheckbox.checked = false
+      this.$refs.amountCheckbox.checked = false
+      this.$refs.statusCheckbox.checked = false
+      this.$refs.paymentMethodCheckbox.checked = false
       this.isDateChecked = false
       this.isAmountChecked = false
       this.isStatusChecked = false
       this.isPaymentMethodChecked = false
+      this.filterEnabledCounter = 0
+      this.$emit('emitFilterCounter', this.filterEnabledCounter)
     },
     onClickDoneBtn:function () {
       this.filterEl.classList.remove('active')
       this.targetEl.classList.remove('active')
     },
     onClickDatePicker: function (e) {
-      this.propsClickEvent = e
+      this.$store.commit('DATE_PICKER_EVENT_POINT', e)
     },
     onClickDatePickerRange: function (e) {
-      this.propsClickRangeEvent = e
-    },
-    emitButtonDate: function (v) {
-      this.buttonDate = v
-    },
-    emitButtonRangeStartDate: function (v) {
-      this.rangeButtonDateStart = v
-    },
-    emitButtonRangeEndDate: function (v) {
-      this.rangeButtonDateEnd = v
+      this.$store.commit('RANGE_DATE_PICKER_EVENT_POINT', e)
     },
     onChangeDatePeriodType: function (e) {
       this.dateSelectType = e.target.value
@@ -479,11 +505,20 @@ export default {
     },
     closeButton: function (e) {
       if (!this.filterEl) return
-      // closest() - #__chekt-datepicker 이하 모든 자식노드를 클릭했을때 감지됨!! 
+      // closest() - 이하 모든 자식노드를 클릭했을때 감지됨!! 
       if (e.target.closest("#__chekt-filter")) return
+
+      // CHECK
+      if (!document.getElementById('__chekt-filter').classList.contains('active')) return
+      if (document.getElementById('__chekt-datepicker').classList.contains('active')) return
+      if (document.getElementById('__chekt-datepicker-range').classList.contains('active')) return
       if (this.filterEl.classList.contains('active')) e.stopPropagation()
+
+      // ACTION
       this.filterEl.classList.remove('active')
       this.targetEl.classList.remove('active')
+      this.$emit('emitFilterCounter', this.filterEnabledCounter)
+      this.onClickClearBtn()
     },
     onResizeScreen: function () {
       console.log();
@@ -508,7 +543,6 @@ export default {
       // ADD - position css
       this.filterEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
       this.filterEl.style.left = this.targetRect.x  +'px'
-
     }
 
   }
@@ -549,8 +583,16 @@ export default {
   padding: 10px;
 }
 .filter-header-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 5px;
   font-size: 14px;
   color: var(--chekt-text-high);
+}
+.filter-header-text > .filter-header-count {
+  font-weight: 500;
+  color: var(--chekt-primary-color);
 }
 .filter-body-item {
   border-top: 1px solid var(--chekt-border);
@@ -563,7 +605,8 @@ export default {
   grid-gap: 10px;
   padding: 10px 10px;
 }
-.filter-body-item-title > .title-text {
+.filter-body-item-title > .item-text {
+  font-size: 14px;
   color: var(--chekt-blue-gray-highest);
 }
 .filter-body-item-content {
@@ -612,8 +655,6 @@ export default {
   font-size: 12px;
   color: var(--chekt-blue-gray-highest);
 }
-
-
 
 
 /* BUTTON */
@@ -912,7 +953,6 @@ export default {
   text-align: start;
   margin-bottom: 10px;
 }
-
 
 .line {
   display: flex;

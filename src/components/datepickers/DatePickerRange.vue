@@ -54,17 +54,12 @@ export default {
   components: {
     MyIcon
   },
-  props: {
-    propsClickRangeEvent: {
-      type: PointerEvent,
-      default: function () {
-        return null
-      }
-    },
-  },
   computed: {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
+    },
+    rangeDatePickerEventPoint: function () {
+      return this.$store.getters.rangeDatePickerEventPoint
     },
   },
   data: function() {
@@ -74,8 +69,10 @@ export default {
       rangeDates: [],
       rangeLowDates: [],
       rangeDatePickerEl: '',
-      rangeButtonDateStart: 'Start day',
-      rangeButtonDateEnd: 'End day',
+
+      rangeButtonDateStart: '',
+      rangeButtonDateEnd: '',
+
       range_current_month_text: '',
       range_current_month_text_simple: '',
       rangeIsSelectedStartDay: '',
@@ -91,14 +88,14 @@ export default {
     scrollPositon: function () {
       this.rangeOnScrollDatePicker()
     },
-    propsClickRangeEvent: function () {
-      this.onClickDatePickerRange(this.propsClickRangeEvent)
+    rangeDatePickerEventPoint: function () {
+      this.onClickDatePickerRange(this.rangeDatePickerEventPoint)
     },
     rangeButtonDateStart: function () {
-      this.$emit('emitButtonRangeStartDate', this.rangeButtonDateStart)
+      this.$store.commit('RANGE_DATE_PICKER_SELECTED_START_DATE', this.rangeButtonDateStart)
     },
     rangeButtonDateEnd: function () {
-      this.$emit('emitButtonRangeEndDate', this.rangeButtonDateEnd)
+      this.$store.commit('RANGE_DATE_PICKER_SELECTED_END_DATE', this.rangeButtonDateEnd)
     },
   },
   created: function () {

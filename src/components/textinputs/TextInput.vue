@@ -1,5 +1,5 @@
 <template>
-  <div class="textinput">
+  <div style="width:100%;">
 
     <!-- Text -->
     <div class="text">Text</div>
@@ -16,7 +16,7 @@
     <!-- PASSWORD -->
     <div class="password">Password</div>
     <div 
-    class="input-password" 
+    class="input-text" 
     v-bind:class="{focused:isInputFocused}" 
     style="margin-bottom:20px;" >
       <input 
@@ -44,8 +44,8 @@
         </div>
 
         <!-- TOOLTIP -->
-        <span v-if="isEyeOff" id="__chekt-tooltip">Hide password</span>
-        <span v-else id="__chekt-tooltip">Show password</span>
+        <span v-if="isEyeOff" ref="chektTooltip" id="__chekt-tooltip">Hide password</span>
+        <span v-else ref="chektTooltip" id="__chekt-tooltip">Show password</span>
       </div>
     </div>
 
@@ -76,12 +76,6 @@ export default {
     MyIcon
   },
   computed: {
-    // displayPrice: {
-    //   get: function() {
-
-
-    //   }
-    // }
   },
   data: function() {
     return {
@@ -100,9 +94,6 @@ export default {
     password: function () {
       this.passwordSecureCheck()
     },
-    // price: function (price) {
-    //   this.numberAddComma(price)
-    // }
   },
   created: function () {
   },
@@ -126,7 +117,7 @@ export default {
       e.stopPropagation()
 
       // GET - dialog element
-      this.tooltipEl = document.getElementById('__chekt-tooltip')
+      this.tooltipEl = this.$refs.chektTooltip
       if (!this.tooltipEl) return
 
       // GET - target position
@@ -169,21 +160,28 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  max-width: 300px;
+  min-width: 180px;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(64 68 82 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+  transition:box-shadow .3s;
 }
 .input-text input {
-  width: calc(100% - 20px);
+  width: 100%;
   font-size: 14px;
-  border: solid 1px var(--chekt-border);
-  padding: 5px 10px;
+  border: none;
+  outline: none; 
   border-radius: 3px;
-  transition:box-shadow .3s;
+  padding: 5px 10px;
 }
 .input-text input::placeholder {
   color: var(--chekt-gray-low);
 }
-.input-text input:focus {
+.input-text{
   outline: none; 
+}
+.input-text:focus-within {
   box-shadow: 0 0 0 3px #AAD2F5;
 }
 .text {
@@ -197,47 +195,6 @@ export default {
 /*********************/
 /****** Password ******/
 /*********************/
-.input-password  {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #E6E6E6;
-  border-radius: 3px;
-  transition:box-shadow .3s;
-}
-.input-password.focused {
-  box-shadow: 0 0 0 3px #AAD2F5;
-}
-.input-password.disabled {
-  background-color: #FAFAFA;
-  pointer-events: none;
-}
-.inputerror {
-  border: solid 1px var(--danger) !important;
-}
-.confirminputerror {
-  border: solid 1px var(--danger) !important;
-}
-.input-password input {
-  width: 100%;
-  font-size: 14px;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-.input-password input.disabled {
-  background-color: #FAFAFA;
-  /* rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3)); */
-}
-.input-password input::placeholder {
-  color: var(--chekt-gray-low);
-}
-.input-password  input:focus {
-  outline: none; 
-  /* box-shadow: 0 0 0 3px #AAD2F5; */
-}
 
 .password {
   margin-top:30px;

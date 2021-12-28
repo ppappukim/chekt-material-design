@@ -1,16 +1,15 @@
 <template>
 	<div class="empty">
-    <div class="empty-img">
-      <img src="../../assets/lego-empty.png" width="180px" alt="">
-    </div>
-    <div class="empty-text">
-      Enduser App Under Development
-    </div>
+    <IconsBody/>
   </div>
 </template>
 
 <script>
+import IconsBody from './icons/IconsBody'
 export default {
+  components: {
+    IconsBody
+  },
   computed: {
   },
   data: function() {
@@ -36,10 +35,5 @@ export default {
   height: calc(100vh - 353px);
   margin-left: auto;
   margin-right: auto;
-}
-.empty-text {
-  font-size: 18px;
-  margin-top: 20px;
-  font-family: roboto mono;
 }
 </style>

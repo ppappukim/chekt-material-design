@@ -6,6 +6,7 @@ import dialog               from './modules/dialog'
 import toast                from './modules/toast'
 import search               from './modules/search'
 import datepicker           from './modules/datepicker'
+import icon                 from './modules/icon'
 
 
 
@@ -19,7 +20,8 @@ export default new Vuex.Store({
     dialog,
     toast,
     search,
-    datepicker
+    datepicker,
+    icon
   },
   strict: debug
 })

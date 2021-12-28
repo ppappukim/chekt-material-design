@@ -39,8 +39,6 @@
           <div class="__dealer-demo">
             <Select/>
           </div>
-
-          
         </section>
 
         <!-- Select with search  -->
@@ -82,6 +80,25 @@
           </div>
         </section>
 
+        <!-- Default With Input  -->
+        <!-- ***************  -->
+        <section id="dealer-content-move1">
+          <div class="__dealer-subtitle __dealer-withline-top">
+            <div class="__dealer-subtitle-text">Select With Input</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.Select" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
+          </div>
+          <div class="__dealer-subdescription">
+            Allows the user to select a single item from a dropdown list of options.
+          </div>
+          <div class="__dealer-demo">
+            <SelectWithInput/>
+          </div>
+        </section>
+
 
       </div>
 
@@ -94,12 +111,14 @@ import MyIcon from '@/MyIcon'
 import Select from '@/components/selects/Select'
 import SelectWithSearch from '@/components/selects/SelectWithSearch'
 import SelectWithOption from '@/components/selects/SelectWithOption'
+import SelectWithInput from '@/components/selects/SelectWithInput'
 export default {
   components: {
     MyIcon,
     Select,
     SelectWithSearch,
-    SelectWithOption
+    SelectWithOption,
+    SelectWithInput
   },
   computed: {
     scrollPositon: function () {

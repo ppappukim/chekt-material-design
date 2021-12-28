@@ -1,5 +1,9 @@
 <template>
-  <div class="__chekt-select-search-wrapper">
+  <div class="__chekt-select-search-with-input-wrapper">
+    <div class="input-text">
+      <div class="input-currency">{{selectValue}}</div>
+      <input type="text" placeholder="0.00">
+    </div>
     <div id="__chekt-select-search" @click="openSelectSearchModal($event)">
       <div class="select">
         <div>{{selectValue}}</div>
@@ -35,10 +39,19 @@ export default {
   data: function() {
     return {
       isHasList: false,
-      selectValue: 'Select Name...',
+      selectValue: 'USD',
       selectSearchEl: '',
       targetEl: '',
-      modalList:['Bobby kim', 'Kevin Park', 'Trevor Seo', 'Dosung Lee', 'Leo Park', 'Rider Kim', 'Daivd Erickson', 'Arina Grande', 'Billy Poter'],
+      modalList:[
+        'USD - US Dollar', 
+        'AED - United Arab Emirates Dirham', 
+        'AFN - Afghan Afgjani', 
+        'ALL - Albanian Lek', 
+        'AMD - Armenian Darm', 
+        'AMG - Netherlands Antillean Guilder', 
+        'AOA - Angolan Kwanza', 
+        'ARS - Argentine Peso', 
+        'AUD - Australian Dollar'],
       isHover: false
 
     }
@@ -126,6 +139,12 @@ export default {
     },
     onClickItem: function (e) {
       this.selectValue = e.target.innerHTML
+
+      // ACTION - 문자 가공
+      const splitText = this.selectValue.slice(0, 4);
+      this.selectValue = splitText
+
+      // ACTION - 모달 지우기
       this.selectSearchEl.classList.remove('active')
     },
      onResizeScreen: function () {
@@ -152,31 +171,18 @@ export default {
       this.selectSearchEl.style.left = this.targetRect.x  +'px'
 
     }
-    // enterInput: function () {
-    //   // INIT
-    //   var items = document.querySelectorAll('#select-search-modal-list div')
-    //   var filteredList = []
-
-    //   // ACTION - add filteredList
-    //   for (let i = 0; i < items.length; i++) {
-    //     const item = items[i];
-    //     if(!item.style.display) filteredList.push(item)
-    //   }
-  
-    //   if (!filteredList[0]) return
-    //   this.selectValue = filteredList[0].innerHTML
-    //   this.selectSearchEl.classList.remove('active')
-    // },
   }
 }
 </script>
 
 <style scoped>
-.__chekt-select-search-wrapper {
+.__chekt-select-search-with-input-wrapper{
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 #__chekt-select-search {
-  width: 300px;
+  width: 80px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -184,7 +190,7 @@ export default {
   position: relative;
   z-index: 1;
   background-color: white;
-  border-radius: 4px;
+  border-radius: 0px 3px 3px 0px;
   box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
               rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
               rgb(0 0 0 / 12%) 0px 1px 1px 0px, 
@@ -294,5 +300,50 @@ input#__chekt-select-search-input::placeholder {
   padding: 8px;
   font-size: 14px;
 }
+
+
+/*********************/
+/****** Text ********/
+/*********************/
+
+.input-text {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(64 68 82 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+  border-radius: 3px 0px 0px 3px;
+  transition:box-shadow .3s;
+}
+.input-currency {
+  font-size: 14px;
+  color: var(--chekt-blue-gray-highest);
+  padding-left: 10px;
+}
+.input-text input {
+  width: calc(100% - 20px);
+  font-size: 14px;
+  border: none;
+  padding: 5px 10px;
+}
+.input-text input::placeholder {
+  color: var(--chekt-gray-low);
+}
+.input-text input:focus {
+  outline: none; 
+}
+.input-text:focus-within {
+  box-shadow: 0 0 0 4px #AAD2F5;
+}
+
+.text {
+  font-size: 14px;
+  color: var(--chekt-gray-high);
+  text-align: start;
+  margin-bottom: 10px;
+}
+
 
 </style>

@@ -2,8 +2,8 @@
   <div class="tooltips">
 
     <!-- Tooltip -->
-    <div id="__chekt-tooltip">Tooltip</div>
-    <div id="__chekt-tooltip-large">Tooltip large</div>
+    <div ref="chektTooltip" id="__chekt-tooltip">Tooltip</div>
+    <div ref="chektTooltipLarge" id="__chekt-tooltip-large">Tooltip large</div>
 
     <div class="wrapper">
       <div>
@@ -79,7 +79,7 @@ export default {
       e.stopPropagation()
       
       // GET - dialog element
-      this.tooltipEl = document.getElementById('__chekt-tooltip')
+      this.tooltipEl = this.$refs.chektTooltip
       if (!this.tooltipEl) return
 
       // GET - target position
@@ -119,7 +119,7 @@ export default {
       e.stopPropagation()
       
       // GET - dialog element
-      this.tooltipLargeEl = document.getElementById('__chekt-tooltip-large')
+      this.tooltipLargeEl = this.$refs.chektTooltipLarge
       if (!this.tooltipLargeEl) return
 
       // GET - target position
@@ -182,11 +182,11 @@ export default {
 }
 #__chekt-tooltip-large {
   position: fixed;
-  padding: 3px 10px;
+  padding: 5px 10px;
   background-color: var(--chekt-blue-gray-highest);
   color: white;
-  font-size: 12px;
-  border-radius: 3px;
+  font-size: 13px;
+  border-radius: 4px;
   opacity: 0;
   font-weight: 500;
 }

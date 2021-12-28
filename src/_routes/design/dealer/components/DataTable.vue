@@ -83,6 +83,25 @@
           </div>
         </section>
 
+        <!-- Table With Sort -->
+        <!-- ***************  -->
+        <section id="dealer-content-move3">
+          <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
+            <div class="__dealer-subtitle-text">Table With Sort</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.DatatableWithActions" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
+          </div>
+          <div class="__dealer-subdescription">
+            Data tables are an enhanced version of an HTML table and are used to display tabular data.
+          </div>
+          <div class="__dealer-demo">
+            <DatatableWithSort/>
+          </div>
+        </section>
+
       </div>
 
     </div>
@@ -94,12 +113,14 @@ import MyIcon from '@/MyIcon'
 import Datatable from '@/components/datatables/Datatable'
 import DatatableWithCheckbox from '@/components/datatables/DatatableWithCheckbox'
 import DatatableWithActions from '@/components/datatables/DatatableWithActions'
+import DatatableWithSort from '@/components/datatables/DatatableWithSort'
 export default {
   components: {
     MyIcon,
     Datatable,
     DatatableWithCheckbox,
-    DatatableWithActions
+    DatatableWithActions,
+    DatatableWithSort
   },
   computed: {
     scrollPositon: function () {
@@ -114,9 +135,6 @@ export default {
     }
   },
   watch: {
-    scrollPositon: function () {
-      this.onScroll()
-    },
   },
   created: function () {
     this.$tool.scrollTo(0, 0)

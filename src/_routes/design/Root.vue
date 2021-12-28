@@ -28,7 +28,7 @@
           </li>
           <li class="nav-item"
           v-bind:class="{ active:EnduserMenuActive }"
-          v-on:click="onClickMenu($event,'enduser')">Enduser App
+          v-on:click="onClickMenu($event,'icons')">Icons
           <span class="nav-indicator"></span>
           </li>
         </ul>
@@ -144,7 +144,7 @@ export default {
       let path = this.$router.history.current.path
       this.dealerMenuActive = path.includes('dealer')
       this.MonitoringMenuActive = path.includes('monitoring')
-      this.EnduserMenuActive = path.includes('enduser')
+      this.EnduserMenuActive = path.includes('icons')
 
       // CHECK - 만약 dealer page가아니면 footer를 full로 해라. 
       if (!this.dealerMenuActive) this.footerFullWidth = true

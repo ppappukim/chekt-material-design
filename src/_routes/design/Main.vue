@@ -615,5 +615,16 @@ img {
   transition: opacity 1s, transform 1s;
 }
 
-
+@media screen and (min-width: 521px) and (max-width: 920px) {
+  .portals-body > div {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 521px) {
+  .portals-body > div {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
 </style>

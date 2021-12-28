@@ -46,3 +46,8 @@ export const RANGE_DATE_PICKER_SELECTED_END_DATE = 'RANGE_DATE_PICKER_SELECTED_E
 ////////////
 export const IS_SEARCH_ACTIVE = 'IS_SEARCH_ACTIVE'
 export const GET_SEARCH_DATA = 'GET_SEARCH_DATA'
+
+//////////
+// ICON //
+//////////
+export const GET_ICON_DATA = 'GET_ICON_DATA'

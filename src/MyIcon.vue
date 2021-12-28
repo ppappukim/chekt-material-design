@@ -167,6 +167,16 @@
         <path d="M3.8 9.646a4.009 4.009 0 01-3.8-4C0 4.024.966 2.626 2.354 2L4 3.646a2 2 0 100 4h7.52L8.293 4.353l1.414-1.414 5.707 5.707-5.707 5.707-1.414-1.414 3.227-3.293H3.8z"/>
       </svg>
     </template>
+    <template v-else-if="icon === 'expend-up'">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.585 19L12 10.9649L20.415 19L23 16.5263L12 6L1 16.5263L3.585 19Z"/>
+    </svg>
+    </template>
+    <template v-else-if="icon === 'expend-down'">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.415 5L12 13.0351L3.585 5L1 7.47368L12 18L23 7.47368L20.415 5Z"/>
+      </svg>
+    </template>
     <template v-else>
       <svg fill="#FFFFFF" height="48" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>

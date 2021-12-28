@@ -19,8 +19,8 @@ const baseRoutes = [
         component: () => import("@/_routes/design/Monitoring")
       },
       {
-        path: 'enduser',
-        component: () => import("@/_routes/design/Enduser")
+        path: 'icons',
+        component: () => import("@/_routes/design/Icons")
       },
     ],
   },

@@ -5,10 +5,13 @@ import store  from './store'
 
 // Plugins
 import ToolPlugin from './plugins/tool'
-Vue.use(ToolPlugin)
-
+import FirebasePlugin from './plugins/firebase'
 
 Vue.config.productionTip = false
+
+Vue.use(ToolPlugin)
+Vue.use(FirebasePlugin)
+
 
 new Vue({
   render: h => h(App),

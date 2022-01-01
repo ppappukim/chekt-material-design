@@ -1,4 +1,7 @@
 import dealerChildRoutes       from '@/_routes/design/dealer/_router'
+import monitoringChildRoutes       from '@/_routes/design/monitoring/_router'
+import enduserChildRoutes       from '@/_routes/design/enduser/_router'
+import iconsChildRoutes       from '@/_routes/design/icons/_router'
 const baseRoutes = [
   {
     path: '/design',
@@ -6,6 +9,9 @@ const baseRoutes = [
     redirect: '/design/main',
     children: [
       dealerChildRoutes,
+      enduserChildRoutes,
+      monitoringChildRoutes,
+      iconsChildRoutes,
       {
         path: 'main',
         component: () => import("@/_routes/design/Main")
@@ -16,11 +22,15 @@ const baseRoutes = [
       },
       {
         path: 'monitoring',
-        component: () => import("@/_routes/design/Monitoring")
+        component: () => import("@/_routes/design/monitoring/Root")
+      },
+      {
+        path: 'enduser',
+        component: () => import("@/_routes/design/enduser/Root")
       },
       {
         path: 'icons',
-        component: () => import("@/_routes/design/Icons")
+        component: () => import("@/_routes/design/icons/Root")
       },
     ],
   },

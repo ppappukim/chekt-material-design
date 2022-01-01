@@ -1,6 +1,11 @@
 <template>
 	<div>
-    <div class="main">
+    <!-- Mobile Img -->
+    <div v-if="showMobileMainImg" class="main">
+      <img src="../../assets/main-mobile.png" width="100%" alt="">
+    </div>
+    <!-- Web Img -->
+    <div v-else class="main">
       <div class="main-img">
         <!-- background -->
         <div class="main-img-bg">
@@ -169,17 +174,21 @@ export default {
       aniTenOne: false,
       aniTenTwo: false,
       AllcursorRemove: false,
+      showMobileMainImg: false
     }
   },
   watch: {
   },
   created: function () {
+    window.addEventListener("resize", this.onResizeScreen)
+    this.onResizeScreen()
   },
   mounted: function () {
     this.$tool.scrollTo(0, 0)
     this.startAnimaiton()
   },
   beforeDestroy: function () {
+    window.removeEventListener("resize", this.onResizeScreen)
   },
   methods: {
     startAnimaiton: async function () {
@@ -224,7 +233,10 @@ export default {
         default:
           break;
       }
-
+    },
+    onResizeScreen: function () {
+      if (window.innerWidth < 850) this.showMobileMainImg = true
+      else this.showMobileMainImg = false
     }
   }
 }

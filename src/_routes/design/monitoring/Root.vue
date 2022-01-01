@@ -1,7 +1,7 @@
 <template>
 	<div class="empty">
     <div class="empty-img">
-      <img src="../../assets/lego-empty.png" width="180px" alt="">
+      <img src="@/assets/lego-empty.png" width="180px" alt="">
     </div>
     <div class="empty-text">
       Monitoring Portal Under Development

@@ -1,38 +1,33 @@
 <template>
   <div>
-    <div class="dialogs">
-      <div class="dialog-wrapper">
-        <div class="dialog" v-bind:class="{ active:defaultTopBtnIsClicked }">
-          <div>Save</div>
-          <div>Edit</div>
-          <div class="delete">Delete</div>
-        </div>
-        <div @click="onClickButton('default top')" id="dialogbtn1" class="button default">Click me</div>
-      </div>
-      <div class="dialog-wrapper">
-        <div class="dialog right" v-bind:class="{ active:defaultRightBtnIsClicked }">
-          <div>Save</div>
-          <div>Edit</div>
-          <div class="delete">Delete</div>
-        </div>
-        <div @click="onClickButton('default right')" id="dialogbtn2" class="button default">Click me</div>
-      </div>
-      <div class="dialog-wrapper">
-        <div class="dialog left" v-bind:class="{ active:defaultLeftBtnIsClicked }">
-          <div>Save</div>
-          <div>Edit</div>
-          <div class="delete">Delete</div>
-        </div>
-        <div @click="onClickButton('default left')" id="dialogbtn3" class="button default">Click me</div>
-      </div>
-      <div class="dialog-wrapper">
-        <div class="dialog bottom" v-bind:class="{ active:defaultBottomBtnIsClicked }">
-          <div>Save</div>
-          <div>Edit</div>
-          <div class="delete">Delete</div>
-        </div>
-        <div @click="onClickButton('default bottom')" id="dialogbtn4" class="button default">Click me</div>
-      </div>
+    <!-- Dialogs -->
+    <div ref="dialogDefaultTop" id="__chekt-dialog" class="top">
+      <div>Save</div>
+      <div>Edit</div>
+      <div class="delete">Delete</div>
+    </div>
+    <div ref="dialogDefaultBottom" id="__chekt-dialog" class="bottom">
+      <div>Save</div>
+      <div>Edit</div>
+      <div class="delete">Delete</div>
+    </div>
+    <div ref="dialogDefaultLeft" id="__chekt-dialog" class="left">
+      <div>Save</div>
+      <div>Edit</div>
+      <div class="delete">Delete</div>
+    </div>
+    <div ref="dialogDefaultRight" id="__chekt-dialog" class="right">
+      <div>Save</div>
+      <div>Edit</div>
+      <div class="delete">Delete</div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+      <div @click="onClickShowDialog($event, 'top')" class="button default">Click me</div>
+      <div @click="onClickShowDialog($event, 'bottom')" class="button default">Click me</div>
+      <div @click="onClickShowDialog($event, 'left')" class="button default">Click me</div>
+      <div @click="onClickShowDialog($event, 'right')" class="button default">Click me</div>
     </div>
   </div>
 </template>
@@ -42,147 +37,183 @@ export default {
   components: {
   },
   computed: {
+    scrollPositon: function () {
+      return this.$store.getters.scrollPositon
+    },
   },
   data: function() {
     return {
-      defaultTopBtnIsClicked: false,
-      defaultRightBtnIsClicked: false,
-      defaultLeftBtnIsClicked: false,
-      defaultBottomBtnIsClicked: false,
     }
   },
   watch: {
+    scrollPositon: function () {
+      this.onScrollDialog()
+    },
   },
   created: function () {
     document.body.addEventListener('click', this.closeButton, true); 
+    window.addEventListener("resize", this.onResizeScreen) 
   },
   mounted: function () {
   },
   beforeDestroy: function () {
     document.body.removeEventListener('click', this.closeButton, true); 
+    window.removeEventListener("resize", this.onResizeScreen)
   },
   methods: {
-    onClickButton: function (buttonType) {
-      switch (buttonType) {
-        case 'default top':
-          this.defaultTopBtnIsClicked =! this.defaultTopBtnIsClicked
-          this.defaultRightBtnIsClicked = false
-          this.defaultLeftBtnIsClicked = false  
-          this.defaultBottomBtnIsClicked = false        
+    onClickShowDialog: function (e, position) {
+      e.stopPropagation()
+
+      // GET - target position
+      this.targetEl = e.currentTarget
+      if (!this.targetEl) return
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      switch (position) {
+        case 'top':
+          // GET - dialog element
+          this.dialogEl = this.$refs.dialogDefaultTop
+          if (!this.dialogEl) return
+          // ADD - position css
+          this.dialogEl.style.top = this.targetRect.y - this.dialogEl.offsetHeight - 5 +'px'
+          this.dialogEl.style.left = this.targetRect.x  +'px'
           break;
-        case 'default right':
-          this.defaultRightBtnIsClicked =! this.defaultRightBtnIsClicked
-          this.defaultTopBtnIsClicked = false
-          this.defaultLeftBtnIsClicked = false  
-          this.defaultBottomBtnIsClicked = false        
+        case 'bottom':
+          // GET - dialog element
+          this.dialogEl = this.$refs.dialogDefaultBottom
+          if (!this.dialogEl) return
+          // ADD - position css
+          this.dialogEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
+          this.dialogEl.style.left = this.targetRect.x  +'px'
           break;
-        case 'default left':
-          this.defaultLeftBtnIsClicked =! this.defaultLeftBtnIsClicked
-          this.defaultTopBtnIsClicked = false
-          this.defaultRightBtnIsClicked = false  
-          this.defaultBottomBtnIsClicked = false          
+        case 'left':
+          // GET - dialog element
+          this.dialogEl = this.$refs.dialogDefaultLeft
+          if (!this.dialogEl) return
+          // ADD - position css
+          this.dialogEl.style.top = this.targetRect.y + this.targetEl.offsetHeight - this.dialogEl.offsetHeight +'px'
+          this.dialogEl.style.left = this.targetRect.x - this.dialogEl.offsetWidth - 5 +  'px'
           break;
-        case 'default bottom':
-          this.defaultBottomBtnIsClicked =! this.defaultBottomBtnIsClicked
-          this.defaultTopBtnIsClicked = false
-          this.defaultLeftBtnIsClicked = false  
-          this.defaultRightBtnIsClicked = false          
+        case 'right':
+          // GET - dialog element
+          this.dialogEl = this.$refs.dialogDefaultRight
+          if (!this.dialogEl) return
+          // ADD - position css
+          this.dialogEl.style.top = this.targetRect.y + this.targetEl.offsetHeight - this.dialogEl.offsetHeight +'px'
+          this.dialogEl.style.left = this.targetRect.x + this.targetEl.offsetWidth + 5 +'px'
           break;
+      
         default:
           break;
       }
+
+      // ACTION - show tooltip
+      this.dialogEl.classList.add('active')
+      this.targetEl.classList.add('active')
     },
     closeButton: function (e) {
-      if (e.target.id === 'dialogbtn1' || 
-          e.target.id === 'dialogbtn2' || 
-          e.target.id === 'dialogbtn3' || 
-          e.target.id === 'dialogbtn4'
-          ) return
-      else {
-        this.defaultTopBtnIsClicked = false
-        this.defaultRightBtnIsClicked = false
-        this.defaultLeftBtnIsClicked = false
-        this.defaultBottomBtnIsClicked = false
-      }
+      if (!this.dialogEl) return
+      // closest() - 이하 모든 자식노드를 클릭했을때 감지됨!! 
+      if (e.target.closest("#__chekt-dialog")) return
+
+      // ACTION
+      this.dialogEl.classList.remove('active')
+      this.targetEl.classList.remove('active')
     },
+    onScrollDialog: function () {
+      // GET - dialog element
+      if (!this.dialogEl) return
+
+      // GET - target position
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      if (this.dialogEl.classList.contains('top')) {
+        this.dialogEl.style.top = this.targetRect.y - this.dialogEl.offsetHeight - 5 +'px'
+        this.dialogEl.style.left = this.targetRect.x  +'px'
+      }
+      else if (this.dialogEl.classList.contains('bottom')) {
+        this.dialogEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
+        this.dialogEl.style.left = this.targetRect.x  +'px'
+      }
+      else if (this.dialogEl.classList.contains('left')) {
+        this.dialogEl.style.top = this.targetRect.y + this.targetEl.offsetHeight - this.dialogEl.offsetHeight +'px'
+        this.dialogEl.style.left = this.targetRect.x - this.dialogEl.offsetWidth - 5 +  'px'
+      }
+      else if (this.dialogEl.classList.contains('right')) {
+        this.dialogEl.style.top = this.targetRect.y + this.targetEl.offsetHeight - this.dialogEl.offsetHeight +'px'
+        this.dialogEl.style.left = this.targetRect.x + this.targetEl.offsetWidth + 5 +'px'
+      }
+
+    },
+    onResizeScreen: function () {
+      // GET - dialog element
+      if (!this.dialogEl) return
+
+      // GET - target position
+      this.targetRect = this.targetEl.getBoundingClientRect();
+
+      // ADD - position css
+      if (this.dialogEl.classList.contains('top')) {
+        this.dialogEl.style.top = this.targetRect.y - this.dialogEl.offsetHeight - 5 +'px'
+        this.dialogEl.style.left = this.targetRect.x  +'px'
+      }
+      else if (this.dialogEl.classList.contains('bottom')) {
+        this.dialogEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
+        this.dialogEl.style.left = this.targetRect.x  +'px'
+      }
+      else if (this.dialogEl.classList.contains('left')) {
+        this.dialogEl.style.top = this.targetRect.y + this.targetEl.offsetHeight - this.dialogEl.offsetHeight +'px'
+        this.dialogEl.style.left = this.targetRect.x - this.dialogEl.offsetWidth - 5 +  'px'
+      }
+      else if (this.dialogEl.classList.contains('right')) {
+        this.dialogEl.style.top = this.targetRect.y + this.targetEl.offsetHeight - this.dialogEl.offsetHeight +'px'
+        this.dialogEl.style.left = this.targetRect.x + this.targetEl.offsetWidth + 5 +'px'
+      }
+    }
   }
 }
 </script>
 
 <style scoped>
 
-.dialogs {
+.buttons {
   display: flex;
   flex-direction: row;
   align-items: center;
   grid-gap: 20px;
 }
 
-/* DIALOG */
-.dialog-wrapper {
-  position: relative;
-}
-
-.dialog {
-  position: absolute;
+#__chekt-dialog {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 10px var(--chekt-border);
-  border: 1px solid var(--chekt-border);
+  box-shadow: 0 0 0 1px rgb(136 152 170 / 10%), 0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
   border-radius: 5px;
-  min-width: 100%;
   z-index: 1;
   visibility: hidden;
   background-color: white;
   transform:scale(.8);
   opacity: 0;
-  inset: auto 0px 37px auto;
   white-space: nowrap;
   padding: 5px 0px;
 }
 
-.dialog.right {
-  inset: auto -82px 0px auto;
-}
-.dialog.left {
-  inset: auto 81px 0px auto;
-}
-.dialog.bottom {
-  inset: auto 0px -112px auto;
-}
-
-.dialog .category {
-  font-size: 12px;
-  padding: 14px 10px 7px 10px;
-  color: var(--chekt-blue-gray-higher);
-  pointer-events: none;
-}
-.dialog .line {
-  border-bottom: solid 1px var(--chekt-border);
-  height: 1px;
-  padding: 0;
-}
-.dialog .icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  grid-gap: 5px;
-}
-.dialog > div {
+#__chekt-dialog > div {
   padding: 8px 20px 8px 10px;
   font-size: 14px;
   cursor: pointer;
   color: var(--chekt-primary-shadow-color);
 }
-.dialog div.delete {
+#__chekt-dialog div.delete {
   color: var(--chekt-danger-shadow-color);
 }
-.dialog div:hover {
+#__chekt-dialog div:hover {
   background-color: var(--chekt-blue-gray-lower);
   color: var(--chekt-text-high);
 }
-.dialog.active {
+#__chekt-dialog.active {
   visibility: visible;
   transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform:scale(1);

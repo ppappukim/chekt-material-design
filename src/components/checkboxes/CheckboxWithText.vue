@@ -138,7 +138,7 @@ export default {
 /* Style the checkmark/indicator */
 .checkbox .checkmark:after {
   left: 4px;
-  top: 0.2px;
+  top: 0px;
   width: 3px;
   height: 8px;
   border: solid white;
@@ -150,7 +150,7 @@ export default {
 /* Style the checkmark/indicator -- large */
 .checkbox .checkmark.large:after {
   left: 5px;
-  top: 0.2px;
+  top: 0px;
   width: 3px;
   height: 9px;
   border: solid white;

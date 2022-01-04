@@ -15,90 +15,90 @@
           <div class="main-img-bg-center">
             <!-- chekt text -->
             <!-- C -->
-            <div class="chekt-indicator one" v-bind:class="{ move:aniStart }" style="z-index:2;">
+            <div class="chekt-indicator one" v-bind:class="{ move:mainAniStatusData.aniStart }" style="z-index:2;">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-c-2.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #FF8A00;">Bobby Kim</div>
               </div>
             </div>
-            <div class="chekt-indicator two" v-bind:class="{ move:aniTwo }">
+            <div class="chekt-indicator two" v-bind:class="{ move:mainAniStatusData.aniTwo }">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-c-2.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img right" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #12D226;">Trevor Seo</div>
               </div>           
             </div>
-            <div class="chekt-indicator three" v-bind:class="{ move:aniThree }">
+            <div class="chekt-indicator three" v-bind:class="{ move:mainAniStatusData.aniThree }">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-c-2.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img right" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #3A36FF;">Kevin Park</div>
               </div>           
             </div>
             <!-- H -->
-            <div class="chekt-indicator four" v-bind:class="{ move:aniFour }">
+            <div class="chekt-indicator four" v-bind:class="{ move:mainAniStatusData.aniFour }">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-h-1.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #4D89FF;">Josh So</div>
               </div>
             </div>
-            <div class="chekt-indicator five" v-bind:class="{ move:aniFive }" >
+            <div class="chekt-indicator five" v-bind:class="{ move:mainAniStatusData.aniFive }" >
               <div class="chekt-lego"><img src="../../assets/chekt-lego-h-2.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #F97ABE;">Elly Lee</div>
               </div>            
             </div>
             <!-- E -->
-            <div class="chekt-indicator six" v-bind:class="{ move:aniSix }">
+            <div class="chekt-indicator six" v-bind:class="{ move:mainAniStatusData.aniSix }">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-e-1.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #302A7B;">Chas Park</div>
               </div>
             </div>
-            <div class="chekt-indicator seven" v-bind:class="{ move:aniSeven }">
+            <div class="chekt-indicator seven" v-bind:class="{ move:mainAniStatusData.aniSeven }">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-e-2.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img right" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #A012D2;">Stella Lee</div>
               </div>
             </div>
-            <div class="chekt-indicator eight" v-bind:class="{ move:aniEight }" style="z-index:2;">
+            <div class="chekt-indicator eight" v-bind:class="{ move:mainAniStatusData.aniEight }" style="z-index:2;">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-e-3.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #D21258;">Amber Lee</div>
               </div>
             </div>
             <!-- K -->
-            <div class="chekt-indicator nine" v-bind:class="{ move:aniNine }" style="z-index:2;">
+            <div class="chekt-indicator nine" v-bind:class="{ move:mainAniStatusData.aniNine }" style="z-index:2;">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-k-1.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img right" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #00C2FF;">Rider Kim</div>
               </div>            
             </div>
-            <div class="chekt-indicator ten" v-bind:class="{ move:aniTen }" style="z-index:1;">
+            <div class="chekt-indicator ten" v-bind:class="{ move:mainAniStatusData.aniTen }" style="z-index:1;">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-k-2.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #2B4F51;">Leo Park</div>
               </div>            
             </div>
             <!-- T -->
-            <div class="chekt-indicator ten-one" v-bind:class="{ move:aniTenOne }">
+            <div class="chekt-indicator ten-one" v-bind:class="{ move:mainAniStatusData.aniTenOne }">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-t-1.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #009962;">Do Sung</div>
               </div>            
             </div>
-            <div class="chekt-indicator ten-two" v-bind:class="{ move:aniTenTwo }">
+            <div class="chekt-indicator ten-two" v-bind:class="{ move:mainAniStatusData.aniTenTwo }">
               <div class="chekt-lego"><img src="../../assets/chekt-lego-t-2.png" alt=""></div>
-              <div class="chekt-cursor" v-bind:class="{ remove:AllcursorRemove }">
+              <div class="chekt-cursor" v-bind:class="{ remove:mainAniStatusData.allcursorRemove }">
                 <img src="../../assets/web-arrow.png" class="cursor-img" alt="" width="12px">
                 <div class="chekt-member-label" style="background-color: #FF6320;">David Erickson</div>
               </div>            
@@ -158,23 +158,12 @@
 <script>
 export default {
   computed: {
+    mainAniStatusData: function () {
+      return this.$store.getters.mainAniStatusData
+    },
   },
   data: function() {
     return {
-      aniStart: false,
-      aniTwo: false,
-      aniThree: false,
-      aniFour: false,
-      aniFive: false,
-      aniSix: false,
-      aniSeven: false,
-      aniEight: false,
-      aniNine: false,
-      aniTen: false,
-      aniTenOne: false,
-      aniTenTwo: false,
-      AllcursorRemove: false,
-      showMobileMainImg: false
     }
   },
   watch: {
@@ -193,31 +182,31 @@ export default {
   methods: {
     startAnimaiton: async function () {
       await this.$tool.wait(1000)
-      this.aniStart = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniStart', aniStatus: true})
       await this.$tool.wait(500)
-      this.aniTwo = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniTwo', aniStatus: true})
       await this.$tool.wait(300)
-      this.aniThree = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniThree', aniStatus: true})
       await this.$tool.wait(300)
-      this.aniFour = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniFour', aniStatus: true})
       await this.$tool.wait(200)
-      this.aniFive = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniFive', aniStatus: true})
       await this.$tool.wait(200)
-      this.aniSix = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniSix', aniStatus: true})
       await this.$tool.wait(200)
-      this.aniSeven = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniSeven', aniStatus: true})
       await this.$tool.wait(300)
-      this.aniEight = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniEight', aniStatus: true})
       await this.$tool.wait(200)
-      this.aniNine = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniNine', aniStatus: true})
       await this.$tool.wait(200)
-      this.aniTen = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniTen', aniStatus: true})
       await this.$tool.wait(200)
-      this.aniTenOne = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniTenOne', aniStatus: true})
       await this.$tool.wait(200)
-      this.aniTenTwo = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'aniTenTwo', aniStatus: true})
       await this.$tool.wait(3000)
-      this.AllcursorRemove = true
+      this.$store.commit('UPDATE_MAIN_ANI_STATUS_DATA', { aniName:'allcursorRemove', aniStatus: true})
     },
     onClickPortal: function (type) {
       switch (type) {

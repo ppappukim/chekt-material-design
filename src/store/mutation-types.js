@@ -51,3 +51,8 @@ export const GET_SEARCH_DATA = 'GET_SEARCH_DATA'
 // ICON //
 //////////
 export const GET_ICON_DATA = 'GET_ICON_DATA'
+
+///////////////
+// ANIMAITON //
+///////////////
+export const UPDATE_MAIN_ANI_STATUS_DATA = 'UPDATE_MAIN_ANI_STATUS_DATA'

@@ -7,6 +7,7 @@ import toast                from './modules/toast'
 import search               from './modules/search'
 import datepicker           from './modules/datepicker'
 import icon                 from './modules/icon'
+import animation                 from './modules/animation'
 
 
 
@@ -21,7 +22,8 @@ export default new Vuex.Store({
     toast,
     search,
     datepicker,
-    icon
+    icon,
+    animation
   },
   strict: debug
 })

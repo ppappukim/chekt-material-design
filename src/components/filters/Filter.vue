@@ -4,27 +4,27 @@
     <!-- Filter -->
     <div id="__chekt-filter">
       <!-- Header -->
-      <div class="filter-header">
-        <div @click="onClickClearBtn()" class="button-small default">Clear</div>
-        <div class="filter-header-text">
+      <div class="__chekt-filter-header">
+        <div @click="onClickClearBtn()" class="__chekt-button-small default">Clear</div>
+        <div class="__chekt-filter-header-text">
           <div>Filter</div>
-          <div v-if="filterEnabledCounter > 0" class="filter-header-count">{{filterEnabledCounter}}</div>
+          <div v-if="filterEnabledCounter > 0" class="__chekt-filter-header-count">{{filterEnabledCounter}}</div>
         </div>
-        <div @click="onClickDoneBtn()" class="button-small primary">Done</div>
+        <div @click="onClickDoneBtn()" class="__chekt-button-small primary">Done</div>
       </div>
       <!-- Body -->
-      <div class="filter-body">
+      <div class="__chekt-filter-body">
 
         <!-- Item -->
-        <div class="filter-body-item">
+        <div class="__chekt-filter-body-item">
 
           <!-- Item > Title -->
-          <div class="filter-body-item-title">
+          <div class="__chekt-filter-body-item-title">
             <!-- Checkbox -->
             <div>
-              <label class="checkbox">
+              <label class="__chekt-checkbox">
                 <input @change="onChangeCheckbox('date')" type="checkbox" ref="dateCheckbox">
-                <span class="checkmark"></span>
+                <span class="__chekt-checkmark"></span>
               </label>
             </div>
             <!-- Text -->
@@ -32,7 +32,7 @@
           </div>
 
           <!-- Item > Content -->
-          <div v-if="isDateChecked" class="filter-body-item-content">
+          <div v-if="isDateChecked" class="__chekt-filter-body-item-content">
 
             <!-- Content main -->
             <div>
@@ -51,8 +51,8 @@
             </div>
 
             <!-- Content sub 0 -->
-            <div v-if="dateSelectType === '0'" class="content-sub">
-              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+            <div v-if="dateSelectType === '0'" class="__chekt-filter-content-sub">
+              <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <div>
                 <div class="input-text">
                   <input v-model="messageDateA" @input="maxLengthCheck(messageDateA)" type="number" placeholder="0">
@@ -72,22 +72,22 @@
             </div>
 
             <!-- Content sub 1 -->
-            <div v-else-if="dateSelectType === '1'" class="content-sub">
-              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+            <div v-else-if="dateSelectType === '1'" class="__chekt-filter-content-sub">
+              <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <!-- Datepicker -->
-                <div @click="onClickDatePicker($event)" class="button-small default icon date">
+                <div @click="onClickDatePicker($event)" class="__chekt-button-small default icon">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
                   <div>{{datePickerSelectedDate}}</div>
                 </div>
             </div>
 
             <!-- Content sub 2 -->
-            <div v-else-if="dateSelectType === '2'" class="content-sub">
-              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+            <div v-else-if="dateSelectType === '2'" class="__chekt-filter-content-sub">
+              <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
 
               <!-- Range Datepicker -->
               <div>
-                <div @click="onClickDatePickerRange($event)" class="button-small default icon date">
+                <div @click="onClickDatePickerRange($event)" class="__chekt-button-small default icon">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
                   <div>{{rangeDatePickerSelectedStartDate}} - {{rangeDatePickerSelectedEndDate}}</div>
                 </div>
@@ -95,11 +95,11 @@
             </div>
 
             <!-- Content sub 3 -->
-            <div v-else-if="dateSelectType === '3'" class="content-sub">
-              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+            <div v-else-if="dateSelectType === '3'" class="__chekt-filter-content-sub">
+              <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <!-- Datepicker -->
               <div>
-                <div @click="onClickDatePicker($event)" class="button-small default icon date">
+                <div @click="onClickDatePicker($event)" class="__chekt-button-small default icon">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
                   <div>{{datePickerSelectedDate}}</div>
                 </div>
@@ -107,11 +107,11 @@
             </div>
 
             <!-- Content sub 4 -->
-            <div v-else-if="dateSelectType === '4'" class="content-sub">
-              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+            <div v-else-if="dateSelectType === '4'" class="__chekt-filter-content-sub">
+              <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <!-- Datepicker -->
               <div>
-                <div @click="onClickDatePicker($event)" class="button-small default icon date">
+                <div @click="onClickDatePicker($event)" class="__chekt-button-small default icon">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
                   <div>{{datePickerSelectedDate}}</div>
                 </div>
@@ -122,13 +122,13 @@
         </div>
 
         <!-- Item -->
-        <div class="filter-body-item">
-          <div class="filter-body-item-title">
+        <div class="__chekt-filter-body-item">
+          <div class="__chekt-filter-body-item-title">
             <!-- Checkbox -->
             <div>
-              <label class="checkbox">
+              <label class="__chekt-checkbox">
                 <input type="checkbox" @change="onChangeCheckbox('amount')" ref="amountCheckbox">
-                <span class="checkmark"></span>
+                <span class="__chekt-checkmark"></span>
               </label>
             </div>
             <!-- Text -->
@@ -136,7 +136,7 @@
           </div>
 
             <!-- Item > Content -->
-          <div v-if="isAmountChecked" class="filter-body-item-content">
+          <div v-if="isAmountChecked" class="__chekt-filter-body-item-content">
 
             <!-- Content main -->
             <div>
@@ -154,8 +154,8 @@
             </div>
 
             <!-- Content sub 0 -->
-            <div v-if="amountSelectType === '0'" class="content-sub">
-              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+            <div v-if="amountSelectType === '0'" class="__chekt-filter-content-sub">
+              <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <div>
                 <div class="input-text">
                   <input v-model="messageAmountA" @input="maxLengthCheck(messageAmountA)" type="number" placeholder="0">
@@ -164,13 +164,13 @@
             </div>
 
             <!-- Content sub 1 -->
-            <div v-if="amountSelectType === '1'" class="content-sub">
-              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
-              <div class="content-sub-body">
+            <div v-if="amountSelectType === '1'" class="__chekt-filter-content-sub">
+              <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+              <div class="__chekt-filter-content-sub-body">
                 <div class="input-text">
                   <input v-model="messageAmountB" @input="maxLengthCheck(messageAmountB)" type="number" placeholder="0">
                 </div>
-                <div class="content-sub-body-text">and</div>
+                <div class="__chekt-filter-content-sub-body-text">and</div>
                 <div class="input-text">
                   <input v-model="messageAmountC" @input="maxLengthCheck(messageAmountC)" type="number" placeholder="0">
                 </div>
@@ -178,8 +178,8 @@
             </div>
 
             <!-- Content sub 2 -->
-            <div v-if="amountSelectType === '2'" class="content-sub">
-              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+            <div v-if="amountSelectType === '2'" class="__chekt-filter-content-sub">
+              <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <div>
                 <div class="input-text">
                   <input v-model="messageAmountD" @input="maxLengthCheck(messageAmountD)" type="number" placeholder="0">
@@ -188,8 +188,8 @@
             </div>
 
             <!-- Content sub 3 -->
-            <div v-if="amountSelectType === '3'" class="content-sub">
-              <div class="content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
+            <div v-if="amountSelectType === '3'" class="__chekt-filter-content-sub">
+              <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <div>
                 <div class="input-text">
                   <input v-model="messageAmountE" @input="maxLengthCheck(messageAmountE)" type="number" placeholder="0">
@@ -201,13 +201,13 @@
 
 
         <!-- Item -->
-        <div class="filter-body-item">
-          <div class="filter-body-item-title">
+        <div class="__chekt-filter-body-item">
+          <div class="__chekt-filter-body-item-title">
             <!-- Checkbox -->
             <div>
-              <label class="checkbox">
+              <label class="__chekt-checkbox">
                 <input type="checkbox" @change="onChangeCheckbox('status')" ref="statusCheckbox">
-                <span class="checkmark"></span>
+                <span class="__chekt-checkmark"></span>
               </label>
             </div>
             <!-- Text -->
@@ -215,17 +215,17 @@
           </div>
 
             <!-- Item > Content -->
-          <div v-if="isStatusChecked" class="filter-body-item-content">
+          <div v-if="isStatusChecked" class="__chekt-filter-body-item-content">
 
             <!-- Content main -->
-            <div class="filter-body-item-main">
+            <div class="__chekt-filter-body-item-main">
 
               <!-- Checkbox -->
-              <div class="filter-body-item-main-line">
+              <div class="__chekt-filter-body-item-main-line">
                 <div>
-                  <label class="checkbox">
+                  <label class="__chekt-checkbox">
                     <input type="checkbox">
-                    <span class="checkmark small"></span>
+                    <span class="__chekt-checkmark small"></span>
                   </label>
                 </div>
                 <!-- Text -->
@@ -233,11 +233,11 @@
               </div>
 
               <!-- Checkbox -->
-              <div class="filter-body-item-main-line">
+              <div class="__chekt-filter-body-item-main-line">
                 <div>
-                  <label class="checkbox">
+                  <label class="__chekt-checkbox">
                     <input type="checkbox">
-                    <span class="checkmark small"></span>
+                    <span class="__chekt-checkmark small"></span>
                   </label>
                 </div>
                 <!-- Text -->
@@ -245,11 +245,11 @@
               </div>
 
               <!-- Checkbox -->
-              <div class="filter-body-item-main-line">
+              <div class="__chekt-filter-body-item-main-line">
                 <div>
-                  <label class="checkbox">
+                  <label class="__chekt-checkbox">
                     <input type="checkbox">
-                    <span class="checkmark small"></span>
+                    <span class="__chekt-checkmark small"></span>
                   </label>
                 </div>
                 <!-- Text -->
@@ -257,11 +257,11 @@
               </div>
 
               <!-- Checkbox -->
-              <div class="filter-body-item-main-line">
+              <div class="__chekt-filter-body-item-main-line">
                 <div>
-                  <label class="checkbox">
+                  <label class="__chekt-checkbox">
                     <input type="checkbox">
-                    <span class="checkmark small"></span>
+                    <span class="__chekt-checkmark small"></span>
                   </label>
                 </div>
                 <!-- Text -->
@@ -269,11 +269,11 @@
               </div>
 
               <!-- Checkbox -->
-              <div class="filter-body-item-main-line">
+              <div class="__chekt-filter-body-item-main-line">
                 <div>
-                  <label class="checkbox">
+                  <label class="__chekt-checkbox">
                     <input type="checkbox">
-                    <span class="checkmark small"></span>
+                    <span class="__chekt-checkmark small"></span>
                   </label>
                 </div>
                 <!-- Text -->
@@ -286,13 +286,13 @@
         </div>
 
         <!-- Item -->
-        <div class="filter-body-item">
-          <div class="filter-body-item-title">
+        <div class="__chekt-filter-body-item">
+          <div class="__chekt-filter-body-item-title">
             <!-- Checkbox -->
             <div>
-              <label class="checkbox">
+              <label class="__chekt-checkbox">
                 <input type="checkbox" @change="onChangeCheckbox('payment method')" ref="paymentMethodCheckbox">
-                <span class="checkmark"></span>
+                <span class="__chekt-checkmark"></span>
               </label>
             </div>
             <!-- Text -->
@@ -300,10 +300,10 @@
           </div>
 
             <!-- Item > Content -->
-          <div v-if="isPaymentMethodChecked" class="filter-body-item-content">
+          <div v-if="isPaymentMethodChecked" class="__chekt-filter-body-item-content">
 
             <!-- Content main -->
-            <div class="filter-body-item-main" style="padding:0;">
+            <div class="__chekt-filter-body-item-main" style="padding:0;">
               <div id="__chekt-select">
                 <select class="select">
                   <option value="0">Card</option>
@@ -550,313 +550,6 @@ export default {
 </script>
 
 <style scoped>
-
-/* FILTER */
-
-#__chekt-filter {
-  position: fixed;
-  width: 250px;
-  box-shadow: 
-  0 0 0 1px rgb(136 152 170 / 10%), 
-  0 15px 35px 0 rgb(49 49 93 / 10%), 
-  0 5px 15px 0 rgb(0 0 0 / 8%);
-  border-radius: 5px;
-  transform: scale(.8);
-  opacity: 0;
-  visibility: hidden;
-  user-select: none;
-  background-color: white;
-  z-index: 300;
-}
-#__chekt-filter.active {
-  visibility: visible;
-  transform: scale(1);
-  opacity: 1;
-  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.filter-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--chekt-blue-gray-lower);
-  padding: 10px;
-}
-.filter-header-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 5px;
-  font-size: 14px;
-  color: var(--chekt-text-high);
-}
-.filter-header-text > .filter-header-count {
-  font-weight: 500;
-  color: var(--chekt-primary-color);
-}
-.filter-body-item {
-  border-top: 1px solid var(--chekt-border);
-}
-.filter-body-item-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  grid-gap: 10px;
-  padding: 10px 10px;
-}
-.filter-body-item-title > .item-text {
-  font-size: 14px;
-  color: var(--chekt-blue-gray-highest);
-}
-.filter-body-item-content {
-  background-color: var(--chekt-blue-gray-lower);
-  border-top: 1px solid var(--chekt-border);
-  padding: 10px;
-}
-.item-main {
-  font-size: 13px;
-  color: var(--chekt-blue-gray-highest);
-}
-.filter-body-item-main {
-  display: flex;
-  flex-direction: column;
-  grid-gap: 16px;
-  padding: 10px 5px;
-}
-.filter-body-item-main-line {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  grid-gap: 10px;
-}
-
-
-.content-sub {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 10px;
-  margin-left: 10px;
-}
-.content-sub-icon {
-  color: var(--chekt-primary-color);
-}
-.content-sub-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  grid-gap: 5px;
-}
-.content-sub-body-text {
-  font-size: 12px;
-  color: var(--chekt-blue-gray-highest);
-}
-
-
-/* BUTTON */
-
-/* common button */
-.button {
-  padding: 7px 10px;
-  color: white;
-  border-radius: 5px;
-  border: solid 1px var(--chekt-border);
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-}
-.button-small {
-  padding: 5px 8px;
-  color: white;
-  border-radius: 5px;
-  border: solid 1px var(--chekt-border);
-  font-size: 12px;
-  cursor: pointer;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
-}
-.button-large {
-  padding: 9px 12px;
-  color: var(--chekt-text-high);
-  border-radius: 5px;
-  border: solid 1px var(--chekt-border);
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-}
-.button:hover {
-  transition: background-color .3s, box-shadow .3s;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-}
-.button-small:hover {
-  transition: background-color .3s, box-shadow .3s;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
-}
-.button-large:hover {
-  transition: background-color .3s, box-shadow .3s;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-}
-.button.icon, .button-small.icon, .button-large.icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 5px;
-}
-
-/* default color button */
-
-.button.default, .button-small.default {
-  background-color: white;
-  color: var(--chekt-text-high);
-}
-/* primary color button */
-
-.button.primary, .button-small.primary {
-  background-color: var(--chekt-primary-color);
-}
-.button.primary:hover, .button-small.primary:hover {
-  background-color: var(--chekt-primary-shadow-color);
-}
-/* danger color button */
-.button.danger {
-  background-color: var(--chekt-danger-color);
-}
-.button.danger:hover {
-  background-color: var(--chekt-danger-shadow-color);
-}
-/* success color button */
-.button.success {
-  background-color: var(--chekt-success-color);
-}
-.button.success:hover {
-  background-color: var(--chekt-success-shadow-color);
-}
-
-
-
-/* CHECKBOX */
-
-.checkboxes {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  grid-gap: 20px;
-}
-
-.checkbox {
-  position: relative;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.checkbox-text.small {
-  font-size: 12px;
-  margin-left: 6px;
-}
-.checkbox-text.large {
-  font-size: 16px;
-  margin-left: 8px;
-}
-
-/* Hide the browser's default checkbox */
-.checkbox input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark.small {
-  height: 12px;
-  width: 12px;
-  border-radius: 2px;
-}
-.checkmark {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 14px;
-  width: 14px;
-  border-radius: 3px;
-  background-color: white;
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px ;
-}
-.checkmark.large {
-  height: 16px;
-  width: 16px;
-  border-radius: 4px;
-}
-
-/* When the checkbox is checked, add a blue background */
-.checkbox input:checked ~ .checkmark {
-  background-color: var(--chekt-primary-color);
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(30 136 229) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
-  opacity: 1;
-}
-/* Click animation */
-.checkbox input ~ .checkmark {
-  transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-/* Style the checkmark/indicator -- small */
-.checkbox .checkmark.small:after {
-  left: 3.5px;
-  top: 0px;
-  width: 2.1px;
-  height: 6.8px;
-  border: solid white;
-  border-width: 0 2.9px 2.9px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/* Style the checkmark/indicator */
-.checkbox .checkmark:after {
-  left: 4px;
-  top: 0px;
-  width: 3px;
-  height: 8px;
-  border: solid white;
-  border-width: 0 2.9px 2.9px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/* Style the checkmark/indicator -- large */
-.checkbox .checkmark.large:after {
-  left: 5px;
-  top: 0px;
-  width: 3px;
-  height: 9px;
-  border: solid white;
-  border-width: 0 2.9px 2.9px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/* Show the checkmark when checked */
-.checkbox input:checked ~ .checkmark:after {
-  display: block;
-}
-
-
 
 /* SELECT */
 

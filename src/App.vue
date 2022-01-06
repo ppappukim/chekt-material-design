@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style>
-@import './styles/dealer.css';
+
 body{
   height: 100%;
   margin: 0;
@@ -73,12 +73,17 @@ body{
   --chekt-badge: #ba2222;
   --chekt-backdrop-color: rgba(0, 0, 0, 0.4);
 
-  /* Text Color - Color Code */
+  /* BOX SHADOW */
+  --chekt-button-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(64 68 82 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(64 68 82 / 8%) 0px 2px 5px 0px;
+  --chekt-button-hover-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(64 68 82 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(64 68 82 / 8%) 0px 3px 9px 0px, rgb(64 68 82 / 8%) 0px 2px 5px 0px;
+  --chekt-dialog-shadow: 0 0 0 1px rgb(136 152 170 / 10%), 0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);;
+
+  /* TEXT COLOR - HEX */
   --chekt-text-high: #212121;
   --chekt-text-medium: #666666;
   --chekt-text-disable: #9E9E9E;
 
-  /* Text Color - Opacity */
+  /* TEXT COLOR - RGBA */
   --chekt-text-high-rgb: rgba(0,0,0,0.87);
   --chekt-text-medium-rgb: rgba(0,0,0,0.6);
   --chekt-text-disable-rgb: rgba(0,0,0,0.38);

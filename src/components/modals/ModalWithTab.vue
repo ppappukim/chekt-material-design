@@ -2,7 +2,7 @@
   <div>
     <div class="buttons"> 
       <div class="button-rows">
-        <div @click="onClickModalButton('default')" class="button default"> Click me </div>
+        <div @click="onClickModalButton('default')" class="__chekt-button default"> Click me </div>
       </div>
       <div class="button-rows">
       </div>
@@ -10,12 +10,12 @@
 
     <!-- Default -->
     <div id="__chekt-modal-backdrop" v-bind:class="{show:showModal}"></div>
-    <div id="__chekt-modal" v-bind:class="{show:showModal}">
-      <div class="modal" v-bind:class="{show:showModal}">
-        <div class="modal-header">
+    <div id="__chekt-modal-format" v-bind:class="{show:showModal}">
+      <div class="__chekt-modal-format" v-bind:class="{show:showModal}">
+        <div class="__chekt-modal-header-format">
           <div>Title</div>
         </div>
-        <div class="modal-wrapper">
+        <div class="__chekt-modal-wrapper-format">
           <div class="tab">
             <div class="tab-header">
               <div class="__chekt-tablink" @click="openCity($event, '__chekt-tab-all')" id="__chekt-tab-default-open">All</div>
@@ -47,9 +47,9 @@
 
 
         </div>
-        <div class="modal-actions">
-          <div class="button default" @click="closeButton()" >Cancel</div>
-          <div class="button primary" @click="closeButton()">Action</div>
+        <div class="__chekt-modal-actions">
+          <div class="__chekt-button default" @click="closeButton()" >Cancel</div>
+          <div class="__chekt-button primary" @click="closeButton()">Action</div>
         </div>
       </div>
     </div>
@@ -116,100 +116,7 @@ export default {
 </script>
 
 <style scoped>
-
-#__chekt-modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  visibility: hidden;
-  z-index: 9100;
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0;
-}
-#__chekt-modal.show  {
-  visibility: visible;
-}
-
-/*******************/
-/***** Default *****/
-/*******************/
-
-#__chekt-modal .modal {
-  display: flex;
-  flex-direction: column;
-  width: 600px;
-  box-shadow: 0 7px 14px 0 rgb(60 66 87 / 8%), 0 3px 6px 0 rgb(0 0 0 / 12%);
-  border-radius: 5px;
-  background-color: var(--chekt-blue-gray-lower);
-  z-index: 9100;
-  position: relative;
-  transform: scale(.8);
-  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  max-height: calc(100vh - 2 * 50px);
-  max-width: calc(100% - 40px);
-  min-width: 300px;
-}
-#__chekt-modal .modal-header {
-  padding: 16px;
-  background-color: white;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom: solid 1px var(--chekt-border);
-}
-#__chekt-modal .modal-wrapper {
-  display: flex;
-  flex-direction: column;
-  padding: 30px 20px;
-  overflow: hidden;
-  overflow: auto;
-}
-#__chekt-modal .modal.show  {
-  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transform: scale(1)
-}
-
-
-
-
-.modal-actions {
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-  grid-gap: 10px;
-  align-items: center;
-  padding: 10px 20px;
-  font-size: 14px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-top: solid 1px var(--chekt-border);
-}
-
-/********************/
-/***** Backdrop *****/
-/********************/
-
-#__chekt-modal-backdrop {
-  visibility: hidden;
-  width: 100%;
-  height: 100%;
-  background-color: var(--chekt-backdrop-color);
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 9000;
-  opacity: 0;
-}
-#__chekt-modal-backdrop.show {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity .2s;
-}
-
+/* src/styles/dealer-modal.css */
 
 /******************/
 /***** Button *****/
@@ -225,31 +132,6 @@ export default {
   flex-direction: row;
   grid-gap: 20px;
 }
-.button {
-  padding: 7px 10px;
-  color: white;
-  border-radius: 5px;
-  border: solid 1px var(--chekt-border);
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-}
-.button:hover {
-  transition: background-color .3s, box-shadow .3s;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-}
-.button.default {
-  background-color: white;
-  color: var(--chekt-text-high);
-}
-/* primary color button */
-.button.primary {
-  background-color: var(--chekt-primary-color);
-}
-.button.primary:hover {
-  background-color: var(--chekt-primary-shadow-color);
-}
-
 
 /****************/
 /***** Tab *****/

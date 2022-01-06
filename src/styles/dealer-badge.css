@@ -1,0 +1,32 @@
+.__chekt-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 6px;
+  background-color: var(--chekt-badge);
+  border-radius: 10px;
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+}
+.__chekt-small-badge {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--chekt-badge);
+  border-radius: 50%;
+}
+.__chekt-smaller-badge {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 5px;
+  height: 5px;
+  background-color: var(--chekt-badge);
+  border-radius: 50%;
+}

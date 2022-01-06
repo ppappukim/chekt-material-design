@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="buttons">
-      <div @click="onClickToastButton()" class="button default"> Click me </div>
+      <div @click="onClickToastButton()" class="__chekt-button default"> Click me </div>
     </div>
   </div>
   
@@ -53,22 +53,5 @@ export default {
   display: flex;
   flex-direction: row;
   grid-gap: 20px;
-}
-.button {
-  padding: 7px 10px;
-  color: white;
-  border-radius: 5px;
-  border: solid 1px var(--chekt-border);
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-}
-.button:hover {
-  transition: background-color .3s, box-shadow .3s;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-}
-.button.default {
-  background-color: white;
-  color: var(--chekt-text-high);
 }
 </style>

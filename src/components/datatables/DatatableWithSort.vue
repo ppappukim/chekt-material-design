@@ -1,10 +1,10 @@
 <template>
   <div style="width:100%;">
     <div class="tables" style="margin-bottom: 50px;">
-      <div class="table">
+      <div class="__chekt-table">
         <table>
           <!-- TABLE HEAD -->
-          <thead class="table-header padding-all--8">
+          <thead class="__chekt-table-header padding-all--8">
             <tr>
               <td
               v-for="key in columns"
@@ -24,9 +24,9 @@
             </tr>
           </thead>
           <!-- TABLE BODY -->
-          <tbody class="table-body padding-all--8">
+          <tbody class="__chekt-table-body padding-all--8">
             <tr 
-            v-for="entry in filteredHeroes"
+            v-for="entry in filteredMembers"
             :key="entry.name">
               <td 
               v-for="key in columns"
@@ -54,13 +54,13 @@ export default {
       sortKey: '',
       searchQuery: '',
       columns: ['id', 'name', 'email', 'age', 'date'],
-      heroes: [
+      members: [
         { id: 23442, name: 'bobby kim', email: 'bobbyk@gmail.com', age: 24, date: 1640170977000 },
         { id: 12244, name: 'kevin park', email: 'kevinp@gmail.com', age: 32, date: 1640170995000 },
         { id: 15724, name: 'trevor seo', email: 'trevors@gmail.com', age: 22, date: 1640171001000 },
         { id: 12452, name: 'josh so', email: 'joshs@gmail.com', age: 29, date: 1640171006000 }
       ],
-      filteredHeroes: [],
+      filteredMembers: [],
       sortOrders: {}
     }
   },
@@ -76,17 +76,17 @@ export default {
     getFilteredHeroes: function () {
       var sortKey = this.sortKey
       var order = this.sortOrders[sortKey] || 1
-      var heroes = this.heroes
+      var members = this.members
       if (sortKey) {
-        heroes = heroes.slice().sort(function (a, b) {
+        members = members.slice().sort(function (a, b) {
           a = a[sortKey]
           b = b[sortKey]
           return (a === b ? 0 : a > b ? 1 : -1) * order
         })
       }
       // Timestamp > date
-      for (let i = 0; i < heroes.length; i++) {
-        const hero = heroes[i];
+      for (let i = 0; i < members.length; i++) {
+        const hero = members[i];
 
         // GET
         var date = new Date(hero.date);
@@ -100,7 +100,7 @@ export default {
         hero.date = modifiedTime
       }
 
-      return this.filteredHeroes = heroes
+      return this.filteredMembers = members
     },
     getSortOrders: function () {
       var sortOrders = {}
@@ -124,80 +124,6 @@ export default {
   flex-direction: row;
   align-items: center;
   grid-gap: 20px;
-}
-
-/* TABLE */
-.table {
-  width: 100%;
-  max-width: 100%;
-  max-height: 90%;
-  /* border-collapse: collapse; */
-  white-space: nowrap;
-  overflow: hidden;
-  max-height: 100%;
-}
-
-/* TABLE SCROLL */
-.table:hover {
-  overflow-x: auto;
-  overflow: overlay;
-}
-.table::-webkit-scrollbar {
-  -webkit-appearance: none;
-}
-.table::-webkit-scrollbar-track {
-  opacity: 0;
-}
-.table::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, .2);
-}
-/* ////TABLE SCROLL */
-
-.table > table {
-  width: 100%;
-  border-collapse: collapse;
-  white-space: nowrap;
-}
-.table-body {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--chekt-blue-gray-highest);
-}
-.table-header {
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--chekt-blue-gray-higher);
-  background-color: var(--chekt-blue-gray-low);
-}
-.table-cell--width--minimized {
-  width: 1px;
-}
-.table-body > tr > td {
-  box-shadow: inset 0 1px var(--chekt-border);
-}
-.table-body > tr:last-child  {
-  box-shadow: inset 0 -1px var(--chekt-border);
-}
-.padding-all--8 > tr > td {
-  padding: 8px;
-}
-.padding-all--12 > tr > td {
-  padding: 12px;
-}
-.padding-all--16 > tr > td {
-  padding: 16px;
-}
-
-.table-body > tr:hover {
-  background-color: var(--chekt-blue-gray-lower);
-  cursor: pointer;
-}
-.table-header > tr > td:first-child, .table-body > tr > td:first-child {
-  padding-left: 20px;
-}
-.table-header > tr > td:last-child, .table-body > tr > td:last-child {
-  padding-right: 20px;
 }
 
 .header-text:hover {

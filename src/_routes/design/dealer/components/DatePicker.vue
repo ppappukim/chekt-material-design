@@ -36,7 +36,7 @@
             By default, selecting the date field opens the calendar view. The current date text is bold, underlined, and highlighted blue.
           </div>
           <div class="__dealer-demo">
-            <div @click="onClickDatePicker($event)" class="button default icon date">
+            <div @click="onClickDatePicker($event)" class="__chekt-button default icon">
               <MyIcon v-bind:icon="'calendar'" v-bind:width="18" />
               <div>{{datePickerSelectedDate}}</div>
             </div>
@@ -59,7 +59,7 @@
             By default, selecting the date field opens the calendar view. The current date text is bold, underlined, and highlighted blue.
           </div>
           <div class="__dealer-demo">
-            <div @click="onClickDatePickerRange($event)" class="button default icon date">
+            <div @click="onClickDatePickerRange($event)" class="__chekt-button default icon">
               <MyIcon v-bind:icon="'calendar'" v-bind:width="18" />
               <div>{{rangeDatePickerSelectedStartDate}} - {{rangeDatePickerSelectedEndDate}}</div>
             </div>
@@ -158,33 +158,5 @@ export default {
   flex-direction: row;
   align-items: center;
   grid-gap: 20px;
-}
-.button.icon, .button-small.icon, .button-large.icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 5px;
-}
-
-/* common button */
-.button {
-  padding: 7px 10px;
-  color: white;
-  border-radius: 5px;
-  border: solid 1px var(--chekt-border);
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-}
-.button:hover {
-  transition: background-color .3s, box-shadow .3s;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* default color button */
-.button.default {
-  background-color: white;
-  color: var(--chekt-text-high);
 }
 </style>

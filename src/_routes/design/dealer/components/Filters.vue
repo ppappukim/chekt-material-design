@@ -39,7 +39,7 @@
           <div class="__dealer-demo">
 
             <!-- Button -->
-            <div @click="onClickFilterBtn($event)" class="button default icon">
+            <div @click="onClickFilterBtn($event)" class="__chekt-button default icon">
               <MyIcon v-bind:icon="'filter'" v-bind:width="18" />
               <div>Filter</div>
               <div v-if="filterCounter" style="color:var(--chekt-border);">|</div>
@@ -136,33 +136,5 @@ export default {
     flex-direction: row;
     align-items: center;
     grid-gap: 20px;
-  }
-  .button.icon, .button-small.icon, .button-large.icon {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    grid-gap: 5px;
-  }
-
-  /* common button */
-  .button {
-    padding: 7px 10px;
-    color: white;
-    border-radius: 5px;
-    border: solid 1px var(--chekt-border);
-    font-size: 14px;
-    cursor: pointer;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-  }
-  .button:hover {
-    transition: background-color .3s, box-shadow .3s;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  /* default color button */
-  .button.default {
-    background-color: white;
-    color: var(--chekt-text-high);
   }
 </style>

@@ -2,11 +2,11 @@
   <div class="badges">
     <div class="icon">
       <MyIcon v-bind:icon="'bell'" v-bind:width="32" />
-      <div class="small-badge"></div>
+      <div class="__chekt-small-badge"></div>
     </div>
     <div class="icon">
       <MyIcon v-bind:icon="'bell'" v-bind:width="24" />
-      <div class="smaller-badge"></div>
+      <div class="__chekt-smaller-badge"></div>
     </div>
   </div>
 </template>
@@ -35,6 +35,7 @@ export default {
 </script>
 
 <style scoped>
+/* src/styles/dealer-badge.css */
 .badges {
   display: flex;
   flex-direction: row;
@@ -44,23 +45,5 @@ export default {
 .icon {
   position: relative;
   margin-right: 20px;
-}
-.smaller-badge {
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  width: 5px;
-  height: 5px;
-  background-color: var(--chekt-badge);
-  border-radius: 50%;
-}
-.small-badge {
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  width: 8px;
-  height: 8px;
-  background-color: var(--chekt-badge);
-  border-radius: 50%;
 }
 </style>

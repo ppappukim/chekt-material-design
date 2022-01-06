@@ -2,15 +2,19 @@
   <div>
     <!-- START CARLANDAR -->
     <div id="__chekt-datepicker-range">
-      <div class="range-date-picker-header">
-        <div @click="changeRangeMonth(-1)" class="range-date-picker-header-icon"><MyIcon v-bind:icon="'arrow-left'" v-bind:width="18" /></div>
-        <div class="range-date-picker-header-info">
+      <div class="__chekt-range-date-picker-header">
+        <div @click="changeRangeMonth(-1)" class="__chekt-range-date-picker-header-icon">
+          <MyIcon v-bind:icon="'arrow-left'" v-bind:width="18" />
+        </div>
+        <div class="__chekt-range-date-picker-header-info">
           <div>{{range_current_month_text}}</div>
           <div>{{range_current_year}}</div>
         </div>
-        <div @click="changeRangeMonth(1)" class="range-date-picker-header-icon"><MyIcon v-bind:icon="'arrow-right'" v-bind:width="18" /></div>
+        <div @click="changeRangeMonth(1)" class="__chekt-range-date-picker-header-icon">
+          <MyIcon v-bind:icon="'arrow-right'" v-bind:width="18" />
+        </div>
       </div>
-      <table class="range-table">
+      <table class="__chekt-range-date-picker-table">
         <thead>
           <tr>
             <th>Su</th>
@@ -22,7 +26,7 @@
             <th>Sa</th>
           </tr>
         </thead>
-        <tbody id="range_tb_body">
+        <tbody>
           <tr
             v-for="(week, i) in rangeDates"
             v-bind:key="i">
@@ -339,7 +343,6 @@ export default {
       if (!this.rangeDatePickerEl) return
       // closest() - #__chekt-datepicker-range 이하 모든 자식노드를 클릭했을때 감지됨!! 
       if (e.target.closest("#__chekt-datepicker-range")) return
-      if (e.target.closest("#__chekt-datepicker-range-end")) return
       if (this.rangeDatePickerEl.classList.contains('active')) e.stopPropagation()
       this.rangeDatePickerEl.classList.remove('active')
       this.targetEl.classList.remove('active')
@@ -375,151 +378,5 @@ export default {
 
 
 <style scoped>
-/* common date picker */
-#__chekt-datepicker-range, #__chekt-datepicker-range-end {
-  background-color: white;
-  width: 280px;
-  padding: 30px 30px;
-  position: fixed;
-  box-shadow: 0 0 0 1px rgb(136 152 170 / 10%), 0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
-  border-radius: 5px;
-  transform: scale(.8);
-  opacity: 0;
-  visibility: hidden;
-  user-select: none;
-  z-index: 300;
-}
-#__chekt-datepicker-range.active, #__chekt-datepicker-range-end.active {
-  visibility: visible;
-  transform: scale(1);
-  opacity: 1;
-  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.range-date-picker-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.range-date-picker-header-info {
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--chekt-blue-gray-higher);
-}
-.range-date-picker-header-icon {
-  color: var(--chekt-blue-gray-high);
-  cursor: pointer;
-}
-.range-table {
-  width: 100%;
-  margin-top: 10px;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-.range-table > thead {
-  height: 30px;
-
-}
-.range-table > thead > tr > th {
-  font-size: 11px;
-  font-weight: 400;
-  color: var(--chekt-blue-gray-high);
-}
-.range-table > tbody > tr > td {
-  font-size: 14px;
-  font-weight: 500;
-  width: 40px;
-  height: 37px;
-  text-align: center;
-  color: var(--chekt-blue-gray-higher);
-}
-
-.range-table > tbody > tr > td.hasday {
-  cursor: pointer;
-  border: solid 1px var(--chekt-border);
-}
-.range-table > tbody > tr > td.hasday:hover {
-  background-color: var(--chekt-blue-gray-mideum);
-  color: var(--chekt-blue-gray-higher);
-}
-
-
-.range-table > tbody > tr > td.range {
-  background-color: #5aa3e2;
-  color: white;
-}
-.range-table > tbody > tr > td.range:hover {
-  background-color: #4c92d0;
-  color: white;
-}
-.range-table > tbody > tr > td.rangeremove {
-  background-color: white;
-  color: var(--chekt-blue-gray-higher);
-}
-.range-table > tbody > tr > td.startday {
-  background-color: var(--chekt-primary-color);
-  color: white;
-}
-.range-table > tbody > tr > td.startday:hover {
-  background-color: var(--chekt-primary-color);
-  color: white;
-}
-.range-table > tbody > tr > td.endday {
-  background-color: var(--chekt-primary-color);
-  color: white;
-}
-.range-table > tbody > tr > td.endday:hover {
-  background-color: var(--chekt-primary-color);
-  color: white;
-}
-.range-table > tbody > tr > td.disable {
-  background-color: white;
-  color: var(--chekt-blue-gray-mideum);
-  pointer-events: none;
-}
-
-
-
-.line {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-/* button */
-
-.button {
-  padding: 7px 10px;
-  color: white;
-  border-radius: 5px;
-  border: solid 1px var(--chekt-border);
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-}
-.button.date {
-  font-weight: 500;
-}
-.button.icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 5px;
-}
-.button.default {
-  background-color: white;
-  color: var(--chekt-text-high);
-}
-.button:hover {
-  transition: background-color .3s, box-shadow .3s;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-}
+/* src/styles/dealer-datepicker.css */
 </style>

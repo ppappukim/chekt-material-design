@@ -64,58 +64,12 @@ export default {
 </script>
 
 <style scoped>
+/* src/styles/dealer-avatar.css */
 .avatar-wrapper {
   position: relative;
 }
-
 .avatar {
   position: absolute;
-}
-
-#__chekt-avatar-img {
-	height: 60px;
-	width: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: none;
-  object-fit: cover;
-}
-
-#__chekt-avatar-img.show {
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
-
-#__chekt-avatar-upload-input {
-  display: none;
-}
-.__chekt-avatar-upload-input-label {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  background-color: white;
-  top: 42px;
-  left: 42px;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 
-  rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
-  rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
-  rgb(0 0 0 / 12%) 0px 1px 1px 0px, 
-  rgb(60 66 87 / 16%) 0px 0px 0px 1px, 
-  rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
-  rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
-  rgb(60 66 87 / 8%) 0px 2px 5px 0px;
-}
-.__chekt-avatar-upload-input-label:hover {
-  color: var(--chekt-primary-color);
-
 }
 
 </style>

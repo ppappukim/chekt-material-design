@@ -1,3 +1,18 @@
+/* LOAD COMPOMENT CSS */
+@import 'dealer-button.css';
+@import 'dealer-avatar.css';
+@import 'dealer-badge.css';
+@import 'dealer-checkbox.css';
+@import 'dealer-datatable.css';
+@import 'dealer-datepicker.css';
+@import 'dealer-dialog.css';
+@import 'dealer-filter.css';
+@import 'dealer-label.css';
+@import 'dealer-modal.css';
+@import 'dealer-radio.css';
+@import 'dealer-range.css';
+@import 'dealer-select.css';
+
 html{
   scroll-behavior:smooth
 }

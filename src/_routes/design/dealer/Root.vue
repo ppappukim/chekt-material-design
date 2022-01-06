@@ -98,6 +98,9 @@ export default {
 </script>
 
 <style scoped>
+
+@import '../../../styles/dealer.css';
+
 .body-container {
   display: flex;
   justify-content: flex-start;

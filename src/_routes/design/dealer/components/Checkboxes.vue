@@ -21,7 +21,7 @@
       </div>
       <div class="__dealer-component-content">
 
-        <!-- Default Button  -->
+        <!-- Default -->
         <!-- ***************  -->
         <section id="dealer-content-move1">
           <div class="__dealer-subtitle __dealer-withline-top">

@@ -1,10 +1,10 @@
 <template>
   <div style="width:100%;">
     <div class="tables" style="margin-bottom: 50px;">
-      <div class="table">
+      <div class="__chekt-table">
         <table>
           <!-- TABLE HEAD -->
-          <thead class="table-header padding-all--8">
+          <thead class="__chekt-table-header padding-all--8">
             <tr>
               <td class="table-cell--width--minimized">id</td>
               <td>name</td>
@@ -13,7 +13,7 @@
             </tr>
           </thead>
           <!-- TABLE BODY -->
-          <tbody class="table-body padding-all--8">
+          <tbody class="__chekt-table-body padding-all--8">
             <tr>
               <td>23442</td>
               <td>bobby kim</td>
@@ -38,10 +38,10 @@
     </div>
 
     <div class="tables" style="margin-bottom: 50px;">
-      <div class="table">
+      <div class="__chekt-table">
         <table>
           <!-- TABLE HEAD -->
-          <thead class="table-header padding-all--12">
+          <thead class="__chekt-table-header padding-all--12">
             <tr>
               <td class="table-cell--width--minimized">id</td>
               <td>name</td>
@@ -50,7 +50,7 @@
             </tr>
           </thead>
           <!-- TABLE BODY -->
-          <tbody class="table-body padding-all--12">
+          <tbody class="__chekt-table-body padding-all--12">
             <tr>
               <td>23442</td>
               <td>bobby kim</td>
@@ -76,10 +76,10 @@
     </div>
 
     <div class="tables">
-      <div class="table">
+      <div class="__chekt-table">
         <table>
           <!-- TABLE HEAD -->
-          <thead class="table-header padding-all--16">
+          <thead class="__chekt-table-header padding-all--16">
             <tr>
               <td class="table-cell--width--minimized">id</td>
               <td>name</td>
@@ -88,7 +88,7 @@
             </tr>
           </thead>
           <!-- TABLE BODY -->
-          <tbody class="table-body padding-all--16">
+          <tbody class="__chekt-table-body padding-all--16">
             <tr>
               <td>23442</td>
               <td>bobby kim</td>
@@ -138,86 +138,12 @@ export default {
 </script>
 
 <style scoped>
+/* src/styles/dealer-datatable.css */
 .tables {
   display: flex;
   flex-direction: row;
   align-items: center;
   grid-gap: 20px;
 }
-
-/* TABLE */
-.table {
-  width: 100%;
-  max-width: 100%;
-  max-height: 90%;
-  /* border-collapse: collapse; */
-  white-space: nowrap;
-  overflow: hidden;
-  max-height: 100%;
-}
-
-/* TABLE SCROLL */
-.table:hover {
-  overflow-x: auto;
-  overflow: overlay;
-}
-.table::-webkit-scrollbar {
-  -webkit-appearance: none;
-}
-.table::-webkit-scrollbar-track {
-  opacity: 0;
-}
-.table::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, .2);
-}
-/* ////TABLE SCROLL */
-
-.table > table {
-  width: 100%;
-  border-collapse: collapse;
-  white-space: nowrap;
-}
-.table-body {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--chekt-blue-gray-highest);
-}
-.table-header {
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--chekt-blue-gray-higher);
-  background-color: var(--chekt-blue-gray-low);
-}
-.table-cell--width--minimized {
-  width: 1px;
-}
-.table-body > tr > td {
-  box-shadow: inset 0 1px var(--chekt-border);
-}
-.table-body > tr:last-child  {
-  box-shadow: inset 0 -1px var(--chekt-border);
-}
-.padding-all--8 > tr > td {
-  padding: 8px;
-}
-.padding-all--12 > tr > td {
-  padding: 12px;
-}
-.padding-all--16 > tr > td {
-  padding: 16px;
-}
-
-.table-body > tr:hover {
-  background-color: var(--chekt-blue-gray-lower);
-  cursor: pointer;
-}
-.table-header > tr > td:first-child, .table-body > tr > td:first-child {
-  padding-left: 20px;
-}
-.table-header > tr > td:last-child, .table-body > tr > td:last-child {
-  padding-right: 20px;
-}
-
 
 </style>

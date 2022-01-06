@@ -1,0 +1,102 @@
+#__chekt-filter {
+  position: fixed;
+  width: 250px;
+  box-shadow: 
+  0 0 0 1px rgb(136 152 170 / 10%), 
+  0 15px 35px 0 rgb(49 49 93 / 10%), 
+  0 5px 15px 0 rgb(0 0 0 / 8%);
+  border-radius: 5px;
+  transform: scale(.8);
+  opacity: 0;
+  visibility: hidden;
+  user-select: none;
+  background-color: white;
+  z-index: 300;
+}
+#__chekt-filter.active {
+  visibility: visible;
+  transform: scale(1);
+  opacity: 1;
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.__chekt-filter-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--chekt-blue-gray-lower);
+  padding: 10px;
+}
+.__chekt-filter-header-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 5px;
+  font-size: 14px;
+  color: var(--chekt-text-high);
+}
+.__chekt-filter-header-text > .__chekt-filter-header-count {
+  font-weight: 500;
+  color: var(--chekt-primary-color);
+}
+.__chekt-filter-body-item {
+  border-top: 1px solid var(--chekt-border);
+}
+.__chekt-filter-body-item-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 10px;
+  padding: 10px 10px;
+}
+.__chekt-filter-body-item-title > .item-text {
+  font-size: 14px;
+  color: var(--chekt-blue-gray-highest);
+}
+.__chekt-filter-body-item-content {
+  background-color: var(--chekt-blue-gray-lower);
+  border-top: 1px solid var(--chekt-border);
+  padding: 10px;
+}
+.item-main {
+  font-size: 13px;
+  color: var(--chekt-blue-gray-highest);
+}
+.__chekt-filter-body-item-main {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 16px;
+  padding: 10px 5px;
+}
+.__chekt-filter-body-item-main-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  grid-gap: 10px;
+}
+
+
+.__chekt-filter-content-sub {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.__chekt-filter-content-sub-icon {
+  color: var(--chekt-primary-color);
+}
+.__chekt-filter-content-sub-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 5px;
+}
+.__chekt-filter-content-sub-body-text {
+  font-size: 12px;
+  color: var(--chekt-blue-gray-highest);
+}

@@ -1,0 +1,371 @@
+/**********/
+/* SELECT */
+/**********/
+
+#__chekt-select {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(0 0 0 / 12%) 0px 1px 1px 0px, 
+              rgb(60 66 87 / 16%) 0px 0px 0px 1px, 
+              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+}
+
+#__chekt-select > .__chekt-select {
+  position: relative;
+  z-index: 1;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  margin: 0;
+  text-decoration: none;
+  vertical-align: middle;
+  word-break: normal;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  transition: color .24s;
+  padding: 4px 8px;
+  -webkit-appearance: none;
+  width: 100%;
+  appearance: none;
+  -webkit-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+  line-height: 20px;
+  cursor: pointer;
+
+  /* Select에서 폰트가 안먹기 때문에 따로 선언 (폰트 굵기설정이 안됨) */
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
+  font-size:14px;
+  color: var(--chekt-blue-gray-highest);
+}
+.__chekt-select-icon {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  z-index: 2;
+  margin-top: -9px;
+  transition: color .24s;
+  pointer-events: none;
+  color: var(--chekt-blue-gray-highest);
+}
+
+
+
+/*****************/
+/* SELECT SEARCH */
+/*****************/
+
+.__chekt-select-search-wrapper {
+  position: relative;
+}
+#__chekt-select-search {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(0 0 0 / 12%) 0px 1px 1px 0px, 
+              rgb(60 66 87 / 16%) 0px 0px 0px 1px, 
+              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+}
+
+#__chekt-select-search > .__chekt-select-search {
+    position: relative;
+    z-index: 1;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: middle;
+    word-break: normal;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    transition: color .24s;
+    padding: 4px 8px;
+    -webkit-appearance: none;
+    width: 100%;
+    appearance: none;
+    -webkit-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    line-height: 20px;
+    cursor: pointer;
+
+    /* Select에서 폰트가 안먹기 때문에 따로 선언 (폰트 굵기설정이 안됨) */
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 500;
+    font-size:14px;
+    color: var(--chekt-blue-gray-highest);
+}
+.__chekt-select-search-icon {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  z-index: 2;
+  margin-top: -9px;
+  transition: color .24s;
+  pointer-events: none;
+  color: var(--chekt-blue-gray-highest);
+}
+
+/* SELECT SEARCH MODAL */
+#__chekt-select-search-modal {
+  background-color: white;
+  width: 300px;
+  position: fixed;
+  box-shadow: 0 0 0 1px rgb(136 152 170 / 10%), 0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
+  border-radius: 4px;
+  transform: scale(.8);
+  opacity: 0;
+  visibility: hidden;
+  user-select: none;
+}
+#__chekt-select-search-modal.active {
+  visibility: visible;
+  transform: scale(1);
+  opacity: 1;
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#__chekt-select-search-input {
+  width: calc(100% - 16px);
+  padding: 8px;
+  border-width: 0;
+  border: solid #e3e8ee;
+  border-width: 0 0 1px;
+  outline: none;
+  font-size: 14px;
+  color: var(--chekt-blue-gray-higher);
+}
+input#__chekt-select-search-input::placeholder {
+  color: var(--chekt-blue-gray-high);
+}
+#__chekt-select-search-modal-list {
+  cursor: pointer;
+  max-height: 200px;
+  color: var(--chekt-blue-gray-higher);
+  font-size: 14px;
+  overflow-y: auto;
+}
+#__chekt-select-search-modal-list > div {
+  padding: 8px;
+}
+#__chekt-select-search-modal-list > div:hover {
+  background-color: var(--chekt-blue-gray-lower);
+}
+
+#__chekt-select-search-modal .__chekt-select-search-nomatch {
+  color: var(--chekt-blue-gray-high);
+  padding: 8px;
+  font-size: 14px;
+}
+
+
+/*****************/
+/* SELECT OPTION */
+/*****************/
+
+.__chekt-select-option-wrapper {
+  position: relative;
+}
+#__chekt-select-option {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(0 0 0 / 12%) 0px 1px 1px 0px, 
+              rgb(60 66 87 / 16%) 0px 0px 0px 1px, 
+              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
+              rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+}
+
+#__chekt-select-option > .__chekt-select-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  margin: 0;
+  text-decoration: none;
+  vertical-align: middle;
+  word-break: normal;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  transition: color .24s;
+  padding: 4px 8px;
+  -webkit-appearance: none;
+  width: 100%;
+  appearance: none;
+  -webkit-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+  height: 20px;
+  cursor: pointer;
+
+  /* Icon 크기만큼 줘야 Icon이 보임 */
+  padding-right: 30px;
+
+  /* Select에서 폰트가 안먹기 때문에 따로 선언 (폰트 굵기설정이 안됨) */
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-weight: 500;
+  font-size:14px;
+  color: var(--chekt-blue-gray-highest);
+}
+.__chekt-select-option-icon {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  z-index: 2;
+  margin-top: -9px;
+  transition: color .24s;
+  pointer-events: none;
+  color: var(--chekt-blue-gray-highest);
+}
+
+/* SELECT OPTION MODAL */
+#__chekt-select-option-modal {
+  background-color: white;
+  width: 300px;
+  position: fixed;
+  box-shadow: 0 0 0 1px rgb(136 152 170 / 10%), 0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
+  border-radius: 4px;
+  transform: scale(.8);
+  opacity: 0;
+  visibility: hidden;
+  user-select: none;
+}
+#__chekt-select-option-modal.active {
+  visibility: visible;
+  transform: scale(1);
+  opacity: 1;
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#select-option-modal-list {
+  cursor: pointer;
+  max-height: 200px;
+  color: var(--chekt-blue-gray-higher);
+  font-size: 14px;
+  overflow-y: auto;
+}
+#select-option-modal-list > div {
+  padding: 8px;
+}
+#select-option-modal-list > div:hover {
+  background-color: var(--chekt-blue-gray-lower);
+}
+
+.__chekt-select-option-modal-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.__chekt-select-option-modal-list-permission, .__chekt-select-option-permission {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--chekt-blue-gray-higher);
+  background-color: var(--chekt-blue-gray-mideum);
+}
+.__chekt-select-option-modal-list-permission.admin {
+  color: var(--chekt-primary-color);
+  background-color: #E9F3FC;
+}
+
+.__chekt-select-option-modal-list-permission.admin, .__chekt-select-option-permission.admin {
+  color: var(--chekt-primary-color);
+  background-color: #E9F3FC;
+}
+
+
+
+
+
+
+/*****************/
+/* SELECT OPTION */
+/*****************/
+
+.__chekt-select-search-with-input-wrapper{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+/****** Text ********/
+.__chekt-select-search-with-input-text {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(64 68 82 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+  border-radius: 3px 0px 0px 3px;
+  transition:box-shadow .3s;
+}
+.__chekt-select-search-with-input-currency {
+  font-size: 14px;
+  color: var(--chekt-blue-gray-highest);
+  padding-left: 10px;
+}
+.__chekt-select-search-with-input-text input {
+  width: calc(100% - 20px);
+  font-size: 14px;
+  border: none;
+  padding: 5px 10px;
+}
+.__chekt-select-search-with-input-text input::placeholder {
+  color: var(--chekt-gray-low);
+}
+.__chekt-select-search-with-input-text input:focus {
+  outline: none; 
+}
+.__chekt-select-search-with-input-text:focus-within {
+  box-shadow: 0 0 0 4px #AAD2F5;
+}
+

@@ -1,0 +1,82 @@
+.__chekt-button {
+  padding: 7px 10px;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: var(--chekt-button-shadow);
+}
+.__chekt-button-small {
+  padding: 5px 8px;
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: var(--chekt-button-shadow);
+}
+.__chekt-button-large {
+  padding: 9px 12px;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: var(--chekt-button-shadow);
+}
+
+/* ICON */
+.__chekt-button.icon, .__chekt-button-small.icon, .__chekt-button-large.icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 5px;
+}
+
+/* HOVER */
+.__chekt-button:hover,
+.__chekt-button-small:hover,
+.__chekt-button-large:hover {
+  transition: background-color .3s, box-shadow .3s;
+  box-shadow: var(--chekt-button-hover-shadow);
+}
+
+/* default color button */
+.__chekt-button.default, 
+.__chekt-button-small.default, 
+.__chekt-button-large.default {
+  background-color: white;
+  color: var(--chekt-text-high);
+}
+/* primary color button */
+.__chekt-button.primary, 
+.__chekt-button-small.primary, 
+.__chekt-button-large.primary {
+  background-color: var(--chekt-primary-color);
+}
+.__chekt-button.primary:hover,
+.__chekt-button-small.primary:hover,
+.__chekt-button-large.primary:hover  {
+  background-color: var(--chekt-primary-shadow-color);
+}
+/* danger color button */
+.__chekt-button.danger, 
+.__chekt-button-small.danger, 
+.__chekt-button-large.danger {
+  background-color: var(--chekt-danger-color);
+}
+.__chekt-button.danger:hover,
+.__chekt-button-small.danger:hover,
+.__chekt-button-large.danger:hover {
+  background-color: var(--chekt-danger-shadow-color);
+}
+/* success color button */
+.__chekt-button.success,
+.__chekt-button-small.success,
+.__chekt-button-large.success {
+  background-color: var(--chekt-success-color);
+}
+.__chekt-button.success:hover,
+.__chekt-button-small.success:hover,
+.__chekt-button-large.success:hover {
+  background-color: var(--chekt-success-shadow-color);
+}

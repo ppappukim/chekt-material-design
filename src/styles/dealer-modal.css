@@ -1,0 +1,206 @@
+/*********/
+/* MODAL */
+/*********/
+
+#__chekt-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  visibility: hidden;
+  z-index: 9100;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+}
+#__chekt-modal.show  {
+  visibility: visible;
+}
+
+/***** Default *****/
+#__chekt-modal .__chekt-modal {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  box-shadow: 0 7px 14px 0 rgb(60 66 87 / 8%), 0 3px 6px 0 rgb(0 0 0 / 12%);
+  border-radius: 5px;
+  background-color: white;
+  z-index: 9100;
+  position: relative;
+  transform: scale(.8);
+  max-height: calc(100vh - 2 * 50px);
+  max-width: calc(100% - 40px);
+  min-width: 300px;
+  overflow: hidden;
+  overflow: auto;
+}
+#__chekt-modal .__chekt-modal.show  {
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: scale(1)
+}
+#__chekt-modal .__chekt-modal-wrapper {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/***** Large *******/
+#__chekt-modal .__chekt-modal.large {
+  width: 500px; 
+}
+/***** Small *******/
+#__chekt-modal .__chekt-modal.small {
+  width: 240px
+}
+
+.__chekt-modal-title {
+  font-size: 18px;
+  margin-top: 5px;
+}
+.__chekt-modal-desc {
+  font-size: 14px;
+  color: var(--chekt-blue-gray-higher);
+  margin-top: 10px;
+  line-height: 20px;
+}
+
+/***** Backdrop *****/
+#__chekt-modal-backdrop {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: var(--chekt-backdrop-color);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9000;
+  opacity: 0;
+}
+#__chekt-modal-backdrop.show {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .2s;
+}
+
+/*****************/
+/* MODAL ACTIONS */
+/*****************/
+
+.__chekt-modal-actions {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  grid-gap: 10px;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top: solid 1px var(--chekt-border);
+}
+
+
+
+/****************/
+/* MODAL FORMAT */
+/****************/
+
+#__chekt-modal-format {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  visibility: hidden;
+  z-index: 9100;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+}
+#__chekt-modal-format.show  {
+  visibility: visible;
+}
+
+/***** Default *****/
+#__chekt-modal-format .__chekt-modal-format {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  box-shadow: 0 7px 14px 0 rgb(60 66 87 / 8%), 0 3px 6px 0 rgb(0 0 0 / 12%);
+  border-radius: 5px;
+  background-color: var(--chekt-blue-gray-lower);
+  z-index: 9100;
+  position: relative;
+  transform: scale(.8);
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  max-height: calc(100vh - 2 * 50px);
+  max-width: calc(100% - 40px);
+  min-width: 300px;
+}
+#__chekt-modal-format  .__chekt-modal-header-format  {
+  padding: 16px;
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: solid 1px var(--chekt-border);
+}
+#__chekt-modal-format  .__chekt-modal-wrapper-format  {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  overflow: hidden;
+  overflow: auto;
+}
+#__chekt-modal-format  .__chekt-modal-format.show  {
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: scale(1)
+}
+
+/***** Large *******/
+#__chekt-modal-format .__chekt-modal-format.large {
+  width: 500px; 
+}
+/***** Small *******/
+#__chekt-modal-format .__chekt-modal-format.small {
+  width: 240px
+}
+
+/****** More ********/
+.__chekt-modal-more {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  grid-gap: 5px;
+  color: var(--chekt-primary-color);
+}
+.__chekt-modal-more:hover {
+  cursor: pointer;
+  color: var(--chekt-text-high);
+}
+.__chekt-modal-more-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+.__chekt-modal-more-icon {
+  transform: rotate(0deg);
+  transition: transform .5s;
+}
+
+.__chekt-modal-more-icon.rorate {
+  transform: rotate(90deg);
+  transition: transform .5s;
+}
+.__chekt-modal-more-contents {
+  display: none;
+}
+.__chekt-modal-more-contents.show {
+  display: block;
+}

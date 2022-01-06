@@ -1,0 +1,337 @@
+/*********/
+/* RANGE */
+/*********/
+.__chekt-range-wrapper {
+  width: 100%;
+}
+.__chekt-range {
+  position: relative;
+  width: 50%;
+  max-width: 500px;
+}
+
+.__chekt-range-slider {
+  position: relative;
+  z-index: 1;
+  height: 6px;
+  margin: 0 10px;
+}
+.__chekt-range-slider > .__chekt-range-track {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: #c4dff6;
+}
+.__chekt-range-slider > .__chekt-range-range {
+  position: absolute;
+  z-index: 2;
+  width: 0%;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: var(--chekt-primary-color);
+}
+.__chekt-range-slider > .__chekt-range-thumb {
+  position: absolute;
+  z-index: 3;
+  width: 20px;
+  height: 20px;
+  background-color: var(--chekt-primary-color);
+  border-radius: 50%;
+}
+.__chekt-range-slider > .__chekt-range-thumb {
+  left: 0%;
+  transform: translate(-10px, -6px);
+}
+
+input#__chekt-range {
+  position: absolute;
+  /* opacity로 가린 것을 이벤트도 비활성화하기 위해 */
+  pointer-events: none;
+  -webkit-appearance: none;
+  z-index: 2;
+  height: 6px;
+  width: 100%;
+  opacity: 0;
+}
+input#__chekt-range::-webkit-slider-thumb {
+  /* 겹쳐진 두 thumb를 모두 활성화 */
+  pointer-events: all;
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  border: 0 none;
+  background-color: red;
+  cursor: pointer;
+
+  /* appearance를 해야 위의 스타일들을 볼 수 있음 */
+  -webkit-appearance: none;
+}
+
+/* DISABLE RANGE */
+.__chekt-range.disable > input#__chekt-range::-webkit-slider-thumb {
+  pointer-events: none;
+}
+
+.__chekt-range.disable .__chekt-range-track{
+  background-color: var(--chekt-blue-gray-mideum);
+}
+
+.__chekt-range.disable .__chekt-range-thumb{
+  background-color: var(--chekt-gray-low);
+  left: 20%;
+}
+
+.__chekt-range.disable .__chekt-range-range{
+  background-color: var(--chekt-gray-low);
+  width: 20%;
+}
+
+/* SMALL RANGE */
+.__chekt-range {
+  position: relative;
+  width: 50%;
+  max-width: 500px;
+}
+
+.__chekt-range-small-slider {
+  position: relative;
+  z-index: 1;
+  height: 4px;
+  margin: 0 7px;
+}
+.__chekt-range-small-slider > .__chekt-range-small-track {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: #c4dff6;
+}
+.__chekt-range-small-slider > .__chekt-range-small-range {
+  position: absolute;
+  z-index: 2;
+  width: 0%;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: var(--chekt-primary-color);
+}
+.__chekt-range-small-slider > .__chekt-range-small-thumb {
+  position: absolute;
+  z-index: 3;
+  width: 14px;
+  height: 14px;
+  background-color: var(--chekt-primary-color);
+  border-radius: 50%;
+}
+.__chekt-range-small-slider > .__chekt-range-small-thumb {
+  left: 0%;
+  transform: translate(-7px, -4px);
+}
+
+input#__chekt-range-small {
+  position: absolute;
+  /* opacity로 가린 것을 이벤트도 비활성화하기 위해 */
+  pointer-events: none;
+  -webkit-appearance: none;
+  z-index: 2;
+  height: 4px;
+  width: 100%;
+  opacity: 0;
+}
+input#__chekt-range-small::-webkit-slider-thumb {
+  /* 겹쳐진 두 thumb를 모두 활성화 */
+  pointer-events: all;
+  width: 14px;
+  height: 14px;
+  border-radius: 0;
+  border: 0 none;
+  background-color: red;
+  cursor: pointer;
+
+  /* appearance를 해야 위의 스타일들을 볼 수 있음 */
+  -webkit-appearance: none;
+}
+
+
+/****************/
+/* DOUBLE RANGE */
+/****************/
+
+.__chekt-double-range-middle {
+  position: relative;
+  width: 50%;
+  max-width: 500px;
+}
+
+.__chekt-double-range-slider {
+  position: relative;
+  z-index: 1;
+  height: 6px;
+  margin: 0 10px;
+}
+.__chekt-double-range-slider > .__chekt-double-range-track {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: #c4dff6;
+}
+.__chekt-double-range-slider > .__chekt-double-range-range {
+  position: absolute;
+  z-index: 2;
+  left: 25%;
+  right: 25%;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: var(--chekt-primary-color);
+}
+.__chekt-double-range-slider > .__chekt-double-range-thumb {
+  position: absolute;
+  z-index: 3;
+  width: 20px;
+  height: 20px;
+  background-color: var(--chekt-primary-color);
+  border-radius: 50%;
+}
+.__chekt-double-range-slider > .__chekt-double-range-thumb.left {
+  left: 25%;
+  transform: translate(-10px, -6px);
+}
+.__chekt-double-range-slider > .__chekt-double-range-thumb.right {
+  right: 25%;
+  transform: translate(10px, -6px);
+}
+
+input[type="range"] {
+  position: absolute;
+  /* opacity로 가린 것을 이벤트도 비활성화하기 위해 */
+  pointer-events: none;
+  -webkit-appearance: none;
+  z-index: 2;
+  height: 6px;
+  width: 100%;
+  opacity: 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  /* 겹쳐진 두 thumb를 모두 활성화 */
+  pointer-events: all;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 0 none;
+  background-color: red;
+  cursor: pointer;
+
+
+  /* appearance를 해야 위의 스타일들을 볼 수 있음 */
+  -webkit-appearance: none;
+}
+
+
+
+/***************/
+/* VALUE RANGE */
+/***************/
+
+.__chekt-range-value-wrapper {
+  width: 100%;
+}
+.__chekt-range-value {
+  position: relative;
+  width: 50%;
+  max-width: 500px;
+}
+
+.__chekt-range-value-slider {
+  position: relative;
+  z-index: 1;
+  height: 6px;
+  margin: 0 10px;
+}
+.__chekt-range-value-slider > .__chekt-range-value-track {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: #c4dff6;
+}
+.__chekt-range-value-slider > .__chekt-range-value-range {
+  position: absolute;
+  z-index: 2;
+  width: 0%;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: var(--chekt-primary-color);
+}
+.__chekt-range-value-slider > .__chekt-range-value-thumb {
+  position: absolute;
+  z-index: 3;
+  width: 20px;
+  height: 20px;
+  background-color: var(--chekt-primary-color);
+  border-radius: 50%;
+  left: 0%;
+  transform: translate(-10px, -6px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.__chekt-range-value-info {
+  position:absolute;
+  top: calc(-100% + -7px);
+  padding: 3px 6px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--chekt-primary-color);
+  color: white;
+  box-shadow: 0px 0px 5px var(--chekt-border);
+  border: solid 1px var(--chekt-border);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+input#__chekt-range-value {
+  position: absolute;
+  /* opacity로 가린 것을 이벤트도 비활성화하기 위해 */
+  pointer-events: none;
+  -webkit-appearance: none;
+  z-index: 2;
+  height: 6px;
+  width: 100%;
+  opacity: 0;
+}
+input#__chekt-range-value::-webkit-slider-thumb {
+  /* 겹쳐진 두 thumb를 모두 활성화 */
+  pointer-events: all;
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  border: 0 none;
+  background-color: red;
+  cursor: pointer;
+
+  /* appearance를 해야 위의 스타일들을 볼 수 있음 */
+  -webkit-appearance: none;
+}
+

@@ -2,14 +2,14 @@
   <div>
     <div class="buttons"> 
       <div class="button-rows">
-        <div @click="onClickToastButton('left')" class="button default"> Click me left </div>
-        <div @click="onClickToastButton('center')" class="button default"> Click me center </div>
-        <div @click="onClickToastButton('right')" class="button default"> Click me right </div>
+        <div @click="onClickToastButton('left')" class="__chekt-button default"> Click me left </div>
+        <div @click="onClickToastButton('center')" class="__chekt-button default"> Click me center </div>
+        <div @click="onClickToastButton('right')" class="__chekt-button default"> Click me right </div>
       </div>
       <div class="button-rows">
-        <div @click="onClickToastButton('success')" class="button default"> Click me success </div>
-        <div @click="onClickToastButton('danger')" class="button default"> Click me danger </div>
-        <div @click="onClickToastButton('warning')" class="button default"> Click me warning </div>
+        <div @click="onClickToastButton('success')" class="__chekt-button default"> Click me success </div>
+        <div @click="onClickToastButton('danger')" class="__chekt-button default"> Click me danger </div>
+        <div @click="onClickToastButton('warning')" class="__chekt-button default"> Click me warning </div>
       </div>
     </div>
   </div>
@@ -112,22 +112,5 @@ export default {
   display: flex;
   flex-direction: row;
   grid-gap: 20px;
-}
-.button {
-  padding: 7px 10px;
-  color: white;
-  border-radius: 5px;
-  border: solid 1px var(--chekt-border);
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-}
-.button:hover {
-  transition: background-color .3s, box-shadow .3s;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-}
-.button.default {
-  background-color: white;
-  color: var(--chekt-text-high);
 }
 </style>

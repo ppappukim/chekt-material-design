@@ -1,19 +1,19 @@
 <template>
   <div>
     <div id="__chekt-datepicker">
-      <div class="date-picker-header">
-        <div @click="changeMonth(-1)" class="date-picker-header-icon">
+      <div class="__chekt-date-picker-header">
+        <div @click="changeMonth(-1)" class="__chekt-date-picker-header-icon">
           <MyIcon v-bind:icon="'arrow-left'" v-bind:width="18" />
         </div>
-        <div class="date-picker-header-info">
+        <div class="__chekt-date-picker-header-info">
           <div>{{current_month_text}}</div>
           <div>{{current_year}}</div>
         </div>
-        <div @click="changeMonth(1)" class="date-picker-header-icon">
+        <div @click="changeMonth(1)" class="__chekt-date-picker-header-icon">
           <MyIcon v-bind:icon="'arrow-right'" v-bind:width="18" />
         </div>
       </div>
-      <table class="table">
+      <table class="__chekt-date-picker-table">
         <thead>
           <tr>
             <th>Su</th>
@@ -25,7 +25,7 @@
             <th>Sa</th>
           </tr>
         </thead>
-        <tbody id="tb_body">
+        <tbody>
           <tr
             v-for="(week, i) in dates"
             v-bind:key="i">
@@ -330,115 +330,5 @@ export default {
 
 
 <style scoped>
-/* common date picker */
-#__chekt-datepicker {
-  /* background-color: var(--chekt-blue-gray-lower); */
-  width: 280px;
-  padding: 30px 30px;
-  position: fixed;
-  box-shadow: 0 0 0 1px rgb(136 152 170 / 10%), 0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
-  border-radius: 5px;
-  transform: scale(.8);
-  opacity: 0;
-  visibility: hidden;
-  user-select: none;
-  background-color: white;
-  z-index: 300;
-}
-#__chekt-datepicker.active {
-  visibility: visible;
-  transform: scale(1);
-  opacity: 1;
-  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.date-picker-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.date-picker-header-info {
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--chekt-blue-gray-higher);
-}
-.date-picker-header-icon {
-  color: var(--chekt-blue-gray-high);
-  cursor: pointer;
-}
-.table {
-  width: 100%;
-  margin-top: 10px;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-.table > thead {
-  height: 30px;
-
-}
-.table > thead > tr > th {
-  font-size: 11px;
-  font-weight: 400;
-  color: var(--chekt-blue-gray-high);
-}
-.table > tbody > tr > td {
-  font-size: 14px;
-  font-weight: 500;
-  width: 40px;
-  height: 37px;
-  text-align: center;
-  color: var(--chekt-blue-gray-higher);
-}
-
-.table > tbody > tr > td.hasday {
-  cursor: pointer;
-  border: solid 1px var(--chekt-border);
-}
-.table > tbody > tr > td.hasday:hover {
-  background-color: var(--chekt-blue-gray-mideum);
-}
-.table > tbody > tr > td.selected {
-  background-color: var(--chekt-primary-color);
-  color: white;
-}
-.table > tbody > tr > td.selected:hover {
-  background-color: var(--chekt-primary-color);
-  color: white;
-}
-
-
-/* button */
-.button {
-  padding: 7px 10px;
-  color: white;
-  border-radius: 5px;
-  border: solid 1px var(--chekt-border);
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
-}
-.button.date {
-  font-weight: 500;
-}
-.button.icon {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 5px;
-}
-.button.default {
-  background-color: white;
-  color: var(--chekt-text-high);
-}
-.button:hover {
-  transition: background-color .3s, box-shadow .3s;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-}
+/* src/styles/dealer-datepicker.css */
 </style>

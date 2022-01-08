@@ -1,14 +1,27 @@
 <template>
-  <div id="__chekt-select">
-    <select class="__chekt-select">
-      <option value="0">Bobby kim</option>
-      <option value="1">Kevin Park</option>
-      <option value="2">Trevor Seo</option>
-      <option value="3">Dosung Lee</option>
-      <option value="4">Leo Park</option>
-      <option value="5">Rider Kim</option>
-    </select>
-    <div class="__chekt-select-icon"><MyIcon v-bind:icon="'folder-open'" v-bind:width="18" /></div>
+  <div class="selects">
+    <div class="__chekt-select">
+      <select class="__chekt-select-content">
+        <option value="0">Bobby kim</option>
+        <option value="1">Kevin Park</option>
+        <option value="2">Trevor Seo</option>
+        <option value="3">Dosung Lee</option>
+        <option value="4">Leo Park</option>
+        <option value="5">Rider Kim</option>
+      </select>
+      <div class="__chekt-select-icon"><MyIcon v-bind:icon="'folder-open'" v-bind:width="18" /></div>
+    </div>
+    <div class="__chekt-select small">
+      <select class="__chekt-select-content">
+        <option value="0">Bobby kim</option>
+        <option value="1">Kevin Park</option>
+        <option value="2">Trevor Seo</option>
+        <option value="3">Dosung Lee</option>
+        <option value="4">Leo Park</option>
+        <option value="5">Rider Kim</option>
+      </select>
+      <div class="__chekt-select-icon"><MyIcon v-bind:icon="'folder-open'" v-bind:width="16" /></div>
+    </div>
   </div>
 </template>
 
@@ -37,4 +50,9 @@ export default {
 
 <style scoped>
 /* src/styles/dealer-select.css */
+.selects {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 30px;
+}
 </style>

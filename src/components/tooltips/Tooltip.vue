@@ -75,9 +75,8 @@ export default {
   mounted: function () {
   },
   methods: {
-    onHoverTooltip: function (e, position) {
+    onHoverTooltip: async function (e, position) {
       e.stopPropagation()
-      
       // GET - dialog element
       this.tooltipEl = this.$refs.chektTooltip
       if (!this.tooltipEl) return
@@ -128,7 +127,7 @@ export default {
       this.targetRect = this.targetEl.getBoundingClientRect();
 
       // ADD - position css
-      this.tooltipLargeEl.style.top = this.targetRect.y - this.targetEl.offsetHeight - 5  +'px'
+      this.tooltipLargeEl.style.top = this.targetRect.y - this.targetEl.offsetHeight - 10  +'px'
       this.tooltipLargeEl.style.left = this.targetRect.x  + ( (this.targetEl.offsetWidth - this.tooltipLargeEl.offsetWidth) / 2 ) + 'px'
 
       // ACTION - show tooltip
@@ -151,44 +150,16 @@ export default {
 </script>
 
 <style scoped>
-
+/* src/styles/dealer-tooltip.css */
 .tooltips {
   display: flex;
   flex-direction: column;
   grid-gap: 50px;
 }
-
 .wrapper {
   display: flex;
   flex-direction: row;
   grid-gap: 50px;
-}
-
-#__chekt-tooltip {
-  position: fixed;
-  padding: 3px 10px;
-  background-color: var(--chekt-blue-gray-highest);
-  color: white;
-  font-size: 12px;
-  border-radius: 3px;
-  opacity: 0;
-  font-weight: 500;
-}
-
-#__chekt-tooltip.active, #__chekt-tooltip-large.active {
-  opacity: 1;
-  transition-property: opacity;
-  transition-delay: .3s;
-}
-#__chekt-tooltip-large {
-  position: fixed;
-  padding: 5px 10px;
-  background-color: var(--chekt-blue-gray-highest);
-  color: white;
-  font-size: 13px;
-  border-radius: 4px;
-  opacity: 0;
-  font-weight: 500;
 }
 .tooltip-text {
   cursor: pointer;

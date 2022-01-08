@@ -1,0 +1,88 @@
+/****** Text ********/
+.__chekt-input-text {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(64 68 82 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+  transition:box-shadow .3s;
+}
+.__chekt-input-text input {
+  width: 100%;
+  font-size: 14px;
+  border: none;
+  outline: none; 
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+.__chekt-input-text input::placeholder {
+  color: var(--chekt-gray-low);
+}
+.__chekt-input-text{
+  outline: none; 
+}
+.__chekt-input-text:focus-within {
+  box-shadow: 0 0 0 3px #AAD2F5;
+}
+.text {
+  font-size: 14px;
+  color: var(--chekt-gray-high);
+  text-align: start;
+  margin-bottom: 10px;
+}
+
+/****** Password ******/
+.__chekt-input-password-eyes {
+  cursor: pointer;
+  text-align: center;
+  color: var(--chekt-blue-gray-high);
+}
+.__chekt-input-password-eyes-padding {
+  padding-right: 10px;
+}
+#__chekt-tooltip {
+  position: fixed;
+  padding: 3px 10px;
+  background-color: var(--chekt-blue-gray-highest);
+  color: white;
+  font-size: 14px;
+  border-radius: 3px;
+  opacity: 0;
+  user-select: none;
+  transition: opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#__chekt-tooltip.active {
+  opacity: 1;
+  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.__chekt-input-password-eyes-padding:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/****** Disabled ******/
+.__chekt-input-text.disabled input {
+  background-color: var(--chekt-blue-gray-low);
+}
+.__chekt-input-text.disabled input::placeholder {
+  color: var(--chekt-blue-gray-mideumer);
+}
+
+/****** Error ******/
+.__chekt-input-text.error input {
+  border: solid 1px var(--chekt-danger-color);
+}
+.__chekt-input-text-error-msg {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 7px;
+  font-size: 12px;
+  color: var(--chekt-danger-color);
+  font-weight: 500;
+}

@@ -98,11 +98,6 @@ export default {
 </script>
 
 <style scoped>
-
-/******************/
-/***** Button *****/
-/******************/
-
 .buttons {
   display: flex;
   flex-direction: column;

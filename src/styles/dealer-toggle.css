@@ -1,45 +1,3 @@
-<template>
-  <div class="toggle-wrapper">
-    <div class="toggle-box">
-      <label class="toggle" for="__chekt-toggle-text">
-        <input type="checkbox" id="__chekt-toggle-text" />
-        <div class="slider round"></div>
-      </label>
-      <div class="toggle-text">Send notification</div>
-    </div>
-    <div class="toggle-box">
-      <label class="toggle disabled" for="__chekt-toggle">
-        <input type="checkbox" id="__chekt-toggle" />
-        <div class="slider round"></div>
-      </label>
-      <div class="toggle-text disabled">Send notification</div>
-    </div>
-  </div>
-  
-</template>
-
-<script>
-export default {
-  components: {
-  },
-  computed: {
-  },
-  data: function() {
-    return {
-    }
-  },
-  watch: {
-  },
-  created: function () {
-  },
-  mounted: function () {
-  },
-  methods: {
-  }
-}
-</script>
-
-<style scoped>
 .toggle-wrapper {
   display: flex;
   flex-direction: row;
@@ -47,32 +5,18 @@ export default {
   align-items: center;
   grid-gap: 20px;
 }
-.toggle-box {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.toggle {
+.__chekt-toggle {
   display: inline-block;
   height: 18px;
   position: relative;
   width: 36px;
 }
-.toggle-text {
-  font-size: 16px;
-  color: var(--chekt-blue-gray-highest);
-  padding-left: 10px;
-}
-.toggle-text.disabled {
-  color: var(--chekt-blue-gray-mideumer);
-}
 
-.toggle input {
+.__chekt-toggle input {
   display:none;
 }
 
-.slider {
+.__chekt-toggle-slider {
   background-color: var(--chekt-blue-gray-mideum);
   bottom: 0;
   left: 0;
@@ -90,7 +34,7 @@ export default {
               rgb(0 0 0 / 0%) 0px 0px 0px 0px;
 }
 
-.slider:before {
+.__chekt-toggle-slider:before {
   background-color: #fff;
   content: "";
   height: 18px;
@@ -99,7 +43,7 @@ export default {
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked + .__chekt-toggle-slider {
   background-color: var(--chekt-primary-color);
   box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
               rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
@@ -108,17 +52,18 @@ input:checked + .slider {
               rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
               rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
               rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+
 }
 
-input#__chekt-toggle-text:checked + .slider:before {
+input#__chekt-toggle:checked + .__chekt-toggle-slider:before {
   transform: translateX(18px);
 }
 
-.slider.round {
+.__chekt-toggle-slider.round {
   border-radius: 18px;
 }
 
-.slider.round:before {
+.__chekt-toggle-slider.round:before {
   border-radius: 50%;
   box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
               rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
@@ -129,15 +74,49 @@ input#__chekt-toggle-text:checked + .slider:before {
               rgb(60 66 87 / 8%) 0px 2px 5px 0px;
 }
 
+
+/**************************/
+/****** Toggle Large ******/
+/**************************/
+.__chekt-toggle.large {
+  height: 20px;
+  width: 40px;
+}
+.__chekt-toggle.large > .__chekt-toggle-slider {
+  border-radius: 20px;
+}
+.__chekt-toggle.large > .__chekt-toggle-slider:before {
+  height: 20px;
+  width: 20px;
+}
+input#__chekt-toggle-large:checked + .__chekt-toggle-slider:before {
+  transform: translateX(20px);
+}
+
+/**************************/
+/****** Toggle Small ******/
+/**************************/
+.__chekt-toggle.small {
+  height: 14px;
+  width: 28px;
+}
+.__chekt-toggle.small > .__chekt-toggle-slider {
+  border-radius: 14px;
+}
+.__chekt-toggle.small > .__chekt-toggle-slider:before {
+  height: 14px;
+  width: 14px;
+}
+input#__chekt-toggle-small:checked + .__chekt-toggle-slider:before {
+  transform: translateX(14px);
+}
+
 /*****************************/
 /****** Toggle Disabled ******/
 /*****************************/
-.toggle.disabled {
+.__chekt-toggle.disabled {
   pointer-events: none;
 }
-.toggle.disabled > .slider:before {
+.__chekt-toggle.disabled > .__chekt-toggle-slider:before {
   background-color: var(--chekt-blue-gray-mideum);
 }
-
-</style>
- 

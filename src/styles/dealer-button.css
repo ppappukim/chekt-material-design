@@ -4,7 +4,7 @@
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
-  box-shadow: var(--chekt-button-shadow);
+  box-shadow: var(--chekt-shadow-small);
 }
 .__chekt-button-small {
   padding: 5px 8px;
@@ -12,7 +12,7 @@
   border-radius: 5px;
   font-size: 12px;
   cursor: pointer;
-  box-shadow: var(--chekt-button-shadow);
+  box-shadow: var(--chekt-shadow-small);
 }
 .__chekt-button-large {
   padding: 9px 12px;
@@ -20,7 +20,7 @@
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: var(--chekt-button-shadow);
+  box-shadow: var(--chekt-shadow-small);
 }
 
 /* ICON */
@@ -37,7 +37,7 @@
 .__chekt-button-small:hover,
 .__chekt-button-large:hover {
   transition: background-color .3s, box-shadow .3s;
-  box-shadow: var(--chekt-button-hover-shadow);
+  box-shadow: var(--chekt-shadow-small-shadow);
 }
 
 /* default color button */

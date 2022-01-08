@@ -5,28 +5,28 @@
       class="spbubble-text">
       <div>Hover top</div>
         <div 
-        id="__chekt-spbubble-wrapper"
+        class="__chekt-spbubble-wrapper"
         @mouseover="onHoverSpbubble($event)" 
         @mouseleave="onCloseSpbubble($event)">
           <MyIcon class="bubbleicon" v-bind:icon="'info'" v-bind:width="14"/>
-          <div id="__chekt-spbubble-with-title">
-            <div class="__chekt-spbubble-text">
-              <div class="__chekt-spbubble-text-box">
-                <div class="__chekt-spbubble-text-title">Cat</div>
+          <div class="__chekt-spbubble-with-title" ref="chektSpbubbleWithTitle">
+            <div class="__chekt-spbubble-with-title-text">
+              <div class="__chekt-spbubble-with-title-text-box">
+                <div class="__chekt-spbubble-with-title-text-title">Cat</div>
                 <div>Cat is a domestic species of small carnivorous mammal. It is the only domesticated species in the family Felidae and is often referred to as the domestic cat to distinguish it from the wild members of the family.</div>
               </div>
-              <div class="__chekt-spbubble-text-box">
-                <div class="__chekt-spbubble-text-title">Dog</div>
+              <div class="__chekt-spbubble-with-title-text-box">
+                <div class="__chekt-spbubble-with-title-text-title">Dog</div>
                 <div>Dog or domestic dog (Canis familiaris) is a domesticated descendant of the wolf, characterized by an upturning tail. The dog derived from an ancient, extinct wolf.</div>
               </div>
-              <div class="__chekt-spbubble-text-link-box">
-                <div class="__chekt-spbubble-text-link">
+              <div class="__chekt-spbubble-with-title-text-link-box">
+                <div class="__chekt-spbubble-with-title-text-link">
                   See more detail
                   <div class="bubbleicon"><MyIcon v-bind:icon="'arrow-right'" v-bind:width="12"/></div>
                 </div>
               </div>
             </div>
-            <div class="__chekt-spbubble-arrow"></div>
+            <div class="__chekt-spbubble-with-title-arrow"></div>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@ export default {
       if (!this.targetEl) return
 
       // GET - dialog element
-      this.spbubbleEl = document.getElementById('__chekt-spbubble-with-title')
+      this.spbubbleEl = this.$refs.chektSpbubbleWithTitle
       if (!this.spbubbleEl) return
 
       // ADD - position css
@@ -91,7 +91,7 @@ export default {
       if (!this.targetEl) return
       
       // GET - dialog element
-      var spbubbleTopEl = document.getElementById('__chekt-spbubble-with-title')
+      var spbubbleTopEl = this.$refs.chektSpbubbleWithTitle
       if (!spbubbleTopEl) return
 
       // GET - position rect
@@ -108,59 +108,7 @@ export default {
 </script>
 
 <style scoped>
-#__chekt-spbubble-with-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(.8);
-  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1), transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-#__chekt-spbubble-with-title.active {
-  opacity: 1;
-  transform: scale(1);
-  visibility: visible;
-  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1), transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.__chekt-spbubble-text {
-  display: flex;
-  flex-direction: column;
-  grid-gap: 10px;
-  padding: 20px 20px;
-  background-color: white;
-  color: var(--chekt-blue-gray-highest);
-  font-size: 14px;
-  border-radius: 5px;
-  line-height: 22px;
-  width: 300px;
-  box-shadow: 0 0 0 1px rgb(136 152 170 / 10%), 0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%)
-}
-.__chekt-spbubble-text-title {
-  color: var(--chekt-gray-high);
-  font-weight: 500;
-}
-.__chekt-spbubble-text-box {
-  display: flex;
-  flex-direction: column;
-}
-.__chekt-spbubble-text-link-box {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
-.__chekt-spbubble-text-link {
-  display: flex;
-  grid-gap: 2px;
-  align-items: center;
-  color: var(--chekt-primary-color);
-}
-.__chekt-spbubble-text-link:hover {
-  color: var(--chekt-gray-high);
-  cursor: pointer;
-}
+/* src/styles/dealer-spbubble.css */
 .spbubbles {
   display: flex;
   flex-direction: row;
@@ -172,18 +120,6 @@ export default {
   align-items: center;
   grid-gap: 5px;
 }
-
-.__chekt-spbubble-arrow {
-  background: url(../../assets/bubble-arrow.svg);
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  transform: rotate(180deg);
-  z-index: 1;
-  width: 20px;
-  height: 15px;
-}
-
-
 .spbubble-text > div > .bubbleicon {
   cursor: pointer;
   color: var(--chekt-blue-gray-high);

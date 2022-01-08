@@ -5,7 +5,6 @@
       <div class="__dealer-contents-title">CONTENTS</div>
       <div class="__dealer-contents-body">
         <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
-        <div class="dealer-content-move2" @click="onClickContent('2')">Checkbox with text</div>
       </div>
     </div>
 
@@ -39,28 +38,6 @@
             <Checkbox/>          
           </div>
         </section>
-
-        <!-- Checkbox with text  -->
-        <!-- ***************  -->
-        <section id="dealer-content-move2">
-          <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
-            <div class="__dealer-subtitle-text">Checkbox with text</div>
-            <span class="__dealer-github">
-              <a :href="githubUrlInfo.CheckboxWithText" target="_blank">
-                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
-              </a>
-            </span>
-          </div>
-          <div class="__dealer-subdescription">
-            Checkbox may include an icon before or after the text.
-          </div>
-          <div class="__dealer-demo">
-            <CheckboxWithText/>               
-          </div>
-        </section>
-
-
-
       </div>
 
     </div>
@@ -70,12 +47,10 @@
 <script>
 import MyIcon from '@/MyIcon'
 import Checkbox from '@/components/checkboxes/Checkbox'
-import CheckboxWithText from '@/components/checkboxes/CheckboxWithText'
 export default {
   components: {
     MyIcon,
     Checkbox,
-    CheckboxWithText
   },
   computed: {
     scrollPositon: function () {

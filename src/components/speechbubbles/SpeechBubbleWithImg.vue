@@ -5,21 +5,21 @@
       class="spbubble-text">
       <div>Hover top</div>
         <div 
-        id="__chekt-spbubble-wrapper"
+        class="__chekt-spbubble-wrapper"
         @mouseover="onHoverSpbubble($event)" 
         @mouseleave="onCloseSpbubble($event)">
           <MyIcon class="bubbleicon" v-bind:icon="'info'" v-bind:width="14"/>
-          <div id="__chekt-spbubble-with-img">
-            <div class="__chekt-spbubble-text">
-              <div class="__chekt-spbubble-text-box">
-                <img class="__chekt-spbubble-text-img" src="../../assets/dog.jpg">
+          <div class="__chekt-spbubble-with-img" ref="chektSpbubbleWithImg">
+            <div class="__chekt-spbubble-with-img-text">
+              <div class="__chekt-spbubble-with-img-text-box">
+                <img class="__chekt-spbubble-with-img-text-img" src="../../assets/dog.jpg">
               </div>
-              <div class="__chekt-spbubble-text-box">
-                <div class="__chekt-spbubble-text-title">Dog</div>
+              <div class="__chekt-spbubble-text-with-img-box">
+                <div class="__chekt-spbubble-text-with-img-title">Dog</div>
                 <div> Dog or domestic dog (Canis familiaris) is a domesticated descendant of the wolf, characterized by an upturning tail. The dog derived from an ancient, extinct wolf.</div>
               </div>
             </div>
-            <div class="__chekt-spbubble-arrow"></div>
+            <div class="__chekt-spbubble-with-img-arrow"></div>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ export default {
       if (!this.targetEl) return
 
       // GET - dialog element
-      this.spbubbleEl = document.getElementById('__chekt-spbubble-with-img')
+      this.spbubbleEl = this.$refs.chektSpbubbleWithImg
       if (!this.spbubbleEl) return
 
       // ADD - position css
@@ -84,7 +84,7 @@ export default {
       if (!this.targetEl) return
 
       // GET - dialog element
-      var spbubbleTopEl = document.getElementById('__chekt-spbubble-with-img')
+      var spbubbleTopEl = this.$refs.chektSpbubbleWithImg
       if (!spbubbleTopEl) return
 
       // GET - position rect
@@ -101,43 +101,7 @@ export default {
 </script>
 
 <style scoped>
-#__chekt-spbubble-with-img {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(.8);
-  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1), transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-#__chekt-spbubble-with-img.active {
-  opacity: 1;
-  transform: scale(1);
-  visibility: visible;
-  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1), transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.__chekt-spbubble-text {
-  display: flex;
-  flex-direction: column;
-  grid-gap: 5px;
-  padding: 20px 20px;
-  background-color: white;
-  color: var(--chekt-blue-gray-highest);
-  font-size: 14px;
-  border-radius: 5px;
-  line-height: 22px;
-  width: 300px;
-  box-shadow: 0 0 0 1px rgb(136 152 170 / 10%), 0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%)
-}
-.__chekt-spbubble-text-img {
-  width: 100%;
-}
-.__chekt-spbubble-text-title {
-  color: var(--chekt-gray-high);
-  font-weight: 500;
-}
+/* src/styles/dealer-spbubble.css */
 .spbubbles {
   display: flex;
   flex-direction: row;
@@ -149,17 +113,6 @@ export default {
   align-items: center;
   grid-gap: 5px;
 }
-
-.__chekt-spbubble-arrow {
-  background: url(../../assets/bubble-arrow.svg);
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  transform: rotate(180deg);
-  z-index: 1;
-  width: 20px;
-  height: 15px;
-}
-
 
 .spbubble-text > div > .bubbleicon {
   cursor: pointer;

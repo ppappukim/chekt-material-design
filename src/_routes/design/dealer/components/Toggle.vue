@@ -5,7 +5,6 @@
       <div class="__dealer-contents-title">CONTENTS</div>
       <div class="__dealer-contents-body">
         <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
-        <div class="dealer-content-move2" @click="onClickContent('2')">Toggle with text</div>
       </div>
     </div>
 
@@ -39,26 +38,6 @@
             <Toggle/>
           </div>  
         </section>
-
-        <!-- Toggle with text -->
-        <!-- ***************  -->
-        <section id="dealer-content-move1">
-          <div class="__dealer-subtitle __dealer-withline-top">
-            <div class="__dealer-subtitle-text">Toggle with text</div>
-            <span class="__dealer-github">
-              <a :href="githubUrlInfo.ToggleWithText" target="_blank">
-                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
-              </a>
-            </span>
-          </div>
-          <div class="__dealer-subdescription">
-            The default form of a toggle. For pages with lots of toggles, use the default size.
-          </div>
-          <div class="__dealer-demo">
-            <ToggleWithText/>
-          </div>  
-        </section>
-
       </div>
 
     </div>
@@ -68,12 +47,10 @@
 <script>
 import MyIcon from '@/MyIcon'
 import Toggle from '@/components/toggles/Toggle'
-import ToggleWithText from '@/components/toggles/ToggleWithText'
 export default {
   components: {
     MyIcon,
     Toggle,
-    ToggleWithText
   },
   computed: {
     scrollPositon: function () {

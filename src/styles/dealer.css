@@ -12,6 +12,12 @@
 @import 'dealer-radio.css';
 @import 'dealer-range.css';
 @import 'dealer-select.css';
+@import 'dealer-spbubble.css';
+@import 'dealer-tab.css';
+@import 'dealer-input.css';
+@import 'dealer-toast.css';
+@import 'dealer-toggle.css';
+@import 'dealer-tooltip.css';
 
 html{
   scroll-behavior:smooth

@@ -1,0 +1,25 @@
+#__chekt-tooltip {
+  position: fixed;
+  padding: 3px 10px;
+  background-color: var(--chekt-blue-gray-highest);
+  color: white;
+  font-size: 12px;
+  border-radius: 3px;
+  opacity: 0;
+  font-weight: 500;
+}
+#__chekt-tooltip-large {
+  position: fixed;
+  padding: 5px 10px;
+  background-color: var(--chekt-blue-gray-highest);
+  color: white;
+  font-size: 13px;
+  border-radius: 4px;
+  opacity: 0;
+  font-weight: 500;
+}
+
+#__chekt-tooltip.active, #__chekt-tooltip-large.active {
+  opacity: 1;
+  transition: opacity .2s;
+}

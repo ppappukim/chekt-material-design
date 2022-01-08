@@ -1,10 +1,7 @@
 #__chekt-filter {
   position: fixed;
   width: 250px;
-  box-shadow: 
-  0 0 0 1px rgb(136 152 170 / 10%), 
-  0 15px 35px 0 rgb(49 49 93 / 10%), 
-  0 5px 15px 0 rgb(0 0 0 / 8%);
+  box-shadow: var(--chekt-shadow);
   border-radius: 5px;
   transform: scale(.8);
   opacity: 0;

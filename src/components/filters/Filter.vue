@@ -36,15 +36,15 @@
 
             <!-- Content main -->
             <div>
-              <div id="__chekt-select">
-                <select @change="onChangeDatePeriodType($event)" class="select">
+              <div class="__chekt-select" style="width:100%;">
+                <select @change="onChangeDatePeriodType($event)" class="__chekt-select-content">
                   <option value="0">is in the last</option>
                   <option value="1">is equal to</option>
                   <option value="2">is between</option>
                   <option value="3">is after</option>
                   <option value="4">is before</option>
                 </select>
-                <div class="select-icon">
+                <div class="__chekt-select-icon">
                   <MyIcon v-bind:icon="'folder-open'" v-bind:width="18" />
                 </div>
               </div>
@@ -54,17 +54,17 @@
             <div v-if="dateSelectType === '0'" class="__chekt-filter-content-sub">
               <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <div>
-                <div class="input-text">
+                <div class="__chekt-input-text">
                   <input v-model="messageDateA" @input="maxLengthCheck(messageDateA)" type="number" placeholder="0">
                 </div>
               </div>
               <div style="margin-left:5px;">
-                <div id="__chekt-select">
-                  <select class="select">
+                <div class="__chekt-select small" style="width:80px;">
+                  <select class="__chekt-select-content">
                     <option value="0">days</option>
                     <option value="1">months</option>
                   </select>
-                  <div class="select-icon">
+                  <div class="__chekt-select-icon">
                     <MyIcon v-bind:icon="'folder-open'" v-bind:width="18"/>
                   </div>
                 </div>
@@ -75,7 +75,7 @@
             <div v-else-if="dateSelectType === '1'" class="__chekt-filter-content-sub">
               <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <!-- Datepicker -->
-                <div @click="onClickDatePicker($event)" class="__chekt-button-small default icon">
+                <div @click="onClickDatePicker($event)" ref="datePickerButton" class="__chekt-button-small default icon">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
                   <div>{{datePickerSelectedDate}}</div>
                 </div>
@@ -87,7 +87,7 @@
 
               <!-- Range Datepicker -->
               <div>
-                <div @click="onClickDatePickerRange($event)" class="__chekt-button-small default icon">
+                <div @click="onClickDatePickerRange($event)" ref="datePickerButton" class="__chekt-button-small default icon">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
                   <div>{{rangeDatePickerSelectedStartDate}} - {{rangeDatePickerSelectedEndDate}}</div>
                 </div>
@@ -99,7 +99,7 @@
               <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <!-- Datepicker -->
               <div>
-                <div @click="onClickDatePicker($event)" class="__chekt-button-small default icon">
+                <div @click="onClickDatePicker($event)" ref="datePickerButton" class="__chekt-button-small default icon">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
                   <div>{{datePickerSelectedDate}}</div>
                 </div>
@@ -111,7 +111,7 @@
               <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <!-- Datepicker -->
               <div>
-                <div @click="onClickDatePicker($event)" class="__chekt-button-small default icon">
+                <div @click="onClickDatePicker($event)" ref="datePickerButton" class="__chekt-button-small default icon">
                   <MyIcon v-bind:icon="'calendar'" v-bind:width="16" />
                   <div>{{datePickerSelectedDate}}</div>
                 </div>
@@ -140,14 +140,14 @@
 
             <!-- Content main -->
             <div>
-              <div id="__chekt-select">
-                <select @change="onChangeAmountPeriodType($event)" class="select">
+              <div class="__chekt-select" style="width:100%;">
+                <select @change="onChangeAmountPeriodType($event)" class="__chekt-select-content">
                   <option value="0">is equal to</option>
                   <option value="1">is between</option>
                   <option value="2">is greater than</option>
                   <option value="3">is less than</option>
                 </select>
-                <div class="select-icon">
+                <div class="__chekt-select-icon">
                   <MyIcon v-bind:icon="'folder-open'" v-bind:width="18" />
                 </div>
               </div>
@@ -157,7 +157,7 @@
             <div v-if="amountSelectType === '0'" class="__chekt-filter-content-sub">
               <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <div>
-                <div class="input-text">
+                <div class="__chekt-input-text" style="width:70px;">
                   <input v-model="messageAmountA" @input="maxLengthCheck(messageAmountA)" type="number" placeholder="0">
                 </div>
               </div>
@@ -167,11 +167,11 @@
             <div v-if="amountSelectType === '1'" class="__chekt-filter-content-sub">
               <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <div class="__chekt-filter-content-sub-body">
-                <div class="input-text">
+                <div class="__chekt-input-text" style="width:70px;">
                   <input v-model="messageAmountB" @input="maxLengthCheck(messageAmountB)" type="number" placeholder="0">
                 </div>
                 <div class="__chekt-filter-content-sub-body-text">and</div>
-                <div class="input-text">
+                <div class="__chekt-input-text" style="width:70px;">
                   <input v-model="messageAmountC" @input="maxLengthCheck(messageAmountC)" type="number" placeholder="0">
                 </div>
               </div>
@@ -181,7 +181,7 @@
             <div v-if="amountSelectType === '2'" class="__chekt-filter-content-sub">
               <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <div>
-                <div class="input-text">
+                <div class="__chekt-input-text" style="width:70px;">
                   <input v-model="messageAmountD" @input="maxLengthCheck(messageAmountD)" type="number" placeholder="0">
                 </div>
               </div>
@@ -191,7 +191,7 @@
             <div v-if="amountSelectType === '3'" class="__chekt-filter-content-sub">
               <div class="__chekt-filter-content-sub-icon"><MyIcon v-bind:icon="'arrow-down-right'" v-bind:width="24" /></div>
               <div>
-                <div class="input-text">
+                <div class="__chekt-input-text" style="width:70px;">
                   <input v-model="messageAmountE" @input="maxLengthCheck(messageAmountE)" type="number" placeholder="0">
                 </div>
               </div>
@@ -304,14 +304,14 @@
 
             <!-- Content main -->
             <div class="__chekt-filter-body-item-main" style="padding:0;">
-              <div id="__chekt-select">
-                <select class="select">
+              <div class="__chekt-select" style="width:100%;">
+                <select class="__chekt-select-content">
                   <option value="0">Card</option>
                   <option value="1">Bank Account</option>
                   <option value="2">ACH Credit Transfer</option>
                   <option value="3">Apple Pay</option>
                 </select>
-                <div class="select-icon">
+                <div class="__chekt-select-icon">
                   <MyIcon v-bind:icon="'folder-open'" v-bind:width="18" />
                 </div>
               </div>
@@ -335,6 +335,9 @@ export default {
   computed: {
     scrollPositon: function () {
       return this.$store.getters.scrollPositon
+    },
+    datePickerEventPoint: function () {
+      return this.$store.getters.datePickerEventPoint
     },
     datePickerSelectedDate: function () {
       return this.$store.getters.datePickerSelectedDate
@@ -375,7 +378,9 @@ export default {
       isAmountChecked: false,
       isStatusChecked: false,
       isPaymentMethodChecked: false,
-      filterEnabledCounter: 0
+      filterEnabledCounter: 0,
+
+      datePickerButtonPointRect: ''
     }
   },
   watch: {
@@ -384,6 +389,8 @@ export default {
     },
     scrollPositon: function () {
       this.onScrollFilter()
+      this.onScrollDatePicker()
+      this.onScrollDatePickerRange()
     },
   },
   created: function () {
@@ -464,9 +471,11 @@ export default {
       this.targetEl.classList.remove('active')
     },
     onClickDatePicker: function (e) {
+      this.datePickerButtonPointRect = e.currentTarget.getBoundingClientRect();
       this.$store.commit('DATE_PICKER_EVENT_POINT', e)
     },
     onClickDatePickerRange: function (e) {
+      this.datePickerButtonPointRect = e.currentTarget.getBoundingClientRect();
       this.$store.commit('RANGE_DATE_PICKER_EVENT_POINT', e)
     },
     onChangeDatePeriodType: function (e) {
@@ -480,7 +489,6 @@ export default {
     //     this.messageDateA = message.slice(0, 3);
     //   }    
     },
-
     onClickFilterBtn: function (e) {
       e.stopPropagation()
       
@@ -521,7 +529,6 @@ export default {
       this.onClickClearBtn()
     },
     onResizeScreen: function () {
-      console.log();
       // GET - dialog element
       if (!this.filterEl) return
 
@@ -543,6 +550,30 @@ export default {
       // ADD - position css
       this.filterEl.style.top = this.targetRect.y + this.targetEl.offsetHeight + 5 +'px'
       this.filterEl.style.left = this.targetRect.x  +'px'
+    },
+    onScrollDatePicker: function () {
+      // GET - dialog element
+      this.datePickerEl = document.getElementById('__chekt-datepicker')
+
+      // GET - target position
+      if (!this.datePickerEventPoint) return
+      this.datePickerButtonPointRect = this.$refs.datePickerButton.getBoundingClientRect()
+
+      // ADD - position css
+      this.datePickerEl.style.top = this.datePickerButtonPointRect.y + this.targetEl.offsetHeight +'px'
+      this.datePickerEl.style.left = this.datePickerButtonPointRect.x  +'px'
+    },
+    onScrollDatePickerRange: function () {
+      // GET - dialog element
+      this.datePickerEl = document.getElementById('__chekt-datepicker-range')
+
+      // GET - target position
+      if (!this.datePickerEventPoint) return
+      this.datePickerButtonPointRect = this.$refs.datePickerButton.getBoundingClientRect()
+
+      // ADD - position css
+      this.datePickerEl.style.top = this.datePickerButtonPointRect.y + this.targetEl.offsetHeight +'px'
+      this.datePickerEl.style.left = this.datePickerButtonPointRect.x  +'px'
     }
 
   }
@@ -550,109 +581,5 @@ export default {
 </script>
 
 <style scoped>
-
-/* SELECT */
-
-#__chekt-select {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-  background-color: white;
-  border-radius: 4px;
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
-              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
-              rgb(0 0 0 / 12%) 0px 1px 1px 0px, 
-              rgb(60 66 87 / 16%) 0px 0px 0px 1px, 
-              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
-              rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
-              rgb(60 66 87 / 8%) 0px 2px 5px 0px;
-}
-
-#__chekt-select > .select {
-    position: relative;
-    z-index: 1;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-    margin: 0;
-    text-decoration: none;
-    vertical-align: middle;
-    word-break: normal;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    transition: color .24s;
-    padding: 3px 6px;
-    -webkit-appearance: none;
-    width: 100%;
-    appearance: none;
-    -webkit-user-select: auto;
-    -ms-user-select: auto;
-    user-select: auto;
-    line-height: 20px;
-    cursor: pointer;
-    padding-right: 29px;
-
-    /* Select에서 폰트가 안먹기 때문에 따로 선언 (폰트 굵기설정이 안됨) */
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 500;
-    font-size: 13px;
-    color: var(--chekt-blue-gray-highest);
-}
-.select-icon {
-  position: absolute;
-  top: 50%;
-  right: 8px;
-  z-index: 2;
-  margin-top: -9px;
-  transition: color .24s;
-  pointer-events: none;
-  color: var(--chekt-blue-gray-highest);
-}
-
-/* TEXT */
-
-.input-text {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 70px;
-}
-.input-text input {
-  width: calc(100% - 20px);
-  font-size: 14px;
-  border: solid 1px var(--chekt-border);
-  padding: 5px 10px;
-  border-radius: 3px;
-  transition:box-shadow .3s;
-}
-.input-text input::placeholder {
-  color: var(--chekt-gray-low);
-}
-.input-text input:focus {
-  outline: none; 
-  box-shadow: 0 0 0 3px #AAD2F5;
-}
-.text {
-  font-size: 14px;
-  color: var(--chekt-gray-high);
-  text-align: start;
-  margin-bottom: 10px;
-}
-
-.line {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-
+/* src/styles/dealer-filter.css */
 </style>

@@ -152,21 +152,6 @@ export default {
       this.selectSearchEl.style.left = this.targetRect.x  +'px'
 
     }
-    // enterInput: function () {
-    //   // INIT
-    //   var items = document.querySelectorAll('#select-search-modal-list div')
-    //   var filteredList = []
-
-    //   // ACTION - add filteredList
-    //   for (let i = 0; i < items.length; i++) {
-    //     const item = items[i];
-    //     if(!item.style.display) filteredList.push(item)
-    //   }
-  
-    //   if (!filteredList[0]) return
-    //   this.selectValue = filteredList[0].innerHTML
-    //   this.selectSearchEl.classList.remove('active')
-    // },
   }
 }
 </script>

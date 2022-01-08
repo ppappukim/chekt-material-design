@@ -40,10 +40,10 @@
 
             <!-- Button -->
             <div @click="onClickFilterBtn($event)" class="__chekt-button default icon">
-              <MyIcon v-bind:icon="'filter'" v-bind:width="18" />
-              <div>Filter</div>
-              <div v-if="filterCounter" style="color:var(--chekt-border);">|</div>
+              <MyIcon v-bind:icon="'filter'" v-bind:width="18" :class="{ enabled:filterCounter }" />
+              <!-- <div v-if="filterCounter" style="color:var(--chekt-blue-gray-mideumer);">|</div> -->
               <div v-if="filterCounter" class="filter-counter">{{filterCounter}}</div>
+              <div>Filter<span v-if="filterCounter > 1">s</span></div>
             </div>
           </div>
         </section>
@@ -136,5 +136,8 @@ export default {
     flex-direction: row;
     align-items: center;
     grid-gap: 20px;
+  }
+  .__chekt-button .enabled {
+    color: var(--chekt-primary-color);
   }
 </style>

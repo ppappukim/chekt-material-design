@@ -26,7 +26,7 @@
   width: 320px;
   box-shadow: var(--chekt-shadow-large);
   border-radius: 5px;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   z-index: 9100;
   position: relative;
   transform: scale(.8);
@@ -92,7 +92,7 @@
 /*****************/
 
 .__chekt-modal-actions {
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -146,7 +146,7 @@
 }
 #__chekt-modal-format  .__chekt-modal-header-format  {
   padding: 16px;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom: solid 1px var(--chekt-border);

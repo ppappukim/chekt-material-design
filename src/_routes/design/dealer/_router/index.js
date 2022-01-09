@@ -115,6 +115,10 @@ const childRoute = {
       path: 'tooltip',
       component: () => import("@/_routes/design/dealer/components/Tooltip"),
     },
+    {
+      path: 'advancedmodal',
+      component: () => import("@/_routes/design/dealer/components/AdvancedModal"),
+    },
   ]
 }
 

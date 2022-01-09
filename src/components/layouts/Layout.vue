@@ -41,10 +41,10 @@
     </div>
     <!-- buttons -->
     <div class="buttons">
-      <div @click="openBodyType('__chekt-layout-1200')" v-bind:class="{ active:isLayout1200 }" class="button"><MyIcon style="color:white;" v-bind:icon="'layout-1200'" v-bind:width="24" /></div>
-      <div @click="openBodyType('__chekt-layout-600')" v-bind:class="{ active:isLayout600 }" class="button"><MyIcon style="color:white;" v-bind:icon="'layout-600'" v-bind:width="24" /></div>
-      <div @click="openBodyType('__chekt-layout-800')" v-bind:class="{ active:isLayout800 }" class="button"><MyIcon style="color:white;" v-bind:icon="'layout-800'" v-bind:width="24" /></div>
-      <div @click="onClickClose()" class="button"><MyIcon style="color:white;" v-bind:icon="'close'" v-bind:width="24" /></div>
+      <div @click="openBodyType('__chekt-layout-1200')" v-bind:class="{ active:isLayout1200 }" class="button"><MyIcon style="color: var(--chekt-white-text-higher);" v-bind:icon="'layout-1200'" v-bind:width="24" /></div>
+      <div @click="openBodyType('__chekt-layout-600')" v-bind:class="{ active:isLayout600 }" class="button"><MyIcon style="color: var(--chekt-white-text-higher);" v-bind:icon="'layout-600'" v-bind:width="24" /></div>
+      <div @click="openBodyType('__chekt-layout-800')" v-bind:class="{ active:isLayout800 }" class="button"><MyIcon style="color: var(--chekt-white-text-higher);" v-bind:icon="'layout-800'" v-bind:width="24" /></div>
+      <div @click="onClickClose()" class="button"><MyIcon style="color: var(--chekt-white-text-higher);" v-bind:icon="'close'" v-bind:width="24" /></div>
     </div>
   </div>
 </template>
@@ -125,7 +125,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   z-index: 7000;
   height: 100%;
   overflow: auto;
@@ -191,7 +191,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   box-shadow: inset 0 0 0 1px var(--chekt-primary-color);
   width: 32px;
   height: 32px;
@@ -350,7 +350,7 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: var(--chekt-blue-gray-highest);
-  color: white;
+  color: var(--chekt-white-text-higher);
   width: 50px;
   height: 50px;
   opacity: .9;

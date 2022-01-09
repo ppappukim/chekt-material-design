@@ -273,7 +273,7 @@ img {
 
 .chekt-member-label {
   position: absolute;
-  color: white;
+  color: var(--chekt-white-text-higher);
   font-size: 12px;
   font-weight: 500;
   background-color: black;

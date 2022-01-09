@@ -359,7 +359,7 @@ header.hidden {
   position: fixed;
   padding: 3px 10px;
   background-color: var(--chekt-blue-gray-highest);
-  color: white;
+  color: var(--chekt-white-text-higher);
   font-size: 12px;
   border-radius: 3px;
   width: fit-content;

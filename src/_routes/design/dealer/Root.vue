@@ -18,6 +18,7 @@
           <div class="section">Components</div> 
           <ul class="topics-container">
             <li v-on:click="onClickList('avatar')" v-bind:class="{ active:currentMenu === 'avatar' }">Avatar</li>
+            <li v-on:click="onClickList('advancedmodal')" v-bind:class="{ active:currentMenu === 'advancedmodal' }">Advanced Modal</li>
             <li v-on:click="onClickList('badge')" v-bind:class="{ active:currentMenu === 'badge' }">Badge</li>
             <li v-on:click="onClickList('buttons')" v-bind:class="{ active:currentMenu === 'buttons' }">Buttons</li>
             <!-- <li v-on:click="onClickList('cards')">Cards</li> -->

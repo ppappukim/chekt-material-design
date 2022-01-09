@@ -107,6 +107,6 @@ export default {
   justify-content: center;
   align-items: center;
   font-weight: 500;
-  color: white;
+  color: var(--chekt-white-text-higher);
 }
 </style>

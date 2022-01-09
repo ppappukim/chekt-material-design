@@ -10,11 +10,12 @@
   border-radius: 5px;
   z-index: 1;
   visibility: hidden;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   transform:scale(.8);
   opacity: 0;
   white-space: nowrap;
   padding: 5px 0px;
+  z-index: 9500;
 }
 
 #__chekt-dialog > div {
@@ -50,11 +51,12 @@
   border-radius: 5px;
   z-index: 1;
   visibility: hidden;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   transform:scale(.8);
   opacity: 0;
   white-space: nowrap;
   padding: 5px 0px;
+  z-index: 9500;
 }
 #__chekt-category-dialog.active {
   visibility: visible;
@@ -103,11 +105,12 @@
   border-radius: 5px;
   z-index: 1;
   visibility: hidden;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   transform:scale(.8);
   opacity: 0;
   white-space: nowrap;
   padding: 5px 0px;
+  z-index: 9500;
 }
 #__chekt-icon-dialog.active {
   visibility: visible;

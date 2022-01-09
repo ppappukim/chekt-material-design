@@ -7,7 +7,7 @@
   opacity: 0;
   visibility: hidden;
   user-select: none;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   z-index: 300;
 }
 #__chekt-filter.active {

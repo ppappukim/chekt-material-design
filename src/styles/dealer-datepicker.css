@@ -13,7 +13,7 @@
   opacity: 0;
   visibility: hidden;
   user-select: none;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   z-index: 300;
 }
 #__chekt-datepicker.active {
@@ -76,11 +76,11 @@
 }
 .__chekt-date-picker-table > tbody > tr > td.selected {
   background-color: var(--chekt-primary-color);
-  color: white;
+  color: var(--chekt-white-text-higher);
 }
 .__chekt-date-picker-table > tbody > tr > td.selected:hover {
   background-color: var(--chekt-primary-color);
-  color: white;
+  color: var(--chekt-white-text-higher);
 }
 
 
@@ -91,7 +91,7 @@
 /*********************/
 
 #__chekt-datepicker-range {
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   width: 280px;
   padding: 30px 30px;
   position: fixed;
@@ -166,34 +166,34 @@
 
 .__chekt-range-date-picker-table > tbody > tr > td.range {
   background-color: #5aa3e2;
-  color: white;
+  color: var(--chekt-white-text-higher);
 }
 .__chekt-range-date-picker-table > tbody > tr > td.range:hover {
   background-color: #4c92d0;
-  color: white;
+  color: var(--chekt-white-text-higher);
 }
 .__chekt-range-date-picker-table > tbody > tr > td.rangeremove {
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   color: var(--chekt-blue-gray-higher);
 }
 .__chekt-range-date-picker-table > tbody > tr > td.startday {
   background-color: var(--chekt-primary-color);
-  color: white;
+  color: var(--chekt-white-text-higher);
 }
 .__chekt-range-date-picker-table > tbody > tr > td.startday:hover {
   background-color: var(--chekt-primary-color);
-  color: white;
+  color: var(--chekt-white-text-higher);
 }
 .__chekt-range-date-picker-table > tbody > tr > td.endday {
   background-color: var(--chekt-primary-color);
-  color: white;
+  color: var(--chekt-white-text-higher);
 }
 .__chekt-range-date-picker-table > tbody > tr > td.endday:hover {
   background-color: var(--chekt-primary-color);
-  color: white;
+  color: var(--chekt-white-text-higher);
 }
 .__chekt-range-date-picker-table > tbody > tr > td.disable {
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   color: var(--chekt-blue-gray-mideum);
   pointer-events: none;
 }

@@ -1,7 +1,7 @@
 /***** Default *****/
 #__chekt-toast > .toast-wrapper {
   background-color: var(--chekt-gray-high);
-  color: white;
+  color: var(--chekt-white-text-higher);
   font-size: 14px;
   max-width: 600px;
   min-width: 200px;
@@ -70,7 +70,7 @@
 /***** Action *****/
 #__chekt-toast-action > .toast-wrapper {
   background-color: var(--chekt-gray-high);
-  color: white;
+  color: var(--chekt-white-text-higher);
   font-size: 14px;
   max-width: 600px;
   min-width: 200px;
@@ -110,7 +110,7 @@
 /***** Actions *****/
 #__chekt-toast-actions > .toast-wrapper {
   background-color: var(--chekt-gray-high);
-  color: white;
+  color: var(--chekt-white-text-higher);
   font-size: 14px;
   max-width: 600px;
   min-width: 200px;

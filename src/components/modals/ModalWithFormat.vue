@@ -373,7 +373,7 @@ export default {
   align-items: center;
   position: relative;
   z-index: 1;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, 
               rgb(0 0 0 / 0%) 0px 0px 0px 0px, 

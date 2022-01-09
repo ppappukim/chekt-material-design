@@ -245,7 +245,7 @@ export default {
 /* button */
 .button {
   padding: 7px 10px;
-  color: white;
+  color: var(--chekt-white-text-higher);
   border-radius: 5px;
   border: solid 1px var(--chekt-border);
   font-size: 14px;
@@ -258,7 +258,7 @@ export default {
 }
 /* default color button */
 .button.default {
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   color: var(--chekt-text-high);
 }
 

@@ -27,7 +27,7 @@ input#__chekt-radio {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
 }
 
@@ -97,7 +97,7 @@ input#__chekt-radio:checked ~ .__chekt-radiomark:after {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
 }
 
 /* Show the indicator (dot/circle) when checked */
@@ -139,7 +139,7 @@ input#__chekt-radio:checked ~ .__chekt-radiomark.large:after {
   height: 12px;
   width: 12px;
   border-radius: 50%;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
 }
 

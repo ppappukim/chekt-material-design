@@ -48,7 +48,7 @@
   position: fixed;
   padding: 3px 10px;
   background-color: var(--chekt-blue-gray-highest);
-  color: white;
+  color: var(--chekt-white-text-higher);
   font-size: 14px;
   border-radius: 3px;
   opacity: 0;

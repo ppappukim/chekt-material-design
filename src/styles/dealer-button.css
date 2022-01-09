@@ -1,6 +1,6 @@
 .__chekt-button {
   padding: 7px 10px;
-  color: white;
+  color: var(--chekt-white-text-higher);
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
@@ -8,7 +8,7 @@
 }
 .__chekt-button-small {
   padding: 5px 8px;
-  color: white;
+  color: var(--chekt-white-text-higher);
   border-radius: 5px;
   font-size: 12px;
   cursor: pointer;
@@ -16,7 +16,7 @@
 }
 .__chekt-button-large {
   padding: 9px 12px;
-  color: white;
+  color: var(--chekt-white-text-higher);
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
@@ -44,7 +44,7 @@
 .__chekt-button.default, 
 .__chekt-button-small.default, 
 .__chekt-button-large.default {
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   color: var(--chekt-text-high);
 }
 /* primary color button */

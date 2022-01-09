@@ -84,12 +84,18 @@ body{
   /* TEXT COLOR - HEX */
   --chekt-text-high: #212121;
   --chekt-text-medium: #666666;
-  --chekt-text-disable: #9E9E9E;
+  --chekt-text-low: #9E9E9E;
+
+  /* TEXT COLOR WHITE - HEX */
+  --chekt-white-text-higher: rgba(255, 255, 255, 1);
+  --chekt-white-text-high: rgba(255, 255, 255, 0.87);
+  --chekt-white-text-medium: rgba(255, 255, 255, 0.68);
+  --chekt-white-text-low: rgba(255, 255, 255, 0.38);
 
   /* TEXT COLOR - RGBA */
   --chekt-text-high-rgb: rgba(0,0,0,0.87);
   --chekt-text-medium-rgb: rgba(0,0,0,0.6);
-  --chekt-text-disable-rgb: rgba(0,0,0,0.38);
+  --chekt-text-low-rgb: rgba(0,0,0,0.38);
 
 }
 #app {

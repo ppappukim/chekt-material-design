@@ -10,7 +10,7 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   border-radius: 4px;
   box-shadow: var(--chekt-shadow-small);
 }
@@ -91,7 +91,7 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   border-radius: 4px;
   box-shadow: var(--chekt-shadow-small);
 }
@@ -140,7 +140,7 @@
 
 /* SELECT SEARCH MODAL */
 #__chekt-select-search-modal {
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   width: 300px;
   position: fixed;
   box-shadow: var(--chekt-shadow);
@@ -206,7 +206,7 @@ input#__chekt-select-search-input::placeholder {
   align-items: center;
   position: relative;
   z-index: 1;
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   border-radius: 4px;
   box-shadow: var(--chekt-shadow-small);
 }
@@ -263,7 +263,7 @@ input#__chekt-select-search-input::placeholder {
 
 /* SELECT OPTION MODAL */
 #__chekt-select-option-modal {
-  background-color: white;
+  background-color: var(--chekt-white-text-higher);
   width: 300px;
   position: fixed;
   box-shadow: var(--chekt-shadow);

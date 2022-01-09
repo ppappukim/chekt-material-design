@@ -75,7 +75,7 @@
 }
 
 .__chekt-circle-tablink.active {
-  color: white;
+  color: var(--chekt-white-text-higher);
   background-color: var(--chekt-primary-color);
   transition-delay: .1s
 }

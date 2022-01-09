@@ -191,7 +191,7 @@
           <!-- backdrop -->
           <div class="color-palettes-line">
             <div class="color-palette">
-              <div class="color-palette-circle" style="background-color:rgba(0, 0, 0, 0.4); color:white;">#E6E6E6</div>
+              <div class="color-palette-circle" style="background-color:rgba(0, 0, 0, 0.4); color: var(--chekt-white-text-higher);">#E6E6E6</div>
               <div class="color-palette-text">backdrop</div>
             </div>
           </div>
@@ -313,7 +313,7 @@ export default {
   font-size: 1em;
   width: 100px;
   height: 100px;
-  color: white;
+  color: var(--chekt-white-text-higher);
   text-align: center;
   border-radius: 100%;
   margin-bottom: 14px;

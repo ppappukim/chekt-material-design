@@ -106,58 +106,5 @@ export default {
 </script>
 
 <style scoped>
-/* src/styles/dealer-advanced-modal.css */
-
-.__chekt-advanced-modal-tab-section {
-  width: 100%;
-}
-.__chekt-advanced-modal-tab-section > .cate {
-  font-size: 13px;
-  color: var(--chekt-blue-gray-high);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  font-weight: 500;
-}
-.__chekt-advanced-modal-tab-section > div > .line {
-  font-size: 14px;
-  color: var(--chekt-blue-gray-highest);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 20px;
-}
-.__chekt-advanced-modal-tab-section > div > .line {
-  font-size: 14px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 20px;
-  grid-gap: 20px;
-  word-break: break-word;
-}
-.__chekt-advanced-modal-tab-section > div > .line.have-page:hover {
-  background-color: var(--chekt-blue-gray-low);
-  border-radius: 10px;
-  cursor: pointer;
-}
-.__chekt-advanced-modal-tab-section > div > .line > .line-left {
-  color: var(--chekt-blue-gray-highest);
-}
-.__chekt-advanced-modal-tab-section > div > .line > .line-right {
-  color: var(--chekt-blue-gray-higher);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 10px;
-  text-align: end;
-}
-.__chekt-advanced-modal-tab-section .go-page-icon {
-  opacity: 0;
-}
-.__chekt-advanced-modal-tab-section .have-page .go-page-icon {
-  opacity: 1;
-}
+/* src/styles/dealer-advancedmodal.css */
 </style>

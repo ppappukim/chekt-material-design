@@ -29,76 +29,18 @@
           <div class="__dealer-subtitle __dealer-withline-top">
             <div class="__dealer-subtitle-text">Default</div>
             <span class="__dealer-github">
-              <a :href="githubUrlInfo.Modal" target="_blank">
+              <a :href="githubUrlInfo.AdvancedModal" target="_blank">
                 <MyIcon v-bind:icon="'github'" v-bind:width="24" />
               </a>
             </span>
           </div>
           <div class="__dealer-subdescription">
-            The default form of a modal.
+            The default form of a advanced modal.
           </div>
           <div class="__dealer-demo">
             <AdvancedModal/>
           </div>  
         </section>
-
-        <!-- With Actions -->
-        <!-- ***************  -->
-        <section id="dealer-content-move1">
-          <div class="__dealer-subtitle __dealer-withline-top">
-            <div class="__dealer-subtitle-text">With Actions</div>
-            <span class="__dealer-github">
-              <a :href="githubUrlInfo.ModalWithActions" target="_blank">
-                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
-              </a>
-            </span>
-          </div>
-          <div class="__dealer-subdescription">
-            The default form of a modal.
-          </div>
-          <div class="__dealer-demo">
-            <ModalWithActions/>
-          </div>  
-        </section>
-
-        <!-- With Format -->
-        <!-- ***************  -->
-        <section id="dealer-content-move1">
-          <div class="__dealer-subtitle __dealer-withline-top">
-            <div class="__dealer-subtitle-text">With Format</div>
-            <span class="__dealer-github">
-              <a :href="githubUrlInfo.ModalWithFormat" target="_blank">
-                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
-              </a>
-            </span>
-          </div>
-          <div class="__dealer-subdescription">
-            The default form of a modal.
-          </div>
-          <div class="__dealer-demo">
-            <ModalWithFormat/>
-          </div>  
-        </section>
-
-        <!-- With Tab -->
-        <!-- ***************  -->
-        <section id="dealer-content-move1">
-          <div class="__dealer-subtitle __dealer-withline-top">
-            <div class="__dealer-subtitle-text">With Tab</div>
-            <span class="__dealer-github">
-              <a :href="githubUrlInfo.ModalWithTab" target="_blank">
-                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
-              </a>
-            </span>
-          </div>
-          <div class="__dealer-subdescription">
-            The default form of a modal.
-          </div>
-          <div class="__dealer-demo">
-            <ModalWithTab/>
-          </div>  
-        </section>
-
       </div>
 
     </div>
@@ -108,16 +50,10 @@
 <script>
 import MyIcon from '@/MyIcon'
 import AdvancedModal from '@/components/advancedmodals/AdvancedModal'
-import ModalWithActions from '@/components/modals/ModalWithActions'
-import ModalWithFormat from '@/components/modals/ModalWithFormat'
-import ModalWithTab from '@/components/modals/ModalWithTab'
 export default {
   components: {
     MyIcon,
     AdvancedModal,
-    ModalWithActions,
-    ModalWithFormat,
-    ModalWithTab
   },
   computed: {
     scrollPositon: function () {

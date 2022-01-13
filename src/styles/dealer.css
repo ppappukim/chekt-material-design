@@ -18,6 +18,7 @@
 @import 'dealer-toast.css';
 @import 'dealer-toggle.css';
 @import 'dealer-tooltip.css';
+@import 'dealer-advancedmodal.css';
 
 html{
   scroll-behavior:smooth

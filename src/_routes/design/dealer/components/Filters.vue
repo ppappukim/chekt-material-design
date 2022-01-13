@@ -28,7 +28,7 @@
           <div class="__dealer-subtitle __dealer-withline-top">
             <div class="__dealer-subtitle-text">Default</div>
             <span class="__dealer-github">
-              <a :href="githubUrlInfo.Dialog" target="_blank">
+              <a :href="githubUrlInfo.Filter" target="_blank">
                 <MyIcon v-bind:icon="'github'" v-bind:width="24" />
               </a>
             </span>

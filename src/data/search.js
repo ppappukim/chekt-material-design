@@ -102,9 +102,7 @@ export default {
         type: 'dealer',
         path: '/design/dealer/filters',
         github: {
-          Dialog: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/Dialog.vue',
-          DialogWithCategory: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/DialogWithCategory.vue',
-          DialogWithIcon: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/DialogWithIcon.vue'
+          Filter: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/filters/Filter.vue',
         }
       },
       {
@@ -231,6 +229,15 @@ export default {
         path: '/design/dealer/tooltip',
         github: {
           Tooltip: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/tooltips/Tooltip.vue',
+        }
+      },
+      {
+        name: 'advanced Modal',
+        category: 'components',
+        type: 'dealer',
+        path: '/design/dealer/advancedmodal',
+        github: {
+          AdvancedModal: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/advancedmodals/AdvancedModal.vue',
         }
       },
     ]

@@ -7,6 +7,7 @@
         <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
         <div class="dealer-content-move2" @click="onClickContent('2')">Select with search</div>
         <div class="dealer-content-move3" @click="onClickContent('3')">Select with options</div>
+        <div class="dealer-content-move3" @click="onClickContent('4')">Select with input</div>
       </div>
     </div>
 

@@ -7,6 +7,7 @@
         <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
         <div class="dealer-content-move2" @click="onClickContent('2')">Dialog With Category</div>
         <div class="dealer-content-move3" @click="onClickContent('3')">Dialog With Icon</div>
+        <div class="dealer-content-move4" @click="onClickContent('3')">Dialog With Check</div>
       </div>
     </div>
 

@@ -7,7 +7,7 @@
         <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
         <div class="dealer-content-move2" @click="onClickContent('2')">Table With Checkbox</div>
         <div class="dealer-content-move3" @click="onClickContent('3')">Table With Action Button</div>
-        <div class="dealer-content-move4" @click="onClickContent('4')">Table With Action Sort</div>
+        <div class="dealer-content-move4" @click="onClickContent('4')">Table With Sort</div>
       </div>
     </div>
 

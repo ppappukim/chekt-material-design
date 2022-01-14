@@ -5,9 +5,6 @@
       <div class="__dealer-contents-title">CONTENTS</div>
       <div class="__dealer-contents-body">
         <div class="dealer-content-move1" @click="onClickContent('1')">Default</div>
-        <div class="dealer-content-move2" @click="onClickContent('2')">With Actions</div>
-        <div class="dealer-content-move3" @click="onClickContent('3')">With Format</div>
-        <div class="dealer-content-move3" @click="onClickContent('3')">With Tab</div>
       </div>
     </div>
 

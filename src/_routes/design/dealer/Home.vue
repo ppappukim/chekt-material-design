@@ -68,6 +68,15 @@
               </div>
             </div>
           </div>
+          <div @click="onClickMenu('advancedmodal')" class="system">
+            <div class="systembox">
+              <img src="@/assets/comp-advancedmodal.png" alt="" style="width:100%;">
+              <div class="system-text">
+                <div class="system-title">Advanced Modal</div>
+                <div class="system-desc">An Advanced Modal is a more detail version for general modal.</div>
+              </div>
+            </div>
+          </div>
           <div @click="onClickMenu('badge')" class="system">
             <div class="systembox">
               <img src="@/assets/comp-badge.png" alt="" style="width:100%;">
@@ -119,6 +128,15 @@
               <div class="system-text">
                 <div class="system-title">Dialog</div>
                 <div class="system-desc">Buttons allow users to take actions, and make choices, with a single tap</div>
+              </div>
+            </div>
+          </div>
+          <div @click="onClickMenu('filters')" class="system">
+            <div class="systembox">
+              <img src="@/assets/comp-filter.png" alt="" style="width:100%;">
+              <div class="system-text">
+                <div class="system-title">Filters</div>
+                <div class="system-desc">Filter allow users to take data what they want.</div>
               </div>
             </div>
           </div>

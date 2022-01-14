@@ -164,6 +164,7 @@ export default {
   },
   data: function() {
     return {
+      showMobileMainImg: false
     }
   },
   watch: {

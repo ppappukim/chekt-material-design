@@ -79,9 +79,27 @@
           <div class="__dealer-demo">
             <DialogWithIcon/>
           </div>
-
         </section>
 
+        <!-- Dialog With Check  -->
+        <!-- ***************  -->
+        <section id="dealer-content-move3">
+          <div class="__dealer-subtitle __dealer-withline-top __dealer-gap-top">
+            <div class="__dealer-subtitle-text">Dialog With Check</div>
+            <span class="__dealer-github">
+              <a :href="githubUrlInfo.DialogWithCheck" target="_blank">
+                <MyIcon v-bind:icon="'github'" v-bind:width="24" />
+              </a>
+            </span>
+          </div>
+          <div class="__dealer-subdescription">
+            Table may include an Icon before or after the Text.
+          </div>
+          <!-- DEMO -->
+          <div class="__dealer-demo">
+            <DialogWithCheck/>
+          </div>
+        </section>
 
       </div>
 
@@ -94,12 +112,14 @@ import MyIcon from '@/MyIcon'
 import Dialog from '@/components/dialogs/Dialog'
 import DialogWithCategory from '@/components/dialogs/DialogWithCategory'
 import DialogWithIcon from '@/components/dialogs/DialogWithIcon'
+import DialogWithCheck from '@/components/dialogs/DialogWithCheck'
 export default {
   components: {
     MyIcon,
     Dialog,
     DialogWithCategory,
-    DialogWithIcon
+    DialogWithIcon,
+    DialogWithCheck
   },
   computed: {
     scrollPositon: function () {

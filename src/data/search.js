@@ -93,7 +93,8 @@ export default {
         github: {
           Dialog: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/Dialog.vue',
           DialogWithCategory: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/DialogWithCategory.vue',
-          DialogWithIcon: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/DialogWithIcon.vue'
+          DialogWithIcon: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/DialogWithIcon.vue',
+          DialogWithCheck: 'https://github.com/ppappukim/chekt-material-design/blob/dev/src/components/dialogs/DialogWithCheck.vue'
         }
       },
       {

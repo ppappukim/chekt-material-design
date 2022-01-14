@@ -140,3 +140,58 @@
   background-color: var(--chekt-blue-gray-lower);
   color: var(--chekt-text-high);
 }
+
+
+
+/**************/
+/* ICON CHECK */
+/**************/
+
+#__chekt-check-dialog {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--chekt-shadow);
+  border-radius: 5px;
+  z-index: 1;
+  visibility: hidden;
+  background-color: var(--chekt-white-text-higher);
+  transform:scale(.8);
+  opacity: 0;
+  white-space: nowrap;
+  padding: 5px 0px;
+  z-index: 9500;
+}
+#__chekt-check-dialog.active {
+  visibility: visible;
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1) ,opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform:scale(1);
+  opacity: 1;
+}
+
+.__chekt-check-dialog-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 5px;
+}
+
+#__chekt-check-dialog > div {
+  padding: 8px 20px 8px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.__chekt-check-dialog-list-icon  {
+  visibility: hidden;
+}
+.__chekt-check-dialog-list.active > .__chekt-check-dialog-list-icon  {
+  visibility: visible;
+  color: var(--chekt-primary-shadow-color);
+}
+.__chekt-check-dialog-list.active > .__chekt-check-dialog-list-text {
+  color: var(--chekt-primary-shadow-color);
+}
+.__chekt-check-dialog-list-text  {
+  color: var(--chekt-blue-gray-highest);
+}
